@@ -1,0 +1,36 @@
+i: /usr/share/pixmaps/wbar/dock.png
+c: wbar --bpress --above-desk --pos bottom --isize 64 --idist 5 --nanim 4 --balfa 0 --falfa 45
+t: /10
+
+i: /usr/share/icons/hicolor/256x256/apps/google-chrome.png
+c: google-chrome-stable
+t: chrome
+
+i: /usr/share/icons/hicolor/256x256/apps/firefox.png
+c: firefox
+t: firefox
+
+i: /usr/share/pixmaps/terminal-02.png
+c: lxterminal --geometry=150x55
+t: lxterminal
+
+i: /usr/share/icons/hicolor/256x256/mimetypes/virtualbox-vbox.png
+c: virtualbox
+t: VirtualBox
+
+i: /usr/share/icons/hicolor/256x256/apps/libreoffice-main.png
+c: libreoffice
+t: LibreOffice
+
+i: /usr/share/icons/Faenza/actions/96/go-home.png
+c: pcmanfm
+t: PCManFM
+
+i: /usr/share/icons/Faenza/apps/96/vim.png
+c: lxterminal --geometry=150x55 -e vim
+t: vim
+
+i: /usr/share/icons/hicolor/256x256/apps/gimp.png
+c: gimp
+t: gimp
+
