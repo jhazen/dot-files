@@ -316,6 +316,9 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
+    <keybind key="C-m">
+      <action name="Iconify" />
+    </keybind>
     <keybind key="W-o">
       <action name="ShowMenu">
         <menu>root-menu</menu>
