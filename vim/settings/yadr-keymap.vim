@@ -131,6 +131,7 @@ imap <D-/> <Esc>:TComment<CR>i
 "with ,z and ,x
 nnoremap <silent> ,z :bp<CR>
 nnoremap <silent> ,x :bn<CR>
+nnoremap <silent> ,n :NERDTreeToggle<CR>
 
 " ==============================
 " Window/Tab/Split Manipulation
