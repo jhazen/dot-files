@@ -42,6 +42,5 @@ Plugin 'skwp/vim-easymotion'
 Plugin 'godlygeek/tabular'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-surround.git'
-Plugin 'skwp/YankRing.vim'
 
 filetype plugin indent on
