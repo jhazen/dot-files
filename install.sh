@@ -37,6 +37,20 @@ function vimsetup() {
 
 function zshsetup() {
   echo "zsh"
+  if [ -L ~/.zshrc ]; then
+    rm ~/.zshrc
+  fi
+  if [ -L ~/.zshenv ]; then
+    rm ~/.zshenv
+  fi
+  if [ -f ~/.zshrc ]; then
+    mv ~/.zshrc $BACKUP_DIR/zshrc
+  fi
+  if [ -f ~/.zshenv ]; then
+    mv ~/.zshenv $BACKUPDIR/zshenv
+  fi
+  ln -s $DOTFILES/zshrc ~/.zshrc
+  ln -s $DOTFILES/zshenv ~/.zshenv
 }
 
 function openboxsetup() {
@@ -61,6 +75,8 @@ function gtk2setup() {
 
 function allsetup() {
   echo "all"
+  vimsetup
+  zshsetup
 }
 
 ### Verify and run input selections
