@@ -2,7 +2,7 @@ alias vs='vagrant status'
 alias vu='vagrant up'
 alias vd='vagrant destroy'
 alias vss='vagrant ssh'
-alias jboss-cli='jboss-cli.sh -c'
+alias jbcli='jboss-cli.sh -c'
 alias mvdeploy='mvn clean package wildfly:deploy'
 alias mvundeploy='mvn wildfly:undeploy'
 alias vi='vim'
@@ -17,6 +17,9 @@ alias gc='git commit'
 alias gp='git pull'
 alias gP='git push'
 alias ga='git add'
+alias jbs='standalone.sh -c standalone-full.xml &'
+alias jbk='jbcli --command=":shutdown()"'
+alias jbps='ps aux | grep wildfly | grep -v grep > /dev/null 2>&1 && echo "Running" || echo "Not Running"'
 alias ll='ls -l'
 
 setopt prompt_subst
@@ -58,3 +61,4 @@ function __git_prompt {
 
 export RPS1='$(__git_prompt)'
 export PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%# "
+export JBOSS_HOME=/home/jesse/Workspace/wildfly-9.0.0.Alpha1-SNAPSHOT
