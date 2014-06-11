@@ -42,5 +42,29 @@ Plugin 'skwp/vim-easymotion'
 Plugin 'godlygeek/tabular'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-surround.git'
+Plugin 'pthrasher/conqueterm-vim'
 
 filetype plugin indent on
+
+let g:NERDTreeDirArrows=0
+
+nmap <C-N> :NERDTreeToggle<CR>
+nmap <C-Left> :tabprevious<CR>
+nmap <C-Right> :tabnext<CR>
+nmap <C-T> :tabnew<CR>
+nmap <C-U> :GundoToggle<CR>
+nmap <C-B> :ConqueTermTab bash<CR>
+nmap <C-D> :ConqueTermTab psql testdb<CR>
+nmap <C-J> :ConqueTermTab jboss-cli.sh -c<CR>
+
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s
+nnoremap <S-Up> <C-w>+
+nnoremap <S-Down> <C-w>-
+nnoremap <S-Left> <C-w><
+nnoremap <S-Right> <C-w>>
+nnoremap <A-Up> <C-w>k
+nnoremap <A-Down> <C-w>j
+nnoremap <A-Left> <C-w>h
+nnoremap <A-Right> <C-w>l
+
