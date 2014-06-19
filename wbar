@@ -34,3 +34,7 @@ i: /usr/share/icons/hicolor/256x256/apps/gimp.png
 c: gimp
 t: gimp
 
+i: /usr/share/icons/hicolor/256x256/apps/blender.png
+c: blender
+t: blender
+
