@@ -317,7 +317,7 @@
     </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="C-m">
-      <action name="Iconify" />
+      <action name="Iconify"/>
     </keybind>
     <keybind key="W-o">
       <action name="ShowMenu">
