@@ -61,6 +61,7 @@ nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
 nmap <C-D> :ConqueTermTab psql testdb<CR>
 nmap <C-J> :ConqueTermTab jboss-cli.sh -c<CR>
+nmap <C-F8> :Mvn clean package wildfly:deploy<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s

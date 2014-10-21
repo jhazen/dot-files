@@ -46,3 +46,15 @@ i: /usr/share/icons/hicolor/256x256/apps/eclipse.png
 c: eclipse
 t: eclipse
 
+i: /usr/share/icons/hicolor/256x256/apps/steam.png
+c: steam
+t: steam
+
+i: /usr/share/pixmaps/minecraft.png
+c: minecraft
+t: minecraft
+
+i: /usr/share/spotify/spotify-client/Icons/spotify-linux-512.png
+c: spotify
+t: spotify
+
