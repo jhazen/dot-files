@@ -30,7 +30,7 @@ own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 alignment top_right
 gap_x 25
 gap_y 40
-minimum_size 1082 800
+minimum_size 1082 1200
 maximum_width 300
 
 default_bar_size 60 8
@@ -81,10 +81,16 @@ ${font Arial Black:size=26}${alignc}${time %H:%M}${font}
 ${alignc}${time %A, %B %d, %Y}
 
 HDD ${hr 2}
-${font conkycolors:size=16}i${font} ${voffset -5}File System
+${font conkycolors:size=16}i${font} ${voffset -5}root
 ${voffset 4}${fs_free /}/${fs_size /} ${alignr}${fs_bar 8,60 /}
-${font conkycolors:size=16}i${font} ${voffset -5}Home
+${font conkycolors:size=16}i${font} ${voffset -5}home
 ${voffset 4}${fs_free /home}/${fs_size /home} ${alignr}${fs_bar 8,60 /home}
+${font conkycolors:size=16}i${font} ${voffset -5}tmp
+${voffset 4}${fs_free /tmp}/${fs_size /tmp} ${alignr}${fs_bar 8,60 /tmp}
+${font conkycolors:size=16}i${font} ${voffset -5}var
+${voffset 4}${fs_free /var}/${fs_size /var} ${alignr}${fs_bar 8,60 /var}
+${font conkycolors:size=16}i${font} ${voffset -5}opt
+${voffset 4}${fs_free /opt}/${fs_size /opt} ${alignr}${fs_bar 8,60 /opt}
 
 ${exec acpi -b}
 
