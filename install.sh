@@ -11,6 +11,11 @@
 DOTFILES=~/Workspace/dot-files
 BACKUP_DIR=~/.dot-files-bak
 
+### Ensure backup dir exists so it doesn't complain
+if [ ! -d $BACKUP_DIR ]; then
+  mkdir $BACKUP_DIR
+fi
+
 ### Ensure correct usage
 
 if [ $# -lt 1 ]; then
@@ -55,6 +60,13 @@ function zshsetup() {
 
 function openboxsetup() {
   echo "openbox"
+  if [ -L ~/.config/openbox ]; then
+    rm ~/.config/openbox
+  fi
+  if [ -d ~/.config/openbox ]; then
+    mv ~/.config/openbox $BACKUP_DIR/openbox-$(date +%s)
+  fi
+  ln -s $DOTFILES/openbox ~/.config/openbox
 }
 
 function conkysetup() {
