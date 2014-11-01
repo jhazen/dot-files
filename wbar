@@ -58,3 +58,7 @@ i: /usr/share/spotify/spotify-client/Icons/spotify-linux-512.png
 c: spotify
 t: spotify
 
+i: /usr/share/icons/hicolor/256x256/apps/vlc.png
+c: vlc
+t: vlc
+
