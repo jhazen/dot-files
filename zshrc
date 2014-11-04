@@ -19,7 +19,7 @@ alias gc='git commit'
 alias gp='git pull'
 alias gP='git push'
 alias ga='git add'
-alias jbs='nohup standalone.sh -c standalone-full.xml > /dev/null 2>&1 &'
+alias jbs='nohup $JBOSS_HOME/bin/standalone.sh -c standalone-full.xml > /dev/null 2>&1 &'
 alias jbk='jbc --command=":shutdown()"'
 alias jbps='ps aux | grep wildfly | grep -v grep > /dev/null 2>&1 && echo "Running" || echo "Not Running"'
 alias jbt='tail -f $JBOSS_HOME/standalone/log/server.log'
@@ -66,4 +66,3 @@ function __git_prompt {
 
 export RPS1='$(__git_prompt)'
 export PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%# "
-export JBOSS_HOME=/home/jesse/Workspace/wildfly-9.0.0.Alpha1-SNAPSHOT
