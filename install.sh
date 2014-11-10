@@ -60,6 +60,9 @@ function zshsetup() {
 
 function openboxsetup() {
   echo "openbox"
+  if [ ! -d ~/.config ]; then
+    mkdir -p ~/.config
+  fi
   if [ -L ~/.config/openbox ]; then
     rm ~/.config/openbox
   fi
@@ -93,6 +96,9 @@ function wbarsetup() {
 
 function tint2setup() {
   echo "tint2"
+  if [ ! -d ~/.config/tint2 ]; then
+    mkdir -p ~/.config/tint2
+  fi
   if [ -L ~/.config/tint2/tint2rc ]; then
     rm ~/.config/tint2/tint2rc
   fi

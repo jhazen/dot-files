@@ -27,7 +27,7 @@ set nofoldenable
 set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
-colorscheme adaryn
+colorscheme koehler
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
