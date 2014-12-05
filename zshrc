@@ -90,3 +90,7 @@ export HISTFILE="$HOME/.zsh_history"
 export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
+
+if [ -f ~/.zshlocal ]; then
+  source ~/.zshlocal
+fi
