@@ -67,8 +67,8 @@ filetype plugin indent on
 let g:NERDTreeDirArrows=0
 
 nmap <C-N> :NERDTreeToggle<CR>
-nmap <C-R> :tabprevious<CR>
-nmap <C-Y> :tabnext<CR>
+nmap <C-W> :tabprevious<CR>
+nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab zsh<CR>
@@ -79,8 +79,8 @@ nnoremap <S-Up> <C-w>+
 nnoremap <S-Down> <C-w>-
 nnoremap <S-Left> <C-w><
 nnoremap <S-Right> <C-w>>
-nnoremap <A-Up> <C-w>k
-nnoremap <A-Down> <C-w>j
-nnoremap <A-Left> <C-w>h
-nnoremap <A-Right> <C-w>l
+nnoremap <silent> kk <C-w>k
+nnoremap <silent> jj <C-w>j
+nnoremap <silent> hh <C-w>h
+nnoremap <silent> ll <C-w>l
 
