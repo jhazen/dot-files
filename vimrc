@@ -9,6 +9,9 @@ syntax on
 set noswapfile
 set nobackup
 set nowb
+set fo=tcq
+set modeline
+set bg=dark
 if has('persistent_undo')
   silent !mkdir ~/.vimbackups > /dev/null 2>&1
   set undodir=~/.vimbackups
@@ -26,6 +29,7 @@ set foldnestmax=3
 set nofoldenable
 set scrolloff=8
 set sidescrolloff=15
+set ruler
 set sidescroll=1
 colorscheme koehler
 
@@ -48,6 +52,15 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 
+highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
+match LiteralTabs /\s\  /
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$/
+
+au BufRead,BufNewFile *.pp
+  \ set filetype=puppet
+au BufRead,BufNewFile *_spec.rb
+  \ nmap <F8> :!rspec --color %<CR>
 
 filetype plugin indent on
 
