@@ -70,14 +70,24 @@ nmap <C-W> :tabprevious<CR>
 nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
-nmap <C-B> :ConqueTermTab zsh<CR>
+nmap <C-B> :ConqueTermTab bash<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
-nnoremap <silent> uu <C-w>+
-nnoremap <silent> ii <C-w>-
-nnoremap <silent> oo <C-w><
-nnoremap <silent> pp <C-w>>
+
+nnoremap <silent> nn :bn<CR>
+nnoremap <silent> pp :bp<CR>
+
+nnoremap <silent> ee <C-w>+
+nnoremap <silent> ww <C-w>-
+nnoremap <silent> qq <C-w><
+nnoremap <silent> rr <C-w>>
+
+nnoremap <silent> KK <C-w>K
+nnoremap <silent> JJ <C-w>J
+nnoremap <silent> HH <C-w>H
+nnoremap <silent> LL <C-w>L
+
 nnoremap <silent> kk <C-w>k
 nnoremap <silent> jj <C-w>j
 nnoremap <silent> hh <C-w>h
