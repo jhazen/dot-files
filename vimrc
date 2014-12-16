@@ -40,7 +40,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-git'
 Plugin 'rodjek/vim-puppet'
 Plugin 'skwp/vim-easymotion'
 Plugin 'godlygeek/tabular'
@@ -75,10 +74,10 @@ nmap <C-B> :ConqueTermTab zsh<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
-nnoremap <S-Up> <C-w>+
-nnoremap <S-Down> <C-w>-
-nnoremap <S-Left> <C-w><
-nnoremap <S-Right> <C-w>>
+nnoremap <silent> uu <C-w>+
+nnoremap <silent> ii <C-w>-
+nnoremap <silent> oo <C-w><
+nnoremap <silent> pp <C-w>>
 nnoremap <silent> kk <C-w>k
 nnoremap <silent> jj <C-w>j
 nnoremap <silent> hh <C-w>h
