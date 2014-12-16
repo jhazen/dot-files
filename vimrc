@@ -67,12 +67,11 @@ filetype plugin indent on
 let g:NERDTreeDirArrows=0
 
 nmap <C-N> :NERDTreeToggle<CR>
-nmap <C-Left> :tabprevious<CR>
-nmap <C-Right> :tabnext<CR>
+nmap <C-R> :tabprevious<CR>
+nmap <C-Y> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab zsh<CR>
-nmap <C-J> :ConqueTermTab jboss-cli.sh -c<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
