@@ -81,6 +81,8 @@ nnoremap <silent> ss <C-w>s
 nnoremap <silent> nn :bn<CR>
 nnoremap <silent> pp :bp<CR>
 
+nnoremap <silent> bb :ConqueTermVSplit bash<CR>
+
 nnoremap <silent> ee <C-w>+
 nnoremap <silent> ww <C-w>-
 nnoremap <silent> qq <C-w><
