@@ -27,6 +27,7 @@ set expandtab
 set nowrap
 set foldnestmax=3
 set nofoldenable
+set noerrorbells visualbell t_vb=
 set scrolloff=8
 set sidescrolloff=15
 set ruler
