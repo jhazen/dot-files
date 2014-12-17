@@ -66,6 +66,8 @@ au BufRead,BufNewFile *_spec.rb
 filetype plugin indent on
 
 let g:NERDTreeDirArrows=0
+let g:NERDTreeShowHidden=1
+let g:NERDTreeWinPos="right"
 
 nmap <C-N> :NERDTreeToggle<CR>
 nmap <C-W> :tabprevious<CR>
