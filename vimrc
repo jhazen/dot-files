@@ -31,6 +31,7 @@ set scrolloff=8
 set sidescrolloff=15
 set ruler
 set sidescroll=1
+set shell=bash
 colorscheme koehler
 
 set rtp+=~/.vim/bundle/vundle/
@@ -71,6 +72,7 @@ nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
+nmap <F5> :!puppet-lint %<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
