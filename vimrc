@@ -52,6 +52,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
+Plugin 'majutsushi/tagbar'
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -79,6 +80,8 @@ nmap <F5> :!puppet-lint %<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
+
+nnoremap <silent> tt :TagbarToggle<CR>
 
 nnoremap <silent> nn :bn<CR>
 nnoremap <silent> pp :bp<CR>
