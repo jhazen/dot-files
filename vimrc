@@ -61,8 +61,6 @@ match ExtraWhitespace /\s\+$/
 
 au BufRead,BufNewFile *.pp
   \ set filetype=puppet
-au BufRead,BufNewFile *_spec.rb
-  \ nmap <F8> :!rspec --color %<CR>
 
 filetype plugin indent on
 
@@ -76,7 +74,9 @@ nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
-nmap <F5> :!puppet-lint %<CR>
+
+au BufEnter *.pp nmap <F5> <esc>:w\|!puppet-lint %<CR>
+au BufEnter *.rb nmap <F5> <esc>:w\|!rspec --color %<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
