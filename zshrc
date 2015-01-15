@@ -29,6 +29,10 @@ alias jbt='tail -f $JBOSS_HOME/standalone/log/server.log'
 alias jbl='less $JBOSS_HOME/standalone/log/server.log'
 alias jbls='jbc --command="deployment-info"'
 alias ll='ls -l'
+alias la='ls -la'
+alias lh='ls -lh'
+alias ltr='ls -ltr'
+alias psg='ps aux | grep'
 
 setopt prompt_subst
 autoload colors zsh/terminfo
