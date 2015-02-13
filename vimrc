@@ -88,10 +88,10 @@ nnoremap <silent> pp :bp<CR>
 
 nnoremap <silent> bb :ConqueTermVSplit bash<CR>
 
-nnoremap <silent> ee <C-w>+
-nnoremap <silent> ww <C-w>-
-nnoremap <silent> qq <C-w><
-nnoremap <silent> rr <C-w>>
+nnoremap <silent> ,e <C-w>+
+nnoremap <silent> ,w <C-w>-
+nnoremap <silent> ,q <C-w><
+nnoremap <silent> ,r <C-w>>
 
 nnoremap <silent> KK <C-w>K
 nnoremap <silent> JJ <C-w>J
