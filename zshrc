@@ -28,6 +28,8 @@ alias jbps='ps aux | grep wildfly | grep -v grep > /dev/null 2>&1 && echo "Runni
 alias jbt='tail -f $JBOSS_HOME/standalone/log/server.log'
 alias jbl='less $JBOSS_HOME/standalone/log/server.log'
 alias jbls='jbc --command="deployment-info"'
+alias jbv='jbc --version'
+alias jbhistory='cat ~/.jboss-cli-history'
 alias ll='ls -l'
 alias la='ls -la'
 alias lh='ls -lh'
