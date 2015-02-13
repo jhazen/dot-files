@@ -114,3 +114,8 @@ Other aliases:
 * lh - ls -lh
 * ltr - ls -ltr
 * psg - ps aux | grep
+
+
+# Help
+
+Any bugs/concerns/issues/etc please email jhazen532@gmail.com.
