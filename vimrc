@@ -93,13 +93,13 @@ nnoremap <silent> ,w <C-w>-
 nnoremap <silent> ,q <C-w><
 nnoremap <silent> ,r <C-w>>
 
-nnoremap <silent> KK <C-w>K
-nnoremap <silent> JJ <C-w>J
-nnoremap <silent> HH <C-w>H
-nnoremap <silent> LL <C-w>L
+nnoremap <silent> ,K <C-w>K
+nnoremap <silent> ,J <C-w>J
+nnoremap <silent> ,H <C-w>H
+nnoremap <silent> ,L <C-w>L
 
-nnoremap <silent> kk <C-w>k
-nnoremap <silent> jj <C-w>j
-nnoremap <silent> hh <C-w>h
-nnoremap <silent> ll <C-w>l
+nnoremap <silent> ,k <C-w>k
+nnoremap <silent> ,j <C-w>j
+nnoremap <silent> ,h <C-w>h
+nnoremap <silent> ,l <C-w>l
 
