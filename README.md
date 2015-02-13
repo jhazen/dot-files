@@ -63,4 +63,54 @@ Other useful tips:
 
 # Zsh
 
-Manual to come.
+Vim mode zsh. Esc puts terminal in command mode.
+
+For local zsh changes, use ~/.zshlocal file.
+
+Right handed git prompt once in a git directory.
+
+Vagrant aliases:
+* vs - vagrant status
+* vu - vagrant up
+* vd - vagrant destroy
+* vss - vagrant ssh
+* vh - vagrant halt
+
+Maven aliases:
+* mvdeploy - mvn clean package wildfly:deploy
+* mvundeploy - mvn wildfly:undeploy
+* mcp - mvn clean package
+
+Git aliases:
+* gs - git status
+* gb - git branch
+* gd - git diff --color
+* gdt - git difftool
+* gc - git clone
+* gch - git checkout
+* gr - git remote
+* gm - git merge
+* gmt - git mergetool
+* gl - git log --oneline --decorate --color --graph
+* gc - git commit
+* gp - git pull
+* gP - git push
+* ga - git add
+
+JBoss/Wildfly aliases (Make sure to set $JBOSS_HOME variable):
+* jbc - JBoss cli
+* jbk - JBoss kill
+* jbs - JBoss start
+* jbps - JBoss status (Running/Not Running)
+* jbt - Tail JBoss log
+* jbl - Less JBoss log
+* jbls - Show deployed apps on JBoss
+* jbv - Show JBoss version
+* jbhistory - Show JBoss cli history
+
+Other aliases:
+* ll - ls -l
+* la - ls -la
+* lh - ls -lh
+* ltr - ls -ltr
+* psg - ps aux | grep
