@@ -103,3 +103,8 @@ nnoremap <silent> ,j <C-w>j
 nnoremap <silent> ,h <C-w>h
 nnoremap <silent> ,l <C-w>l
 
+set laststatus=2
+set statusline=%<%F\ %{fugitive#statusline()}\ [%{&ff}/%Y]\ [%{getcwd()}]
+set statusline+=%#warningmsg#
+set statusline+=%*
+set statusline+=%=%-14.(%l,%c%V%)\ %p%%
