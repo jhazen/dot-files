@@ -96,6 +96,12 @@ Git aliases:
 * gp - git pull
 * gP - git push
 * ga - git add
+* gf - git fetch
+* grm - git rm
+* gconf - git config
+* ginit - git init
+* greset - git reset
+* gst - git stash
 
 JBoss/Wildfly aliases (Make sure to set $JBOSS_HOME variable):
 * jbc - JBoss cli
