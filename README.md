@@ -35,7 +35,7 @@ Shortcuts:
 * C-E - Next tab
 * C-U - Gundo toggle
 * C-B - Open bash tab
-* F5 - If in a puppet file, lint the file. Ir ruby, rspec the file.
+* F5 - If in a puppet file, lint the file. If ruby, rspec the file. If spec, rpmlint the file.
 * vv - Open vertical split
 * ss - Open split
 * tt - Toggle Tagbar
