@@ -77,6 +77,7 @@ nmap <C-B> :ConqueTermTab bash<CR>
 
 au BufEnter *.pp nmap <F5> <esc>:w\|!puppet-lint %<CR>
 au BufEnter *.rb nmap <F5> <esc>:w\|!rspec --color %<CR>
+au BufEnter *.spec nmap <F5> <esc>:w\|!rpmlint %<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
