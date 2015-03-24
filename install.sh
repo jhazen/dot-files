@@ -8,7 +8,7 @@
 
 ### Variables
 
-DOTFILES=$(dirname $0)
+DOTFILES=~/Workspace/dot-files
 BACKUP_DIR=~/.dot-files-bak
 
 ### Ensure backup dir exists so it doesn't complain
