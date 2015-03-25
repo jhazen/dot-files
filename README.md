@@ -12,10 +12,6 @@ Personal dotfiles repo. Includes:
 
 # Instructions
 
-Installation requires ~/Workspace directory.
-
-> cd ~/Workspace
-
 > git checkout https://github.com/jhazen/dot-files
 
 > cd dot-files/
