@@ -33,7 +33,6 @@ set sidescrolloff=15
 set ruler
 set sidescroll=1
 set shell=bash
-colorscheme koehler
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -53,6 +52,11 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'majutsushi/tagbar'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'moll/vim-node'
+
+set background=dark
+colorscheme solarized
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
