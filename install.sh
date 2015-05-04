@@ -8,7 +8,7 @@
 
 ### Variables
 
-DOTFILES=$(dirname $0)
+DOTFILES=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 BACKUP_DIR=~/.dot-files-bak
 
 ### Ensure backup dir exists so it doesn't complain
@@ -31,6 +31,9 @@ function vimsetup() {
   echo "vim"
   if [ -f ~/.vimrc ]; then
     mv ~/.vimrc $BACKUP_DIR/vimrc-$(date +%s)
+  fi
+  if [ -L ~/.vimrc ]; then
+    rm ~/.vimrc
   fi
   if [ -d ~/.vim ]; then
     mv ~/.vim $BACKUP_DIR/vim-$(date +%s)
