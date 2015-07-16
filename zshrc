@@ -48,6 +48,59 @@ jbls() {
 alias jbv='jbc --version'
 alias jbhistory='cat ~/.jboss-cli-history'
 alias jbsnap='jbc --command=":take-snapshot"'
+jbctl() {
+  case $1 in
+    version)
+      jbc --version
+      ;;
+    start)
+      nohup $JBOSS_HOME/bin/domain.sh > /dev/null 2>&1 &
+      ;;
+    stop)
+      jbc --command="shutdown --host=$2" || echo "\n\njbctl stop <node name>\n"
+      ;;
+    restart)
+      jbc --command="shutdown --host=$2"
+      nohup $JBOSS_HOME/bin/domain.sh > /dev/null 2>&1 &
+      ;;
+    sgres)
+      jbc --command="/server-group=`echo -e $2`:restart-servers()" || echo "\n\njbctl sgres <server group>\n"
+      ;;
+    phist)
+      jbc --command="patch history --host=$2" || echo "\n\njbctl phist <node name>"
+      ;;
+    lsservers)
+      jbc --command="ls -l /host"
+      ;;
+    status)
+      ps aux | grep jboss | grep -v grep > /dev/null 2>&1 && echo "Running" || echo "Not Running"
+      ;;
+    tail)
+      tail -f $JBOSS_HOME/domain/log/host-controller.log
+      ;;
+    less)
+      less $JBOSS_HOME/domain/log/host-controller.log
+      ;;
+    lsdeploy)
+      jbc --command="deployment-info --server-group=$2" || echo "\n\njbctl lsdeploy <server group>\n"
+      ;;
+    tksnap)
+      jbc --command=":take-snapshot"
+      ;;
+    lssnap)
+      jbc --command=":list-snapshots"
+      ;;
+    cmd)
+      jbc
+      ;;
+    hist)
+      cat ~/.jboss-cli-history
+      ;;
+    *)
+      echo "jbctl {version|hist|cmd|start|stop|restart|cmd|lssnap|tksnap|lsdeploy|less|tail|status|lsservers|phist|sgres} <server group> <node name>"
+      ;;
+  esac
+}
 alias ll='ls -l'
 alias la='ls -la'
 alias lh='ls -lh'
