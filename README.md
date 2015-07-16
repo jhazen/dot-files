@@ -99,16 +99,20 @@ Git aliases:
 * greset - git reset
 * gst - git stash
 
-JBoss/Wildfly aliases (Make sure to set $JBOSS_HOME variable):
+JBoss aliases (Make sure to set $JBOSS_HOME variable):
 * jbc - JBoss cli
-* jbk - JBoss kill
+* jbk - JBoss kill (provide server group name as arg)
 * jbs - JBoss start
 * jbps - JBoss status (Running/Not Running)
 * jbt - Tail JBoss log
 * jbl - Less JBoss log
-* jbls - Show deployed apps on JBoss
+* jbls - Show deployed apps on JBoss (provide server group name as arg)
 * jbv - Show JBoss version
 * jbhistory - Show JBoss cli history
+* jbphistory - Show JBoss patch history (provide node name as arg)
+* jbrsg - Restart JBoss server group (provide server group name as arg)
+* jbservers - Show JBoss server nodes in domain
+* jbsnap - Take snapshot of domain.xml
 
 Other aliases:
 * ll - ls -l
