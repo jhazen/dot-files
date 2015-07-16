@@ -29,15 +29,25 @@ alias gP='git push'
 alias ga='git add'
 alias jbc='$JBOSS_HOME/bin/jboss-cli.sh -c'
 alias jbs='nohup $JBOSS_HOME/bin/domain.sh > /dev/null 2>&1 &'
-alias jbk='jbc --command=":shutdown()"'
+jbk() {
+  jbc --command="shutdown --host=$*" || echo "\n\njbk <node name>\n"
+}
+jbrsg() {
+  jbc --command="/server-group=`echo -e $1`:restart-servers()" || echo "\n\njbrsg <server group>\n"
+}
+jbphistory() {
+  jbc --command="patch history --host=$*" || echo "\n\njbphistory <node name>"
+}
+alias jbservers='jbc --command="ls -l /host"'
 alias jbps='ps aux | grep jboss | grep -v grep > /dev/null 2>&1 && echo "Running" || echo "Not Running"'
 alias jbt='tail -f $JBOSS_HOME/domain/log/host-controller.log'
 alias jbl='less $JBOSS_HOME/domain/log/host-controller.log'
 jbls() {
-  jbc --command="deployment-info --server-group=$*"
+  jbc --command="deployment-info --server-group=$*" || echo "\n\njbls <server group>\n"
 }
 alias jbv='jbc --version'
 alias jbhistory='cat ~/.jboss-cli-history'
+alias jbsnap='jbc --command=":take-snapshot"'
 alias ll='ls -l'
 alias la='ls -la'
 alias lh='ls -lh'
