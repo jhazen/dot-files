@@ -101,24 +101,24 @@ Git aliases:
 
 JBoss control script (Make sure to set $JBOSS_HOME variable):
 jbctl (command) <arguments>
-* COMMAND         PURPOSE                 ARGUMENTS               EXAMPLE
-* version         Check version           n/a                     jbctl version
-* hist            CLI history             n/a                     jbctl hist
-* cmd             Open CLI                n/a                     jbctl cmd
-* start           Start JBoss             n/a                     jbctl start
-* stop            Stop JBoss              n/a                     jbctl stop
-* restart         Restart JBoss           n/a                     jbctl restart
-* home            Display JBoss home      n/a                     jbctl home
-* lssnap          Display snaps           n/a                     jbctl lssnap
-* tksnap          Take snapshot           n/a                     jbctl tksnap
-* rmsnap          Delete snap             Snapshot name           jbctl rmsnap 20150810-221949391domain.xml
-* lsdeploy        Display deployments     Server group name       jbctl lsdeploy sg01
-* less            Open log in less        n/a                     jbctl less
-* tail            Tail -f log             n/a                     jbctl tail
-* status          Check running state     n/a                     jbctl status
-* lsservers       List servers in domain  n/a                     jbctl lsservers
-* phist           Show patch history      Server name             jbctl phist work-s01
-* sgrestart       Restart a server group  Server group name       jbctl sgrestart sg01
+* COMMAND\t\tPURPOSE\t\t\tARGUMENTS\t\tEXAMPLE
+* version\t\tCheck version\t\tn/a\t\t\tjbctl version
+* hist\t\tCLI history\t\tn/a\t\t\tjbctl hist
+* cmd\t\tOpen CLI\t\tn/a\t\t\tjbctl cmd
+* start\t\tStart JBoss\t\tn/a\t\t\tjbctl start
+* stop\t\tStop JBoss\t\tn/a\t\t\tjbctl stop
+* restart\t\tRestart JBoss\t\tn/a\t\t\tjbctl restart
+* home\t\tDisplay JBoss home\tn/a\t\t\tjbctl home
+* lssnap\t\tDisplay snaps\t\tn/a\t\t\tjbctl lssnap
+* tksnap\t\tTake snapshot\t\tn/a\t\t\tjbctl tksnap
+* rmsnap\t\tDelete snap\t\tSnapshot name\t\tjbctl rmsnap 20150810-221949391domain.xml
+* lsdeploy\tDisplay deployments\tServer group name\tjbctl lsdeploy sg01
+* less\t\tOpen log in less\tn/a\t\t\tjbctl less
+* tail\t\tTail -f log\t\tn/a\t\t\tjbctl tail
+* status\t\tCheck running state\tn/a\t\t\tjbctl status
+* lsservers\tList servers in domain\tn/a\t\t\tjbctl lsservers
+* phist\t\tShow patch history\tServer name\t\tjbctl phist work-s01
+* sgrestart\tRestart a server group\tServer group name\tjbctl sgrestart sg01"
 
 
 Other aliases:
