@@ -99,20 +99,26 @@ Git aliases:
 * greset - git reset
 * gst - git stash
 
-JBoss aliases (Make sure to set $JBOSS_HOME variable):
-* jbc - JBoss cli
-* jbk - JBoss kill (provide server group name as arg)
-* jbs - JBoss start
-* jbps - JBoss status (Running/Not Running)
-* jbt - Tail JBoss log
-* jbl - Less JBoss log
-* jbls - Show deployed apps on JBoss (provide server group name as arg)
-* jbv - Show JBoss version
-* jbhistory - Show JBoss cli history
-* jbphistory - Show JBoss patch history (provide node name as arg)
-* jbrsg - Restart JBoss server group (provide server group name as arg)
-* jbservers - Show JBoss server nodes in domain
-* jbsnap - Take snapshot of domain.xml
+JBoss control script (Make sure to set $JBOSS_HOME variable):
+jbctl (command) <arguments>
+* jbctl version - Check version
+* jbctl hist - CLI history
+* jbctl cmd - Open CLI
+* jbctl start - Start JBoss
+* jbctl stop - Stop JBoss
+* jbctl restart - Restart JBoss
+* jbctl home - Display JBoss home
+* jbctl lssnap - Display snaps
+* jbctl tksnap - Take snapshot
+* jbctl rmsnap (snapshot name) - Delete snap
+* jbctl lsdeploy (servergroup name) - Display deployments
+* jbctl less - Open log in less
+* jbctl tail - Tail -f log
+* jbctl status - Check running state
+* jbctl lsservers - List servers in domain
+* jbctl phist (server name) - Show patch history
+* jbctl sgrestart (servergroup name) - Restart a server group
+
 
 Other aliases:
 * ll - ls -l
