@@ -28,26 +28,6 @@ alias gp='git pull'
 alias gP='git push'
 alias ga='git add'
 alias jbc='$JBOSS_HOME/bin/jboss-cli.sh -c'
-alias jbs='nohup $JBOSS_HOME/bin/domain.sh > /dev/null 2>&1 &'
-jbk() {
-  jbc --command="shutdown --host=$*" || echo "\n\njbk <node name>\n"
-}
-jbrsg() {
-  jbc --command="/server-group=`echo -e $1`:restart-servers()" || echo "\n\njbrsg <server group>\n"
-}
-jbphistory() {
-  jbc --command="patch history --host=$*" || echo "\n\njbphistory <node name>"
-}
-alias jbservers='jbc --command="ls -l /host"'
-alias jbps='ps aux | grep jboss | grep -v grep > /dev/null 2>&1 && echo "Running" || echo "Not Running"'
-alias jbt='tail -f $JBOSS_HOME/domain/log/host-controller.log'
-alias jbl='less $JBOSS_HOME/domain/log/host-controller.log'
-jbls() {
-  jbc --command="deployment-info --server-group=$*" || echo "\n\njbls <server group>\n"
-}
-alias jbv='jbc --version'
-alias jbhistory='cat ~/.jboss-cli-history'
-alias jbsnap='jbc --command=":take-snapshot"'
 jbctl() {
   case $1 in
     version)
@@ -90,6 +70,9 @@ jbctl() {
     lssnap)
       jbc --command=":list-snapshots"
       ;;
+    rmsnap)
+      jbc --command=":delete-snapshot(name=$2)" || echo "\n\njbctl rmsnap <snapshot name>"
+      ;;
     cmd)
       jbc
       ;;
@@ -100,7 +83,27 @@ jbctl() {
       cat ~/.jboss-cli-history
       ;;
     *)
-      echo "jbctl {version|hist|cmd|start|stop|restart|home|lssnap|tksnap|lsdeploy|less|tail|status|lsservers|phist|sgrestart} <server group> <node name>"
+      echo "jbctl (command) <arguments>"
+      echo
+      echo "COMMAND\t\tPURPOSE\t\t\tARGUMENTS\t\tEXAMPLE"
+      echo "version\t\tCheck version\t\tn/a\t\t\tjbctl version"
+      echo "hist\t\tCLI history\t\tn/a\t\t\tjbctl hist"
+      echo "cmd\t\tOpen CLI\t\tn/a\t\t\tjbctl cmd"
+      echo "start\t\tStart JBoss\t\tn/a\t\t\tjbctl start"
+      echo "stop\t\tStop JBoss\t\tn/a\t\t\tjbctl stop"
+      echo "restart\t\tRestart JBoss\t\tn/a\t\t\tjbctl restart"
+      echo "home\t\tDisplay JBoss home\tn/a\t\t\tjbctl home"
+      echo "lssnap\t\tDisplay snaps\t\tn/a\t\t\tjbctl lssnap"
+      echo "tksnap\t\tTake snapshot\t\tn/a\t\t\tjbctl tksnap"
+      echo "rmsnap\t\tDelete snap\t\tSnapshot name\t\tjbctl rmsnap 20150810-221949391domain.xml"
+      echo "lsdeploy\tDisplay deployments\tServer group name\tjbctl lsdeploy sg01"
+      echo "less\t\tOpen log in less\tn/a\t\t\tjbctl less"
+      echo "tail\t\tTail -f log\t\tn/a\t\t\tjbctl tail"
+      echo "status\t\tCheck running state\tn/a\t\t\tjbctl status"
+      echo "lsservers\tList servers in domain\tn/a\t\t\tjbctl lsservers"
+      echo "phist\t\tShow patch history\tServer name\t\tjbctl phist work-s01"
+      echo "sgrestart\tRestart a server group\tServer group name\tjbctl sgrestart sg01"
+      echo
       ;;
   esac
 }
