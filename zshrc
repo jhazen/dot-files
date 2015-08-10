@@ -93,11 +93,14 @@ jbctl() {
     cmd)
       jbc
       ;;
+    home)
+      echo "JBOSS_HOME is set to: $JBOSS_HOME"
+      ;;
     hist)
       cat ~/.jboss-cli-history
       ;;
     *)
-      echo "jbctl {version|hist|cmd|start|stop|restart|cmd|lssnap|tksnap|lsdeploy|less|tail|status|lsservers|phist|sgres} <server group> <node name>"
+      echo "jbctl {version|hist|cmd|start|stop|restart|home|lssnap|tksnap|lsdeploy|less|tail|status|lsservers|phist|sgres} <server group> <node name>"
       ;;
   esac
 }
