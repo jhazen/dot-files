@@ -101,24 +101,23 @@ Git aliases:
 
 JBoss control script (Make sure to set $JBOSS_HOME variable):
 jbctl (command) <arguments>
-* COMMAND\t\tPURPOSE\t\t\tARGUMENTS\t\tEXAMPLE
-* version\t\tCheck version\t\tn/a\t\t\tjbctl version
-* hist\t\tCLI history\t\tn/a\t\t\tjbctl hist
-* cmd\t\tOpen CLI\t\tn/a\t\t\tjbctl cmd
-* start\t\tStart JBoss\t\tn/a\t\t\tjbctl start
-* stop\t\tStop JBoss\t\tn/a\t\t\tjbctl stop
-* restart\t\tRestart JBoss\t\tn/a\t\t\tjbctl restart
-* home\t\tDisplay JBoss home\tn/a\t\t\tjbctl home
-* lssnap\t\tDisplay snaps\t\tn/a\t\t\tjbctl lssnap
-* tksnap\t\tTake snapshot\t\tn/a\t\t\tjbctl tksnap
-* rmsnap\t\tDelete snap\t\tSnapshot name\t\tjbctl rmsnap 20150810-221949391domain.xml
-* lsdeploy\tDisplay deployments\tServer group name\tjbctl lsdeploy sg01
-* less\t\tOpen log in less\tn/a\t\t\tjbctl less
-* tail\t\tTail -f log\t\tn/a\t\t\tjbctl tail
-* status\t\tCheck running state\tn/a\t\t\tjbctl status
-* lsservers\tList servers in domain\tn/a\t\t\tjbctl lsservers
-* phist\t\tShow patch history\tServer name\t\tjbctl phist work-s01
-* sgrestart\tRestart a server group\tServer group name\tjbctl sgrestart sg01"
+* jbctl version - Check version
+* jbctl hist - CLI history
+* jbctl cmd - Open CLI
+* jbctl start - Start JBoss
+* jbctl stop - Stop JBoss
+* jbctl restart - Restart JBoss
+* jbctl home - Display JBoss home
+* jbctl lssnap - Display snaps
+* jbctl tksnap - Take snapshot
+* jbctl rmsnap (snapshot name) - Delete snap
+* jbctl lsdeploy (servergroup name) - Display deployments
+* jbctl less - Open log in less
+* jbctl tail - Tail -f log
+* jbctl status - Check running state
+* jbctl lsservers - List servers in domain
+* jbctl phist (server name) - Show patch history
+* jbctl sgrestart (servergroup name) - Restart a server group
 
 
 Other aliases:
