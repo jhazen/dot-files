@@ -99,20 +99,27 @@ Git aliases:
 * greset - git reset
 * gst - git stash
 
-JBoss aliases (Make sure to set $JBOSS_HOME variable):
-* jbc - JBoss cli
-* jbk - JBoss kill (provide server group name as arg)
-* jbs - JBoss start
-* jbps - JBoss status (Running/Not Running)
-* jbt - Tail JBoss log
-* jbl - Less JBoss log
-* jbls - Show deployed apps on JBoss (provide server group name as arg)
-* jbv - Show JBoss version
-* jbhistory - Show JBoss cli history
-* jbphistory - Show JBoss patch history (provide node name as arg)
-* jbrsg - Restart JBoss server group (provide server group name as arg)
-* jbservers - Show JBoss server nodes in domain
-* jbsnap - Take snapshot of domain.xml
+JBoss control script (Make sure to set $JBOSS_HOME variable):
+jbctl (command) <arguments>
+* COMMAND         PURPOSE                 ARGUMENTS               EXAMPLE
+* version         Check version           n/a                     jbctl version
+* hist            CLI history             n/a                     jbctl hist
+* cmd             Open CLI                n/a                     jbctl cmd
+* start           Start JBoss             n/a                     jbctl start
+* stop            Stop JBoss              n/a                     jbctl stop
+* restart         Restart JBoss           n/a                     jbctl restart
+* home            Display JBoss home      n/a                     jbctl home
+* lssnap          Display snaps           n/a                     jbctl lssnap
+* tksnap          Take snapshot           n/a                     jbctl tksnap
+* rmsnap          Delete snap             Snapshot name           jbctl rmsnap 20150810-221949391domain.xml
+* lsdeploy        Display deployments     Server group name       jbctl lsdeploy sg01
+* less            Open log in less        n/a                     jbctl less
+* tail            Tail -f log             n/a                     jbctl tail
+* status          Check running state     n/a                     jbctl status
+* lsservers       List servers in domain  n/a                     jbctl lsservers
+* phist           Show patch history      Server name             jbctl phist work-s01
+* sgrestart       Restart a server group  Server group name       jbctl sgrestart sg01
+
 
 Other aliases:
 * ll - ls -l
