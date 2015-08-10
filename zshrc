@@ -63,8 +63,8 @@ jbctl() {
       jbc --command="shutdown --host=$2"
       nohup $JBOSS_HOME/bin/domain.sh > /dev/null 2>&1 &
       ;;
-    sgres)
-      jbc --command="/server-group=`echo -e $2`:restart-servers()" || echo "\n\njbctl sgres <server group>\n"
+    sgrestart)
+      jbc --command="/server-group=`echo -e $2`:restart-servers()" || echo "\n\njbctl sgrestart <server group>\n"
       ;;
     phist)
       jbc --command="patch history --host=$2" || echo "\n\njbctl phist <node name>"
@@ -100,7 +100,7 @@ jbctl() {
       cat ~/.jboss-cli-history
       ;;
     *)
-      echo "jbctl {version|hist|cmd|start|stop|restart|home|lssnap|tksnap|lsdeploy|less|tail|status|lsservers|phist|sgres} <server group> <node name>"
+      echo "jbctl {version|hist|cmd|start|stop|restart|home|lssnap|tksnap|lsdeploy|less|tail|status|lsservers|phist|sgrestart} <server group> <node name>"
       ;;
   esac
 }
