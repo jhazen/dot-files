@@ -112,6 +112,8 @@ jbctl (command) <arguments>
 * jbctl tksnap - Take snapshot
 * jbctl rmsnap (snapshot name) - Delete snap
 * jbctl lsdeploy (servergroup name) - Display deployments
+* jbctl deploy (artifact, servergroup name) - Deploy artifact
+* jbctl undeploy (artifact) - Undeploy artifact
 * jbctl less - Open log in less
 * jbctl tail - Tail -f log
 * jbctl status - Check running state
