@@ -90,15 +90,15 @@ jbctl() {
       ;;
     *)
       echo "jbctl (command) <arguments>"
-      echo "version 1.1"
+      echo "version 1.2"
       echo
       echo -e "COMMAND\t\tPURPOSE\t\t\tARGUMENTS\t\tEXAMPLE"
       echo -e "version\t\tCheck version\t\tn/a\t\t\tjbctl version"
       echo -e "hist\t\tCLI history\t\tn/a\t\t\tjbctl hist"
       echo -e "cmd\t\tOpen CLI\t\tn/a\t\t\tjbctl cmd"
       echo -e "start\t\tStart JBoss\t\tn/a\t\t\tjbctl start"
-      echo -e "stop\t\tStop JBoss\t\tServer name\t\tjbctl stop"
-      echo -e "restart\t\tRestart JBoss\t\tServer name\t\tjbctl restart"
+      echo -e "stop\t\tStop JBoss\t\tServer name\t\tjbctl stop work-s01"
+      echo -e "restart\t\tRestart JBoss\t\tServer name\t\tjbctl restart work-s01"
       echo -e "home\t\tDisplay JBoss home\tn/a\t\t\tjbctl home"
       echo -e "lssnap\t\tDisplay snaps\t\tn/a\t\t\tjbctl lssnap"
       echo -e "tksnap\t\tTake snapshot\t\tn/a\t\t\tjbctl tksnap"
