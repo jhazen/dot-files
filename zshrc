@@ -90,6 +90,7 @@ jbctl() {
       ;;
     *)
       echo "jbctl (command) <arguments>"
+      echo "version 1.1"
       echo
       echo -e "COMMAND\t\tPURPOSE\t\t\tARGUMENTS\t\tEXAMPLE"
       echo -e "version\t\tCheck version\t\tn/a\t\t\tjbctl version"
