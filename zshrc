@@ -73,6 +73,12 @@ jbctl() {
     rmsnap)
       jbc --command=":delete-snapshot(name=$2)" || echo "\n\njbctl rmsnap <snapshot name>"
       ;;
+    deploy)
+      jbc --command="deploy $2 --server-groups=$3"
+      ;;
+    undeploy)
+      jbc --command="undeploy $2 --all-relevant-server-groups"
+      ;;
     cmd)
       jbc
       ;;
@@ -84,25 +90,28 @@ jbctl() {
       ;;
     *)
       echo "jbctl (command) <arguments>"
+      echo "version 1.1"
       echo
-      echo "COMMAND\t\tPURPOSE\t\t\tARGUMENTS\t\tEXAMPLE"
-      echo "version\t\tCheck version\t\tn/a\t\t\tjbctl version"
-      echo "hist\t\tCLI history\t\tn/a\t\t\tjbctl hist"
-      echo "cmd\t\tOpen CLI\t\tn/a\t\t\tjbctl cmd"
-      echo "start\t\tStart JBoss\t\tn/a\t\t\tjbctl start"
-      echo "stop\t\tStop JBoss\t\tn/a\t\t\tjbctl stop"
-      echo "restart\t\tRestart JBoss\t\tn/a\t\t\tjbctl restart"
-      echo "home\t\tDisplay JBoss home\tn/a\t\t\tjbctl home"
-      echo "lssnap\t\tDisplay snaps\t\tn/a\t\t\tjbctl lssnap"
-      echo "tksnap\t\tTake snapshot\t\tn/a\t\t\tjbctl tksnap"
-      echo "rmsnap\t\tDelete snap\t\tSnapshot name\t\tjbctl rmsnap 20150810-221949391domain.xml"
-      echo "lsdeploy\tDisplay deployments\tServer group name\tjbctl lsdeploy sg01"
-      echo "less\t\tOpen log in less\tn/a\t\t\tjbctl less"
-      echo "tail\t\tTail -f log\t\tn/a\t\t\tjbctl tail"
-      echo "status\t\tCheck running state\tn/a\t\t\tjbctl status"
-      echo "lsservers\tList servers in domain\tn/a\t\t\tjbctl lsservers"
-      echo "phist\t\tShow patch history\tServer name\t\tjbctl phist work-s01"
-      echo "sgrestart\tRestart a server group\tServer group name\tjbctl sgrestart sg01"
+      echo -e "COMMAND\t\tPURPOSE\t\t\tARGUMENTS\t\tEXAMPLE"
+      echo -e "version\t\tCheck version\t\tn/a\t\t\tjbctl version"
+      echo -e "hist\t\tCLI history\t\tn/a\t\t\tjbctl hist"
+      echo -e "cmd\t\tOpen CLI\t\tn/a\t\t\tjbctl cmd"
+      echo -e "start\t\tStart JBoss\t\tn/a\t\t\tjbctl start"
+      echo -e "stop\t\tStop JBoss\t\tServer name\t\tjbctl stop"
+      echo -e "restart\t\tRestart JBoss\t\tServer name\t\tjbctl restart"
+      echo -e "home\t\tDisplay JBoss home\tn/a\t\t\tjbctl home"
+      echo -e "lssnap\t\tDisplay snaps\t\tn/a\t\t\tjbctl lssnap"
+      echo -e "tksnap\t\tTake snapshot\t\tn/a\t\t\tjbctl tksnap"
+      echo -e "rmsnap\t\tDelete snap\t\tSnapshot name\t\tjbctl rmsnap 20150810-221949391domain.xml"
+      echo -e "lsdeploy\tDisplay deployments\tServer group\t\tjbctl lsdeploy sg01"
+      echo -e "deploy\t\tDeploy artifact\t\tArtifact, Server group\tjbctl deploy myapp.war sg01"
+      echo -e "undeploy\tUndeploy artifact\tArtifact\t\tjbctl undeploy myapp.war"
+      echo -e "less\t\tOpen log in less\tn/a\t\t\tjbctl less"
+      echo -e "tail\t\tTail -f log\t\tn/a\t\t\tjbctl tail"
+      echo -e "status\t\tCheck running state\tn/a\t\t\tjbctl status"
+      echo -e "lsservers\tList servers in domain\tn/a\t\t\tjbctl lsservers"
+      echo -e "phist\t\tShow patch history\tServer name\t\tjbctl phist work-s01"
+      echo -e "sgrestart\tRestart a server group\tServer group\t\tjbctl sgrestart sg01"
       echo
       ;;
   esac
