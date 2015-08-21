@@ -73,6 +73,12 @@ jbctl() {
     rmsnap)
       jbc --command=":delete-snapshot(name=$2)" || echo "\n\njbctl rmsnap <snapshot name>"
       ;;
+    deploy)
+      jbc --command="deploy $2 --server-groups=$3"
+      ;;
+    undeploy)
+      jbc --command="undeploy $2 --all-relevant-server-groups"
+      ;;
     cmd)
       jbc
       ;;
@@ -96,13 +102,15 @@ jbctl() {
       echo -e "lssnap\t\tDisplay snaps\t\tn/a\t\t\tjbctl lssnap"
       echo -e "tksnap\t\tTake snapshot\t\tn/a\t\t\tjbctl tksnap"
       echo -e "rmsnap\t\tDelete snap\t\tSnapshot name\t\tjbctl rmsnap 20150810-221949391domain.xml"
-      echo -e "lsdeploy\tDisplay deployments\tServer group name\tjbctl lsdeploy sg01"
+      echo -e "lsdeploy\tDisplay deployments\tServer group\t\tjbctl lsdeploy sg01"
+      echo -e "deploy\t\tDeploy artifact\t\tArtifact, Server group\tjbctl deploy myapp.war sg01"
+      echo -e "undeploy\tUndeploy artifact\tArtifact\t\tjbctl undeploy myapp.war"
       echo -e "less\t\tOpen log in less\tn/a\t\t\tjbctl less"
       echo -e "tail\t\tTail -f log\t\tn/a\t\t\tjbctl tail"
       echo -e "status\t\tCheck running state\tn/a\t\t\tjbctl status"
       echo -e "lsservers\tList servers in domain\tn/a\t\t\tjbctl lsservers"
       echo -e "phist\t\tShow patch history\tServer name\t\tjbctl phist work-s01"
-      echo -e "sgrestart\tRestart a server group\tServer group name\tjbctl sgrestart sg01"
+      echo -e "sgrestart\tRestart a server group\tServer group\t\tjbctl sgrestart sg01"
       echo
       ;;
   esac
