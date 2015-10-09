@@ -51,7 +51,6 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
-Plugin 'majutsushi/tagbar'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'moll/vim-node'
 
@@ -85,8 +84,6 @@ au BufEnter *.spec nmap <F5> <esc>:w\|!rpmlint %<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
-
-nnoremap <silent> tt :TagbarToggle<CR>
 
 nnoremap <silent> nn :bn<CR>
 nnoremap <silent> pp :bp<CR>

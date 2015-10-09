@@ -28,6 +28,9 @@ alias gp='git pull'
 alias gP='git push'
 alias ga='git add'
 alias jbc='$JBOSS_HOME/bin/jboss-cli.sh -c'
+title() {
+  echo -ne "\e]0;$1\a"
+}
 jbctl() {
   case $1 in
     version)
