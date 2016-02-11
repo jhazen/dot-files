@@ -51,11 +51,10 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'moll/vim-node'
 
 set background=dark
-colorscheme solarized
+colorscheme koehler
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
