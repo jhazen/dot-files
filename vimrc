@@ -67,11 +67,6 @@ match ExtraWhitespace /\s\+$/
 au BufRead,BufNewFile *.pp
   \ set filetype=puppet
 
-au BufNewFile,BufRead *.js, *.html, *.css, *.sh
-  \ set tabstop=2
-  \ set softtabstop=2
-  \ set shiftwidth=2
-
 filetype plugin indent on
 
 let g:NERDTreeDirArrows=0
@@ -87,10 +82,10 @@ nmap <C-B> :ConqueTermTab bash<CR>
 
 nmap <F6> :w<CR>:silent !chmod +x %<CR>:silent !./% > /tmp/vimout<CR>:belowright split /tmp/vimout<CR>:redraw!<CR>
 
-au BufEnter *.pp nmap <F5> <esc>:w\|!puppet-lint %<CR>
-au BufEnter *.py nmap <F5> <esc>:w\|!pylint %<CR>
-au BufEnter *.rb nmap <F5> <esc>:w\|!rspec --color %<CR>
-au BufEnter *.spec nmap <F5> <esc>:w\|!rpmlint %<CR>
+au BufEnter *.pp nmap <F5> <esc>:w\|!puppet-lint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
+au BufEnter *.py nmap <F5> <esc>:w\|!pylint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
+au BufEnter *.rb nmap <F5> <esc>:w\|!rspec --color % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
+au BufEnter *.spec nmap <F5> <esc>:w\|!rpmlint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
