@@ -73,6 +73,7 @@ Vagrant aliases:
 * vd - vagrant destroy
 * vss - vagrant ssh
 * vh - vagrant halt
+* vr - vagrant rdp
 
 Maven aliases:
 * mvdeploy - mvn clean package wildfly:deploy
