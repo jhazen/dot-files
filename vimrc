@@ -85,7 +85,7 @@ nmap <F6> :w<CR>:silent !chmod +x %<CR>:silent !%:p > /tmp/vimout<CR>:belowright
 au BufEnter *.pp nmap <F5> <esc>:w\|!puppet-lint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.py nmap <F5> <esc>:w\|!pylint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.rb nmap <F5> <esc>:w\|!rspec --color % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
-au BufEnter *.js nmap <F5> <esc>:w\|!jslint --color % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
+au BufEnter *.js nmap <F5> <esc>:w\|!jslint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.spec nmap <F5> <esc>:w\|!rpmlint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 
 nnoremap <silent> vv <C-w>v
