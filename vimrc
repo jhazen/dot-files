@@ -12,6 +12,7 @@ set nowb
 set fo=tcq
 set modeline
 set bg=dark
+set encoding=utf-8
 if has('persistent_undo')
   silent !mkdir ~/.vimbackups > /dev/null 2>&1
   set undodir=~/.vimbackups
@@ -20,9 +21,10 @@ endif
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set textwidth=79
 set expandtab
 set nowrap
 set foldnestmax=3
@@ -52,6 +54,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'moll/vim-node'
+Plugin 'vim-scripts/indentpython.vim'
 
 set background=dark
 colorscheme koehler
@@ -63,6 +66,11 @@ match ExtraWhitespace /\s\+$/
 
 au BufRead,BufNewFile *.pp
   \ set filetype=puppet
+
+au BufNewFile,BufRead *.js, *.html, *.css, *.sh
+  \ set tabstop=2
+  \ set softtabstop=2
+  \ set shiftwidth=2
 
 filetype plugin indent on
 
@@ -77,7 +85,10 @@ nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
 
+nmap <F6> :w<CR>:silent !chmod +x %<CR>:silent !./% > /tmp/vimout<CR>:belowright split /tmp/vimout<CR>:redraw!<CR>
+
 au BufEnter *.pp nmap <F5> <esc>:w\|!puppet-lint %<CR>
+au BufEnter *.py nmap <F5> <esc>:w\|!pylint %<CR>
 au BufEnter *.rb nmap <F5> <esc>:w\|!rspec --color %<CR>
 au BufEnter *.spec nmap <F5> <esc>:w\|!rpmlint %<CR>
 
@@ -103,6 +114,8 @@ nnoremap <silent> ,k <C-w>k
 nnoremap <silent> ,j <C-w>j
 nnoremap <silent> ,h <C-w>h
 nnoremap <silent> ,l <C-w>l
+
+nnoremap <Space> @q
 
 set laststatus=2
 set statusline=%<%F\ %{fugitive#statusline()}\ [%{&ff}/%Y]\ [%{getcwd()}]
