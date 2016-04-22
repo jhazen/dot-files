@@ -3,11 +3,6 @@
 Personal dotfiles repo. Includes:
 * vim
 * zsh
-* openbox
-* conky
-* tint2
-* wbar
-* gtk2
 
 
 # Instructions
@@ -18,7 +13,7 @@ Personal dotfiles repo. Includes:
 
 Run 'all' as a parameter to setup everything; otherwise specify which dot file to setup.
 
-> ./install.sh (vim|zsh|openbox|conky|wbar|gtk2|tint2|all)
+> ./install.sh (vim|zsh|all)
 
 
 # Vim
