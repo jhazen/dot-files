@@ -50,7 +50,7 @@ Other useful tips:
 * :Gstatus - Git status
 * :Gcommit - Git commit
 * :Git - Git
-* \<Space\> mapped to @q; Record macro to 'q' register and execute with <Space>
+* \<Space\> mapped to @q; Record macro to 'q' register and execute with \<Space\>
 
 
 # Zsh
