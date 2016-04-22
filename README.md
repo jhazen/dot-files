@@ -31,7 +31,8 @@ Shortcuts:
 * C-E - Next tab
 * C-U - Gundo toggle
 * C-B - Open bash tab
-* F5 - If in a puppet file, lint the file. If ruby, rspec the file. If spec, rpmlint the file.
+* F5 - If in a puppet file, lint the file. If ruby, rspec the file. If spec, rpmlint the file. If python, pylint the file.
+* F6 - Execute current file and place output in horizontal split.
 * vv - Open vertical split
 * ss - Open split
 * tt - Toggle Tagbar
@@ -55,6 +56,7 @@ Other useful tips:
 * :Gstatus - Git status
 * :Gcommit - Git commit
 * :Git - Git
+* <Space> mapped to @q; Record macro to 'q' register and execute with <Space>
 
 
 # Zsh
