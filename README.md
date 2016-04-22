@@ -26,7 +26,7 @@ Shortcuts:
 * C-E - Next tab
 * C-U - Gundo toggle
 * C-B - Open bash tab
-* F5 - Lint file. Supported filetypes: spec, ruby, puppet and python.
+* F5 - Lint file. Supported filetypes: spec, ruby, puppet, javascript and python.
 * F6 - Execute current file and place output in horizontal split.
 * vv - Open vertical split
 * ss - Open split
