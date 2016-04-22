@@ -30,7 +30,6 @@ Shortcuts:
 * F6 - Execute current file and place output in horizontal split.
 * vv - Open vertical split
 * ss - Open split
-* tt - Toggle Tagbar
 * nn - Next buffer
 * pp - Previous buffer
 * bb - Bash vsplit
@@ -51,7 +50,7 @@ Other useful tips:
 * :Gstatus - Git status
 * :Gcommit - Git commit
 * :Git - Git
-* <Space> mapped to @q; Record macro to 'q' register and execute with <Space>
+* \<Space\> mapped to @q; Record macro to 'q' register and execute with \<Space\>
 
 
 # Zsh
