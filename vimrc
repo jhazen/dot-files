@@ -80,7 +80,7 @@ nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
 
-nmap <F6> :w<CR>:silent !chmod +x %<CR>:silent !./% > /tmp/vimout<CR>:belowright split /tmp/vimout<CR>:redraw!<CR>
+nmap <F6> :w<CR>:silent !chmod +x %<CR>:silent !%:p > /tmp/vimout<CR>:belowright split /tmp/vimout<CR>:redraw!<CR>
 
 au BufEnter *.pp nmap <F5> <esc>:w\|!puppet-lint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.py nmap <F5> <esc>:w\|!pylint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
