@@ -3,6 +3,7 @@
 Personal dotfiles repo. Includes:
 * vim
 * zsh
+* python
 
 
 # Instructions
@@ -13,7 +14,7 @@ Personal dotfiles repo. Includes:
 
 Run 'all' as a parameter to setup everything; otherwise specify which dot file to setup.
 
-> ./install.sh (vim|zsh|all)
+> ./install.sh (vim|zsh|python|all)
 
 
 # Vim
@@ -30,9 +31,10 @@ Shortcuts:
 * F6 - Execute current file and place output in horizontal split.
 * vv - Open vertical split
 * ss - Open split
-* nn - Next buffer
-* pp - Previous buffer
-* bb - Bash vsplit
+* bn - Next buffer
+* bp - Previous buffer
+* bB - Bash vsplit
+* bP - Python vsplit
 * ,q - Resize vsplit to the left
 * ,r - Resize vsplit to the right
 * ,e - Resize split up
@@ -50,7 +52,7 @@ Other useful tips:
 * :Gstatus - Git status
 * :Gcommit - Git commit
 * :Git - Git
-* \<Space\> mapped to @q; Record macro to 'q' register and execute with \<Space\>
+* \<Space\> mapped to @q; Record macro to 'q' register and execute with \<Space\> (Default is comment line with #)
 
 
 # Zsh
@@ -125,6 +127,11 @@ Other aliases:
 * lh - ls -lh
 * ltr - ls -ltr
 * psg - ps aux | grep
+
+
+# Python
+
+pythonrc file for interactive shell. Includes tab completion.
 
 
 # Help

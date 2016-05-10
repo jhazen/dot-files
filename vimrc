@@ -91,10 +91,11 @@ au BufEnter *.spec nmap <F5> <esc>:w\|!rpmlint % > /tmp/lintout<CR>:belowright s
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
 
-nnoremap <silent> nn :bn<CR>
-nnoremap <silent> pp :bp<CR>
+nnoremap <silent> bn :bn<CR>
+nnoremap <silent> bp :bp<CR>
 
-nnoremap <silent> bb :ConqueTermVSplit bash<CR>
+nnoremap <silent> bB :ConqueTermVSplit bash<CR>
+nnoremap <silent> bP :ConqueTermVSplit python<CR>
 
 nnoremap <silent> ,e <C-w>+
 nnoremap <silent> ,w <C-w>-
@@ -112,6 +113,7 @@ nnoremap <silent> ,h <C-w>h
 nnoremap <silent> ,l <C-w>l
 
 nnoremap <Space> @q
+let @q="\<Esc>^i#\<Esc>j"
 
 set laststatus=2
 set statusline=%<%F\ %{fugitive#statusline()}\ [%{&ff}/%Y]\ [%{getcwd()}]

@@ -2,7 +2,7 @@
 
 # Script will install dot-files based on input
 #
-# Example: ./install.sh vim zsh
+# Example: ./install.sh vim zsh python
 #
 # jhazen532@gmail.com
 
@@ -20,12 +20,23 @@ fi
 
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <name> <name> ..."
-  echo "Example: $0 vim zsh"
+  echo "Example: $0 vim zsh python"
   echo
   exit 1
 fi
 
 ### Functions
+
+function pysetup() {
+  echo "python"
+  if [ -f ~/.pythonrc ]; then
+    mv ~/.pythonrc $BACKUP_DIR/pythonrc-$(date +%s)
+  fi
+  if [ -L ~/.pythonrc ]; then
+    rm ~/.pythonrc
+  fi
+  ln -s $DOTFILES/pythonrc ~/.pythonrc
+}
 
 function vimsetup() {
   echo "vim"
@@ -64,6 +75,7 @@ function zshsetup() {
 function allsetup() {
   echo "all"
   vimsetup
+  pysetup
   zshsetup
 }
 
@@ -72,9 +84,10 @@ function allsetup() {
 for i in $@; do
   case "$i" in
     vim) vimsetup;;
+    python) pysetup;;
     zsh) zshsetup;;
     all) allsetup;;
-    *) echo "Invalid name. Names: vim, zsh, all";;
+    *) echo "Invalid name. Names: vim, zsh, python, all";;
   esac
 done
 
