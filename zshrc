@@ -189,7 +189,7 @@ export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 
-export PYTHONSTARTUP=~/.pythonrc
+export PYTHONSTARTUP=~/.pythonrc.py
 
 if [ -f ~/.zshlocal ]; then
   source ~/.zshlocal

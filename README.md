@@ -131,7 +131,7 @@ Other aliases:
 
 # Python
 
-pythonrc file for interactive shell. Includes tab completion.
+pythonrc file for interactive shell. Includes tab completion and certain shell functions (for replacing bash/zsh with python).
 
 
 # Help

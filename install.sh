@@ -29,13 +29,13 @@ fi
 
 function pysetup() {
   echo "python"
-  if [ -f ~/.pythonrc ]; then
-    mv ~/.pythonrc $BACKUP_DIR/pythonrc-$(date +%s)
+  if [ -f ~/.pythonrc.py ]; then
+    mv ~/.pythonrc.py $BACKUP_DIR/pythonrc.py-$(date +%s)
   fi
-  if [ -L ~/.pythonrc ]; then
-    rm ~/.pythonrc
+  if [ -L ~/.pythonrc.py ]; then
+    rm ~/.pythonrc.py
   fi
-  ln -s $DOTFILES/pythonrc ~/.pythonrc
+  ln -s $DOTFILES/pythonrc.py ~/.pythonrc.py
 }
 
 function vimsetup() {
