@@ -1,5 +1,12 @@
 import sys
 import os
+import re
+import subprocess
+from datetime import datetime
+import urllib2
+import requests
+import paramiko
+from getpass import getpass as pw
 
 #Tab completion
 try:
@@ -25,14 +32,3 @@ def cd(new_cwd):
 def pwd():
     mypwd = str(os.getcwd()).strip("'")
     return mypwd
-##Reading files
-def cat(fname):
-    with open(fname) as f:
-        for i in f.read().split('\n'):
-           print i
-##Searching text
-def grep(fname, grepval):
-    with open(fname) as f:
-        for line in f:
-            if grepval in line:
-                return line

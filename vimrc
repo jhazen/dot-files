@@ -95,7 +95,7 @@ nnoremap <silent> bn :bn<CR>
 nnoremap <silent> bp :bp<CR>
 
 nnoremap <silent> bB :ConqueTermVSplit bash<CR>
-nnoremap <silent> bP :ConqueTermVSplit python<CR>
+nnoremap <silent> bP :ConqueTermVSplit python2.7<CR>
 
 nnoremap <silent> ,e <C-w>+
 nnoremap <silent> ,w <C-w>-
