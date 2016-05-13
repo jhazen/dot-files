@@ -4,6 +4,7 @@ Personal dotfiles repo. Includes:
 * vim
 * zsh
 * python
+* fabric
 
 
 # Instructions
@@ -131,7 +132,12 @@ Other aliases:
 
 # Python
 
-pythonrc file for interactive shell. Includes tab completion and certain shell functions (for replacing bash/zsh with python).
+pythonrc file for interactive shell. Includes tab completion, python shell history and certain shell functions (for replacing bash/zsh with python).
+
+
+# Fabric
+
+fabfile.py located in ~/ for running simple fabric commands. Included in pythonrc is fabric() function to run them from the shell.
 
 
 # Help

@@ -2,7 +2,7 @@
 
 # Script will install dot-files based on input
 #
-# Example: ./install.sh vim zsh python
+# Example: ./install.sh vim zsh python fabric
 #
 # jhazen532@gmail.com
 
@@ -20,7 +20,7 @@ fi
 
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <name> <name> ..."
-  echo "Example: $0 vim zsh python"
+  echo "Example: $0 vim zsh python fabric"
   echo
   exit 1
 fi
@@ -36,6 +36,17 @@ function pysetup() {
     rm ~/.pythonrc.py
   fi
   ln -s $DOTFILES/pythonrc.py ~/.pythonrc.py
+}
+
+function fabsetup() {
+  echo "fabric"
+  if [ -f ~/fabfile.py ]; then
+    mv ~/fabfile.py $BACKUP_DIR/fabfile.py-$(date +%s)
+  fi
+  if [ -L ~/fabfile.py ]; then
+    rm ~/fabfile.py
+  fi
+  ln -s $DOTFILES/fabfile.py ~/fabfile.py
 }
 
 function vimsetup() {
@@ -77,6 +88,7 @@ function allsetup() {
   vimsetup
   pysetup
   zshsetup
+  fabsetup
 }
 
 ### Verify and run input selections
@@ -86,8 +98,9 @@ for i in $@; do
     vim) vimsetup;;
     python) pysetup;;
     zsh) zshsetup;;
+    fabric) fabsetup;;
     all) allsetup;;
-    *) echo "Invalid name. Names: vim, zsh, python, all";;
+    *) echo "Invalid name. Names: vim, zsh, python, fabric, all";;
   esac
 done
 
