@@ -29,6 +29,9 @@ def pwd():
 def save_history(histPath=histPath):
     import readline
     readline.write_history_file(histPath)
+##Allow running fab from python shell
+def fabric(cmd, hosts):
+    os.system("fab " + cmd + " -H " + hosts)
 
 #Tab completion
 try:
