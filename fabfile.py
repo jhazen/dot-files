@@ -3,7 +3,7 @@
 import fabric.api as fab
 import os
 
-fab.env.key_filename = os.path.expanduser('~/.ssh/my')
+fab.env.key_filename = os.path.expanduser('~/.ssh/fabric')
 
 def df():
     fab.run('df')
