@@ -30,8 +30,16 @@ def save_history(histPath=histPath):
     import readline
     readline.write_history_file(histPath)
 ##Allow running fabric from python shell
-def fabric(cmd, hosts):
-    os.system("fab " + cmd + " -H " + hosts)
+def fabric(cmd, hosts, args=""):
+    if len(args) > 0:
+        fullcmd = cmd + ":" + args
+    else:
+        fullcmd = cmd
+    if type(hosts) is list:
+        for host in hosts:
+            os.system("fab " + fullcmd + " -H " + host)
+    elif type(hosts) is str:
+        os.system("fab " + fullcmd + " -H " + hosts)
 
 #Tab completion
 try:

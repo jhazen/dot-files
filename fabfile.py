@@ -15,8 +15,7 @@ def uptime():
     fab.run('uptime')
 
 def specs():
-    numprocraw = fab.run('cat /proc/cpuinfo | grep processor | tail -n 1 | cut -d":" -f2')
-    numproc = int(numprocraw) + 1
+    numproc = fab.run('cat /proc/cpuinfo | grep processor | wc -l')
     nummemraw = fab.run('cat /proc/meminfo  | head -n 1 | cut -d":" -f2')
     nummem = int(nummemraw.split(" ")[0]) / 1024000 + 1
     print "Num processors:", numproc

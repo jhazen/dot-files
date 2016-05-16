@@ -28,6 +28,7 @@ Shortcuts:
 * C-E - Next tab
 * C-U - Gundo toggle
 * C-B - Open bash tab
+* C-Y - Open python2.7 tab
 * F5 - Lint file. Supported filetypes: spec, ruby, puppet, javascript and python.
 * F6 - Execute current file and place output in horizontal split.
 * vv - Open vertical split
@@ -35,7 +36,7 @@ Shortcuts:
 * bn - Next buffer
 * bp - Previous buffer
 * bB - Bash vsplit
-* bP - Python vsplit
+* bP - Python2.7 vsplit
 * ,q - Resize vsplit to the left
 * ,r - Resize vsplit to the right
 * ,e - Resize split up
