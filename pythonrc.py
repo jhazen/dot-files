@@ -8,6 +8,7 @@ import requests
 import paramiko
 from getpass import getpass as pw
 import atexit
+import fabric.api as fab
 
 #PS1 variable
 sys.ps1 = "$ "
@@ -16,6 +17,7 @@ sys.ps2 = "> "
 #Global variables
 oldcwd = str(os.getcwd()).strip("'")
 histPath = os.path.expanduser("~/.python_history2.7")
+fab.env.key_filename = os.path.expanduser('~/.ssh/fabric')
 
 #Functions for using python as main shell
 ##Movement
@@ -40,6 +42,16 @@ def fabric(cmd, hosts, args=""):
             os.system("fab " + fullcmd + " -H " + host)
     elif type(hosts) is str:
         os.system("fab " + fullcmd + " -H " + hosts)
+##SSH
+def ssh(hosts):
+    if type(hosts) is list:
+        for host in hosts:
+            fab.env.host_string = host
+            fab.open_shell()
+    elif type(hosts) is str:
+        fab.env.host_string = hosts
+        fab.open_shell()
+
 
 #Tab completion
 try:
