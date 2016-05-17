@@ -25,3 +25,8 @@ def get_file(rfile):
     lfile = rfile.split("/")[-1]
     hname = fab.run("hostname")
     fab.get(remote_path=rfile, local_path="log/" + lfile + hname)
+
+def enable_autologin():
+    fab.run('mkdir -p .ssh; chmod 700 .ssh')
+    fab.put(".ssh/fabric.pub", ".ssh/authorized_keys")
+    fab.run('chmod 600 .ssh/authorized_keys')
