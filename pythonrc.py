@@ -37,22 +37,24 @@ def fabric(cmd, hosts, args=""):
         fullcmd = cmd + ":" + args
     else:
         fullcmd = cmd
-    if type(hosts) is list:
+    if type(hosts) is list or type(hosts) is tuple:
         for host in hosts:
             os.system("fab " + fullcmd + " -H " + host)
     elif type(hosts) is str:
         os.system("fab " + fullcmd + " -H " + hosts)
+    else:
+        print "Error: hosts must be string, list or tuple."
 ##SSH
 def ssh(hosts):
-    if type(hosts) is list:
+    if type(hosts) is list or type(hosts) is tuple:
         for host in hosts:
             fab.env.host_string = host
             fab.open_shell()
     elif type(hosts) is str:
         fab.env.host_string = hosts
         fab.open_shell()
-
-
+    else:
+        print "Error: hosts must be string, list or tuple."
 #Tab completion
 try:
     import readline
