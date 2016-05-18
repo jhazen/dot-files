@@ -30,3 +30,6 @@ def enable_autologin():
     fab.run('mkdir -p .ssh; chmod 700 .ssh')
     fab.put(".ssh/fabric.pub", ".ssh/authorized_keys")
     fab.run('chmod 600 .ssh/authorized_keys')
+
+def top():
+    fab.run('top -b -n 1 | head -n 12')
