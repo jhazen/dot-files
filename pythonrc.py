@@ -9,6 +9,7 @@ import paramiko
 from getpass import getpass as pw
 import atexit
 import fabric.api as fab
+import bs4 as bs
 
 #PS1 variable
 sys.ps1 = "$ "
