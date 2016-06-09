@@ -14,6 +14,9 @@ def whoami():
 def uptime():
     fab.run('uptime')
 
+def get_kernel():
+    fab.run('uname -r')
+
 def specs():
     numproc = fab.run('cat /proc/cpuinfo | grep processor | wc -l')
     nummemraw = fab.run('cat /proc/meminfo  | head -n 1 | cut -d":" -f2')
