@@ -10,25 +10,17 @@ from getpass import getpass as pw
 import atexit
 import fabric.api as fab
 import bs4 as bs
-import sh
+from sh import ls, pwd, cd, git, wc, grep, sed, awk, tar, zip, unzip, cat, sort, mv, chown, chmod
 
 #PS1 variable
 sys.ps1 = "$ "
 sys.ps2 = "> "
 
 #Global variables
-oldcwd = str(os.getcwd()).strip("'")
 histPath = os.path.expanduser("~/.python_history2.7")
 fab.env.key_filename = os.path.expanduser('~/.ssh/fabric')
 
 #Functions for using python as main shell
-##Movement
-def cd(new_cwd):
-    oldcwd = str(os.getcwd()).strip("'")
-    os.chdir(new_cwd)
-def pwd():
-    mypwd = str(os.getcwd()).strip("'")
-    return mypwd
 ##Save history
 def save_history(histPath=histPath):
     import readline
