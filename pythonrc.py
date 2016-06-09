@@ -11,6 +11,7 @@ import atexit
 import fabric.api as fab
 import bs4 as bs
 from sh import ls, pwd, cd, git, wc, grep, sed, awk, tar, zip, unzip, cat, sort, mv, chown, chmod
+import sqlite3
 
 #PS1 variable
 sys.ps1 = "$ "
