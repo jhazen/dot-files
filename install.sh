@@ -73,14 +73,39 @@ function zshsetup() {
   if [ -L ~/.zshenv ]; then
     rm ~/.zshenv
   fi
+  if [ -L ~/.aliases ]; then
+    rm ~/.aliases
+  fi
   if [ -f ~/.zshrc ]; then
     mv ~/.zshrc $BACKUP_DIR/zshrc-$(date +%s)
   fi
   if [ -f ~/.zshenv ]; then
     mv ~/.zshenv $BACKUPDIR/zshenv-$(date +%s)
   fi
+  if [ -f ~/.aliases ]; then
+    mv ~/.aliases $BACKUPDIR/aliases-$(date +%s)
+  fi
+  ln -s $DOTFILES/aliases ~/.aliases
   ln -s $DOTFILES/zshrc ~/.zshrc
   ln -s $DOTFILES/zshenv ~/.zshenv
+}
+
+function bashsetup() {
+  echo "bash"
+  if [ -L ~/.bashrc ]; then
+    rm ~/.bashrc
+  fi
+  if [ -L ~/.aliases ]; then
+    rm ~/.aliases
+  fi
+  if [ -f ~/.bashrc ]; then
+    mv ~/.bashrc $BACKUP_DIR/bashrc-$(date +%s)
+  fi
+  if [ -f ~/.aliases ]; then
+    mv ~/.aliases $BACKUPDIR/aliases-$(date +%s)
+  fi
+  ln -s $DOTFILES/aliases ~/.aliases
+  ln -s $DOTFILES/bashrc ~/.bashrc
 }
 
 function allsetup() {
@@ -88,6 +113,7 @@ function allsetup() {
   vimsetup
   pysetup
   zshsetup
+  bashsetup
   fabsetup
 }
 
@@ -98,9 +124,10 @@ for i in $@; do
     vim) vimsetup;;
     python) pysetup;;
     zsh) zshsetup;;
+    bash) bashsetup;;
     fabric) fabsetup;;
     all) allsetup;;
-    *) echo "Invalid name. Names: vim, zsh, python, fabric, all";;
+    *) echo "Invalid name. Names: vim, zsh, bash, python, fabric, all";;
   esac
 done
 

@@ -3,6 +3,7 @@
 Personal dotfiles repo. Includes:
 * vim
 * zsh
+* bash
 * python
 * fabric
 
@@ -57,11 +58,12 @@ Other useful tips:
 * \<Space\> mapped to @q; Record macro to 'q' register and execute with \<Space\> (Default is comment line with #)
 
 
-# Zsh
+# Zsh / Bash
 
 Vim mode zsh. Esc puts terminal in command mode.
 
 For local zsh changes, use ~/.zshlocal file.
+For local bash changes, use ~/.bashlocal file.
 
 Right handed git prompt once in a git directory.
 
