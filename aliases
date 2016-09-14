@@ -28,7 +28,7 @@ alias gc='git commit'
 alias gp='git pull'
 alias gP='git push'
 alias ga='git add'
-alias jbc='$JBOSS_HOME/bin/jboss-cli.sh -c'
+alias jbc='$JBOSS_HOME/bin/jboss-cli.sh -c $JBOSS_URL'
 title() {
   echo -ne "\e]0;$1\a"
 }
