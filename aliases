@@ -120,6 +120,9 @@ jbctl() {
       ;;
   esac
 }
+sshrun() {
+    for i in `echo $H | sed 's/,/\n/g'`; do ssh $i "$1"; done
+}
 alias ll='ls -l'
 alias la='ls -la'
 alias lh='ls -lh'
