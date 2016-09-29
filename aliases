@@ -121,7 +121,7 @@ jbctl() {
   esac
 }
 sshrun() {
-    for i in `echo $H | sed 's/,/\n/g'`; do ssh $i "$1"; done
+    for i in `echo $H | sed 's/,/\n/g'`; do echo $i; ssh $i "$1"; echo; done
 }
 alias ll='ls -l'
 alias la='ls -la'
