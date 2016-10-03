@@ -36,3 +36,6 @@ def enable_autologin():
 
 def top():
     fab.run('top -b -n 1 | head -n 12')
+
+def vgdisplay():
+    fab.sudo('vgdisplay')
