@@ -42,3 +42,6 @@ def free():
 
 def vgdisplay():
     fab.sudo('vgdisplay')
+
+def isgitinstalled():
+    fab.run('which git &> /dev/null && echo "Installed" || echo "Not installed"')
