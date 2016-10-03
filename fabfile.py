@@ -45,3 +45,8 @@ def vgdisplay():
 
 def isgitinstalled():
     fab.run('which git &> /dev/null && echo "Installed" || echo "Not installed"')
+
+def install_dotfiles():
+    fab.run('mkdir -p ~/Workspace')
+    fab.run('git clone https://github.com/jhazen/dot-files Workspace/dot-files')
+    fab.run('~/Workspace/dot-files/install.sh all')
