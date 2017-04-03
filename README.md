@@ -5,7 +5,6 @@ Personal dotfiles repo. Includes:
 * zsh
 * bash
 * python
-* fabric
 
 
 # Instructions
@@ -136,15 +135,6 @@ Other aliases:
 # Python
 
 pythonrc file for interactive shell. Includes tab completion, python shell history and certain shell functions (for replacing bash/zsh with python).
-
-
-# Fabric
-
-fabfile.py located in ~/ for running simple fabric commands. Included in pythonrc is fabric() function to run them from the shell.
-
-Use $H variable in bash/zsh as comma-separated list of servers for use with fabric.
-
-Use 'fabric' on shell to use $H variable automatically.
 
 
 # Help

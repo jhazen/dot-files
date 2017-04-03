@@ -78,7 +78,7 @@ nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
-nmap <C-Y> :ConqueTermTab python2.7<CR>
+nmap <C-Y> :ConqueTermTab python<CR>
 
 nmap <F6> :w<CR>:silent !chmod +x %<CR>:silent !%:p > /tmp/vimout<CR>:belowright split /tmp/vimout<CR>:redraw!<CR>
 
@@ -105,7 +105,7 @@ nnoremap <silent> bn :bn<CR>
 nnoremap <silent> bp :bp<CR>
 
 nnoremap <silent> bB :ConqueTermVSplit bash<CR>
-nnoremap <silent> bP :ConqueTermVSplit python2.7<CR>
+nnoremap <silent> bP :ConqueTermVSplit python<CR>
 
 nnoremap <silent> ,e <C-w>+
 nnoremap <silent> ,w <C-w>-
