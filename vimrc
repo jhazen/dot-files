@@ -97,6 +97,7 @@ au BufEnter *.yaml set shiftwidth=2
 au BufEnter *.yaml set tabstop=2
 au BufEnter *.yaml set softtabstop=2
 
+au BufEnter *.cpp nmap <F8> <esc>:w\|!make > /tmp/vimout<CR>:belowright split /tmp/vimout<CR>:redraw!<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
