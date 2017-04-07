@@ -54,6 +54,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'moll/vim-node'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'Valloric/YouCompleteMe'
 
 set background=dark
 colorscheme koehler
@@ -81,6 +83,7 @@ nmap <C-B> :ConqueTermTab bash<CR>
 nmap <C-Y> :ConqueTermTab python<CR>
 
 nmap <F6> :w<CR>:silent !chmod +x %<CR>:silent !%:p > /tmp/vimout<CR>:belowright split /tmp/vimout<CR>:redraw!<CR>
+nmap <F8> :TagbarToggle<CR>
 
 au BufEnter *.pp nmap <F5> <esc>:w\|!puppet-lint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.py nmap <F5> <esc>:w\|!pylint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
@@ -96,8 +99,6 @@ au BufEnter *.yml set softtabstop=2
 au BufEnter *.yaml set shiftwidth=2
 au BufEnter *.yaml set tabstop=2
 au BufEnter *.yaml set softtabstop=2
-
-au BufEnter *.cpp nmap <F8> <esc>:w\|!make > /tmp/vimout<CR>:belowright split /tmp/vimout<CR>:redraw!<CR>
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
