@@ -19,6 +19,7 @@ histPath = os.path.expanduser("~/.python_history")
 def save_history(histPath=histPath):
     import readline
     readline.write_history_file(histPath)
+
 #Tab completion
 try:
     import readline
@@ -27,6 +28,10 @@ except ImportError:
 else:
     import rlcompleter
     readline.parse_and_bind("tab: complete")
+if 'libedit' in readline.__doc__:
+        readline.parse_and_bind("bind ^I rl_complete")
+else:
+        readline.parse_and_bind("tab: complete")
 
 #Read history at start
 if os.path.exists(histPath):

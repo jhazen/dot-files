@@ -13,11 +13,11 @@ set fo=tcq
 set modeline
 set bg=dark
 set encoding=utf-8
-if has('persistent_undo')
-  silent !mkdir ~/.vimbackups > /dev/null 2>&1
-  set undodir=~/.vimbackups
-  set undofile
-endif
+"if has('persistent_undo')
+"  silent !mkdir ~/.vimbackups > /dev/null 2>&1
+"  set undodir=~/.vimbackups
+"  set undofile
+"endif
 set autoindent
 set smartindent
 set smarttab
@@ -90,6 +90,7 @@ au BufEnter *.py nmap <F5> <esc>:w\|!pylint % > /tmp/lintout<CR>:belowright spli
 au BufEnter *.rb nmap <F5> <esc>:w\|!rspec --color % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.js nmap <F5> <esc>:w\|!jslint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.spec nmap <F5> <esc>:w\|!rpmlint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
+au BufEnter *.json nmap <F5> <esc>:w\|!jsonlint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.sls set shiftwidth=2
 au BufEnter *.sls set tabstop=2
 au BufEnter *.sls set softtabstop=2
