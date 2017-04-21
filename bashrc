@@ -31,13 +31,18 @@ function __git_prompt {
     echo -en $P
   fi
 }
-PS1='\[\e[1;31m\]\u\[\e[0m\]@\[\e[1;34m\]\h\[\e[0m\] [\[\e[0;37m\]\W\[\e[0m\]]$(__git_prompt)\n\D{%F %T}$ '
+PS1='\[\e[1;31m\]\u\[\e[0m\]@\[\e[1;34m\]\h\[\e[0m\] [\[\e[0;37m\]\W\[\e[0m\]] $(__git_prompt)\n$ '
 
 source ~/.aliases
 
 export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONPATH=$PYTHONPATH:~/Workspace/lib
+export PATH=~/Workspace/bin:$PATH
 
 if [ -f ~/.bashlocal ]; then
   source ~/.bashlocal
+fi
+
+if [ -f ~/.todo ]; then
+    cat ~/.todo
 fi
