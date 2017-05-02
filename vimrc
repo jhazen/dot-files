@@ -13,11 +13,6 @@ set fo=tcq
 set modeline
 set bg=dark
 set encoding=utf-8
-"if has('persistent_undo')
-"  silent !mkdir ~/.vimbackups > /dev/null 2>&1
-"  set undodir=~/.vimbackups
-"  set undofile
-"endif
 set autoindent
 set smartindent
 set smarttab
@@ -56,9 +51,11 @@ Plugin 'moll/vim-node'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'CyCoreSystems/vim-cisco-ios'
+Plugin 'flazz/vim-colorschemes'
 
 set background=dark
-colorscheme koehler
+colorscheme molokai
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -100,6 +97,8 @@ au BufEnter *.yml set softtabstop=2
 au BufEnter *.yaml set shiftwidth=2
 au BufEnter *.yaml set tabstop=2
 au BufEnter *.yaml set softtabstop=2
+au BufEnter *.cisco set ft=cisco
+au BufEnter *.junos set ft=junos
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
