@@ -71,6 +71,8 @@ let g:NERDTreeDirArrows=0
 let g:NERDTreeShowHidden=1
 let g:NERDTreeWinPos="right"
 
+let g:ctrlp_cmd='CtrlP ~/Workspace'
+
 nmap <C-N> :NERDTreeToggle<CR>
 nmap <C-W> :tabprevious<CR>
 nmap <C-E> :tabnext<CR>
@@ -80,7 +82,7 @@ nmap <C-B> :ConqueTermTab bash<CR>
 nmap <C-Y> :ConqueTermTab python<CR>
 
 nmap <F6> :w<CR>:silent !chmod +x %<CR>:silent !%:p > /tmp/vimout<CR>:belowright split /tmp/vimout<CR>:redraw!<CR>
-nmap <F8> :TagbarToggle<CR>
+nmap <F7> :TagbarToggle<CR>
 
 au BufEnter *.pp nmap <F5> <esc>:w\|!puppet-lint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.py nmap <F5> <esc>:w\|!pylint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
