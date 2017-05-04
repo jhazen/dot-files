@@ -22,21 +22,22 @@ Run 'all' as a parameter to setup everything; otherwise specify which dot file t
 
 Shortcuts:
 * C-N - Toggle Nerdtree
-* C-P - ctrlp
+* C-P - ctrlp (default workdir is ~/Workspace)
 * C-T - Open new tab
 * C-W - Previous tab
 * C-E - Next tab
 * C-U - Gundo toggle
 * C-B - Open bash tab
-* C-Y - Open python2.7 tab
+* C-Y - Open python tab
 * F5 - Lint file. Supported filetypes: spec, ruby, puppet, javascript and python.
 * F6 - Execute current file and place output in horizontal split.
+* F7 - Tagbar toggle
 * vv - Open vertical split
 * ss - Open split
 * bn - Next buffer
 * bp - Previous buffer
 * bB - Bash vsplit
-* bP - Python2.7 vsplit
+* bP - Python vsplit
 * ,q - Resize vsplit to the left
 * ,r - Resize vsplit to the right
 * ,e - Resize split up
