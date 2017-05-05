@@ -53,6 +53,7 @@ function vimsetup() {
   ln -s $DOTFILES/vimrc ~/.vimrc
   vim +PluginInstall +qall
   cd ~/.vim/bundle/YouCompleteMe && ./install.py
+  mkdir ~/.vim/syntax
   cd ~/.vim/syntax && wget https://raw.githubusercontent.com/ClockworkNet/vim-junos-syntax/master/syntax/junos.vim
 }
 
