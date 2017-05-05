@@ -30,13 +30,16 @@ set ruler
 set sidescroll=1
 set shell=bash
 set ff=unix
+set clipboard=unnamed
+
+set foldmethod=indent
+set foldlevel=99
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rodjek/vim-puppet'
 Plugin 'skwp/vim-easymotion'
@@ -56,6 +59,10 @@ Plugin 'CyCoreSystems/vim-cisco-ios'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'joonty/vdebug'
 Plugin 'nvie/vim-flake8'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'skywind3000/asyncrun.vim'
+Plugin 'w0rp/ale'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 set background=dark
 colorscheme molokai
@@ -75,6 +82,13 @@ let g:ctrlp_cmd='CtrlP ~/Workspace'
 
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
+let g:SimplyFold_docstring_preview=1
+
+let g:flake8_quickfix_height=12
+let python_highlight_all=1
+
+let g:ycm_autoclose_preview_window_after_completion=1
+
 nmap <C-N> :NERDTreeToggle<CR>
 nmap <C-W> :tabprevious<CR>
 nmap <C-E> :tabnext<CR>
@@ -84,8 +98,9 @@ nmap <C-B> :ConqueTermTab bash<CR>
 nmap <C-Y> :ConqueTermTab python<CR>
 nmap <C-G> :TagbarToggle<CR>
 
-" Work on this, dont use F6
-"nmap <F6> :w<CR>:silent !chmod +x %<CR>:silent !%:p > /tmp/vimout<CR>:belowright split /tmp/vimout<CR>:redraw!<CR>
+nnoremap <F1> za
+
+nnoremap <C-R> :call <SID>compile_and_run()<CR>
 
 au FileType python map <buffer> <F8> :call Flake8()<CR>
 au BufEnter *.pp nmap <C-L> <esc>:w\|!puppet-lint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
@@ -139,8 +154,23 @@ nnoremap <silent> ,l <C-w>l
 nnoremap <Space> @q
 let @q="\<Esc>^i#\<Esc>j"
 
-set laststatus=2
-set statusline=%<%F\ %{fugitive#statusline()}\ [%{&ff}/%Y]\ [%{getcwd()}]
-set statusline+=%#warningmsg#
-set statusline+=%*
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+augroup SPACEVIM_ASYNCRUN
+    autocmd!
+    " Automatically open the quickfix window
+    autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
+augroup END
+
+function! s:compile_and_run()
+    exec 'w'
+    if &filetype == 'c'
+        exec "AsyncRun! gcc % -o %<; time ./%<"
+    elseif &filetype == 'cpp'
+       exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
+    elseif &filetype == 'java'
+       exec "AsyncRun! javac %; time java %<"
+    elseif &filetype == 'sh'
+       exec "AsyncRun! time bash %"
+    elseif &filetype == 'python'
+       exec "AsyncRun! time python %"
+    endif
+endfunction
