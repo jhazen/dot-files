@@ -29,6 +29,7 @@ set sidescrolloff=15
 set ruler
 set sidescroll=1
 set shell=bash
+set ff=unix
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -54,6 +55,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'CyCoreSystems/vim-cisco-ios'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'joonty/vdebug'
+Plugin 'nvie/vim-flake8'
 
 set background=dark
 colorscheme molokai
@@ -63,9 +65,6 @@ match LiteralTabs /\s\  /
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
 
-au BufRead,BufNewFile *.pp
-  \ set filetype=puppet
-
 filetype plugin indent on
 
 let g:NERDTreeDirArrows=0
@@ -73,6 +72,8 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeWinPos="right"
 
 let g:ctrlp_cmd='CtrlP ~/Workspace'
+
+let NERDTreeIgnore=['\.pyc$', '\~$']
 
 nmap <C-N> :NERDTreeToggle<CR>
 nmap <C-W> :tabprevious<CR>
@@ -86,12 +87,16 @@ nmap <C-G> :TagbarToggle<CR>
 " Work on this, dont use F6
 "nmap <F6> :w<CR>:silent !chmod +x %<CR>:silent !%:p > /tmp/vimout<CR>:belowright split /tmp/vimout<CR>:redraw!<CR>
 
+au FileType python map <buffer> <F8> :call Flake8()<CR>
 au BufEnter *.pp nmap <C-L> <esc>:w\|!puppet-lint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.py nmap <C-L> <esc>:w\|!pylint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.rb nmap <C-L> <esc>:w\|!rspec --color % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.js nmap <C-L> <esc>:w\|!jslint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.spec nmap <C-L> <esc>:w\|!rpmlint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.json nmap <C-L> <esc>:w\|!jsonlint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
+au BufEnter *.js, *.html, *.css set shiftwidth=2
+au BufEnter *.js, *.html, *.css set tabstop=2
+au BufEnter *.js, *.html, *.css set softtabstop=2
 au BufEnter *.sls set shiftwidth=2
 au BufEnter *.sls set tabstop=2
 au BufEnter *.sls set softtabstop=2
@@ -103,6 +108,9 @@ au BufEnter *.yaml set tabstop=2
 au BufEnter *.yaml set softtabstop=2
 au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
+au BufEnter *.pp set filetype=puppet
+au BufEnter *.py set textwidth=79
+au BufWritePost *.py call Flake8()
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
