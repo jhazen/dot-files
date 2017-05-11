@@ -80,6 +80,8 @@ let g:NERDTreeWinPos="right"
 
 let g:ctrlp_cmd='CtrlP ~/Workspace'
 
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
 let g:SimplyFold_docstring_preview=1
@@ -153,6 +155,7 @@ nnoremap <silent> ,l <C-w>l
 
 nnoremap <Space> @q
 let @q="\<Esc>^i#\<Esc>j"
+let @e="\<Esc>bB\<Esc>,JbP\<Esc>,k:NERDTreeToggle\<CR>::TagbarToggle\<CR>,h,h,ji\<Esc>,li\<Esc>,k,e,e,e,e,e"
 
 augroup SPACEVIM_ASYNCRUN
     autocmd!
