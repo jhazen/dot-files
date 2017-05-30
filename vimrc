@@ -104,9 +104,8 @@ nnoremap <F1> za
 
 nnoremap <C-R> :call <SID>compile_and_run()<CR>
 
-au FileType python map <buffer> <F8> :call Flake8()<CR>
+au FileType python map <buffer> <C-L> :call Flake8()<CR>
 au BufEnter *.pp nmap <C-L> <esc>:w\|!puppet-lint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
-au BufEnter *.py nmap <C-L> <esc>:w\|!pylint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.rb nmap <C-L> <esc>:w\|!rspec --color % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.js nmap <C-L> <esc>:w\|!jslint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.spec nmap <C-L> <esc>:w\|!rpmlint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
@@ -127,7 +126,6 @@ au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
 au BufEnter *.pp set filetype=puppet
 au BufEnter *.py set textwidth=79
-au BufWritePost *.py call Flake8()
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
@@ -155,7 +153,7 @@ nnoremap <silent> ,l <C-w>l
 
 nnoremap <Space> @q
 let @q="\<Esc>^i#\<Esc>j"
-let @e="\<Esc>bB\<Esc>,JbP\<Esc>,k:TagbarToggle\<CR>,h,h,e,e,e,e,e:CtrlP\<CR>"
+let @e="\<Esc>bB\<Esc>,JbP\<Esc>,k:TagbarToggle\<CR>:CtrlP\<CR>"
 
 augroup SPACEVIM_ASYNCRUN
     autocmd!
