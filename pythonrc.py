@@ -12,6 +12,14 @@ import time
 import threading
 import queue
 import paramiko
+import xml.etree.ElementTree as ET
+import json
+import requests
+import urllib3
+import yaml
+from netaddr import *
+import base64
+from ctypes import *
 
 #PS1 variable
 sys.ps1 = "$ "
