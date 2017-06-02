@@ -97,7 +97,7 @@ nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
-nmap <C-Y> :ConqueTermTab python<CR>
+nmap <C-Y> :ConqueTermTab python3<CR>
 nmap <C-G> :TagbarToggle<CR>
 
 nnoremap <F1> za
@@ -134,7 +134,7 @@ nnoremap <silent> bn :bn<CR>
 nnoremap <silent> bp :bp<CR>
 
 nnoremap <silent> bB :ConqueTermVSplit bash<CR>
-nnoremap <silent> bP :ConqueTermVSplit python<CR>
+nnoremap <silent> bP :ConqueTermVSplit python3<CR>
 
 nnoremap <silent> ,e <C-w>+
 nnoremap <silent> ,w <C-w>-
@@ -153,7 +153,7 @@ nnoremap <silent> ,l <C-w>l
 
 nnoremap <Space> @q
 let @q="\<Esc>^i#\<Esc>j"
-let @e="\<Esc>bB\<Esc>,JbP\<Esc>,k:TagbarToggle\<CR>:CtrlP\<CR>"
+let @e="\<Esc>bP\<Esc>,J,k:TagbarToggle\<CR>:CtrlP\<CR>"
 
 augroup SPACEVIM_ASYNCRUN
     autocmd!
@@ -172,6 +172,6 @@ function! s:compile_and_run()
     elseif &filetype == 'sh'
        exec "AsyncRun! time bash %"
     elseif &filetype == 'python'
-       exec "AsyncRun! time python %"
+       exec "AsyncRun! time python3 %"
     endif
 endfunction

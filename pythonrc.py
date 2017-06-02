@@ -6,6 +6,12 @@ from datetime import datetime
 import atexit
 from sh import ls, pwd, cd, git, wc, grep, sed, awk, tar, zip, unzip, cat, sort, mv, chown, chmod
 import sqlite3
+from scapy.all import *
+import socket
+import time
+import threading
+import queue
+import paramiko
 
 #PS1 variable
 sys.ps1 = "$ "
@@ -24,7 +30,7 @@ def save_history(histPath=histPath):
 try:
     import readline
 except ImportError:
-    print "Module readline not available."
+    print("Module readline not available.")
 else:
     import rlcompleter
     readline.parse_and_bind("tab: complete")
