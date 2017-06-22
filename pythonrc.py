@@ -14,6 +14,7 @@ import queue
 import paramiko
 import xml.etree.ElementTree as ET
 import json
+import boto3
 import requests
 import urllib3
 import yaml
@@ -51,3 +52,9 @@ else:
 if os.path.exists(histPath):
     readline.read_history_file(histPath)
 atexit.register(save_history)
+
+#Local Dynamodb instance
+from boto3.dynamodb.conditions import Attr
+db = boto3.resource('dynamodb', endpoint_url='http://localhost:8000',
+                  region_name='us-west-1', aws_access_key_id='any',
+                  aws_secret_access_key='any')
