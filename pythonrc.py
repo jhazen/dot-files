@@ -28,6 +28,7 @@ sys.ps2 = "> "
 
 #Global variables
 histPath = os.path.expanduser("~/.python_history")
+home = os.environ.get('HOME')
 
 #Functions for using python as main shell
 ##Save history
@@ -55,6 +56,10 @@ atexit.register(save_history)
 
 #Local Dynamodb instance
 from boto3.dynamodb.conditions import Attr
-db = boto3.resource('dynamodb', endpoint_url='http://localhost:8000',
+ddb = boto3.resource('dynamodb', endpoint_url='http://localhost:8000',
                   region_name='us-west-1', aws_access_key_id='any',
                   aws_secret_access_key='any')
+
+#UnQLite database
+from unqlite import UnQLite
+udb = UnQLite('{}/local.db'.format(home))
