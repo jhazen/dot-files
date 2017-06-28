@@ -153,7 +153,7 @@ nnoremap <silent> ,l <C-w>l
 
 nnoremap <Space> @q
 let @q="\<Esc>^i#\<Esc>j"
-let @e="\<Esc>bP\<Esc>,J,k:TagbarToggle\<CR>:CtrlP\<CR>"
+let @e="\<Esc>bP\<Esc>,J,k:TagbarToggle\<CR>:NERDTreeToggle\<CR>,h,h:CtrlP\<CR>"
 
 augroup SPACEVIM_ASYNCRUN
     autocmd!
