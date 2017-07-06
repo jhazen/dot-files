@@ -5,7 +5,6 @@ import subprocess
 from datetime import datetime
 import atexit
 from sh import ls, pwd, cd, git, wc, grep, sed, awk, tar, zip, unzip, cat, sort, mv, chown, chmod
-import sqlite3
 from scapy.all import *
 import socket
 import time
