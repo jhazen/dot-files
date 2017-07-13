@@ -129,3 +129,32 @@ alias la='ls -la'
 alias lh='ls -lh'
 alias ltr='ls -ltr'
 alias psg='ps aux | grep'
+dynamodbctl() {
+    if [ $# -ne 1 ]; then
+        echo "Usage dynamodbctl <start|stop|status>"
+        exit 1
+    fi
+    cd ~/.dynamodb
+    case $1 in
+        start) java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb -dbPath . & 2>&1 >> server.log;;
+        stop) ps aux | grep DynamoDBLocal | grep -v grep | awk '{print $2}' | xargs kill;;
+        status) ps aux | grep DynamoDBLocal | grep -v grep 2>&1 > /dev/null && echo "Running" || echo "Not running";;
+        *) "Usage dynamodbctl <start|stop|status>" && exit 1;;
+    esac
+    cd - > /dev/null
+}
+flaskctl() {
+    if [ $# -ne 1 ]; then
+        echo "Usage flaskctl <start|stop|restart|status>"
+        exit 1
+    fi
+    cd ~/.flask/
+    case $1 in
+        start) ./app.py &;;
+        stop) ps aux | grep "python ./app.py" | grep -v grep | awk '{print $2}' | xargs kill > /dev/null;;
+        status) ps aux | grep "python ./app.py" | grep -v grep 2>&1 > /dev/null && echo "Running" || echo "Not running";;
+        restart) ps aux | grep "python ./app.py" | grep -v grep | awk '{print $2}' | xargs kill && ./app.py &;;
+        *) "Usage flaskctl <start|stop|status>" && exit 1;;
+    esac
+    cd - > /dev/null
+}

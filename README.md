@@ -5,6 +5,8 @@ Personal dotfiles repo. Includes:
 * zsh
 * bash
 * python
+* flask
+* dynamodb
 
 
 # Instructions
@@ -136,6 +138,16 @@ Other aliases:
 # Python
 
 pythonrc file for interactive shell. Includes tab completion, python shell history and certain shell functions (for replacing bash/zsh with python).
+
+
+# Flask
+
+Sets up simple flask server running on port 8080, along with templates. Includes nginx configuration file for proxying port 80 to 8080. Use flaskctl to control.
+
+
+# Dynamodb
+
+Sets up a local instance of dynamodb. Use dynamodbctl to control.
 
 
 # Help

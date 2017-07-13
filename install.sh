@@ -36,6 +36,7 @@ function pysetup() {
     rm ~/.pythonrc.py
   fi
   ln -s $DOTFILES/pythonrc.py ~/.pythonrc.py
+  echo "TODO - install pip modules"
 }
 
 function vimsetup() {
@@ -100,12 +101,44 @@ function bashsetup() {
   ln -s $DOTFILES/bashrc ~/.bashrc
 }
 
+function flasksetup() {
+    echo "flask"
+    if [ -L ~/.flask ]; then
+        rm ~/.flask
+    fi
+    if [ -d ~/.flask ]; then
+        mv ~/.flask $BACKUP_DIR/flask-$(date +%s)
+    fi
+    if [ ! -d ~/Workspace/bin ]; then
+        mkdir -p ~/Workspace/bin
+    fi
+    ln -s $DOTFILES/flask ~/.flask
+    echo "TODO - put nginx-proxy.conf into /etc/nginx/conf.d"
+}
+
+function dynamodbsetup() {
+    echo "dynamodb"
+    if [ -L ~/.dynamodb ]; then
+        rm ~/.dynamodb
+    fi
+    if [ -d ~/.dynamodb ]; then
+        mv ~/.dynamodb $BACKUP_DIR/dynamodb-$(date +%s)
+    fi
+    mkdir ~/.dynamodb
+    cd ~/.dynamodb
+    wget https://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.zip
+    unzip dynamodb_local_latest.zip
+    echo "TODO - ensure java 1.8 is installed and on path"
+}
+
 function allsetup() {
   echo "all"
   vimsetup
   pysetup
   zshsetup
   bashsetup
+  flasksetup
+  dynamodbsetup
 }
 
 ### Verify and run input selections
@@ -116,8 +149,10 @@ for i in $@; do
     python) pysetup;;
     zsh) zshsetup;;
     bash) bashsetup;;
+    flask) flasksetup;;
+    dynamodb) dynamodbsetup;;
     all) allsetup;;
-    *) echo "Invalid name. Names: vim, zsh, bash, python, all";;
+    *) echo "Invalid name. Names: vim, zsh, bash, python, flask, dynamodb, all";;
   esac
 done
 
