@@ -112,7 +112,7 @@ function flasksetup() {
     if [ ! -d ~/Workspace/bin ]; then
         mkdir -p ~/Workspace/bin
     fi
-    ln -s $DOTFILES/flask ~/.flask
+    cp -r $DOTFILES/flask ~/.flask
     echo "TODO - put nginx-proxy.conf into /etc/nginx/conf.d"
 }
 
