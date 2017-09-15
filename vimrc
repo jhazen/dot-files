@@ -97,7 +97,7 @@ nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
-nmap <C-Y> :ConqueTermTab python3<CR>
+nmap <C-Y> :ConqueTermTab python<CR>
 nmap <C-G> :TagbarToggle<CR>
 
 nnoremap <F1> za
@@ -125,7 +125,7 @@ au BufEnter *.yaml set softtabstop=2
 au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
 au BufEnter *.pp set filetype=puppet
-au BufEnter *.py set textwidth=79
+au BufEnter *.py set textwidth=99
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
@@ -134,7 +134,7 @@ nnoremap <silent> bn :bn<CR>
 nnoremap <silent> bp :bp<CR>
 
 nnoremap <silent> bB :ConqueTermVSplit bash<CR>
-nnoremap <silent> bP :ConqueTermVSplit python3<CR>
+nnoremap <silent> bP :ConqueTermVSplit python<CR>
 
 nnoremap <silent> ,e <C-w>+
 nnoremap <silent> ,w <C-w>-
@@ -172,6 +172,6 @@ function! s:compile_and_run()
     elseif &filetype == 'sh'
        exec "AsyncRun! time bash %"
     elseif &filetype == 'python'
-       exec "AsyncRun! time python3 %"
+       exec "AsyncRun! time python %"
     endif
 endfunction

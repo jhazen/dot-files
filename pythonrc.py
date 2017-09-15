@@ -9,7 +9,7 @@ from scapy.all import *
 import socket
 import time
 import threading
-import queue
+import Queue
 import paramiko
 import xml.etree.ElementTree as ET
 import json
@@ -62,3 +62,8 @@ ddb = boto3.resource('dynamodb', endpoint_url='http://localhost:8000',
 #UnQLite database
 from unqlite import UnQLite
 udb = UnQLite('{}/local.db'.format(home))
+
+#Mylock
+def mylock():
+    subprocess.Popen('mylock')
+
