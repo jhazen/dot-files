@@ -67,3 +67,22 @@ udb = UnQLite('{}/local.db'.format(home))
 def mylock():
     subprocess.Popen('mylock')
 
+#Pass bash commands as list
+def sh(cmd):
+    subprocess.Popen(cmd)
+
+#Git aliases
+def gs():
+    sh(['git', 'status'])
+def ga(f):
+    sh(['git', 'add', f])
+def gl():
+    sh(['git', 'log', '--oneline', '--decorate', '--color', '--graph'])
+def gc(msg):
+    sh(['git', 'commit', '-m', msg])
+def gp():
+    sh(['git', 'pull'])
+def gP():
+    sh(['git', 'push'])
+def gd():
+    sh(['git', 'diff', '--color'])
