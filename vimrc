@@ -36,6 +36,7 @@ set foldmethod=indent
 set foldlevel=99
 
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=/usr/local/go/src/github.com/golang/lint/misc/vim
 call vundle#rc()
 Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
@@ -105,6 +106,7 @@ nnoremap <F1> za
 nnoremap <C-R> :call <SID>compile_and_run()<CR>
 
 au FileType python map <buffer> <C-L> :call Flake8()<CR>
+au BufEnter *.go nmap <buffer> <C-L> :Lint<CR>
 au BufEnter *.pp nmap <C-L> <esc>:w\|!puppet-lint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.rb nmap <C-L> <esc>:w\|!rspec --color % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.js nmap <C-L> <esc>:w\|!jslint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
@@ -173,5 +175,7 @@ function! s:compile_and_run()
        exec "AsyncRun! time bash %"
     elseif &filetype == 'python'
        exec "AsyncRun! time python %"
+    elseif &filetype == 'go'
+       exec "AsyncRun! time go run %"
     endif
 endfunction
