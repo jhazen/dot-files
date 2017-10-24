@@ -64,6 +64,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'w0rp/ale'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'fatih/vim-go'
 
 set background=dark
 colorscheme molokai
@@ -106,7 +107,7 @@ nnoremap <F1> za
 nnoremap <C-R> :call <SID>compile_and_run()<CR>
 
 au FileType python map <buffer> <C-L> :call Flake8()<CR>
-au BufEnter *.go nmap <buffer> <C-L> :Lint<CR>
+au BufEnter *.go nmap <C-L> <esc>:w\|!gofmt -d % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.pp nmap <C-L> <esc>:w\|!puppet-lint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.rb nmap <C-L> <esc>:w\|!rspec --color % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.js nmap <C-L> <esc>:w\|!jslint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
