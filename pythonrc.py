@@ -59,10 +59,6 @@ ddb = boto3.resource('dynamodb', endpoint_url='http://localhost:8000',
                   region_name='us-west-1', aws_access_key_id='any',
                   aws_secret_access_key='any')
 
-#UnQLite database
-from unqlite import UnQLite
-udb = UnQLite('{}/local.db'.format(home))
-
 #Mylock
 def mylock():
     subprocess.Popen('mylock')
