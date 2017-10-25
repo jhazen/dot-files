@@ -177,6 +177,6 @@ function! s:compile_and_run()
     elseif &filetype == 'python'
        exec "AsyncRun! time python %"
     elseif &filetype == 'go'
-       exec "AsyncRun! time go run %"
+       exec "AsyncRun! -raw time go run %"
     endif
 endfunction
