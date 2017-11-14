@@ -171,7 +171,7 @@ function! s:compile_and_run()
     elseif &filetype == 'cpp'
        exec "AsyncRun! g++ -std=c++11 % -o %<; chmod +x %<; time %<"
     elseif &filetype == 'java'
-       exec "AsyncRun! javac %; time java %"
+       exec "AsyncRun! source ~/.aliases; javac %; vimjavarun %"
     elseif &filetype == 'sh'
        exec "AsyncRun! time bash %"
     elseif &filetype == 'python'

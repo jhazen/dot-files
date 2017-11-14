@@ -150,3 +150,8 @@ flaskctl() {
     esac
     cd - > /dev/null
 }
+vimjavarun() {
+   cd `dirname $1`
+   java `echo $1 | sed 's/.java//g' | sed 's/.*\///g'`
+   cd - > /dev/null
+}
