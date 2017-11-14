@@ -132,7 +132,6 @@ alias psg='ps aux | grep'
 dynamodbctl() {
     if [ $# -ne 1 ]; then
         echo "Usage dynamodbctl <start|stop|status>"
-        exit 1
     fi
     cd ~/.dynamodb
     case $1 in
@@ -146,7 +145,6 @@ dynamodbctl() {
 flaskctl() {
     if [ $# -ne 1 ]; then
         echo "Usage flaskctl <start|stop|restart|status>"
-        exit 1
     fi
     cd ~/.flask/
     case $1 in
