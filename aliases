@@ -143,9 +143,9 @@ flaskctl() {
     cd ~/.flask/
     case $1 in
         start) ./app.py &;;
-        stop) ps aux | grep "python ./app.py" | grep -v grep | awk '{print $2}' | xargs kill > /dev/null;;
-        status) ps aux | grep "python ./app.py" | grep -v grep 2>&1 > /dev/null && echo "Running" || echo "Not running";;
-        restart) ps aux | grep "python ./app.py" | grep -v grep | awk '{print $2}' | xargs kill && ./app.py &;;
+        stop) ps aux | grep "python2 ./app.py" | grep -v grep | awk '{print $2}' | xargs kill > /dev/null;;
+        status) ps aux | grep "python2 ./app.py" | grep -v grep 2>&1 > /dev/null && echo "Running" || echo "Not running";;
+        restart) ps aux | grep "python2 ./app.py" | grep -v grep | awk '{print $2}' | xargs kill && ./app.py &;;
         *) echo "Usage flaskctl <start|stop|status>";;
     esac
     cd - > /dev/null
