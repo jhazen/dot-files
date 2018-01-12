@@ -139,10 +139,10 @@ nnoremap <silent> bp :bp<CR>
 nnoremap <silent> bB :ConqueTermVSplit bash<CR>
 nnoremap <silent> bP :ConqueTermVSplit python<CR>
 
-nnoremap <silent> ,e <C-w>+
-nnoremap <silent> ,w <C-w>-
-nnoremap <silent> ,q <C-w><
-nnoremap <silent> ,r <C-w>>
+nnoremap <silent> ,e <C-w>+<C-w>+<C-w>+<C-w>+<C-w>+
+nnoremap <silent> ,w <C-w>-<C-w>-<C-w>-<C-w>-<C-w>-
+nnoremap <silent> ,q <C-w><<C-w><<C-w><<C-w><<C-w><
+nnoremap <silent> ,r <C-w>><C-w>><C-w>><C-w>><C-w>>
 
 nnoremap <silent> ,K <C-w>K
 nnoremap <silent> ,J <C-w>J
