@@ -4,12 +4,12 @@ import re
 import subprocess
 from datetime import datetime
 import atexit
-from sh import ls, pwd, cd, git, wc, grep, sed, awk, tar, zip, unzip, cat, sort, mv, chown, chmod
 from scapy.all import *
 import socket
 import time
 import threading
-import Queue
+import queue
+import collections
 import paramiko
 import xml.etree.ElementTree as ET
 import json
@@ -66,19 +66,3 @@ def mylock():
 #Pass bash commands as list
 def sh(cmd):
     subprocess.Popen(cmd)
-
-#Git aliases
-def gs():
-    sh(['git', 'status'])
-def ga(f):
-    sh(['git', 'add', f])
-def gl():
-    sh(['git', 'log', '--oneline', '--decorate', '--color', '--graph'])
-def gc(msg):
-    sh(['git', 'commit', '-m', msg])
-def gp():
-    sh(['git', 'pull'])
-def gP():
-    sh(['git', 'push'])
-def gd():
-    sh(['git', 'diff', '--color'])

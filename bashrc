@@ -35,6 +35,8 @@ PS1='\[\e[1;31m\]\u\[\e[0m\]@\[\e[1;34m\]\h\[\e[0m\] [\[\e[0;37m\]\W\[\e[0m\]] $
 
 source ~/.aliases
 
+HISTSIZE=1000
+
 export GOPATH="/usr/local/go"
 export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONPATH=$PYTHONPATH:~/Workspace/lib

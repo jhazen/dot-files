@@ -67,7 +67,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'fatih/vim-go'
 
 set background=dark
-colorscheme molokai
+colorscheme solarized
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -99,7 +99,7 @@ nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
-nmap <C-Y> :ConqueTermTab python<CR>
+nmap <C-Y> :ConqueTermTab python3<CR>
 nmap <C-G> :TagbarToggle<CR>
 
 nnoremap <F1> za
@@ -137,7 +137,7 @@ nnoremap <silent> bn :bn<CR>
 nnoremap <silent> bp :bp<CR>
 
 nnoremap <silent> bB :ConqueTermVSplit bash<CR>
-nnoremap <silent> bP :ConqueTermVSplit python<CR>
+nnoremap <silent> bP :ConqueTermVSplit python3<CR>
 
 nnoremap <silent> ,e <C-w>+<C-w>+<C-w>+<C-w>+<C-w>+
 nnoremap <silent> ,w <C-w>-<C-w>-<C-w>-<C-w>-<C-w>-
@@ -175,7 +175,7 @@ function! s:compile_and_run()
     elseif &filetype == 'sh'
        exec "AsyncRun! time bash %"
     elseif &filetype == 'python'
-       exec "AsyncRun! time python %"
+       exec "AsyncRun! time python3 %"
     elseif &filetype == 'go'
        exec "AsyncRun! -raw time go run %"
     endif

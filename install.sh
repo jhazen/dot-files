@@ -20,7 +20,7 @@ fi
 
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <name> <name> ..."
-  echo "Example: $0 vim zsh python fabric"
+  echo "Example: $0 vim zsh python bash flask dynamodb"
   echo
   exit 1
 fi
