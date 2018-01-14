@@ -36,7 +36,7 @@ function pysetup() {
     rm ~/.pythonrc.py
   fi
   ln -s $DOTFILES/pythonrc.py ~/.pythonrc.py
-  echo "TODO - install pip modules"
+  pip3 install numpy scapy-python3 paramiko boto3 urllib3 netaddr PyYaml
 }
 
 function vimsetup() {

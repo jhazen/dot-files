@@ -20,6 +20,7 @@ import yaml
 from netaddr import *
 import base64
 from ctypes import *
+import numpy as np
 
 #PS1 variable
 sys.ps1 = "$ "
