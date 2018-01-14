@@ -36,7 +36,7 @@ function pysetup() {
     rm ~/.pythonrc.py
   fi
   ln -s $DOTFILES/pythonrc.py ~/.pythonrc.py
-  pip3 install numpy scapy-python3 paramiko boto3 urllib3 netaddr PyYaml
+  sudo pip3 install numpy scapy-python3 paramiko boto3 urllib3 netaddr PyYaml requests
 }
 
 function vimsetup() {
