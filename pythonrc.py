@@ -21,6 +21,7 @@ from netaddr import *
 import base64
 from ctypes import *
 import numpy as np
+import heapq
 
 #PS1 variable
 sys.ps1 = "$ "
