@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from flask import Flask, request, render_template
 import logging
 app = Flask(__name__)
