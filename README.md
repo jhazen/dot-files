@@ -2,11 +2,8 @@
 
 Personal dotfiles repo. Includes:
 * vim
-* zsh
 * bash
 * python
-* flask
-* dynamodb
 
 
 # Instructions
@@ -17,7 +14,7 @@ Personal dotfiles repo. Includes:
 
 Run 'all' as a parameter to setup everything; otherwise specify which dot file to setup.
 
-> ./install.sh (vim|zsh|python|all)
+> ./install.sh (vim|bash|python|all)
 
 
 # Vim
@@ -31,9 +28,10 @@ Shortcuts:
 * C-U - Gundo toggle
 * C-B - Open bash tab
 * C-Y - Open python tab
-* F5 - Lint file. Supported filetypes: spec, ruby, puppet, javascript and python.
-* F6 - Execute current file and place output in horizontal split.
-* F7 - Tagbar toggle
+* C-F - Fold
+* C-R - Compile/run, output into tooltip window (c/c++/python/shell/golang)
+* C-L - Lint file. Supported filetypes: spec, ruby, puppet, javascript and python.
+* C-G - Tagbar toggle
 * vv - Open vertical split
 * ss - Open split
 * bn - Next buffer
@@ -60,14 +58,11 @@ Other useful tips:
 * \<Space\> mapped to @q; Record macro to 'q' register and execute with \<Space\> (Default is comment line with #)
 
 
-# Zsh / Bash
+# Bash
 
-Vim mode zsh. Esc puts terminal in command mode.
-
-For local zsh changes, use ~/.zshlocal file.
 For local bash changes, use ~/.bashlocal file.
 
-Right handed git prompt once in a git directory.
+Git prompt once in a git directory.
 
 Vagrant aliases:
 * vs - vagrant status
@@ -140,14 +135,6 @@ Other aliases:
 pythonrc file for interactive shell. Includes tab completion, python shell history and certain shell functions (for replacing bash/zsh with python).
 
 
-# Flask
-
-Sets up simple flask server running on port 8080, along with templates. Includes nginx configuration file for proxying port 80 to 8080. Use flaskctl to control.
-
-
-# Dynamodb
-
-Sets up a local instance of dynamodb. Use dynamodbctl to control.
 
 
 # Help
