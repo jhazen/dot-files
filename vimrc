@@ -67,7 +67,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'fatih/vim-go'
 
 set background=dark
-colorscheme solarized
+colorscheme Benokai
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -102,7 +102,7 @@ nmap <C-B> :ConqueTermTab bash<CR>
 nmap <C-Y> :ConqueTermTab python3<CR>
 nmap <C-G> :TagbarToggle<CR>
 
-nnoremap <F1> za
+nnoremap <C-F> za
 
 nnoremap <C-R> :call <SID>compile_and_run()<CR>
 

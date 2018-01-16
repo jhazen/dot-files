@@ -13,6 +13,7 @@ import collections
 import paramiko
 import xml.etree.ElementTree as ET
 import json
+import csv
 import boto3
 import requests
 import urllib3
@@ -22,6 +23,10 @@ import base64
 from ctypes import *
 import numpy as np
 import heapq
+import bz2
+import gzip
+import sqlite3
+from unqlite import UnQlite
 
 #PS1 variable
 sys.ps1 = "$ "
@@ -60,6 +65,13 @@ from boto3.dynamodb.conditions import Attr
 ddb = boto3.resource('dynamodb', endpoint_url='http://localhost:8000',
                   region_name='us-west-1', aws_access_key_id='any',
                   aws_secret_access_key='any')
+
+#SQLite db
+sdb = sqlite3.connect("main.db")
+sdbc = sdb.cursor()
+
+#UnQlite db
+udb = UnQlite("umain.db")
 
 #Mylock
 def mylock():

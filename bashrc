@@ -31,7 +31,8 @@ function __git_prompt {
     echo -en $P
   fi
 }
-PS1='\[\e[1;31m\]\u\[\e[0m\]@\[\e[1;34m\]\h\[\e[0m\] [\[\e[0;37m\]\W\[\e[0m\]] $(__git_prompt)\n$ '
+#PS1='\[\e[1;31m\]\u\[\e[0m\]@\[\e[1;34m\]\h\[\e[0m\] [\[\e[0;37m\]\W\[\e[0m\]] $(__git_prompt)\n$ '
+PS1='[\[\e[1;31m\]\W\[\e[0m\]]$(__git_prompt)$ '
 
 source ~/.aliases
 
@@ -39,7 +40,6 @@ HISTSIZE=1000
 
 export GOPATH="/usr/local/go"
 export PYTHONSTARTUP=~/.pythonrc.py
-export PYTHONPATH=$PYTHONPATH:~/Workspace/lib
 export PATH=~/Workspace/bin:$GOPATH/bin:$PATH
 
 if [ -f ~/.bashlocal ]; then
@@ -49,3 +49,4 @@ fi
 if [ -f ~/.todo ]; then
     cat ~/.todo
 fi
+unset PYTHONPATH
