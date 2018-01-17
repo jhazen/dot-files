@@ -26,7 +26,7 @@ import heapq
 import bz2
 import gzip
 import sqlite3
-from unqlite import UnQlite
+from unqlite import UnQLite
 
 #PS1 variable
 sys.ps1 = "$ "
@@ -67,11 +67,11 @@ ddb = boto3.resource('dynamodb', endpoint_url='http://localhost:8000',
                   aws_secret_access_key='any')
 
 #SQLite db
-sdb = sqlite3.connect("main.db")
+sdb = sqlite3.connect(home + "/main.db")
 sdbc = sdb.cursor()
 
 #UnQlite db
-udb = UnQlite("umain.db")
+udb = UnQLite(home + "/umain.db")
 
 #Mylock
 def mylock():
