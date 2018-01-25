@@ -55,7 +55,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'moll/vim-node'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'CyCoreSystems/vim-cisco-ios'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'joonty/vdebug'
@@ -65,6 +64,7 @@ Plugin 'skywind3000/asyncrun.vim'
 Plugin 'w0rp/ale'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'fatih/vim-go'
+Plugin 'davidhalter/jedi-vim'
 
 set background=dark
 colorscheme edo_sea 
@@ -79,6 +79,8 @@ filetype plugin indent on
 let g:NERDTreeDirArrows=0
 let g:NERDTreeShowHidden=1
 let g:NERDTreeWinPos="right"
+
+let g:jedi#use_splits_not_buffers = "bottom"
 
 let g:ctrlp_cmd='CtrlP ~/Workspace'
 
