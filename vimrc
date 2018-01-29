@@ -68,7 +68,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 
 set background=dark
-colorscheme edo_sea 
+colorscheme znake
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /

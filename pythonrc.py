@@ -80,5 +80,3 @@ def mylock():
 #Pass bash commands as list
 def sh(cmd):
     subprocess.Popen(cmd)
-
-print(home)
