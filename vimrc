@@ -65,6 +65,7 @@ Plugin 'w0rp/ale'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'fatih/vim-go'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
 
 set background=dark
 colorscheme edo_sea 
@@ -81,6 +82,7 @@ let g:NERDTreeShowHidden=1
 let g:NERDTreeWinPos="right"
 
 let g:jedi#use_splits_not_buffers = "bottom"
+let g:jedi#documentation_command = "<leader>k"
 
 let g:ctrlp_cmd='CtrlP ~/Workspace'
 

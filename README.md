@@ -50,12 +50,17 @@ Shortcuts:
 * ,L - Move vsplit to the right
 * ,K - Move split up
 * ,J - Move split down
+* \d - Jedi definitions
+* \g - Jedi assignments
+* \n - Jedi usages
+* \k - Jedi pydoc
 
 Other useful tips:
 * :Gstatus - Git status
 * :Gcommit - Git commit
 * :Git - Git
 * \<Space\> mapped to @q; Record macro to 'q' register and execute with \<Space\> (Default is comment line with #)
+* \<Tab\> autcomplete
 
 
 # Bash

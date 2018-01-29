@@ -53,7 +53,8 @@ function vimsetup() {
   git clone https://github.com/gmarik/vundle.vim ~/.vim/bundle/vundle
   ln -s $DOTFILES/vimrc ~/.vimrc
   vim +PluginInstall +qall
-  cd ~/.vim/bundle/YouCompleteMe && ./install.py
+  # No more YCM
+  #cd ~/.vim/bundle/YouCompleteMe && ./install.py
   mkdir ~/.vim/syntax
   cd ~/.vim/syntax && wget https://raw.githubusercontent.com/ClockworkNet/vim-junos-syntax/master/syntax/junos.vim
 }
