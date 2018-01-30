@@ -31,6 +31,7 @@ set sidescroll=1
 set shell=bash
 set ff=unix
 set clipboard=unnamed
+set laststatus=2
 
 set foldmethod=indent
 set foldlevel=99
@@ -62,7 +63,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'w0rp/ale'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Lokaltog/vim-powerline'
 Plugin 'fatih/vim-go'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
@@ -85,7 +86,6 @@ let g:jedi#use_splits_not_buffers = "bottom"
 let g:jedi#documentation_command = "<leader>k"
 
 let g:ctrlp_cmd='CtrlP ~/Workspace'
-
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 let NERDTreeIgnore=['\.pyc$', '\~$']
@@ -95,7 +95,7 @@ let g:SimplyFold_docstring_preview=1
 let g:flake8_quickfix_height=12
 let python_highlight_all=1
 
-let g:ycm_autoclose_preview_window_after_completion=1
+let g:Powerline_symbols = 'fancy'
 
 nmap <C-N> :NERDTreeToggle<CR>
 nmap <C-W> :tabprevious<CR>
