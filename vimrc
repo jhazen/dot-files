@@ -32,6 +32,7 @@ set shell=bash
 set ff=unix
 set clipboard=unnamed
 set laststatus=2
+set textwidth=1000
 
 set foldmethod=indent
 set foldlevel=99
@@ -132,7 +133,6 @@ au BufEnter *.yaml set softtabstop=2
 au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
 au BufEnter *.pp set filetype=puppet
-au BufEnter *.py set textwidth=99
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
