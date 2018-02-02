@@ -28,11 +28,11 @@ function __git_prompt {
     P="$P`git branch | grep '* ' | sed 's/..//'`"
     P="$P$RESET"
     P="$P]"
-    echo -en $P
+    echo -en " $P"
   fi
 }
-#PS1='\[\e[1;31m\]\u\[\e[0m\]@\[\e[1;34m\]\h\[\e[0m\] [\[\e[0;37m\]\W\[\e[0m\]] $(__git_prompt)\n$ '
-PS1='[\[\e[1;31m\]\W\[\e[0m\]]$(__git_prompt)$ '
+
+PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w\e[0m$(__git_prompt) % '
 
 source ~/.aliases
 
@@ -41,6 +41,12 @@ HISTSIZE=1000
 export GOPATH="/usr/local/go"
 export PYTHONSTARTUP=~/.pythonrc.py
 export PATH=~/Workspace/bin:$GOPATH/bin:$PATH
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+
+# Autoenv
+AUTOENV_ENABLE_LEAVE="on"
+AUTOENV_ASSUME_YES="on"
+source ~/.autoenv/activate.sh
 
 if [ -f ~/.bashlocal ]; then
   source ~/.bashlocal

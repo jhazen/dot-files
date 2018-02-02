@@ -36,7 +36,7 @@ function pysetup() {
     rm ~/.pythonrc.py
   fi
   ln -s $DOTFILES/pythonrc.py ~/.pythonrc.py
-  sudo pip3 install numpy scapy-python3 paramiko boto3 urllib3 netaddr PyYaml requests flask django
+  sudo pip3 install numpy scapy-python3 paramiko boto3 urllib3 netaddr PyYaml requests flask django jedi virtualenv unqlite
 }
 
 function vimsetup() {
@@ -75,6 +75,10 @@ function bashsetup() {
   fi
   ln -s $DOTFILES/aliases ~/.aliases
   ln -s $DOTFILES/bashrc ~/.bashrc
+  if [ -d ~/.autoenv ]; then
+    rm -Rf ~/.autoenv
+  fi
+  git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
 }
 
 function allsetup() {
