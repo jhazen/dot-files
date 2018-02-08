@@ -68,6 +68,7 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'fatih/vim-go'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
+Plugin 'jhazen/vim-ws'
 
 set background=dark
 colorscheme znake
