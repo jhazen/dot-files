@@ -173,7 +173,9 @@ augroup END
 function! s:compile_and_run()
     exec 'w'
     if &filetype == 'c'
-        exec "AsyncRun! gcc % -o %<; chmod +x %<; time %<"
+        let fullpath=expand("%<:p")
+        echo fullpath
+        exec "AsyncRun! gcc % -o %<; chmod +x %<; time " . fullpath
     elseif &filetype == 'cpp'
        exec "AsyncRun! g++ -std=c++11 % -o %<; chmod +x %<; time %<"
     elseif &filetype == 'java'
@@ -185,4 +187,32 @@ function! s:compile_and_run()
     elseif &filetype == 'go'
        exec "AsyncRun! -raw time go run %"
     endif
+endfunction
+command -bar Hexmode call ToggleHex()
+
+function ToggleHex()
+  let l:modified=&mod
+  let l:oldreadonly=&readonly
+  let &readonly=0
+  let l:oldmodifiable=&modifiable
+  let &modifiable=1
+  if !exists("b:editHex") || !b:editHex
+    let b:oldft=&ft
+    let b:oldbin=&bin
+    setlocal binary
+    silent :e
+    let &ft="xxd"
+    let b:editHex=1
+    %!xxd
+  else
+    let &ft=b:oldft
+    if !b:oldbin
+      setlocal nobinary
+    endif
+    let b:editHex=0
+    %!xxd -r
+  endif
+  let &mod=l:modified
+  let &readonly=l:oldreadonly
+  let &modifiable=l:oldmodifiable
 endfunction
