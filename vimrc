@@ -135,6 +135,7 @@ au BufEnter *.yaml set softtabstop=2
 au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
 au BufEnter *.pp set filetype=puppet
+au BufEnter *.asm set filetype=nasm
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
@@ -162,7 +163,6 @@ nnoremap <silent> ,l <C-w>l
 
 nnoremap <Space> @q
 let @q="\<Esc>^i#\<Esc>j"
-let @e="\<Esc>bP\<Esc>,J,k:TagbarToggle\<CR>:NERDTreeToggle\<CR>,h,h:CtrlP\<CR>"
 
 augroup SPACEVIM_ASYNCRUN
     autocmd!
@@ -173,22 +173,20 @@ augroup END
 function! s:compile_and_run()
     exec 'w'
     if &filetype == 'c'
-        let fullpath=expand("%<:p")
-        echo fullpath
-        exec "AsyncRun! gcc % -o %<; chmod +x %<; time " . fullpath
+        exec "AsyncRun! gcc % -o %<; chmod +x %<; time ./%<"
     elseif &filetype == 'cpp'
-       exec "AsyncRun! g++ -std=c++11 % -o %<; chmod +x %<; time %<"
-    elseif &filetype == 'java'
-       exec "AsyncRun! source ~/.aliases; javac %; vimjavarun %"
+       exec "AsyncRun! g++ -std=c++11 % -o %<; chmod +x %<; time ./%<"
     elseif &filetype == 'sh'
        exec "AsyncRun! time bash %"
     elseif &filetype == 'python'
        exec "AsyncRun! time python3 %"
     elseif &filetype == 'go'
        exec "AsyncRun! -raw time go run %"
+    elseif &filetype == 'nasm'
+       exec "AsyncRun! -raw nasm -f elf64 % -o %.o; ld -m elf_x86_64 %.o -o %<; chmod +x %<; time ./%<"
     endif
 endfunction
-command -bar Hexmode call ToggleHex()
+command -bar Hex call ToggleHex()
 
 function ToggleHex()
   let l:modified=&mod
