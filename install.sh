@@ -79,6 +79,19 @@ function bashsetup() {
     rm -Rf ~/.autoenv
   fi
   git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
+  if [ ! -d ~/bin ]; then
+      mkdir ~/bin
+  fi
+  if [ ! -d ~/.bin ]; then
+      mkdir ~/.bin
+  fi
+  if [ -L ~/bin/vimrun.sh ]; then
+    rm ~/bin/vimrun.sh
+  fi
+  if [ -f ~/bin/vimrun.sh ]; then
+    mv ~/vimrun.sh $BACKUP_DIR/vimrun.sh-$(date +%s)
+  fi
+  ln -s $DOTFILES/vimrun.sh ~/bin/vimrun.sh
 }
 
 function allsetup() {

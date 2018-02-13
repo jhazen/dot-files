@@ -40,7 +40,7 @@ HISTSIZE=1000
 
 export GOPATH="/usr/local/go"
 export PYTHONSTARTUP=~/.pythonrc.py
-export PATH=~/Workspace/bin:$GOPATH/bin:$PATH
+export PATH=~/bin:~/.bin:$GOPATH/bin:$PATH
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 
 # Autoenv

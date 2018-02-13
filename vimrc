@@ -173,17 +173,23 @@ augroup END
 function! s:compile_and_run()
     exec 'w'
     if &filetype == 'c'
-        exec "AsyncRun! gcc % -o %<; chmod +x %<; time ./%<"
+       exec "AsyncRun! vimrun.sh c %:p"
     elseif &filetype == 'cpp'
-       exec "AsyncRun! g++ -std=c++11 % -o %<; chmod +x %<; time ./%<"
+       exec "AsyncRun! vimrun.sh cpp %:p"
+    elseif &filetype == 'java'
+       exec "AsyncRun! vimrun.sh java %:p"
     elseif &filetype == 'sh'
-       exec "AsyncRun! time bash %"
+       exec "AsyncRun! vimrun.sh sh %:p"
     elseif &filetype == 'python'
-       exec "AsyncRun! time python3 %"
+       exec "AsyncRun! vimrun.sh py %:p"
+    elseif &filetype == 'py2'
+       exec "AsyncRun! vimrun.sh py2 %:p"
     elseif &filetype == 'go'
-       exec "AsyncRun! -raw time go run %"
+       exec "AsyncRun! -raw vimrun.sh go %:p"
     elseif &filetype == 'nasm'
-       exec "AsyncRun! -raw nasm -f elf64 % -o %.o; ld -m elf_x86_64 %.o -o %<; chmod +x %<; time ./%<"
+       exec "AsyncRun! vimrun.sh asm %:p"
+    elseif &filetype == 'nasm32'
+       exec "AsyncRun! vimrun.sh asm32 %:p"
     endif
 endfunction
 command -bar Hex call ToggleHex()
