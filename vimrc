@@ -68,6 +68,10 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'fatih/vim-go'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'roxma/nvim-yarp'
+Plugin 'Shougo/deoplete.nvim'
 
 set background=dark
 colorscheme znake
@@ -97,6 +101,8 @@ let g:ConqueTerm_StartMessages = 0
 
 let g:flake8_quickfix_height=12
 let python_highlight_all=1
+
+let g:deoplete#enable_at_startup = 1
 
 let g:Powerline_symbols = 'fancy'
 
@@ -132,6 +138,9 @@ au BufEnter *.yml set softtabstop=2
 au BufEnter *.yaml set shiftwidth=2
 au BufEnter *.yaml set tabstop=2
 au BufEnter *.yaml set softtabstop=2
+au BufEnter *.rb set shiftwidth=2
+au BufEnter *.rb set tabstop=2
+au BufEnter *.rb set softtabstop=2
 au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
 au BufEnter *.pp set filetype=puppet
