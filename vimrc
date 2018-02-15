@@ -113,6 +113,8 @@ nmap <C-T> :tabnew<CR>
 nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
 nmap <C-Y> :ConqueTermTab python3<CR>
+nmap <C-M> :ConqueTermTab msfconsole<CR>
+nmap <C-M> :ConqueTermTab sqlite3<CR>
 nmap <C-G> :TagbarToggle<CR>
 
 nnoremap <C-F> za
@@ -154,6 +156,8 @@ nnoremap <silent> bp :bp<CR>
 
 nnoremap <silent> bB :ConqueTermVSplit bash<CR>
 nnoremap <silent> bP :ConqueTermVSplit python3<CR>
+nnoremap <silent> bM :ConqueTermVSplit msfconsole<CR>
+nnoremap <silent> bD :ConqueTermVSplit sqlite3<CR>
 
 nnoremap <silent> ,e <C-w>+<C-w>+<C-w>+<C-w>+<C-w>+
 nnoremap <silent> ,w <C-w>-<C-w>-<C-w>-<C-w>-<C-w>-

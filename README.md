@@ -28,8 +28,10 @@ Shortcuts:
 * C-U - Gundo toggle
 * C-B - Open bash tab
 * C-Y - Open python tab
+* C-M - Open msfconsole tab
+* C-D - Open sqlite3 tab
 * C-F - Fold
-* C-R - Compile/run, output into tooltip window (c/c++/python/shell/golang)
+* C-R - Compile/run, output into tooltip window (c/c++/python/shell/golang/asm)
 * C-L - Lint file. Supported filetypes: spec, ruby, puppet, javascript and python.
 * C-G - Tagbar toggle
 * vv - Open vertical split
@@ -38,6 +40,8 @@ Shortcuts:
 * bp - Previous buffer
 * bB - Bash vsplit
 * bP - Python vsplit
+* bM - msfconsole vsplit
+* bD - sqlite3 vsplit
 * ,q - Resize vsplit to the left
 * ,r - Resize vsplit to the right
 * ,e - Resize split up
