@@ -147,6 +147,7 @@ au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
 au BufEnter *.pp set filetype=puppet
 au BufEnter *.asm set filetype=nasm
+au BufEnter *.sls set filetype=yaml
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
