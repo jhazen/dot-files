@@ -93,6 +93,13 @@ function bashsetup() {
     mv ~/vimrun.sh $BACKUP_DIR/vimrun.sh-$(date +%s)
   fi
   ln -s $DOTFILES/vimrun.sh ~/bin/vimrun.sh
+  if [ -L ~/bin/vimserver.py ]; then
+    rm ~/bin/vimserver.py
+  fi
+  if [ -f ~/bin/vimserver.py ]; then
+    mv ~/vimserver.py $BACKUP_DIR/vimserver.py-$(date +%s)
+  fi
+  ln -s $DOTFILES/vimserver.py ~/bin/vimserver.py
 }
 
 function allsetup() {
