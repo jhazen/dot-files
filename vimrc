@@ -114,7 +114,7 @@ nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
 nmap <C-Y> :ConqueTermTab python3<CR>
 nmap <C-M> :ConqueTermTab msfconsole<CR>
-nmap <C-M> :ConqueTermTab sqlite3<CR>
+nmap <C-D> :ConqueTermTab sqlite3<CR>
 nmap <C-G> :TagbarToggle<CR>
 
 nnoremap <C-F> za
@@ -234,3 +234,9 @@ function ToggleHex()
   let &readonly=l:oldreadonly
   let &modifiable=l:oldmodifiable
 endfunction
+
+function! s:ServerRequest(role)
+    exec 'w'
+    exec "AsyncRun! vimserver.py " . a:role
+endfunction
+command! -nargs=1 ServerRequest call s:ServerRequest(<f-args>)

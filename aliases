@@ -1,5 +1,6 @@
 alias vs='vagrant status'
 alias vu='vagrant up'
+alias vp='vagrant provision'
 alias vd='vagrant destroy'
 alias vss='vagrant ssh'
 alias vh='vagrant halt'

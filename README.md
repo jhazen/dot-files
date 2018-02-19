@@ -63,6 +63,7 @@ Other useful tips:
 * :Gstatus - Git status
 * :Gcommit - Git commit
 * :Git - Git
+* :ServerRequest <salt role name> - Creates a server in vagrantlab environment, sets salt role, and boots
 * \<Space\> mapped to @q; Record macro to 'q' register and execute with \<Space\> (Default is comment line with #)
 * \<Tab\> autcomplete
 
@@ -76,6 +77,7 @@ Git prompt once in a git directory.
 Vagrant aliases:
 * vs - vagrant status
 * vu - vagrant up
+* vp - vagrant provision
 * vd - vagrant destroy
 * vss - vagrant ssh
 * vh - vagrant halt
