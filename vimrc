@@ -236,7 +236,6 @@ function ToggleHex()
 endfunction
 
 function! s:ServerRequest(role)
-    exec 'w'
     exec "AsyncRun! vimserver.py " . a:role
 endfunction
 command! -nargs=1 ServerRequest call s:ServerRequest(<f-args>)

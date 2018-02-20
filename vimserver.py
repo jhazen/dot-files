@@ -52,5 +52,5 @@ final_yaml = """
 with open("{}/servers.yaml".format(list_location), 'a') as result_file:
     result_file.write(final_yaml)
 
-subprocess.Popen("cd {} && vagrant up {}".format(list_location, tag), shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+subprocess.Popen("startVM.sh {}".format(tag), shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 print("Server {} has been requested and is booting. IP: {}".format(tag, addr))
