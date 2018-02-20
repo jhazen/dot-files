@@ -100,6 +100,13 @@ function bashsetup() {
     mv ~/vimserver.py $BACKUP_DIR/vimserver.py-$(date +%s)
   fi
   ln -s $DOTFILES/vimserver.py ~/bin/vimserver.py
+  if [ -L ~/bin/startVM.sh ]; then
+    rm ~/bin/startVM.sh
+  fi
+  if [ -f ~/bin/startVM.sh ]; then
+    mv ~/startVM.sh $BACKUP_DIR/startVM.sh-$(date +%s)
+  fi
+  ln -s $DOTFILES/startVM.sh ~/bin/startVM.sh
 }
 
 function allsetup() {
