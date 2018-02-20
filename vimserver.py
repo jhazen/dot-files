@@ -11,9 +11,14 @@ ips = []
 list_location = os.environ.get("VAGRANTLAB")
 
 parser = argparse.ArgumentParser()
+parser.add_argument("-c", "--chef", help="set provisioner to chef (salt is default)", action="store_true")
 parser.add_argument("role", type=str, help="Name of saltstack role to apply. i.e. appserver")
 args = parser.parse_args()
 
+if args.chef:
+    provisioner = "chef"
+else:
+    provisioner = "salt"
 
 with open("{}/servers.yaml".format(list_location), 'r') as file:
     servers = yaml.load(file)
@@ -40,8 +45,9 @@ final_yaml = """
 - name: {}
   box: centos/7
   ip: {}
-  provision: salt
-  role: {}""".format(tag, addr, args.role)
+  provision: {}
+  temp: true
+  role: {}""".format(tag, addr, provisioner, args.role)
 
 with open("{}/servers.yaml".format(list_location), 'a') as result_file:
     result_file.write(final_yaml)
