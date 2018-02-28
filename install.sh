@@ -20,7 +20,7 @@ fi
 
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <name> <name> ..."
-  echo "Example: $0 vim python bash"
+  echo "Example: $0 vim python bash salt"
   echo
   exit 1
 fi
@@ -38,6 +38,12 @@ function pysetup() {
   ln -s $DOTFILES/pythonrc.py ~/.pythonrc.py
   sudo pip3 install numpy scapy-python3 paramiko boto3 urllib3 netaddr PyYaml requests flask django jedi virtualenv unqlite neovim flake8
   sudo pip2 install neovim flake8
+}
+
+function saltsetup() {
+    cd /tmp
+    curl -L https://bootstrap.saltstack.com -o bootstrap_salt.sh
+    sudo sh bootstrap_salt.sh
 }
 
 function vimsetup() {
@@ -124,7 +130,8 @@ for i in $@; do
     python) pysetup;;
     bash) bashsetup;;
     all) allsetup;;
-    *) echo "Invalid name. Names: vim, bash, python, all";;
+    salt) saltsetup;;
+    *) echo "Invalid name. Names: vim, bash, python, salt, all";;
   esac
 done
 
