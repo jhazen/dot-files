@@ -41,9 +41,15 @@ function pysetup() {
 }
 
 function saltsetup() {
-    cd /tmp
-    curl -L https://bootstrap.saltstack.com -o bootstrap_salt.sh
-    sudo sh bootstrap_salt.sh -X git develop
+  cd /tmp
+  curl -L https://bootstrap.saltstack.com -o bootstrap_salt.sh
+  sudo sh bootstrap_salt.sh -X git develop
+  if [ ! -d /srv/salt ]; then
+    sudo mkdir /srv/salt
+  fi
+  cp -R $DOTFILES/salt/* /srv/salt/
+  sudo sed -i 's/#file_client: remote/file_client: local/g' /etc/salt/minion
+  sudo salt-call --local state.apply
 }
 
 function vimsetup() {
