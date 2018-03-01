@@ -47,7 +47,7 @@ function saltsetup() {
   if [ ! -d /srv/salt ]; then
     sudo mkdir /srv/salt
   fi
-  cp -R $DOTFILES/salt/* /srv/salt/
+  sudo cp -R $DOTFILES/salt/* /srv/salt/
   sudo sed -i 's/#file_client: remote/file_client: local/g' /etc/salt/minion
   sudo salt-call --local state.apply
 }
