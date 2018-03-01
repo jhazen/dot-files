@@ -43,7 +43,7 @@ function pysetup() {
 function saltsetup() {
     cd /tmp
     curl -L https://bootstrap.saltstack.com -o bootstrap_salt.sh
-    sudo sh bootstrap_salt.sh
+    sudo sh bootstrap_salt.sh -X git develop
 }
 
 function vimsetup() {

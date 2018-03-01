@@ -44,35 +44,26 @@ jbctl() {
       jbc --version
       ;;
     start)
-      nohup $JBOSS_HOME/bin/domain.sh > /dev/null 2>&1 &
+      nohup $JBOSS_HOME/bin/standalone.sh > /dev/null 2>&1 &
       ;;
     stop)
-      jbc --command="shutdown --host=$2" || echo "\n\njbctl stop <node name>\n"
+      jbc --command="shutdown"
       ;;
     restart)
-      jbc --command="shutdown --host=$2"
-      nohup $JBOSS_HOME/bin/domain.sh > /dev/null 2>&1 &
-      ;;
-    sgrestart)
-      jbc --command="/server-group=`echo -e $2`:restart-servers()" || echo "\n\njbctl sgrestart <server group>\n"
+      jbc --command="shutdown"
+      nohup $JBOSS_HOME/bin/standalone.sh > /dev/null 2>&1 &
       ;;
     phist)
-      jbc --command="patch history --host=$2" || echo "\n\njbctl phist <node name>"
-      ;;
-    lsservers)
-      jbc --command="ls -l /host"
+      jbc --command="patch history"
       ;;
     status)
       ps aux | grep jboss | grep -v grep > /dev/null 2>&1 && echo "Running" || echo "Not Running"
       ;;
-    tail)
-      tail -f $JBOSS_HOME/domain/log/host-controller.log
-      ;;
-    less)
-      less $JBOSS_HOME/domain/log/host-controller.log
+    log)
+      less +F $JBOSS_HOME/standalone/log/server.log
       ;;
     lsdeploy)
-      jbc --command="deployment-info --server-group=$2" || echo "\n\njbctl lsdeploy <server group>\n"
+      jbc --command="deployment-info"
       ;;
     tksnap)
       jbc --command=":take-snapshot"
@@ -84,10 +75,10 @@ jbctl() {
       jbc --command=":delete-snapshot(name=$2)" || echo "\n\njbctl rmsnap <snapshot name>"
       ;;
     deploy)
-      jbc --command="deploy $2 --server-groups=$3"
+      jbc --command="deploy $2"
       ;;
     undeploy)
-      jbc --command="undeploy $2 --all-relevant-server-groups"
+      jbc --command="undeploy $2"
       ;;
     cmd)
       jbc
@@ -108,7 +99,6 @@ jbctl() {
       echo -e "cmd\t\tOpen CLI\t\tn/a\t\t\tjbctl cmd"
       echo -e "start\t\tStart JBoss\t\tn/a\t\t\tjbctl start"
       echo -e "stop\t\tStop JBoss\t\tServer name\t\tjbctl stop work-s01"
-      echo -e "restart\t\tRestart JBoss\t\tServer name\t\tjbctl restart work-s01"
       echo -e "home\t\tDisplay JBoss home\tn/a\t\t\tjbctl home"
       echo -e "lssnap\t\tDisplay snaps\t\tn/a\t\t\tjbctl lssnap"
       echo -e "tksnap\t\tTake snapshot\t\tn/a\t\t\tjbctl tksnap"
@@ -116,12 +106,9 @@ jbctl() {
       echo -e "lsdeploy\tDisplay deployments\tServer group\t\tjbctl lsdeploy sg01"
       echo -e "deploy\t\tDeploy artifact\t\tArtifact, Server group\tjbctl deploy myapp.war sg01"
       echo -e "undeploy\tUndeploy artifact\tArtifact\t\tjbctl undeploy myapp.war"
-      echo -e "less\t\tOpen log in less\tn/a\t\t\tjbctl less"
-      echo -e "tail\t\tTail -f log\t\tn/a\t\t\tjbctl tail"
+      echo -e "log\t\tOpen log in less\tn/a\t\t\tjbctl less"
       echo -e "status\t\tCheck running state\tn/a\t\t\tjbctl status"
-      echo -e "lsservers\tList servers in domain\tn/a\t\t\tjbctl lsservers"
       echo -e "phist\t\tShow patch history\tServer name\t\tjbctl phist work-s01"
-      echo -e "sgrestart\tRestart a server group\tServer group\t\tjbctl sgrestart sg01"
       echo
       ;;
   esac
