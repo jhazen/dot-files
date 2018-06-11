@@ -36,7 +36,7 @@ PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w\[\e[0m$(__git_prompt)\]\n% '
 
 source ~/.aliases
 
-HISTSIZE=1000
+HISTSIZE=100000
 
 export GOPATH="/usr/local/go"
 export PYTHONSTARTUP=~/.pythonrc.py
