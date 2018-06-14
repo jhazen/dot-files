@@ -19,6 +19,7 @@ fp_map = {
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-c", "--chef", help="set provisioner to chef (salt is default)", action="store_true")
+parser.add_argument("-r", "--router", help="Create a JUNOS router", action="store_true")
 parser.add_argument("role", type=str, help="Name of saltstack role to apply. i.e. appserver")
 args = parser.parse_args()
 
@@ -47,7 +48,7 @@ for id in range(1, 99):
         break
 
 for val in range(102, 210):
-    addr = "10.1.0.{}".format(val)
+    addr = "192.168.200.{}".format(val)
     if addr in ips:
         continue
     else:
@@ -61,7 +62,15 @@ if fp:
 else:
     fp_yaml = ""
 
-final_yaml = """
+if args.router:
+    final_yaml = """
+- name: {}
+  box: juniper/vqfx10k-re
+  ip: {}
+  temp: true
+  role: juniper""".format(tag, addr)
+else:
+    final_yaml = """
 - name: {}
   box: centos/7
   ip: {}
