@@ -71,7 +71,6 @@ Plugin 'ervandew/supertab'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'roxma/nvim-yarp'
-Plugin 'Shougo/deoplete.nvim'
 
 set background=dark
 colorscheme znake
@@ -101,8 +100,6 @@ let g:ConqueTerm_StartMessages = 0
 
 let g:flake8_quickfix_height=12
 let python_highlight_all=1
-
-let g:deoplete#enable_at_startup = 1
 
 let g:Powerline_symbols = 'fancy'
 
