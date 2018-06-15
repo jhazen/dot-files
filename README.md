@@ -28,7 +28,6 @@ Shortcuts:
 * C-U - Gundo toggle
 * C-B - Open bash tab
 * C-Y - Open python tab
-* C-M - Open msfconsole tab
 * C-D - Open sqlite3 tab
 * C-F - Fold
 * C-R - Compile/run, output into tooltip window (c/c++/python/shell/golang/asm)
@@ -40,7 +39,6 @@ Shortcuts:
 * bp - Previous buffer
 * bB - Bash vsplit
 * bP - Python vsplit
-* bM - msfconsole vsplit
 * bD - sqlite3 vsplit
 * ,q - Resize vsplit to the left
 * ,r - Resize vsplit to the right
@@ -64,6 +62,9 @@ Other useful tips:
 * :Gcommit - Git commit
 * :Git - Git
 * :ServerRequest <salt role name> - Creates a server in vagrantlab environment, sets salt role, and boots
+* :Hex - Toggle hex editor
+* :ServerShellTab <vagrantlab box name> - Create a conqueterm shell in new tab with SSH to the vagrant box
+* :ServerShellVSplit <vagrantlab box name> - Create a conqueterm shell in new vsplit with SSH to the vagrant box
 * \<Space\> mapped to @q; Record macro to 'q' register and execute with \<Space\> (Default is comment line with #)
 * \<Tab\> autcomplete
 
