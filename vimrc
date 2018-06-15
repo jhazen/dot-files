@@ -201,9 +201,8 @@ function! s:compile_and_run()
        exec "AsyncRun! vimrun.sh asm32 %:p"
     endif
 endfunction
-command -bar Hex call ToggleHex()
 
-function ToggleHex()
+function! ToggleHex()
   let l:modified=&mod
   let l:oldreadonly=&readonly
   let &readonly=0
@@ -229,8 +228,19 @@ function ToggleHex()
   let &readonly=l:oldreadonly
   let &modifiable=l:oldmodifiable
 endfunction
+command! -bar Hex call ToggleHex()
 
 function! s:ServerRequest(role)
     exec "AsyncRun! vimserver.py " . a:role
 endfunction
 command! -nargs=1 ServerRequest call s:ServerRequest(<f-args>)
+
+function! s:ServerShellTab(name)
+    exec ":ConqueTermTab bash -c 'cd ~/Workspace/vagrantlab/ && vagrant ssh " . a:name . "'"
+endfunction
+command! -nargs=1 ServerShellTab call s:ServerShellTab(<f-args>)
+
+function! s:ServerShellVSplit(name)
+    exec ":ConqueTermVSplit bash -c 'cd ~/Workspace/vagrantlab/ && vagrant ssh " . a:name . "'"
+endfunction
+command! -nargs=1 ServerShellVSplit call s:ServerShellVSplit(<f-args>)
