@@ -244,3 +244,13 @@ function! s:ServerShellVSplit(name)
     exec ":ConqueTermVSplit bash -c 'cd ~/Workspace/vagrantlab/ && vagrant ssh " . a:name . "'"
 endfunction
 command! -nargs=1 ServerShellVSplit call s:ServerShellVSplit(<f-args>)
+
+function! s:ServerStart(name)
+    exec "AsyncRun! bash -c 'cd ~/Workspace/vagrantlab/ && vagrant up " . a:name . "'"
+endfunction
+command! -nargs=1 ServerStart call s:ServerStart(<f-args>)
+
+function! s:ServerStop(name)
+    exec "AsyncRun! bash -c 'cd ~/Workspace/vagrantlab/ && vagrant halt -f " . a:name . "'"
+endfunction
+command! -nargs=1 ServerStop call s:ServerStop(<f-args>)

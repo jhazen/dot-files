@@ -65,6 +65,8 @@ Other useful tips:
 * :Hex - Toggle hex editor
 * :ServerShellTab <vagrantlab box name> - Create a conqueterm shell in new tab with SSH to the vagrant box
 * :ServerShellVSplit <vagrantlab box name> - Create a conqueterm shell in new vsplit with SSH to the vagrant box
+* :ServerStart <vagrantlab box name> - Start VM in vagrantlab
+* :ServerStop <vagrantlab box name> - Stop VM in vagrantlab
 * \<Space\> mapped to @q; Record macro to 'q' register and execute with \<Space\> (Default is comment line with #)
 * \<Tab\> autcomplete
 
