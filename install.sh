@@ -68,10 +68,10 @@ function vimsetup() {
   vim +PluginInstall +qall
   # No more YCM
   #cd ~/.vim/bundle/YouCompleteMe && ./install.py
-  mkdir ~/.vim/syntax
-  cd ~/.vim/syntax && wget https://raw.githubusercontent.com/ClockworkNet/vim-junos-syntax/master/syntax/junos.vim
-  mkdir ~/.vim/ftdetect
-  cd ~/.vim/ftdetect && wget https://raw.githubusercontent.com/ClockworkNet/vim-junos-syntax/master/syntax/junos.vim
+  #mkdir ~/.vim/syntax
+  #cd ~/.vim/syntax && wget https://raw.githubusercontent.com/ClockworkNet/vim-junos-syntax/master/syntax/junos.vim
+  #mkdir ~/.vim/ftdetect
+  #cd ~/.vim/ftdetect && wget https://raw.githubusercontent.com/ClockworkNet/vim-junos-syntax/master/syntax/junos.vim
 }
 
 function bashsetup() {
