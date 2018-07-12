@@ -173,6 +173,10 @@ nnoremap <silent> ,l <C-w>l
 
 nnoremap <Space> @q
 let @q="\<Esc>^i#\<Esc>j"
+nnoremap <silent> ,a @a
+let @a="kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+nnoremap <silent> ,z @z
+let @z="jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
 
 augroup SPACEVIM_ASYNCRUN
     autocmd!

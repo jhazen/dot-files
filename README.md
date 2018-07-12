@@ -52,6 +52,8 @@ Shortcuts:
 * ,L - Move vsplit to the right
 * ,K - Move split up
 * ,J - Move split down
+* ,a - Page up
+* ,z - Page down
 * \d - Jedi definitions
 * \g - Jedi assignments
 * \n - Jedi usages
