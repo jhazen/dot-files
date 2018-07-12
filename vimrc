@@ -71,9 +71,10 @@ Plugin 'ervandew/supertab'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'roxma/nvim-yarp'
+Plugin 'ClockworkNet/vim-junos-syntax'
 
 set background=dark
-colorscheme znake
+colorscheme molokai
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
