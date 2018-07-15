@@ -65,7 +65,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'w0rp/ale'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'vim-ruby/vim-ruby'
