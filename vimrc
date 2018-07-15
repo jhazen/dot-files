@@ -44,7 +44,6 @@ Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'rodjek/vim-puppet'
 Plugin 'skwp/vim-easymotion'
 Plugin 'godlygeek/tabular'
 Plugin 'sjl/gundo.vim'
@@ -104,6 +103,10 @@ let python_highlight_all=1
 
 let g:Powerline_symbols = 'fancy'
 
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+
 nmap <C-N> :NERDTreeToggle<CR>
 nmap <C-W> :tabprevious<CR>
 nmap <C-E> :tabnext<CR>
@@ -120,7 +123,8 @@ nnoremap <C-R> :call <SID>compile_and_run()<CR>
 
 au FileType python map <buffer> <C-L> :call Flake8()<CR>
 au BufEnter *.go nmap <C-L> <esc>:w\|!gofmt -d % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
-au BufEnter *.pp nmap <C-L> <esc>:w\|!puppet-lint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
+au FileType go nmap <leader>g <Plug>(go-def-split)
+au FileType go inoremap <leader>t <C-x><C-o>
 au BufEnter *.rb nmap <C-L> <esc>:w\|!rspec --color % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.js nmap <C-L> <esc>:w\|!jslint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.spec nmap <C-L> <esc>:w\|!rpmlint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
@@ -142,7 +146,6 @@ au BufEnter *.rb set tabstop=2
 au BufEnter *.rb set softtabstop=2
 au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
-au BufEnter *.pp set filetype=puppet
 au BufEnter *.asm set filetype=nasm
 au BufEnter *.sls set filetype=yaml
 

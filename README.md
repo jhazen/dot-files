@@ -58,6 +58,7 @@ Shortcuts:
 * \g - Jedi assignments
 * \n - Jedi usages
 * \k - Jedi pydoc
+* \t - Golang autocompletion
 
 Other useful tips:
 * :Gstatus - Git status
