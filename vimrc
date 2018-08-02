@@ -33,7 +33,8 @@ set ff=unix
 set clipboard=unnamed
 set laststatus=2
 set textwidth=1000
-
+hi Normal ctermbg=none
+highlight NonText ctermbg=none
 set foldmethod=indent
 set foldlevel=99
 
