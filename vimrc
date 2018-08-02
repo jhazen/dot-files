@@ -74,7 +74,7 @@ Plugin 'roxma/nvim-yarp'
 Plugin 'ClockworkNet/vim-junos-syntax'
 
 set background=dark
-colorscheme molokai
+colorscheme dante
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
