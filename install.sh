@@ -20,7 +20,7 @@ fi
 
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <name> <name> ..."
-  echo "Example: $0 vim python bash salt"
+  echo "Example: $0 vim python bash"
   echo
   exit 1
 fi
@@ -38,18 +38,6 @@ function pysetup() {
   ln -s $DOTFILES/pythonrc.py ~/.pythonrc.py
   sudo pip3 install numpy scapy-python3 paramiko boto3 urllib3 netaddr PyYaml requests flask django jedi virtualenv unqlite neovim flake8
   sudo pip2 install neovim flake8
-}
-
-function saltsetup() {
-  cd /tmp
-  curl -L https://bootstrap.saltstack.com -o bootstrap_salt.sh
-  sudo sh bootstrap_salt.sh -X git develop
-  if [ ! -d /srv/salt ]; then
-    sudo mkdir /srv/salt
-  fi
-  sudo cp -R $DOTFILES/salt/* /srv/salt/
-  sudo sed -i 's/#file_client: remote/file_client: local/g' /etc/salt/minion
-  sudo salt-call --local state.apply
 }
 
 function vimsetup() {
@@ -86,15 +74,20 @@ function bashsetup() {
   fi
   ln -s $DOTFILES/aliases ~/.aliases
   ln -s $DOTFILES/bashrc ~/.bashrc
-  if [ -d ~/.autoenv ]; then
-    rm -Rf ~/.autoenv
-  fi
-  git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
   if [ ! -d ~/bin ]; then
       mkdir ~/bin
   fi
   if [ ! -d ~/.bin ]; then
       mkdir ~/.bin
+  fi
+  if [ ! -d ~/go ]; then
+      mkdir ~/go
+  fi
+  if [ ! -d ~/go/src ]; then
+      mkdir ~/go/src
+  fi
+  if [ ! -d ~/go/bin ]; then
+      mkdir ~/go/bin
   fi
   if [ -L ~/bin/vimrun.sh ]; then
     rm ~/bin/vimrun.sh
@@ -134,8 +127,7 @@ for i in $@; do
     python) pysetup;;
     bash) bashsetup;;
     all) allsetup;;
-    salt) saltsetup;;
-    *) echo "Invalid name. Names: vim, bash, python, salt, all";;
+    *) echo "Invalid name. Names: vim, bash, python, all";;
   esac
 done
 

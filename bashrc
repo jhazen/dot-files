@@ -38,15 +38,10 @@ source ~/.aliases
 
 HISTSIZE=100000
 
-export GOPATH="/usr/local/go"
+export GOBIN=~/go/bin
+export GOPATH=~/go
 export PYTHONSTARTUP=~/.pythonrc.py
-export PATH=~/bin:~/.bin:$GOPATH/bin:$PATH
-export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-
-# Autoenv
-AUTOENV_ENABLE_LEAVE="on"
-AUTOENV_ASSUME_YES="on"
-source ~/.autoenv/activate.sh
+export PATH=~/bin:~/.bin:~/go/bin:$PATH
 
 if [ -f ~/.bashlocal ]; then
   source ~/.bashlocal
