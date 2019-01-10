@@ -32,7 +32,7 @@ set shell=bash
 set ff=unix
 set clipboard=unnamed
 set laststatus=2
-set textwidth=1000
+set textwidth=270
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
 set foldmethod=indent
@@ -47,7 +47,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'skwp/vim-easymotion'
 Plugin 'godlygeek/tabular'
-Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-surround.git'
 Plugin 'pthrasher/conqueterm-vim'
 Plugin 'jelera/vim-javascript-syntax'
@@ -66,11 +65,9 @@ Plugin 'skywind3000/asyncrun.vim'
 Plugin 'w0rp/ale'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
 Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'roxma/vim-hug-neovim-rpc'
-Plugin 'roxma/nvim-yarp'
 Plugin 'ClockworkNet/vim-junos-syntax'
 
 set background=dark
@@ -89,6 +86,7 @@ let g:NERDTreeWinPos="right"
 
 let g:jedi#use_splits_not_buffers = "bottom"
 let g:jedi#documentation_command = "<leader>k"
+let g:jedi#completions_command = "<C-A>"
 
 let g:ctrlp_cmd='CtrlP ~/Workspace'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -101,7 +99,6 @@ let g:ConqueTerm_StartMessages = 0
 
 let g:flake8_quickfix_height=12
 let python_highlight_all=1
-
 let g:Powerline_symbols = 'fancy'
 
 let g:go_highlight_types = 1
@@ -112,7 +109,6 @@ nmap <C-N> :NERDTreeToggle<CR>
 nmap <C-W> :tabprevious<CR>
 nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
-nmap <C-U> :GundoToggle<CR>
 nmap <C-B> :ConqueTermTab bash<CR>
 nmap <C-Y> :ConqueTermTab python3<CR>
 nmap <C-D> :ConqueTermTab sqlite3<CR>
@@ -200,8 +196,6 @@ function! s:compile_and_run()
        exec "AsyncRun! vimrun.sh sh %:p"
     elseif &filetype == 'python'
        exec "AsyncRun! vimrun.sh py %:p"
-    elseif &filetype == 'py2'
-       exec "AsyncRun! vimrun.sh py2 %:p"
     elseif &filetype == 'go'
        exec "AsyncRun! -raw vimrun.sh go %:p"
     elseif &filetype == 'nasm'
