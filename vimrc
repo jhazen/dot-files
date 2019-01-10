@@ -104,6 +104,7 @@ let g:Powerline_symbols = 'fancy'
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
+let g:go_version_warning = 0
 
 nmap <C-N> :NERDTreeToggle<CR>
 nmap <C-W> :tabprevious<CR>

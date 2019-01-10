@@ -32,116 +32,18 @@ alias ga='git add'
 alias fabric='fab -H $H'
 alias pbc='pbcopy'
 alias pbp='pbpaste'
+alias vim='nvim -u ~/.vimrc'
 alias xcopy='xclip -i'
 alias xpaste='xclip -o'
-alias jbc='$JBOSS_HOME/bin/jboss-cli.sh -c $JBOSS_URL'
 title() {
   echo -ne "\e]0;$1\a"
 }
-jbctl() {
-  case $1 in
-    version)
-      jbc --version
-      ;;
-    start)
-      nohup $JBOSS_HOME/bin/standalone.sh > /dev/null 2>&1 &
-      ;;
-    stop)
-      jbc --command="shutdown"
-      ;;
-    restart)
-      jbc --command="shutdown"
-      nohup $JBOSS_HOME/bin/standalone.sh > /dev/null 2>&1 &
-      ;;
-    phist)
-      jbc --command="patch history"
-      ;;
-    status)
-      ps aux | grep jboss | grep -v grep > /dev/null 2>&1 && echo "Running" || echo "Not Running"
-      ;;
-    log)
-      less +F $JBOSS_HOME/standalone/log/server.log
-      ;;
-    lsdeploy)
-      jbc --command="deployment-info"
-      ;;
-    tksnap)
-      jbc --command=":take-snapshot"
-      ;;
-    lssnap)
-      jbc --command=":list-snapshots"
-      ;;
-    rmsnap)
-      jbc --command=":delete-snapshot(name=$2)" || echo "\n\njbctl rmsnap <snapshot name>"
-      ;;
-    deploy)
-      jbc --command="deploy $2"
-      ;;
-    undeploy)
-      jbc --command="undeploy $2"
-      ;;
-    cmd)
-      jbc
-      ;;
-    home)
-      echo "JBOSS_HOME is set to: $JBOSS_HOME"
-      ;;
-    hist)
-      cat ~/.jboss-cli-history
-      ;;
-    *)
-      echo "jbctl (command) <arguments>"
-      echo "version 1.2"
-      echo
-      echo -e "COMMAND\t\tPURPOSE\t\t\tARGUMENTS\t\tEXAMPLE"
-      echo -e "version\t\tCheck version\t\tn/a\t\t\tjbctl version"
-      echo -e "hist\t\tCLI history\t\tn/a\t\t\tjbctl hist"
-      echo -e "cmd\t\tOpen CLI\t\tn/a\t\t\tjbctl cmd"
-      echo -e "start\t\tStart JBoss\t\tn/a\t\t\tjbctl start"
-      echo -e "stop\t\tStop JBoss\t\tServer name\t\tjbctl stop work-s01"
-      echo -e "home\t\tDisplay JBoss home\tn/a\t\t\tjbctl home"
-      echo -e "lssnap\t\tDisplay snaps\t\tn/a\t\t\tjbctl lssnap"
-      echo -e "tksnap\t\tTake snapshot\t\tn/a\t\t\tjbctl tksnap"
-      echo -e "rmsnap\t\tDelete snap\t\tSnapshot name\t\tjbctl rmsnap 20150810-221949391domain.xml"
-      echo -e "lsdeploy\tDisplay deployments\tServer group\t\tjbctl lsdeploy sg01"
-      echo -e "deploy\t\tDeploy artifact\t\tArtifact, Server group\tjbctl deploy myapp.war sg01"
-      echo -e "undeploy\tUndeploy artifact\tArtifact\t\tjbctl undeploy myapp.war"
-      echo -e "log\t\tOpen log in less\tn/a\t\t\tjbctl less"
-      echo -e "status\t\tCheck running state\tn/a\t\t\tjbctl status"
-      echo -e "phist\t\tShow patch history\tServer name\t\tjbctl phist work-s01"
-      echo
-      ;;
-  esac
-}
-sshrun() {
-    for i in `echo $H | sed 's/,/\n/g'`; do echo $i; ssh $i "$1"; echo; done
 }
 alias ll='ls -l'
 alias la='ls -la'
 alias lh='ls -lh'
 alias ltr='ls -ltr'
 alias psg='ps aux | grep'
-dynamodbctl() {
-    cd ~/.dynamodb
-    case $1 in
-        start) java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb -dbPath . & 2>&1 >> server.log;;
-        stop) ps aux | grep DynamoDBLocal | grep -v grep | awk '{print $2}' | xargs kill;;
-        status) ps aux | grep DynamoDBLocal | grep -v grep 2>&1 > /dev/null && echo "Running" || echo "Not running";;
-        *) echo "Usage dynamodbctl <start|stop|status>";;
-    esac
-    cd - > /dev/null
-}
-flaskctl() {
-    cd ~/.flask/
-    case $1 in
-        start) ./app.py &;;
-        stop) ps aux | grep "python2 ./app.py" | grep -v grep | awk '{print $2}' | xargs kill > /dev/null;;
-        status) ps aux | grep "python2 ./app.py" | grep -v grep 2>&1 > /dev/null && echo "Running" || echo "Not running";;
-        restart) ps aux | grep "python2 ./app.py" | grep -v grep | awk '{print $2}' | xargs kill && ./app.py &;;
-        *) echo "Usage flaskctl <start|stop|status>";;
-    esac
-    cd - > /dev/null
-}
 vimjavarun() {
    cd `dirname $1`
    java `echo $1 | sed 's/.java//g' | sed 's/.*\///g'`
