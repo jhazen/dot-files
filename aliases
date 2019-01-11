@@ -38,7 +38,6 @@ alias xpaste='xclip -o'
 title() {
   echo -ne "\e]0;$1\a"
 }
-}
 alias ll='ls -l'
 alias la='ls -la'
 alias lh='ls -lh'

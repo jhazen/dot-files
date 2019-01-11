@@ -69,6 +69,15 @@ Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
 Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ClockworkNet/vim-junos-syntax'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'fisadev/FixedTaskList.vim'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'klen/python-mode'
+Plugin 'mitsuhiko/vim-jinja'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'mbbill/undotree'
 
 set background=dark
 colorscheme dante
@@ -105,6 +114,10 @@ let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_version_warning = 0
+
+let g:deoplete#enable_at_startup = 1
+
+let g:pymode_options_colorcolumn = 0
 
 nmap <C-N> :NERDTreeToggle<CR>
 nmap <C-W> :tabprevious<CR>

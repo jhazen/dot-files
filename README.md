@@ -20,6 +20,7 @@ Run 'all' as a parameter to setup everything; otherwise specify which dot file t
 # Vim
 
 Shortcuts:
+* C-A - Autocomplete
 * C-N - Toggle Nerdtree
 * C-P - ctrlp (default workdir is ~/Workspace)
 * C-T - Open new tab
@@ -31,7 +32,7 @@ Shortcuts:
 * C-D - Open sqlite3 tab
 * C-F - Fold
 * C-R - Compile/run, output into tooltip window (c/c++/python/shell/golang/asm)
-* C-L - Lint file. Supported filetypes: spec, ruby, puppet, javascript and python.
+* C-L - Lint file. Supported filetypes: spec, ruby, javascript and python.
 * C-G - Tagbar toggle
 * vv - Open vertical split
 * ss - Open split
@@ -59,6 +60,8 @@ Shortcuts:
 * \n - Jedi usages
 * \k - Jedi pydoc
 * \t - Golang autocompletion
+* \r - Run python code
+* \b - Set python breakpoint
 
 Other useful tips:
 * :Gstatus - Git status
@@ -71,7 +74,6 @@ Other useful tips:
 * :ServerStart <vagrantlab box name> - Start VM in vagrantlab
 * :ServerStop <vagrantlab box name> - Stop VM in vagrantlab
 * \<Space\> mapped to @q; Record macro to 'q' register and execute with \<Space\> (Default is comment line with #)
-* \<Tab\> autcomplete
 
 
 # Bash
@@ -115,29 +117,6 @@ Git aliases:
 * ginit - git init
 * greset - git reset
 * gst - git stash
-
-JBoss control script (Make sure to set $JBOSS_HOME variable):
-jbctl (command) <arguments>
-* jbctl version - Check version
-* jbctl hist - CLI history
-* jbctl cmd - Open CLI
-* jbctl start - Start JBoss
-* jbctl stop - Stop JBoss
-* jbctl restart - Restart JBoss
-* jbctl home - Display JBoss home
-* jbctl lssnap - Display snaps
-* jbctl tksnap - Take snapshot
-* jbctl rmsnap (snapshot name) - Delete snap
-* jbctl lsdeploy (servergroup name) - Display deployments
-* jbctl deploy (artifact, servergroup name) - Deploy artifact
-* jbctl undeploy (artifact) - Undeploy artifact
-* jbctl less - Open log in less
-* jbctl tail - Tail -f log
-* jbctl status - Check running state
-* jbctl lsservers - List servers in domain
-* jbctl phist (server name) - Show patch history
-* jbctl sgrestart (servergroup name) - Restart a server group
-
 
 Other aliases:
 * ll - ls -l
