@@ -48,7 +48,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'skwp/vim-easymotion'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround.git'
-"Plugin 'pthrasher/conqueterm-vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -76,7 +75,7 @@ Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'klen/python-mode'
 Plugin 'mitsuhiko/vim-jinja'
-Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'plytophogy/vim-virtualenv'
 Plugin 'mbbill/undotree'
 
 set background=dark
@@ -104,8 +103,6 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 
 let g:SimplyFold_docstring_preview=1
 
-"let g:ConqueTerm_StartMessages = 0
-
 let g:flake8_quickfix_height=12
 let python_highlight_all=1
 let g:Powerline_symbols = 'fancy'
@@ -126,9 +123,6 @@ nmap <C-T> :tabnew<CR>
 nmap <C-B> :tabnew term://bash<CR>
 nmap <C-Y> :tabnew term://python3<CR>
 nmap <C-D> :tabnew term://sqlite3<CR>
-"nmap <C-B> :ConqueTermTab bash<CR>
-"nmap <C-Y> :ConqueTermTab python3<CR>
-"nmap <C-D> :ConqueTermTab sqlite3<CR>
 nmap <C-G> :TagbarToggle<CR>
 
 nnoremap <C-F> za
@@ -172,9 +166,6 @@ nnoremap <silent> bp :bp<CR>
 nnoremap <silent> bB :vsplit term://bash<CR>
 nnoremap <silent> bP :vsplit term://python3<CR>
 nnoremap <silent> bD :vsplit term://sqlite3<CR>
-"nnoremap <silent> bB :ConqueTermVSplit bash<CR>
-"nnoremap <silent> bP :ConqueTermVSplit python3<CR>
-"nnoremap <silent> bD :ConqueTermVSplit sqlite3<CR>
 
 nnoremap <silent> ,e <C-w>+<C-w>+<C-w>+<C-w>+<C-w>+
 nnoremap <silent> ,w <C-w>-<C-w>-<C-w>-<C-w>-<C-w>-
@@ -202,7 +193,6 @@ let @z="jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
 
 augroup SPACEVIM_ASYNCRUN
     autocmd!
-    " Automatically open the quickfix window
     autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
 augroup END
 
@@ -261,13 +251,11 @@ endfunction
 command! -nargs=1 ServerRequest call s:ServerRequest(<f-args>)
 
 function! s:ServerShellTab(name)
-    "exec ":ConqueTermTab bash -c 'cd ~/Workspace/vagrantlab/ && vagrant ssh " . a:name . "'"
     exec ":tabnew term://bash -c 'cd ~/Workspace/vagrantlab/ && vagrant ssh " . a:name . "'"
 endfunction
 command! -nargs=1 ServerShellTab call s:ServerShellTab(<f-args>)
 
 function! s:ServerShellVSplit(name)
-    "exec ":ConqueTermVSplit bash -c 'cd ~/Workspace/vagrantlab/ && vagrant ssh " . a:name . "'"
     exec ":vsplit term://bash -c 'cd ~/Workspace/vagrantlab/ && vagrant ssh " . a:name . "'"
 endfunction
 command! -nargs=1 ServerShellVSplit call s:ServerShellVSplit(<f-args>)

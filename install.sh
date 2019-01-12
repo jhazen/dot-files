@@ -37,7 +37,6 @@ function pysetup() {
   fi
   ln -s $DOTFILES/pythonrc.py ~/.pythonrc.py
   sudo pip3 install numpy scapy-python3 paramiko boto3 urllib3 netaddr PyYaml requests flask django jedi virtualenv unqlite neovim flake8
-  sudo pip2 install neovim flake8
 }
 
 function vimsetup() {
@@ -53,7 +52,9 @@ function vimsetup() {
   fi
   git clone https://github.com/gmarik/vundle.vim ~/.vim/bundle/vundle
   ln -s $DOTFILES/vimrc ~/.vimrc
-  sudo mkdir /usr/local/go
+  if [ ! -d /usr/local/go ]; then
+      sudo mkdir /usr/local/go
+  fi
   sudo chown $(whoami) /usr/local/go
   vim +PluginInstall +qall
 }

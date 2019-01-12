@@ -32,17 +32,6 @@ function pyfile() {
     time python3 $BIN/$FILE
 }
 
-function py2file() {
-    ORIG=`echo "$1"`
-    FILE=`echo "$1" | sed 's/^.*\///g'`
-    if [ -f $BIN/$FILE ]; then
-        rm -f $BIN/$FILE
-    fi
-    cp $ORIG $BIN/
-    chmod +x $BIN/$FILE
-    time python2 $BIN/$FILE
-}
-
 function gofile() {
     ORIG=`echo "$1"`
     FILE=`echo "$1" | sed 's/^.*\///g'`
@@ -126,7 +115,6 @@ case "$1" in
     "asm") asmfile $2;;
     "asm32") asm32file $2;;
     "java") javafile $2;;
-    "py2") py2file $2;;
     *) printhelp;;
 esac
 
