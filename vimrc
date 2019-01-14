@@ -12,7 +12,7 @@ set nowb
 set fo=tcq
 set modeline
 set bg=dark
-set encoding=utf-8
+set encoding=utf8
 set autoindent
 set smartindent
 set smarttab
@@ -57,12 +57,13 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'CyCoreSystems/vim-cisco-ios'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'morhetz/gruvbox'
 Plugin 'joonty/vdebug'
 Plugin 'nvie/vim-flake8'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'w0rp/ale'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
 Plugin 'davidhalter/jedi-vim'
@@ -79,7 +80,7 @@ Plugin 'plytophogy/vim-virtualenv'
 Plugin 'mbbill/undotree'
 
 set background=dark
-colorscheme dante
+colorscheme gruvbox
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -114,9 +115,19 @@ let g:go_version_warning = 0
 
 let g:deoplete#enable_at_startup = 1
 
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+  let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline_theme = 'gruvbox'
+
 let g:pymode_options_colorcolumn = 0
 
 nmap <C-N> :NERDTreeToggle<CR>
+nmap <C-U> :UndotreeToggle<CR>
 nmap <C-W> :tabprevious<CR>
 nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
@@ -172,6 +183,8 @@ nnoremap <silent> ,e <C-w>+<C-w>+<C-w>+<C-w>+<C-w>+
 nnoremap <silent> ,w <C-w>-<C-w>-<C-w>-<C-w>-<C-w>-
 nnoremap <silent> ,q <C-w><<C-w><<C-w><<C-w><<C-w><
 nnoremap <silent> ,r <C-w>><C-w>><C-w>><C-w>><C-w>>
+
+nnoremap <leader>cd :Glcd<CR>
 
 tnoremap <Esc> <C-\><C-n>
 

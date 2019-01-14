@@ -1,3 +1,4 @@
+alias pdb3='python3 -m pdb'
 alias vs='vagrant status'
 alias vu='vagrant up'
 alias vp='vagrant provision'

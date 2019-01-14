@@ -63,6 +63,7 @@ Shortcuts:
 * \r - Run python code
 * \b - Set python breakpoint
 * \q - Open PDB
+* \cd - CD to current git dir
 
 Other useful tips:
 * :Gstatus - Git status
