@@ -62,6 +62,7 @@ Shortcuts:
 * \t - Golang autocompletion
 * \r - Run python code
 * \b - Set python breakpoint
+* \q - Open PDB
 
 Other useful tips:
 * :Gstatus - Git status
