@@ -78,7 +78,7 @@ Plugin 'klen/python-mode'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'mbbill/undotree'
-Plugin 'garbas/vim-snipmate'
+Plugin 'sirver/UltiSnips'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
@@ -118,6 +118,9 @@ let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_version_warning = 0
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:deoplete#enable_at_startup = 1
 
 let g:airline_powerline_fonts = 1
