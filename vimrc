@@ -78,6 +78,11 @@ Plugin 'klen/python-mode'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'mbbill/undotree'
+Plugin 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'honza/vim-snippets'
+Plugin 'vimwiki/vimwiki'
 
 set background=dark
 colorscheme gruvbox

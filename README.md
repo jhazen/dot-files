@@ -64,6 +64,8 @@ Shortcuts:
 * \b - Set python breakpoint
 * \q - Open PDB
 * \cd - CD to current git dir
+* \ww - Open wiki. Use <Enter> on a word to create/link new wiki. <C-Space> to create checkbox.
+* \wt - Wiki tab
 
 Other useful tips:
 * :Gstatus - Git status
