@@ -94,6 +94,8 @@ match ExtraWhitespace /\s\+$/
 
 filetype plugin indent on
 
+let g:terminal_scrollback_buffer_size = 100000
+
 let g:NERDTreeDirArrows=0
 let g:NERDTreeShowHidden=1
 let g:NERDTreeWinPos="right"
