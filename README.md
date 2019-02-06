@@ -60,7 +60,6 @@ Shortcuts:
 * \n - Jedi usages
 * \k - Jedi pydoc
 * \t - Golang autocompletion
-* \r - Run python code
 * \b - Set python breakpoint
 * \q - Open PDB
 * \cd - CD to current git dir
