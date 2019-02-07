@@ -4,7 +4,7 @@ import re
 import subprocess
 from datetime import datetime
 import atexit
-from scapy.all import *
+from kamene import *
 import socket
 import time
 import threading
