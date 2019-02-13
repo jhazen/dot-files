@@ -103,8 +103,8 @@ if has('macunix')
     let g:deoplete#sources#clang#libclang_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
     let g:deoplete#sources#clang#clang_header = "/Library/Developer/CommandLineTools/usr/lib/clang"
 else
-    let g:deoplete#sources#clang#libclang_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib-notreally"
-    let g:deoplete#sources#clang#clang_header = "/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include-notreally"
+    let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
+    let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
 endif
 
 let g:terminal_scrollback_buffer_size = 100000
