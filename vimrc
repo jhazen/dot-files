@@ -87,7 +87,7 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'vhdirk/vim-cmake'
-
+Plugin 'artur-shaik/vim-javacomplete2'
 
 set background=dark
 colorscheme gruvbox
@@ -149,6 +149,8 @@ let g:airline_theme = 'gruvbox'
 
 let g:pymode_options_colorcolumn = 0
 
+let g:JavaComplete_EnableDefaultMappings = 1
+
 nmap <C-N> :NERDTreeToggle<CR>
 nmap <C-U> :UndotreeToggle<CR>
 nmap <C-W> :tabprevious<CR>
@@ -162,6 +164,7 @@ nmap <C-G> :TagbarToggle<CR>
 
 nnoremap <C-F> za
 
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 au FileType python map <buffer> <C-L> :call Flake8()<CR>
 au BufEnter *.go nmap <C-L> <esc>:w\|!gofmt -d % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au FileType go nmap <leader>g <Plug>(go-def-split)

@@ -62,6 +62,13 @@ Shortcuts:
 * \t - Golang autocompletion
 * \b - Set python breakpoint
 * \q - Open PDB
+* \jn - Java generate new class
+* \jN - Java generate new class in file
+* \jc - Java generate constructor
+* \jts - Java generate ToString
+* \jA - Java generate accessors
+* \jI - Java add missing imports
+* \jR - Java remove unused imports
 * \gs - Git status
 * \gd - Git diff
 * \gb - Git blame
