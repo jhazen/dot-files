@@ -54,8 +54,8 @@ function vimsetup() {
   ln -s $DOTFILES/vimrc ~/.vimrc
   if [ ! -d /usr/local/go ]; then
       sudo mkdir /usr/local/go
+      sudo chown $(whoami) /usr/local/go
   fi
-  sudo chown $(whoami) /usr/local/go
   vim +PluginInstall +qall
 }
 
