@@ -72,8 +72,10 @@ Plugin 'ClockworkNet/vim-junos-syntax'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'fisadev/FixedTaskList.vim'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'zchee/deoplete-clang'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'klen/python-mode'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'plytophogy/vim-virtualenv'
 Plugin 'mbbill/undotree'
@@ -82,6 +84,10 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'vimwiki/vimwiki'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'vhdirk/vim-cmake'
+
 
 set background=dark
 colorscheme gruvbox
@@ -92,6 +98,14 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
 
 filetype plugin indent on
+
+if has('macunix')
+    let g:deoplete#sources#clang#libclang_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+    let g:deoplete#sources#clang#clang_header = "/Library/Developer/CommandLineTools/usr/lib/clang"
+else
+    let g:deoplete#sources#clang#libclang_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib-notreally"
+    let g:deoplete#sources#clang#clang_header = "/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include-notreally"
+endif
 
 let g:terminal_scrollback_buffer_size = 100000
 
@@ -129,7 +143,7 @@ if !exists('g:airline_symbols')
       let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
-  let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline_theme = 'gruvbox'
 
@@ -147,8 +161,6 @@ nmap <leader>q :vsplit term://pdb3 %<CR>
 nmap <C-G> :TagbarToggle<CR>
 
 nnoremap <C-F> za
-
-nnoremap <C-R> :call <SID>compile_and_run()<CR>
 
 au FileType python map <buffer> <C-L> :call Flake8()<CR>
 au BufEnter *.go nmap <C-L> <esc>:w\|!gofmt -d % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
@@ -194,8 +206,18 @@ nnoremap <silent> ,q <C-w><<C-w><<C-w><<C-w><<C-w><
 nnoremap <silent> ,r <C-w>><C-w>><C-w>><C-w>><C-w>>
 
 nnoremap <leader>cd :Glcd<CR>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>gb :Gblame<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>gp :Gpull<cr>
+nmap <leader>gP :Gpush<cr>
+
+nmap <leader>cm :CMake<cr>
+nmap <leader>m :make<cr>
 
 tnoremap <Esc> <C-\><C-n>
+nnoremap <leader><space> :noh<cr>
 
 nnoremap <silent> ,K <C-w>K
 nnoremap <silent> ,J <C-w>J
@@ -219,26 +241,15 @@ augroup SPACEVIM_ASYNCRUN
     autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
 augroup END
 
-function! s:compile_and_run()
-    exec 'w'
-    if &filetype == 'c'
-       exec "AsyncRun! vimrun.sh c %:p"
-    elseif &filetype == 'cpp'
-       exec "AsyncRun! vimrun.sh cpp %:p"
-    elseif &filetype == 'java'
-       exec "AsyncRun! vimrun.sh java %:p"
-    elseif &filetype == 'sh'
-       exec "AsyncRun! vimrun.sh sh %:p"
-    elseif &filetype == 'python'
-       exec "AsyncRun! vimrun.sh py %:p"
-    elseif &filetype == 'go'
-       exec "AsyncRun! -raw vimrun.sh go %:p"
-    elseif &filetype == 'nasm'
-       exec "AsyncRun! vimrun.sh asm %:p"
-    elseif &filetype == 'nasm32'
-       exec "AsyncRun! vimrun.sh asm32 %:p"
-    endif
-endfunction
+autocmd filetype c nnoremap <leader>r :w <bar> !./build/%:t:r<CR>
+autocmd filetype cpp nnoremap <leader>r :w <bar> !./build/%:t:r<CR>
+autocmd Filetype java set makeprg=javac\ %
+autocmd filetype java nnoremap <leader>r :w <bar> !java -cp %:p:h %:t:r<CR>
+autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>
+autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && ./% <CR>
+autocmd filetype go nnoremap <leader>r :w <bar> !go build % && ./%<<CR>
+autocmd filetype asm nnoremap <leader>r :w <bar> !nasm -f elf64 % -o %.o && ld -m elf_x86_64 %.o -o a.out && chmod +x a.out && ./a.out<CR>
+autocmd filetype asm32 nnoremap <leader>r :w <bar> !nasm -f elf32 % -o %.o && ld -m elf_i386 %.o -o a.out && chmod +x a.out && ./a.out<CR>
 
 function! ToggleHex()
   let l:modified=&mod

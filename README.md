@@ -26,12 +26,11 @@ Shortcuts:
 * C-T - Open new tab
 * C-W - Previous tab
 * C-E - Next tab
-* C-U - Gundo toggle
+* C-U - undotree toggle
 * C-B - Open bash tab
 * C-Y - Open python tab
 * C-D - Open sqlite3 tab
 * C-F - Fold
-* C-R - Compile/run, output into tooltip window (c/c++/python/shell/golang/asm)
 * C-L - Lint file. Supported filetypes: spec, ruby, javascript and python.
 * C-G - Tagbar toggle
 * vv - Open vertical split
@@ -55,6 +54,7 @@ Shortcuts:
 * ,J - Move split down
 * ,a - Page up
 * ,z - Page down
+* \r - Compile/run. Works with bash, python3, go, c/c++, java, asm
 * \d - Jedi definitions
 * \g - Jedi assignments
 * \n - Jedi usages
@@ -62,14 +62,21 @@ Shortcuts:
 * \t - Golang autocompletion
 * \b - Set python breakpoint
 * \q - Open PDB
+* \gs - Git status
+* \gd - Git diff
+* \gb - Git blame
+* \gc - Git commit
+* \gp - Git pull
+* \gP - Git push
 * \cd - CD to current git dir
+* \cm - Run CMake
+* \m - Run make
 * \ww - Open wiki. Use <Enter> on a word to create/link new wiki. <C-Space> to create checkbox.
 * \wt - Wiki tab
+* \<Space> - Clear search highlight
 
 Other useful tips:
-* :Gstatus - Git status
-* :Gcommit - Git commit
-* :Git - Git
+* :Dox - Generate doxygen
 * :ServerRequest <salt role name> - Creates a server in vagrantlab environment, sets salt role, and boots
 * :Hex - Toggle hex editor
 * :ServerShellTab <vagrantlab box name> - Create a conqueterm shell in new tab with SSH to the vagrant box

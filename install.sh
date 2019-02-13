@@ -90,13 +90,6 @@ function bashsetup() {
   if [ ! -d ~/go/bin ]; then
       mkdir ~/go/bin
   fi
-  if [ -L ~/bin/vimrun.sh ]; then
-    rm ~/bin/vimrun.sh
-  fi
-  if [ -f ~/bin/vimrun.sh ]; then
-    mv ~/vimrun.sh $BACKUP_DIR/vimrun.sh-$(date +%s)
-  fi
-  ln -s $DOTFILES/vimrun.sh ~/bin/vimrun.sh
   if [ -L ~/bin/vimserver.py ]; then
     rm ~/bin/vimserver.py
   fi
