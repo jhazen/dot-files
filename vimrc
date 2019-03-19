@@ -249,8 +249,8 @@ autocmd filetype cpp nnoremap <leader>r :w <bar> !./build/%:t:r<CR>
 autocmd Filetype java set makeprg=javac\ %
 autocmd filetype java nnoremap <leader>r :w <bar> !java -cp %:p:h %:t:r<CR>
 autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>
-autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && ./% <CR>
-autocmd filetype go nnoremap <leader>r :w <bar> !go build % && ./%<<CR>
+autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>
+autocmd filetype go nnoremap <leader>r :w <bar> !go build % && %<<CR>
 autocmd filetype asm nnoremap <leader>r :w <bar> !nasm -f elf64 % -o %.o && ld -m elf_x86_64 %.o -o a.out && chmod +x a.out && ./a.out<CR>
 autocmd filetype asm32 nnoremap <leader>r :w <bar> !nasm -f elf32 % -o %.o && ld -m elf_i386 %.o -o a.out && chmod +x a.out && ./a.out<CR>
 
