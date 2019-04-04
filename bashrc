@@ -40,7 +40,6 @@ HISTSIZE=100000
 
 export GOBIN=~/go/bin
 export GOPATH=~/go
-export PYTHONSTARTUP=~/.pythonrc.py
 export PATH=~/bin:~/.bin:~/go/bin:$PATH
 
 if [ -f ~/.bashlocal ]; then

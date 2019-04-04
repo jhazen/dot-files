@@ -3,7 +3,7 @@
 Personal dotfiles repo. Includes:
 * vim
 * bash
-* python
+
 
 
 # Instructions
@@ -14,7 +14,7 @@ Personal dotfiles repo. Includes:
 
 Run 'all' as a parameter to setup everything; otherwise specify which dot file to setup.
 
-> ./install.sh (vim|bash|python|all)
+> ./install.sh (vim|bash|all)
 
 
 # Vim
@@ -141,13 +141,6 @@ Other aliases:
 * lh - ls -lh
 * ltr - ls -ltr
 * psg - ps aux | grep
-
-
-# Python
-
-pythonrc file for interactive shell. Includes tab completion, python shell history and certain shell functions (for replacing bash/zsh with python).
-
-
 
 
 # Help

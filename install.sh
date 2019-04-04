@@ -2,7 +2,7 @@
 
 # Script will install dot-files based on input
 #
-# Example: ./install.sh vim bash python
+# Example: ./install.sh vim bash
 #
 # jhazen532@gmail.com
 
@@ -20,24 +20,12 @@ fi
 
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <name> <name> ..."
-  echo "Example: $0 vim python bash"
+  echo "Example: $0 vim bash"
   echo
   exit 1
 fi
 
 ### Functions
-
-function pysetup() {
-  echo "python"
-  if [ -f ~/.pythonrc.py ]; then
-    mv ~/.pythonrc.py $BACKUP_DIR/pythonrc.py-$(date +%s)
-  fi
-  if [ -L ~/.pythonrc.py ]; then
-    rm ~/.pythonrc.py
-  fi
-  ln -s $DOTFILES/pythonrc.py ~/.pythonrc.py
-  sudo pip3 install numpy scapy-python3 paramiko boto3 urllib3 netaddr PyYaml requests flask django jedi virtualenv unqlite neovim flake8
-}
 
 function vimsetup() {
   echo "vim"
@@ -109,7 +97,6 @@ function bashsetup() {
 function allsetup() {
   echo "all"
   vimsetup
-  pysetup
   bashsetup
 }
 
@@ -118,10 +105,9 @@ function allsetup() {
 for i in $@; do
   case "$i" in
     vim) vimsetup;;
-    python) pysetup;;
     bash) bashsetup;;
     all) allsetup;;
-    *) echo "Invalid name. Names: vim, bash, python, all";;
+    *) echo "Invalid name. Names: vim, bash, all";;
   esac
 done
 
