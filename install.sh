@@ -27,6 +27,13 @@ fi
 
 ### Functions
 
+function dockersetup() {
+  echo "docker"
+  cd $DOTFILES
+  docker build -t ctf .
+  cd -
+}
+
 function vimsetup() {
   echo "vim"
   if [ -f ~/.vimrc ]; then

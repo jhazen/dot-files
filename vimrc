@@ -282,6 +282,11 @@ function! ToggleHex()
 endfunction
 command! -bar Hex call ToggleHex()
 
+function! s:CTF(datapath)
+    exec ":tabnew term://bash -c 'docker run -it -v " . a:datapath . ":/data ctf'"
+endfunction
+command! -nargs=1 CTF call s:CTF(<f-args>)
+
 function! s:ServerRequest(role)
     exec "AsyncRun! vimserver.py " . a:role
 endfunction
