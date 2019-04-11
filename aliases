@@ -36,6 +36,9 @@ alias pbp='pbpaste'
 alias vim='nvim -u ~/.vimrc'
 alias xcopy='xclip -i'
 alias xpaste='xclip -o'
+ctf() {
+  docker run -it -v $1:/data ctf
+}
 title() {
   echo -ne "\e]0;$1\a"
 }

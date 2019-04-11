@@ -3,6 +3,7 @@
 Personal dotfiles repo. Includes:
 * vim
 * bash
+* docker
 
 
 
@@ -14,7 +15,7 @@ Personal dotfiles repo. Includes:
 
 Run 'all' as a parameter to setup everything; otherwise specify which dot file to setup.
 
-> ./install.sh (vim|bash|all)
+> ./install.sh (vim|bash|docker|all)
 
 
 # Vim
@@ -142,6 +143,10 @@ Other aliases:
 * ltr - ls -ltr
 * psg - ps aux | grep
 
+
+# Docker
+
+Builds docker ctf image.
 
 # Help
 
