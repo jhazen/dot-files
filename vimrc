@@ -70,7 +70,6 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ClockworkNet/vim-junos-syntax'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'fisadev/FixedTaskList.vim'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'zchee/deoplete-clang'
 Plugin 'roxma/nvim-yarp'
@@ -88,6 +87,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'vhdirk/vim-cmake'
 Plugin 'artur-shaik/vim-javacomplete2'
+Plugin 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 set background=dark
 colorscheme gruvbox
