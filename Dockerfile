@@ -35,7 +35,7 @@ RUN apt-get update && \
     pip3 install python-magic kamene pwntools && \
     pip install tqdm
 RUN git clone https://github.com/longld/peda.git ~/.peda
-RUN apt-get -y install curl tcpdump quagga openjdk-8-jdk
+RUN apt-get -y install curl tcpdump quagga openjdk-8-jdk netcat
 RUN echo "source ~/.peda/peda.py" >> ~/.gdbinit
 WORKDIR /data
 CMD ["/bin/bash"]
