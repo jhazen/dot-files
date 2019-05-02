@@ -70,8 +70,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'ClockworkNet/vim-junos-syntax'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'zchee/deoplete-clang'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'klen/python-mode'
@@ -98,14 +97,6 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
 
 filetype plugin indent on
-
-if has('macunix')
-    let g:deoplete#sources#clang#libclang_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
-    let g:deoplete#sources#clang#clang_header = "/Library/Developer/CommandLineTools/usr/lib/clang"
-else
-    let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
-    let g:deoplete#sources#clang#clang_header = "/usr/lib/clang"
-endif
 
 let g:terminal_scrollback_buffer_size = 100000
 
@@ -136,7 +127,6 @@ let g:go_version_warning = 0
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:deoplete#enable_at_startup = 1
 
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')

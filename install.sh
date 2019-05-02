@@ -52,6 +52,8 @@ function vimsetup() {
       sudo chown $(whoami) /usr/local/go
   fi
   vim +PluginInstall +qall
+  cd ~/.vim/bundle/YouCompleteMe
+  ./install.py --all
 }
 
 function bashsetup() {
