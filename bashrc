@@ -32,11 +32,12 @@ function __git_prompt {
   fi
 }
 
-PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w\[\e[0m$(__git_prompt)\]\n% '
+PS1='\[\033[01;34m\][\w]\[\e[0m$(__git_prompt)\]\[\033[00m\] % '
 
 source ~/.aliases
 
 HISTSIZE=100000
+shopt -s histappend
 
 export GOBIN=~/go/bin
 export GOPATH=~/go

@@ -53,7 +53,7 @@ function vimsetup() {
   fi
   vim +PluginInstall +qall
   cd ~/.vim/bundle/YouCompleteMe
-  ./install.py --all
+  ./install.py --clang-completer --java-completer --go-completer
 }
 
 function bashsetup() {

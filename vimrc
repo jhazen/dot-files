@@ -124,6 +124,8 @@ let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_version_warning = 0
 
+let g:ycm_confirm_extra_conf = 0
+
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -211,6 +213,8 @@ nmap <leader>m :make<cr>
 
 tnoremap <Esc> <C-\><C-n>
 nnoremap <leader><space> :noh<cr>
+
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 nnoremap <silent> ,K <C-w>K
 nnoremap <silent> ,J <C-w>J
