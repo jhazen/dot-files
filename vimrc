@@ -87,6 +87,7 @@ Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'vhdirk/vim-cmake'
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plugin 'ervandew/supertab'
 
 set background=dark
 colorscheme gruvbox
@@ -125,10 +126,14 @@ let g:go_highlight_functions = 1
 let g:go_version_warning = 0
 
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
