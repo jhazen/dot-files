@@ -2,7 +2,7 @@
 
 # Script will install dot-files based on input
 #
-# Example: ./install.sh vim bash docker
+# Example: ./install.sh vim bash
 #
 # jhazen532@gmail.com
 
@@ -27,12 +27,6 @@ fi
 
 ### Functions
 
-function dockersetup() {
-  echo "docker"
-  cd $DOTFILES
-  docker build -t ctf .
-  cd -
-}
 
 function vimsetup() {
   echo "vim"
@@ -107,7 +101,6 @@ function allsetup() {
   echo "all"
   vimsetup
   bashsetup
-  dockersetup
 }
 
 ### Verify and run input selections
@@ -116,9 +109,8 @@ for i in $@; do
   case "$i" in
     vim) vimsetup;;
     bash) bashsetup;;
-    docker) dockersetup;;
     all) allsetup;;
-    *) echo "Invalid name. Names: vim, bash, docker, all";;
+    *) echo "Invalid name. Names: vim, bash, all";;
   esac
 done
 
