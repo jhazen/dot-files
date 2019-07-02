@@ -36,6 +36,9 @@ alias pbp='pbpaste'
 alias vim='nvim -u ~/.vimrc'
 alias xcopy='xclip -i'
 alias xpaste='xclip -o'
+dockerws() {
+  docker run -it -v `pwd`:/ws ws
+}
 ctf() {
   docker run -it -v $1:/data ctf
 }
@@ -47,8 +50,3 @@ alias la='ls -la'
 alias lh='ls -lh'
 alias ltr='ls -ltr'
 alias psg='ps aux | grep'
-vimjavarun() {
-   cd `dirname $1`
-   java `echo $1 | sed 's/.java//g' | sed 's/.*\///g'`
-   cd - > /dev/null
-}
