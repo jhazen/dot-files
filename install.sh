@@ -49,11 +49,11 @@ function i3setup() {
   ln -s $DOTFILES/i3/wallpaper.sh ~/bin/wallpaper.sh
   if [ -f /usr/share/conky/conky1.10_shortcuts_green ]; then
     sudo rm /usr/share/conky/conky1.10_shortcuts_green
-    sudo ln -s $DOTFILES/i3/config /usr/share/conky/conky1.10_shortcuts_green
+    sudo ln -s $DOTFILES/i3/conky1.10_shortcuts_green /usr/share/conky/conky1.10_shortcuts_green
   fi
   if [ -f /usr/share/conky/conky_green ]; then
     sudo rm /usr/share/conky/conky_green
-    sudo ln -s $DOTFILES/i3/config /usr/share/conky/conky_green
+    sudo ln -s $DOTFILES/i3/conky_green /usr/share/conky/conky_green
   fi
 }
 

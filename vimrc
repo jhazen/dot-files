@@ -88,9 +88,10 @@ Plugin 'vhdirk/vim-cmake'
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plugin 'ervandew/supertab'
+Plugin 'sainnhe/vim-color-desert-night'
 
 set background=dark
-colorscheme gruvbox
+colorscheme desert-night
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -142,7 +143,7 @@ endif
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'desert_night'
 
 let g:pymode_options_colorcolumn = 0
 
@@ -214,7 +215,7 @@ nmap <leader>gp :Gpull<cr>
 nmap <leader>gP :Gpush<cr>
 
 nmap <leader>cm :CMake<cr>
-nmap <leader>m :make %<<cr>
+nnoremap <leader>m :make<<cr>
 
 tnoremap <Esc> <C-\><C-n>
 nnoremap <leader><space> :noh<cr>
