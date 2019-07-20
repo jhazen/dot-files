@@ -42,6 +42,9 @@ function i3setup() {
   if [ ! -d ~/bin ]; then
       mkdir ~/bin
   fi
+  if [ -f ~/bin/wallpaper.sh ]; then
+    rm ~/bin/wallpaper.sh
+  fi
   ln -s $DOTFILES/i3/config ~/.i3/config
   ln -s $DOTFILES/i3/wallpaper.sh ~/bin/wallpaper.sh
   if [ -f /usr/share/conky/conky1.10_shortcuts_green ]; then
