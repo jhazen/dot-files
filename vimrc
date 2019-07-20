@@ -215,9 +215,6 @@ nmap <leader>gc :Gcommit<cr>
 nmap <leader>gp :Gpull<cr>
 nmap <leader>gP :Gpush<cr>
 
-nmap <leader>cm :CMake<cr>
-nnoremap <leader>m :make<<cr>
-
 tnoremap <Esc> <C-\><C-n>
 nnoremap <leader><space> :noh<cr>
 
@@ -245,9 +242,11 @@ augroup SPACEVIM_ASYNCRUN
     autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
 augroup END
 
+autocmd filetype c nnoremap <leader>m :w <bar> !gcc % -o %<<CR>
 autocmd filetype c nnoremap <leader>r :w <bar> !%<<CR>
+autocmd filetype cpp nnoremap <leader>m :w <bar> !g++ % -o %<<CR>
 autocmd filetype cpp nnoremap <leader>r :w <bar> !%<<CR>
-autocmd Filetype java set makeprg=javac\ %
+autocmd filetype java nnoremap <leader>m :w <bar> !javac %<CR>
 autocmd filetype java nnoremap <leader>r :w <bar> !java -cp %:p:h %:t:r<CR>
 autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>
