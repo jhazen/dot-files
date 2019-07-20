@@ -3,7 +3,7 @@
 Personal dotfiles repo. Includes:
 * vim
 * bash
-* docker
+* i3
 
 
 
@@ -15,7 +15,7 @@ Personal dotfiles repo. Includes:
 
 Run 'all' as a parameter to setup everything; otherwise specify which dot file to setup.
 
-> ./install.sh (vim|bash|docker|all)
+> ./install.sh (vim|bash|i3|all)
 
 
 # Vim
@@ -144,9 +144,9 @@ Other aliases:
 * psg - ps aux | grep
 
 
-# Docker
+# i3
 
-Builds docker ctf image.
+i3 dot files.
 
 # Help
 

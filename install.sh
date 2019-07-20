@@ -2,7 +2,7 @@
 
 # Script will install dot-files based on input
 #
-# Example: ./install.sh vim bash
+# Example: ./install.sh vim bash i3
 #
 # jhazen532@gmail.com
 
@@ -20,13 +20,39 @@ fi
 
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <name> <name> ..."
-  echo "Example: $0 vim bash"
+  echo "Example: $0 vim bash i3"
   echo
   exit 1
 fi
 
 ### Functions
 
+
+function i3setup() {
+  echo "i3"
+  if [ -f ~/.i3/config ]; then
+    mv ~/.i3/config $BACKUP_DIR/i3-$(date +%s)
+  fi
+  if [ -L ~/.i3/config ]; then
+    rm ~/.i3/config
+  fi
+  if [ ! -d ~/.i3 ]; then
+    mkdir ~/.i3
+  fi
+  if [ ! -d ~/bin ]; then
+      mkdir ~/bin
+  fi
+  ln -s $DOTFILES/i3/config ~/.i3/config
+  ln -s $DOTFILES/i3/wallpaper.sh ~/bin/wallpaper.sh
+  if [ -f /usr/share/conky/conky1.10_shortcuts_green ]; then
+    sudo rm /usr/share/conky/conky1.10_shortcuts_green
+    sudo ln -s $DOTFILES/i3/config /usr/share/conky/conky1.10_shortcuts_green
+  fi
+  if [ -f /usr/share/conky/conky_green ]; then
+    sudo rm /usr/share/conky/conky_green
+    sudo ln -s $DOTFILES/i3/config /usr/share/conky/conky_green
+  fi
+}
 
 function vimsetup() {
   echo "vim"
@@ -101,6 +127,7 @@ function allsetup() {
   echo "all"
   vimsetup
   bashsetup
+  i3setup
 }
 
 ### Verify and run input selections
@@ -109,8 +136,9 @@ for i in $@; do
   case "$i" in
     vim) vimsetup;;
     bash) bashsetup;;
+    i3) i3setup;;
     all) allsetup;;
-    *) echo "Invalid name. Names: vim, bash, all";;
+    *) echo "Invalid name. Names: vim, bash, i3, all";;
   esac
 done
 

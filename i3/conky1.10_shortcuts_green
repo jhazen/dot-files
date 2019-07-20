@@ -1,0 +1,69 @@
+conky.config = {
+	alignment = 'bottom_right',
+	background = true,
+	color2 = '2ECC71',
+	cpu_avg_samples = 2,
+	default_color = 'FFFFFF',
+	double_buffer = true,
+	font = 'Bitstream Vera Sans:size=8',
+	gap_x = 25,
+	gap_y = 45,
+	minimum_width = 200,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 2.0,
+	use_xft = true,
+}
+conky.text = [[
+${color2}terminator
+${color2}broadcast start - ${color}Alt+a
+${color2}broadcast stop - ${color}Alt+o
+${color2}cycle tabs - ${color}Ctrl+PgUp or Ctrl+PgDown
+
+${color2}vim
+${color2}fold - ${color}Ctrl+f
+${color2}compile and run - ${color}Ctrl+r
+${color2}lint file - ${color}Ctrl+l
+${color2}tagbar - ${color}Ctrl+g
+${color2}jedi definitions - ${color}\d
+${color2}jedi assignments - ${color}\g
+${color2}jedi pydoc - ${color}\k
+${color2}java new class - ${color}\jn
+${color2}java generate constructor - ${color}\jc
+${color2}java add missing imports - ${color}\jI
+${color2}pdb set breakpoint - ${color}\b
+${color2}pdb - ${color}\q
+${color2}golang autocompletion - ${color}\t
+${color2}cd git dir local file - ${color}\cd
+${color2}vimwiki - ${color}\ww
+${color2}vimwiki tab - ${color}\wt
+
+${color2}chromium
+${color2}go back - ${color}alt+left
+${color2}new tab - ${color}Ctrl+t
+${color2}incognito window - ${color}Ctrl+Shift+N
+${color2}close tab - ${color}Ctrl+w
+${color2}go to search bar - ${color}Ctrl+l
+${color2}move between tabs - ${color}Ctrl+PgUp or Ctrl+PgDown
+
+${color2}i3
+${color2}open new terminal - ${color}mod+Enter
+${color2}kill focused - ${color}mod+Shift+q
+${color2}lock screen - ${color}mod+l
+${color2}fullscreen focused - ${color}mod+f
+${color2}open chromium - ${color}mod+F2
+${color2}open thunar - ${color}mod+F3
+${color2}resize window - ${color}mod+r
+${color2}toggle split direction - ${color}mod+q
+${color2}toggle stack/float - ${color}mod+Shift+Space
+${color2}switch splits - ${color}mod+arrowkeys
+${color2}dmenu - ${color}mod+d
+${color2}morc_menu - ${color}mod+z
+${color2}switch to workspace 1-8 - ${color}mod+1-8
+${color2}send to workspace 1-8 - ${color}mod+Ctrl+1-8
+${color2}navigate workspaces - ${color}mod+Ctrl+arrowkeys
+${color2}toggle ibar - ${color}mod+m
+${color2}exit - ${color}mod+0
+]]
