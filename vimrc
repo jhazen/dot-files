@@ -64,6 +64,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
 Plugin 'davidhalter/jedi-vim'
@@ -144,7 +145,7 @@ endif
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
-let g:airline_theme = 'desert_night'
+let g:airline_theme = 'desert-night'
 
 let g:pymode_options_colorcolumn = 0
 
