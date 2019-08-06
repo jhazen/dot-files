@@ -92,7 +92,7 @@ Plugin 'ervandew/supertab'
 Plugin 'sainnhe/vim-color-desert-night'
 
 set background=dark
-colorscheme desert-night
+colorscheme gruvbox
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
