@@ -47,6 +47,8 @@ function i3setup() {
   fi
   ln -s $DOTFILES/i3/config ~/.i3/config
   ln -s $DOTFILES/i3/wallpaper.sh ~/bin/wallpaper.sh
+  ln -s $DOTFILES/i3/nordstart ~/bin/nordstart
+  ln -s $DOTFILES/i3/nordstop ~/bin/nordstop
   if [ -f /usr/share/conky/conky_green ]; then
     sudo rm /usr/share/conky/conky_green
     sudo ln -s $DOTFILES/i3/conky_green /usr/share/conky/conky_green
