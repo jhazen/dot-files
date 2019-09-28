@@ -146,6 +146,13 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.wiki'}]
+let wiki = {}
+let wiki.path = '~/vimwiki'
+let wiki.nested_syntaxes = {'ruby': 'ruby', 'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'racket': 'racket'}
+let g:vimwiki_list = [wiki]
+let g:vimwiki_hl_headers = 1
+
 let g:pymode_options_colorcolumn = 0
 
 let g:JavaComplete_EnableDefaultMappings = 1

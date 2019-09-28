@@ -50,3 +50,8 @@ alias la='ls -la'
 alias lh='ls -lh'
 alias ltr='ls -ltr'
 alias psg='ps aux | grep'
+start_gollum() {
+   if [ ! `pgrep gollum` ]; then
+       ~/.gem/ruby/2.6.0/bin/gollum ~/vimwiki/ 2>&1 > ~/.vimwiki.log &
+   fi
+}
