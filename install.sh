@@ -122,6 +122,13 @@ function bashsetup() {
     mv ~/startVM.sh $BACKUP_DIR/startVM.sh-$(date +%s)
   fi
   ln -s $DOTFILES/startVM.sh ~/bin/startVM.sh
+  if [ -L ~/bin/shot.sh ]; then
+    rm ~/bin/shot.sh
+  fi
+  if [ -f ~/bin/shot.sh ]; then
+    mv ~/shot.sh $BACKUP_DIR/shot.sh-$(date +%s)
+  fi
+  ln -s $DOTFILES/shot.sh ~/bin/shot.sh
 }
 
 function allsetup() {
