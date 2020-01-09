@@ -118,7 +118,8 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 
 let g:SimplyFold_docstring_preview=1
 
-let g:flake8_quickfix_height=12
+let g:flake8_show_quickfix=0
+let g:flake8_show_in_gutter=0
 let python_highlight_all=1
 let g:Powerline_symbols = 'fancy'
 
