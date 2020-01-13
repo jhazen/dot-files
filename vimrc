@@ -95,8 +95,6 @@ let g:jedi#use_splits_not_buffers = "bottom"
 let g:jedi#documentation_command = "<leader>k"
 let g:jedi#completions_command = "<C-A>"
 
-let g:ctrlp_cmd='CtrlP ~/Workspace'
-
 let g:SimplyFold_docstring_preview=1
 
 let g:flake8_show_quickfix=0
@@ -145,7 +143,6 @@ nmap <C-G> :TagbarToggle<CR>
 nnoremap <C-F> za
 
 au FileType python map <buffer> <C-L> :call Flake8()<CR>
-au BufEnter *.json nmap <C-L> <esc>:w\|!jsonlint % > /tmp/lintout<CR>:belowright split /tmp/lintout<CR>:redraw!<CR>
 au BufEnter *.js, *.html, *.css set shiftwidth=2
 au BufEnter *.js, *.html, *.css set tabstop=2
 au BufEnter *.js, *.html, *.css set softtabstop=2
@@ -158,9 +155,6 @@ au BufEnter *.yml set softtabstop=2
 au BufEnter *.yaml set shiftwidth=2
 au BufEnter *.yaml set tabstop=2
 au BufEnter *.yaml set softtabstop=2
-au BufEnter *.rb set shiftwidth=2
-au BufEnter *.rb set tabstop=2
-au BufEnter *.rb set softtabstop=2
 au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
 au BufEnter *.asm set filetype=nasm
@@ -191,8 +185,6 @@ nmap <leader>gP :Gpush<cr>
 tnoremap <Esc> <C-\><C-n>
 nnoremap <leader><space> :noh<cr>
 
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-
 nnoremap <silent> ,K <C-w>K
 nnoremap <silent> ,J <C-w>J
 nnoremap <silent> ,H <C-w>H
@@ -210,16 +202,8 @@ let @a="kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
 nnoremap <silent> ,z @z
 let @z="jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
 
-autocmd filetype c nnoremap <leader>m :w <bar> !gcc % -o %<<CR>
-autocmd filetype c nnoremap <leader>r :w <bar> !%<<CR>
-autocmd filetype cpp nnoremap <leader>m :w <bar> !g++ % -o %<<CR>
-autocmd filetype cpp nnoremap <leader>r :w <bar> !%<<CR>
-autocmd filetype java nnoremap <leader>m :w <bar> !javac %<CR>
-autocmd filetype java nnoremap <leader>r :w <bar> !java -cp %:p:h %:t:r<CR>
 autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>
-autocmd filetype asm nnoremap <leader>r :w <bar> !nasm -f elf64 % -o %.o && ld -m elf_x86_64 %.o -o a.out && chmod +x a.out && ./a.out<CR>
-autocmd filetype asm32 nnoremap <leader>r :w <bar> !nasm -f elf32 % -o %.o && ld -m elf_i386 %.o -o a.out && chmod +x a.out && ./a.out<CR>
 
 function! ToggleHex()
   let l:modified=&mod

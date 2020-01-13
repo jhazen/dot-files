@@ -32,7 +32,7 @@ function __git_prompt {
   fi
 }
 
-PS1='\[\033[01;34m\][\w]\[\e[0m$(__git_prompt)\]\[\033[00m\] % '
+PS1='\[\033[01;34m\][\w]\[\e[0m$(__git_prompt)\]\[\033[00m\]\n% '
 
 source ~/.aliases
 
