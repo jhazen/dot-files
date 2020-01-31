@@ -40,7 +40,7 @@ dockerws() {
   docker run -it -v `pwd`:/ws ws
 }
 ctf() {
-  docker run -it -v $1:/data ctf
+  docker run -it -v `pwd`:/data ctf
 }
 title() {
   echo -ne "\e]0;$1\a"
