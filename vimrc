@@ -203,6 +203,7 @@ nnoremap <silent> ,z @z
 let @z="jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
 
 autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>
+autocmd filetype c nnoremap <leader>r :w <bar> !gcc % -o /tmp/a.out && chmod +x /tmp/a.out && /tmp/a.out <CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>
 
 function! ToggleHex()
@@ -215,7 +216,6 @@ function! ToggleHex()
     let b:oldft=&ft
     let b:oldbin=&bin
     setlocal binary
-    silent :e
     let &ft="xxd"
     let b:editHex=1
     %!xxd
