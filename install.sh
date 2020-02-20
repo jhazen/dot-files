@@ -93,6 +93,13 @@ function bashsetup() {
   fi
   ln -s $DOTFILES/aliases ~/.aliases
   ln -s $DOTFILES/bashrc ~/.bashrc
+  if [ -L ~/.radare2rc ]; then
+    rm ~/.radare2rc
+  fi
+  if [ -f ~/.radare2rc ]; then
+    mv ~/.radare2rc $BACKUPDIR/radare2rc-$(date +%s)
+  fi
+  ln -s $DOTFILES/radare2rc ~/.radare2rc
   if [ ! -d ~/bin ]; then
       mkdir ~/bin
   fi
