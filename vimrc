@@ -204,6 +204,7 @@ let @z="jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
 
 autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>
 autocmd filetype c nnoremap <leader>r :w <bar> !gcc % -o /tmp/a.out && chmod +x /tmp/a.out && /tmp/a.out <CR>
+autocmd filetype c nnoremap <leader>m :make<CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>
 
 function! ToggleHex()
