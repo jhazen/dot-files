@@ -78,6 +78,7 @@ Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'vhdirk/vim-cmake'
 Plugin 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plugin 'ervandew/supertab'
+Plugin 'faith/vim-go'
 
 set background=dark
 colorscheme gruvbox
