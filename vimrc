@@ -62,7 +62,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ClockworkNet/vim-junos-syntax'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'klen/python-mode'
@@ -78,7 +79,6 @@ Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'vhdirk/vim-cmake'
 Plugin 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plugin 'ervandew/supertab'
-Plugin 'faith/vim-go'
 
 set background=dark
 colorscheme gruvbox
@@ -103,10 +103,10 @@ let g:flake8_show_in_gutter=0
 let python_highlight_all=1
 let g:Powerline_symbols = 'fancy'
 
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+"let g:ycm_confirm_extra_conf = 0
+"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
@@ -206,6 +206,8 @@ let @z="jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
 autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>
 autocmd filetype c nnoremap <leader>r :w <bar> !gcc % -o /tmp/a.out && chmod +x /tmp/a.out && /tmp/a.out <CR>
 autocmd filetype c nnoremap <leader>m :make<CR>
+autocmd filetype go nnoremap <leader>r :w <bar> !go run %<CR>
+autocmd filetype go nnoremap <leader>b :w <bar> !go build -o ~/go/bin/%:t:r %<CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>
 
 function! ToggleHex()

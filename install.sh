@@ -72,9 +72,9 @@ function vimsetup() {
       sudo mkdir /usr/local/go
       sudo chown $(whoami) /usr/local/go
   fi
-  vim +PluginInstall +qall
-  cd ~/.vim/bundle/YouCompleteMe
-  ./install.py --clang-completer --java-completer --go-completer
+  nvim -u ~/.vimrc +PluginInstall +qall
+  #cd ~/.vim/bundle/YouCompleteMe
+  #./install.py --clang-completer --java-completer --go-completer
 }
 
 function bashsetup() {
