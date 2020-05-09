@@ -55,3 +55,8 @@ start_gollum() {
        ~/.gem/ruby/2.6.0/bin/gollum ~/vimwiki/ 2>&1 > ~/.vimwiki.log &
    fi
 }
+pandoc_wiki() {
+    cd ~ &> /dev/null
+    pandoc -f markdown -t latex $1 -o ~/Documents/Report.pdf
+    cd - &> /dev/null
+}

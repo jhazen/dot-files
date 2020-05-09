@@ -123,12 +123,16 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.wiki'}]
 let wiki = {}
 let wiki.path = '~/vimwiki'
+let wiki.syntax = 'markdown'
+let wiki.ext = '.md'
 let wiki.nested_syntaxes = {'ruby': 'ruby', 'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'racket': 'racket'}
 let g:vimwiki_list = [wiki]
 let g:vimwiki_hl_headers = 1
+let g:vimwiki_global_ext = 0
+let g:vimwiki_markdown_link_ext = 1
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
 let g:pymode_options_colorcolumn = 0
 let g:pymode_lint_on_write = 0
@@ -163,6 +167,10 @@ au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
 au BufEnter *.asm set filetype=nasm
 au BufEnter *.sls set filetype=yaml
+au BufEnter *.wiki set ft=markdown
+au BufEnter *.md set ft=markdown
+au BufRead,BufWrite,BufNew *.wiki set ft=markdown
+au BufRead,BufWrite,BufNew *.md set ft=markdown
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
