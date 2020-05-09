@@ -133,6 +133,8 @@ let g:vimwiki_hl_headers = 1
 let g:pymode_options_colorcolumn = 0
 let g:pymode_lint_on_write = 0
 
+let g:go_def_mapping_enabled = 0
+
 nmap <C-U> :UndotreeToggle<CR>
 nmap <C-W> :tabprevious<CR>
 nmap <C-E> :tabnext<CR>
@@ -207,8 +209,9 @@ let @z="jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
 autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>
 autocmd filetype c nnoremap <leader>r :w <bar> !gcc % -o /tmp/a.out && chmod +x /tmp/a.out && /tmp/a.out <CR>
 autocmd filetype c nnoremap <leader>m :make<CR>
-autocmd filetype go nnoremap <leader>r :w <bar> !go run %<CR>
-autocmd filetype go nnoremap <leader>b :w <bar> !go build -o ~/go/bin/%:t:r %<CR>
+autocmd filetype go nnoremap <leader>r :GoRun <CR>
+autocmd filetype go nnoremap <leader>b :GoBuild <CR>
+autocmd Filetype go nnoremap <leader>g :sp <CR>:exe "GoDef" <CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>
 
 function! ToggleHex()
