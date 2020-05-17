@@ -60,3 +60,21 @@ pandoc_wiki() {
     pandoc -V geometry:margin=3cm -f markdown -t latex $1 -o ~/Documents/Report.pdf
     cd - &> /dev/null
 }
+update_local_vimwiki() {
+    if [ $# -ne 1 ]; then
+        echo "Usage: update_local_vimwiki <user@system>"
+        echo "we will scp the ~/vimwiki dir from that user@system on top of our ~/vimwiki"
+        return 1
+    fi
+    cd ~/vimwiki &> /dev/null
+    scp -r $1:~/vimwiki/* .
+    cd - &> /dev/null
+}
+push_local_vimwiki() {
+    if [ $# -ne 1 ]; then
+        echo "Usage: push_local_vimwiki <user@system>"
+        echo "we will scp our local ~/vimwiki dir to user@system on top of their ~/vimwiki"
+        return 1
+    fi
+    scp -r ~/vimwiki/* $1:~/vimwiki/
+}
