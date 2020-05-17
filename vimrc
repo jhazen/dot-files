@@ -222,6 +222,8 @@ autocmd filetype go nnoremap <leader>b :GoBuild <CR>
 autocmd Filetype go nnoremap <leader>g :sp <CR>:exe "GoDef" <CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>
 
+autocmd filetype markdown nnoremap <Backspace> <Plug>VimwikiGoBackLink
+
 function! ToggleHex()
   let l:modified=&mod
   let l:oldreadonly=&readonly

@@ -57,6 +57,6 @@ start_gollum() {
 }
 pandoc_wiki() {
     cd ~ &> /dev/null
-    pandoc -f markdown -t latex $1 -o ~/Documents/Report.pdf
+    pandoc -V geometry:margin=3cm -f markdown -t latex $1 -o ~/Documents/Report.pdf
     cd - &> /dev/null
 }
