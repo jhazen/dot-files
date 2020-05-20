@@ -1,6 +1,6 @@
 #!/bin/bash
 
-F=`date +'%F_%k%M%S_%N'`
+F=`date +'%F_%H%M%S_%N'`
 import ~/vimwiki/screenshots/$F.png
 # wiki format
 #echo "[[File:$SHOTS_DIR/$F.png]]" | xclip
