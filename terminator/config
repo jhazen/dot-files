@@ -1,8 +1,11 @@
 [global_config]
   putty_paste_style = True
 [keybindings]
+  cycle_next = <Primary>Tab
   page_up = Page_Up
   page_down = Page_Down
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
 [profiles]
   [[default]]
     background_color = "#282828"
