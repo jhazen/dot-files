@@ -1,0 +1,44 @@
+general {
+        colors = true
+        interval = 5
+}
+
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery all"
+order += "disk /"
+order += "load"
+order += "memory"
+order += "tztime local"
+
+wireless _first_ {
+        format_up = "wlan0: (%quality at %essid) %ip"
+        format_down = "wlan0: down"
+}
+
+ethernet _first_ {
+        format_up = "eth0: %ip (%speed)"
+        format_down = "eth0: down"
+}
+
+battery all {
+        format = "%status %percentage %remaining"
+}
+
+disk "/" {
+        format = "/: %avail"
+}
+
+load {
+        format = "load: %1min"
+}
+
+memory {
+        format = "used: %used | avail: %available"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}

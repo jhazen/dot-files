@@ -30,29 +30,29 @@ fi
 
 function i3setup() {
   echo "i3"
+  if [ ! -d ~/.config ]; then
+    mkdir ~/.config
+  fi
+  if [ ! -d ~/.config/i3 ]; then
+    mkdir ~/.config/i3
+  fi
+  if [ ! -d ~/.config/i3status ]; then
+    mkdir ~/.config/i3status
+  fi
+  if [ ! -d ~/.config/terminator ]; then
+    mkdir ~/.config/terminator
+  fi
   if [ -f ~/.config/i3/config ]; then
     mv ~/.config/i3/config $BACKUP_DIR/i3-$(date +%s)
   fi
   if [ -L ~/.config/i3/config ]; then
     rm ~/.config/i3/config
   fi
-  if [ -f ~/.config/i3/conkyrc ]; then
-    mv ~/.config/i3/conkyrc $BACKUP_DIR/i3-$(date +%s)
+  if [ -f ~/.config/i3status/config ]; then
+    mv ~/.config/i3status/config $BACKUP_DIR/i3status-$(date +%s)
   fi
-  if [ -L ~/.config/i3/conkyrc ]; then
-    rm ~/.config/i3/conkyrc
-  fi
-  if [ -f ~/.config/i3/conkyrc2 ]; then
-    mv ~/.config/i3/conkyrc2 $BACKUP_DIR/i3-$(date +%s)
-  fi
-  if [ -L ~/.config/i3/conkyrc2 ]; then
-    rm ~/.config/i3/conkyrc2
-  fi
-  if [ ! -d ~/.config/terminator ]; then
-    mkdir ~/.config/terminator
-  fi
-  if [ ! -d ~/.config/i3 ]; then
-    mkdir ~/.config/i3
+  if [ -L ~/.config/i3status/config ]; then
+    rm ~/.config/i3status/config
   fi
   if [ -f ~/.config/terminator/config ]; then
     mv ~/.config/terminator/config $BACKUP_DIR/terminator-$(date +%s)
@@ -67,8 +67,7 @@ function i3setup() {
     rm ~/bin/wallpaper.sh
   fi
   ln -s $DOTFILES/i3/config ~/.config/i3/config
-  ln -s $DOTFILES/i3/conkyrc ~/.config/i3/conkyrc
-  ln -s $DOTFILES/i3/conkyrc2 ~/.config/i3/conkyrc2
+  ln -s $DOTFILES/i3status/config ~/.config/i3status/config
   ln -s $DOTFILES/terminator/config ~/.config/terminator/config
   ln -s $DOTFILES/i3/wallpaper.sh ~/bin/wallpaper.sh
 }
