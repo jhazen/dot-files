@@ -123,14 +123,17 @@ function bashsetup() {
   if [ ! -d ~/.bin ]; then
       mkdir ~/.bin
   fi
-  if [ ! -d ~/go ]; then
-      mkdir ~/go
+  if [ ! -d ~/Workspace/go ]; then
+      mkdir ~/Workspace/go
   fi
-  if [ ! -d ~/go/src ]; then
-      mkdir ~/go/src
+  if [ ! -d ~/Workspace/go/src ]; then
+      mkdir ~/Workspace/go/src
   fi
-  if [ ! -d ~/go/bin ]; then
-      mkdir ~/go/bin
+  if [ ! -d ~/Workspace/go/bin ]; then
+      mkdir ~/Workspace/go/bin
+  fi
+  if [ ! -d ~/Workspace/go/pkg ]; then
+      mkdir ~/Workspace/go/pkg
   fi
   if [ -L ~/bin/vimserver.py ]; then
     rm ~/bin/vimserver.py

@@ -39,9 +39,9 @@ source ~/.aliases
 HISTSIZE=100000
 shopt -s histappend
 
-export GOBIN=~/go/bin
-export GOPATH=~/go
-export PATH=~/bin:~/.bin:~/go/bin:$PATH
+export GOBIN=~/Workspace/go/bin
+export GOPATH=~/Workspace/go
+export PATH=~/bin:~/.bin:~/Workspace/go/bin:$PATH
 
 if [ -f ~/.bashlocal ]; then
   source ~/.bashlocal
