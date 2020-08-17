@@ -92,6 +92,8 @@ filetype plugin indent on
 
 let g:terminal_scrollback_buffer_size = 100000
 
+let g:deoplete#enable_at_startup = 1
+
 let g:jedi#use_splits_not_buffers = "bottom"
 let g:jedi#documentation_command = "<leader>k"
 let g:jedi#completions_command = "<C-A>"
