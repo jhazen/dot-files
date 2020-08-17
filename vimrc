@@ -45,7 +45,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'skwp/vim-easymotion'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround.git'
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/indentpython.vim'
@@ -210,16 +209,32 @@ nnoremap <silent> ,l <C-w>l
 nnoremap <Space> @q
 let @q="\<Esc>^i#\<Esc>j"
 nnoremap <silent> ,a @a
+nnoremap <PageUp> @a
 let @a="kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
 nnoremap <silent> ,z @z
+nnoremap <PageDown> @z
 let @z="jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
+
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+let g:go_snippet_engine = "ultisnips"
+let g:go_autodetect_gopath = 1
+let g:go_def_mode = 'gopls'
+let g:go_def_mod_mode='godef'
 
 autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>
 autocmd filetype c nnoremap <leader>r :w <bar> !gcc % -o /tmp/a.out && chmod +x /tmp/a.out && /tmp/a.out <CR>
 autocmd filetype c nnoremap <leader>m :make<CR>
-autocmd filetype go nnoremap <leader>r :GoRun <CR>
+au FileType go nmap <leader>r <Plug>(go-run-split)
 autocmd filetype go nnoremap <leader>b :GoBuild <CR>
-autocmd Filetype go nnoremap <leader>g :sp <CR>:exe "GoDef" <CR>
+autocmd Filetype go nnoremap <leader>q :GoDebugStart <CR>
+au FileType go nmap <leader>qs <Plug>(go-debug-step)
+au FileType go nmap <leader>qc <Plug>(go-debug-continue)
+au FileType go nmap <leader>qn <Plug>(go-debug-next)
+au FileType go nmap <leader>qb <Plug>(go-debug-breakpoint)
+au FileType go nmap <leader>f <Plug>(go-files)
+au FileType go nmap <leader>d <Plug>(go-deps)
+au FileType go nmap <leader>g <Plug>(go-def-split)
+au FileType go nmap <leader>G <Plug>(go-def-stack)
 autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>
 
 autocmd filetype markdown nnoremap <Backspace> <Plug>VimwikiGoBackLink
