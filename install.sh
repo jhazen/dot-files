@@ -63,6 +63,9 @@ function i3setup() {
   if [ ! -d ~/bin ]; then
       mkdir ~/bin
   fi
+  if [ -f ~/bin/spotify_wrap.sh ]; then
+    rm ~/bin/spotify_wrap.sh
+  fi
   if [ -f ~/bin/wallpaper.sh ]; then
     rm ~/bin/wallpaper.sh
   fi
@@ -70,6 +73,7 @@ function i3setup() {
   ln -s $DOTFILES/i3status/config ~/.config/i3status/config
   ln -s $DOTFILES/terminator/config ~/.config/terminator/config
   ln -s $DOTFILES/i3/wallpaper.sh ~/bin/wallpaper.sh
+  ln -s $DOTFILES/i3/spotify_wrap.sh ~/bin/spotify_wrap.sh
 }
 
 function vimsetup() {
