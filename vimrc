@@ -61,7 +61,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ClockworkNet/vim-junos-syntax'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'preservim/nerdtree'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
@@ -141,6 +141,7 @@ let g:pymode_lint_on_write = 0
 let g:go_def_mapping_enabled = 0
 
 nmap <C-U> :UndotreeToggle<CR>
+nmap <C-N> :NERDTreeToggle<CR>
 nmap <C-W> :tabprevious<CR>
 nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
@@ -223,10 +224,10 @@ let g:go_autodetect_gopath = 1
 let g:go_def_mode = 'gopls'
 let g:go_def_mod_mode='godef'
 
-autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>
+autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>,k
 autocmd filetype c nnoremap <leader>r :w <bar> !gcc % -o /tmp/a.out && chmod +x /tmp/a.out && /tmp/a.out <CR>
 autocmd filetype c nnoremap <leader>m :make<CR>
-au FileType go nmap <leader>r <Plug>(go-run-split)
+au FileType go nmap <leader>r <Plug>(go-run-split)<CR>,k
 autocmd filetype go nnoremap <leader>b :GoBuild <CR>
 autocmd Filetype go nnoremap <leader>q :GoDebugStart <CR>
 au FileType go nmap <leader>qs <Plug>(go-debug-step)
@@ -237,7 +238,7 @@ au FileType go nmap <leader>f <Plug>(go-files)
 au FileType go nmap <leader>d <Plug>(go-deps)
 au FileType go nmap <leader>g <Plug>(go-def-split)
 au FileType go nmap <leader>G <Plug>(go-def-stack)
-autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>
+autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>,k
 
 autocmd filetype markdown nnoremap <Backspace> <Plug>VimwikiGoBackLink
 

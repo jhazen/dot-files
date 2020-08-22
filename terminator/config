@@ -14,9 +14,9 @@
     cursor_color = "#aaaaaa"
     foreground_color = "#ebdbb2"
     show_titlebar = False
+    scrollbar_position = hidden
     scrollback_infinite = True
     copy_on_selection = True
-    scrollbar_position = disabled
 [layouts]
   [[default]]
     [[[window0]]]

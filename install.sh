@@ -60,6 +60,12 @@ function i3setup() {
   if [ -L ~/.config/terminator/config ]; then
     rm ~/.config/terminator/config
   fi
+  if [ -f ~/.config/compton/compton.conf ]; then
+    mv ~/.config/compton/compton.conf $BACKUP_DIR/compton-$(date +%s)
+  fi
+  if [ -L ~/.config/compton/compton.conf ]; then
+    rm ~/.config/compton/compton.conf
+  fi
   if [ ! -d ~/bin ]; then
       mkdir ~/bin
   fi
@@ -72,8 +78,9 @@ function i3setup() {
   ln -s $DOTFILES/i3/config ~/.config/i3/config
   ln -s $DOTFILES/i3status/config ~/.config/i3status/config
   ln -s $DOTFILES/terminator/config ~/.config/terminator/config
+  ln -s $DOTFILES/i3/compton.conf ~/.config/compton/compton.conf
   ln -s $DOTFILES/i3/wallpaper.sh ~/bin/wallpaper.sh
-  ln -s $DOTFILES/i3/spotify_wrap.sh ~/bin/spotify_wrap.sh
+  ln -s $DOTFILES/spotify_wrap.sh ~/bin/spotify_wrap.sh
 }
 
 function vimsetup() {
