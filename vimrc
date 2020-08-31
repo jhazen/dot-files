@@ -137,6 +137,9 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown'
 
 let g:pymode_options_colorcolumn = 0
 let g:pymode_lint_on_write = 0
+let g:pymode_preview_position = 'botright'
+let g:pymode_python = 'python3'
+let g:pymode_run_bind = '<leader>r'
 
 let g:go_def_mapping_enabled = 0
 
@@ -224,7 +227,6 @@ let g:go_autodetect_gopath = 1
 let g:go_def_mode = 'gopls'
 let g:go_def_mod_mode='godef'
 
-autocmd filetype python nnoremap <leader>r :w <bar> !python3 % <CR>,k
 autocmd filetype c nnoremap <leader>r :w <bar> !gcc % -o /tmp/a.out && chmod +x /tmp/a.out && /tmp/a.out <CR>
 autocmd filetype c nnoremap <leader>m :make<CR>
 au FileType go nmap <leader>r <Plug>(go-run-split)<CR>,k
