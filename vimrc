@@ -30,13 +30,14 @@ set ruler
 set sidescroll=1
 set shell=bash
 set ff=unix
-set clipboard=unnamed
+set clipboard=unnamedplus
 set laststatus=2
 set textwidth=243
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
 set foldmethod=indent
 set foldlevel=99
+set tags=./tags,tags;$HOME
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -57,6 +58,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'w0rp/ale'
+Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'davidhalter/jedi-vim'
@@ -229,9 +231,11 @@ let g:go_def_mod_mode='godef'
 
 autocmd filetype c nnoremap <leader>r :w <bar> !gcc % -o /tmp/a.out && chmod +x /tmp/a.out && /tmp/a.out <CR>
 autocmd filetype c nnoremap <leader>m :make<CR>
+autocmd filetype c nnoremap <leader>g :sp <CR>:exec("tag ".expand("<cword>"))<CR>
+autocmd filetype c nnoremap <leader>. :CtrlPTag<cr>
 au FileType go nmap <leader>r <Plug>(go-run-split)<CR>,k
-autocmd filetype go nnoremap <leader>b :GoBuild <CR>
-autocmd Filetype go nnoremap <leader>q :GoDebugStart <CR>
+au filetype go nnoremap <leader>b :GoBuild <CR>
+au Filetype go nnoremap <leader>q :GoDebugStart <CR>
 au FileType go nmap <leader>qs <Plug>(go-debug-step)
 au FileType go nmap <leader>qc <Plug>(go-debug-continue)
 au FileType go nmap <leader>qn <Plug>(go-debug-next)
@@ -240,7 +244,7 @@ au FileType go nmap <leader>f <Plug>(go-files)
 au FileType go nmap <leader>d <Plug>(go-deps)
 au FileType go nmap <leader>g <Plug>(go-def-split)
 au FileType go nmap <leader>G <Plug>(go-def-stack)
-autocmd filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>,k
+au filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>,k
 
 autocmd filetype markdown nnoremap <Backspace> <Plug>VimwikiGoBackLink
 
