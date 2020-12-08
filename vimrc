@@ -222,6 +222,8 @@ let @a="kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
 nnoremap <silent> ,z @z
 nnoremap <PageDown> @z
 let @z="jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
+let @e="\<Esc>\\ww\<Esc>:tabnew term://bash\<CR>bB\<CR>bP\<CR>,K,j,h:tabnew\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>:tabnew\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>:tabnew\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>"
+nnoremap <silent> ,e @e
 
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 let g:go_snippet_engine = "ultisnips"
