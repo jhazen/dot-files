@@ -157,7 +157,7 @@ nmap <C-G> :TagbarToggle<CR>
 
 nnoremap <C-F> za
 
-au FileType python nnoremap <leader>l :w <bar> !black --check % && flake8 % <CR>
+au FileType python nnoremap <leader>l :w <bar> !black % && flake8 % <CR>
 au BufEnter *.js, *.html, *.css set shiftwidth=2
 au BufEnter *.js, *.html, *.css set tabstop=2
 au BufEnter *.js, *.html, *.css set softtabstop=2

@@ -50,4 +50,3 @@ fi
 if [ -f ~/.todo ]; then
     cat ~/.todo
 fi
-unset PYTHONPATH
