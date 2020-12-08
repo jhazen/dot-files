@@ -43,6 +43,8 @@ export GOBIN=~/Workspace/go/bin
 export GOPATH=~/Workspace/go
 export PATH=~/bin:~/.bin:~/Workspace/go/bin:$PATH
 
+export SHOTMAP=~/.shotmap
+
 if [ -f ~/.bashlocal ]; then
   source ~/.bashlocal
 fi

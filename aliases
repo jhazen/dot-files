@@ -78,3 +78,30 @@ push_local_vimwiki() {
     fi
     scp -r ~/vimwiki/* $1:~/vimwiki/
 }
+shotmap_iterate() {
+    if [ ! -f $SHOTMAP ]; then
+        echo "1.1.1.1" > $SHOTMAP
+    fi
+    CURRENT_VAL=`cat $SHOTMAP`
+    if [ $# -eq 0 ]; then
+        DIGIT=4
+    else
+        DIGIT=$1
+    fi
+    if [ $DIGIT -eq 1 ]; then
+        TOP=""
+    else
+        TOP=`echo $CURRENT_VAL | cut -d'.' -f1-$(( $DIGIT - 1 ))`
+    fi
+    BOTTOM=$(( `echo $CURRENT_VAL | cut -d'.' -f $DIGIT` + 1 ))
+    if [ $DIGIT -eq 1 ]; then
+        FIXED_UPPER=`echo $BOTTOM`
+    else
+        FIXED_UPPER=`echo $TOP.$BOTTOM`
+    fi
+    PLACES_TO_FIX=$(( 4 - $DIGIT ))
+    for i in `seq 1 $PLACES_TO_FIX`; do
+        FIXED_UPPER="$FIXED_UPPER.1"
+    done
+    echo $FIXED_UPPER > $SHOTMAP
+}
