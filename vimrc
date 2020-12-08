@@ -151,7 +151,7 @@ nmap <C-W> :tabprevious<CR>
 nmap <C-E> :tabnext<CR>
 nmap <C-T> :tabnew<CR>
 nmap <C-B> :tabnew term://bash<CR>
-nmap <C-Y> :tabnew term://python3<CR>
+nmap <C-Y> :tabnew term://python3.8<CR>
 nmap <leader>q :vsplit term://pdb3 %<CR>
 nmap <C-G> :TagbarToggle<CR>
 
