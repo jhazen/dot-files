@@ -186,7 +186,7 @@ nnoremap <silent> bn :bn<CR>
 nnoremap <silent> bp :bp<CR>
 
 nnoremap <silent> bB :vsplit term://bash<CR>
-nnoremap <silent> bP :vsplit term://python3<CR>
+nnoremap <silent> bP :vsplit term://python3.8<CR>
 
 nnoremap <silent> ,e <C-w>+<C-w>+<C-w>+<C-w>+<C-w>+
 nnoremap <silent> ,w <C-w>-<C-w>-<C-w>-<C-w>-<C-w>-
