@@ -167,6 +167,11 @@ function bashsetup() {
     mv ~/shot.sh $BACKUP_DIR/shot.sh-$(date +%s)
   fi
   ln -s $DOTFILES/shot.sh ~/bin/shot.sh
+  if [ -f /usr/bin/apt ]; then
+      sudo add-apt-repository ppa:neovim-ppa/stable
+      sudo apt update
+      sudo apt install neovim cmake ctags python3.8
+  fi
 }
 
 function allsetup() {
