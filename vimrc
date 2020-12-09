@@ -81,6 +81,8 @@ Plugin 'vhdirk/vim-cmake'
 Plugin 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
+Plugin 'kkoomen/vim-doge'
+call doge#install()
 
 set background=dark
 colorscheme gruvbox
@@ -91,6 +93,9 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
 
 filetype plugin indent on
+
+let g:doge_doc_standard_python = 'sphinx'
+let g:doge_mapping = '<Leader>D'
 
 let g:terminal_scrollback_buffer_size = 100000
 
