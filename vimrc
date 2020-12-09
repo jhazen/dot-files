@@ -42,6 +42,8 @@ set tags=./tags,tags;$HOME
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Plugin 'gmarik/vundle'
+Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'skwp/vim-easymotion'
 Plugin 'godlygeek/tabular'
@@ -51,8 +53,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'CyCoreSystems/vim-cisco-ios'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'morhetz/gruvbox'
 Plugin 'joonty/vdebug'
 Plugin 'nvie/vim-flake8'
 Plugin 'tmhedberg/SimpylFold'
