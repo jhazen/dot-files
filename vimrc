@@ -282,3 +282,30 @@ function! ToggleHex()
   let &modifiable=l:oldmodifiable
 endfunction
 command! -bar Hex call ToggleHex()
+
+function ToggleColorScheme()
+    if g:colors_name == "gruvbox"
+        :colorscheme iceberg
+    elseif g:colors_name == "iceberg"
+        :colorscheme molokai
+    elseif g:colors_name == "molokai"
+        :colorscheme nord
+    elseif g:colors_name == "nord"
+        :colorscheme oceanic_material
+    elseif g:colors_name == "oceanic_material"
+        :colorscheme rakr
+    elseif g:colors_name == "rakr"
+        :colorscheme sierra
+    elseif g:colors_name == "sierra"
+        :colorscheme sonokai
+    elseif g:colors_name == "sonokai"
+        :colorscheme space-vim-dark
+    elseif g:colors_name == "space-vim-dark"
+        :colorscheme tender
+    elseif g:colors_name == "tender"
+        :colorscheme Atelier_CaveDark
+    elseif g:colors_name == "Atelier_CaveDark"
+        :colorscheme gruvbox
+    endif
+endfunction
+nnoremap <leader>t :call ToggleColorScheme()<CR>
