@@ -219,16 +219,19 @@ nnoremap <silent> ,j <C-w>j
 nnoremap <silent> ,h <C-w>h
 nnoremap <silent> ,l <C-w>l
 
-nnoremap <Space> @q
 let @q="\<Esc>^i#\<Esc>j"
+nnoremap <Space> @q
+let @a="kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
 nnoremap <silent> ,a @a
 nnoremap <PageUp> @a
-let @a="kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
-nnoremap <silent> ,z @z
-nnoremap <PageDown> @z
 let @z="jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
+nnoremap <PageDown> @z
+nnoremap <silent> ,z @z
+
 let @e="\<Esc>\\ww\<Esc>:tabnew term://bash\<CR>:set nonu\<CR>bP\<CR>,K,j,h:tabnew\<CR>:set nu\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>:tabnew\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>:tabnew\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>"
 nnoremap <leader>E @e
+let @H="\<Esc>\\ww\<Esc>:tabnew term://bash\<CR>:set nonu\<CR>:tabnew term://bash\<CR>:set nonu\<CR>:tabnew term://bash\<CR>:set nonu\<CR>:tabnew term://msfconsole\<CR>:set nonu\<CR>"
+nnoremap <leader>H @H
 
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 let g:go_snippet_engine = "ultisnips"
