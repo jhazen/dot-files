@@ -17,6 +17,13 @@ Run 'all' as a parameter to setup everything; otherwise specify which dot file t
 
 > ./install.sh (vim|bash|i3|all)
 
+Remember:
+
+* On first run of vim, run:
+    * :call #doge#install()
+    * :UpdateRemotePlugins
+* For VirtualBox + i3, disable MiniBar for full screen to work
+
 
 # Vim
 
@@ -55,6 +62,9 @@ Shortcuts:
 * ,J - Move split down
 * ,a - Page up
 * ,z - Page down
+* \E - Editor mode (bunch of tabs in IDE format)
+* \H - Hack/editor mode (bunch of tabs in pentest format)
+* \D - Doge (generate docstrings)
 * \r - Compile/run. Works with bash, python3, go, c/c++, java, asm
 * \d - Jedi definitions
 * \g - Jedi assignments
@@ -108,11 +118,6 @@ Vagrant aliases:
 * vss - vagrant ssh
 * vh - vagrant halt
 * vr - vagrant rdp
-
-Maven aliases:
-* mvdeploy - mvn clean package wildfly:deploy
-* mvundeploy - mvn wildfly:undeploy
-* mcp - mvn clean package
 
 Git aliases:
 * gs - git status
