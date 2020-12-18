@@ -36,6 +36,9 @@ function i3setup() {
   if [ ! -d ~/.config/i3 ]; then
     mkdir ~/.config/i3
   fi
+  if [ ! -d ~/.config/compton ]; then
+    mkdir ~/.config/compton
+  fi
   if [ ! -d ~/.config/i3status ]; then
     mkdir ~/.config/i3status
   fi
@@ -172,7 +175,7 @@ function bashsetup() {
   elif [ -f /usr/bin/apt ]; then
       sudo add-apt-repository ppa:neovim-ppa/stable
       sudo apt update
-      sudo apt install neovim cmake ctags python3.8 i3 terminator
+      sudo apt install neovim cmake exuberant-ctags python3.8 i3 terminator
   fi
 }
 
