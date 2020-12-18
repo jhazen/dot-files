@@ -168,7 +168,7 @@ function bashsetup() {
   fi
   ln -s $DOTFILES/shot.sh ~/bin/shot.sh
   if [ -f /usr/bin/zypper ]; then
-      sudo zypper install neovim cmake ctags i3-gaps terminator compton
+      sudo zypper install neovim cmake ctags i3-gaps terminator compton NetworkManager-applet vlc discord virtualbox python3-virtualbox xfce4-power-manager clipit blueman spotify-easyrpm thunar chromium
   elif [ -f /usr/bin/apt ]; then
       sudo add-apt-repository ppa:neovim-ppa/stable
       sudo apt update
