@@ -52,4 +52,7 @@ fi
 if [ -f ~/.todo ]; then
     cat ~/.todo
 fi
-neofetch
+
+if [ -t 0 ]; then
+    neofetch
+fi
