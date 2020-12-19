@@ -171,10 +171,10 @@ function bashsetup() {
   fi
   ln -s $DOTFILES/shot.sh ~/bin/shot.sh
   if [ -f /usr/bin/zypper ]; then
-      sudo zypper install neovim cmake ctags i3-gaps terminator compton NetworkManager-applet vlc discord virtualbox python3-virtualbox xfce4-power-manager clipit blueman spotify-easyrpm thunar chromium lxappearance ImageMagick pandoc texlive-latex
+      sudo zypper install neovim cmake ctags i3-gaps terminator compton NetworkManager-applet vlc discord virtualbox python3-virtualbox xfce4-power-manager clipit blueman spotify-easyrpm thunar chromium lxappearance ImageMagick pandoc texlive-latex neofetch
   elif [ -f /usr/bin/apt ]; then
       sudo apt update
-      sudo apt install neovim cmake exuberant-ctags python3.8 i3 terminator imagemagick pandoc texlive-latex-extra
+      sudo apt install neovim cmake exuberant-ctags python3.8 i3 terminator imagemagick pandoc texlive-latex-extra neofetch
   fi
 }
 
