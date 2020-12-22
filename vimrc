@@ -84,7 +84,7 @@ Plugin 'fatih/vim-go'
 Plugin 'kkoomen/vim-doge'
 
 set background=dark
-colorscheme gruvbox
+colorscheme nord
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -230,7 +230,7 @@ nnoremap <silent> ,z @z
 
 let @e="\<Esc>\\ww\<Esc>:tabnew term://bash\<CR>:set nonu\<CR>bP\<CR>,K,j,h:tabnew\<CR>:set nu\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>:tabnew\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>:tabnew\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>"
 nnoremap <leader>E @e
-let @H="\<Esc>\\ww\<Esc>:tabnew term://bash\<CR>:set nonu\<CR>:tabnew term://bash\<CR>:set nonu\<CR>:tabnew term://bash\<CR>:set nonu\<CR>:tabnew term://msfconsole\<CR>:set nonu\<CR>"
+let @H="\<Esc>\\ww\<Esc>:tabnew term://bash\<CR>:set nonu\<CR>:tabnew term://bash\<CR>:set nonu\<CR>:tabnew term://bash\<CR>:set nonu\<CR>:tabnew term://bash\<CR>:set nonu\<CR>"
 nnoremap <leader>H @H
 
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })

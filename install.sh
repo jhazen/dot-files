@@ -99,10 +99,6 @@ function vimsetup() {
   fi
   git clone https://github.com/gmarik/vundle.vim ~/.vim/bundle/vundle
   ln -s $DOTFILES/vimrc ~/.vimrc
-  if [ ! -d /usr/local/go ]; then
-      sudo mkdir /usr/local/go
-      sudo chown $(whoami) /usr/local/go
-  fi
   nvim -u ~/.vimrc +PluginInstall +qall
   #cd ~/.vim/bundle/YouCompleteMe
   #./install.py --clang-completer --java-completer --go-completer
@@ -170,11 +166,17 @@ function bashsetup() {
     mv ~/shot.sh $BACKUP_DIR/shot.sh-$(date +%s)
   fi
   ln -s $DOTFILES/shot.sh ~/bin/shot.sh
-  if [ -f /usr/bin/zypper ]; then
-      sudo zypper install neovim cmake ctags i3-gaps terminator compton NetworkManager-applet vlc discord virtualbox python3-virtualbox xfce4-power-manager clipit blueman spotify-easyrpm thunar chromium lxappearance ImageMagick pandoc texlive-latex neofetch playerctl
-  elif [ -f /usr/bin/apt ]; then
+  if [ -f /etc/os-release ]; then
+    if [ $NAME = "Ubuntu" ]; then
+      sudo add-apt-repository ppa:neovim-ppa/stable
       sudo apt update
       sudo apt install neovim cmake exuberant-ctags python3.8 i3 terminator imagemagick pandoc texlive-latex-extra neofetch
+    elif [ $NAME = "openSUSE Tumbleweed" ]; then
+      sudo zypper install neovim cmake ctags i3-gaps terminator compton NetworkManager-applet vlc discord virtualbox python3-virtualbox xfce4-power-manager clipit blueman spotify-easyrpm thunar chromium lxappearance ImageMagick pandoc texlive-latex neofetch playerctl
+    else
+      sudo apt update
+      sudo apt install neovim cmake exuberant-ctags python3.8 i3 terminator imagemagick pandoc texlive-latex-extra neofetch
+    fi
   fi
 }
 
