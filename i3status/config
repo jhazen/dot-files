@@ -1,10 +1,11 @@
 general {
         colors = true
-        interval = 5
+        interval = 1
 }
 
 order += "wireless _first_"
 order += "ethernet _first_"
+order += "read_file packetloss"
 order += "battery all"
 order += "disk /"
 order += "load"
@@ -12,7 +13,7 @@ order += "memory"
 order += "tztime local"
 
 wireless _first_ {
-        format_up = "WLAN0: %quality %ip"
+        format_up = "WLAN0: %quality %bitrate %ip"
         format_down = "WLAN0: down"
 }
 
@@ -26,7 +27,7 @@ battery all {
 }
 
 disk "/" {
-        format = "/ AVAIL: %avail"
+        format = "DISK AVAIL /: %avail"
 }
 
 load {
@@ -34,9 +35,14 @@ load {
 }
 
 memory {
-        format = "MEM used: %used | MEM avail: %available"
+        format = "MEM USED: %used | MEM AVAIL: %available"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
+}
+
+read_file packetloss {
+        format = "%content"
+        path = "/home/jesse/.packet_loss"
 }
 
 tztime local {

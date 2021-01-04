@@ -72,6 +72,12 @@ function i3setup() {
   if [ ! -d ~/bin ]; then
       mkdir ~/bin
   fi
+  if [ -f ~/bin/packet-loss.sh ]; then
+    rm ~/bin/packet-loss.sh
+  fi
+  if [ -f ~/bin/wallpaper.sh ]; then
+    rm ~/bin/wallpaper.sh
+  fi
   if [ -f ~/bin/spotify_wrap.sh ]; then
     rm ~/bin/spotify_wrap.sh
   fi
@@ -84,6 +90,7 @@ function i3setup() {
   ln -s $DOTFILES/i3/compton.conf ~/.config/compton/compton.conf
   ln -s $DOTFILES/i3/wallpaper.sh ~/bin/wallpaper.sh
   ln -s $DOTFILES/spotify_wrap.sh ~/bin/spotify_wrap.sh
+  ln -s $DOTFILES/packet-loss.sh ~/bin/packet-loss.sh
 }
 
 function vimsetup() {
@@ -172,7 +179,7 @@ function bashsetup() {
       sudo apt update
       sudo apt install neovim cmake exuberant-ctags python3.8 i3 terminator imagemagick pandoc texlive-latex-extra neofetch
     elif [ $NAME = "openSUSE Tumbleweed" ]; then
-      sudo zypper install neovim cmake ctags i3-gaps terminator compton NetworkManager-applet vlc discord virtualbox python3-virtualbox xfce4-power-manager clipit blueman spotify-easyrpm thunar chromium lxappearance ImageMagick pandoc texlive-latex neofetch playerctl
+      sudo zypper install neovim cmake ctags i3-gaps terminator compton NetworkManager-applet vlc discord virtualbox python3-virtualbox xfce4-power-manager clipit blueman spotify-easyrpm thunar chromium lxappearance ImageMagick pandoc texlive-latex neofetch playerctl nitrogen
     else
       sudo apt update
       sudo apt install neovim cmake exuberant-ctags python3.8 i3 terminator imagemagick pandoc texlive-latex-extra neofetch
