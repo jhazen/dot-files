@@ -179,7 +179,7 @@ function bashsetup() {
       sudo apt update
       sudo apt install neovim cmake exuberant-ctags python3.8 i3 terminator imagemagick pandoc texlive-latex-extra neofetch
     elif [ $NAME = "openSUSE Tumbleweed" ]; then
-      sudo zypper install neovim cmake ctags i3-gaps terminator compton NetworkManager-applet vlc discord virtualbox python3-virtualbox xfce4-power-manager clipit blueman spotify-easyrpm thunar chromium lxappearance ImageMagick pandoc texlive-latex neofetch playerctl nitrogen
+      sudo zypper install neovim cmake ctags i3-gaps terminator compton NetworkManager-applet vlc discord virtualbox python3-virtualbox xfce4-power-manager clipit blueman spotify-easyrpm thunar chromium lxappearance ImageMagick pandoc texlive-latex neofetch playerctl feh
     else
       sudo apt update
       sudo apt install neovim cmake exuberant-ctags python3.8 i3 terminator imagemagick pandoc texlive-latex-extra neofetch
