@@ -42,7 +42,7 @@ memory {
 
 read_file packetloss {
         format = "%content"
-        path = "/home/jesse/.packet_loss"
+        path = "/tmp/packet_loss"
 }
 
 tztime local {
