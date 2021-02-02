@@ -2,8 +2,8 @@
   putty_paste_style = True
 [keybindings]
   cycle_next = <Primary>Tab
-  page_up = Page_Up
-  page_down = Page_Down
+  page_up = <Shift>Page_Up
+  page_down = <Shift>Page_Down
   next_tab = <Primary>Tab
   prev_tab = <Primary><Shift>Tab
 [profiles]
