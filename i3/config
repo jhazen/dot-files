@@ -139,6 +139,7 @@ bindsym $mod+minus scratchpad show
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Shift+Tab workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # Alt+Tab
@@ -280,6 +281,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 exec --no-startup-id discord --start-minimized
+exec --no-startup-id slack -u
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
@@ -319,6 +321,7 @@ bar {
 	i3bar_command i3bar
 	status_command LC_ALL=C i3status
 	position top
+    mode invisible
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
