@@ -65,6 +65,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'ClockworkNet/vim-junos-syntax'
 Plugin 'preservim/nerdtree'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'Shougo/deoplete-lsp'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'klen/python-mode'
@@ -82,6 +83,7 @@ Plugin 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'kkoomen/vim-doge'
+Plugin 'rust-lang/rust.vim'
 
 set background=dark
 colorscheme nord
@@ -115,6 +117,9 @@ let g:Powerline_symbols = 'fancy'
 "let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 "let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+
+let g:ale_rust_cargo_use_check = 1
+let g:rustfmt_autosave = 1
 
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
@@ -163,6 +168,7 @@ nmap <C-G> :TagbarToggle<CR>
 nnoremap <C-F> za
 
 au FileType python nnoremap <leader>l :w <bar> !black % && flake8 % <CR>
+au FileType rust nnoremap <leader>l :RustFmt <CR>
 au BufEnter *.css set shiftwidth=2
 au BufEnter *.css set tabstop=2
 au BufEnter *.css set softtabstop=2
@@ -247,6 +253,7 @@ autocmd filetype c nnoremap <leader>m :make<CR>
 autocmd filetype c nnoremap <leader>g :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 autocmd filetype c nnoremap <leader>. :CtrlPTag<cr>
 autocmd filetype asm nnoremap <leader>m :make<CR>
+au FileType rust nmap <leader>r :RustRun <CR>
 au FileType go nmap <leader>r <Plug>(go-run-split)<CR>,k
 au filetype go nnoremap <leader>b :GoBuild <CR>
 au Filetype go nnoremap <leader>q :GoDebugStart <CR>
