@@ -32,7 +32,7 @@ set shell=bash
 set ff=unix
 set clipboard=unnamedplus
 set laststatus=2
-set textwidth=243
+set textwidth=0
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
 set foldmethod=indent
@@ -165,6 +165,11 @@ nmap <C-Y> :tabnew term://python3<CR>
 nmap <C-G> :TagbarToggle<CR>
 
 nnoremap <C-F> za
+
+augroup WrapLineInMarkdown
+    autocmd!
+    autocmd FileType markdown setlocal wrap
+augroup END
 
 au FileType python nnoremap <leader>l :w <bar> !black % && flake8 % <CR>
 au FileType rust nnoremap <leader>l :RustFmt <CR>
