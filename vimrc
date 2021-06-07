@@ -269,7 +269,7 @@ au FileType go nmap <leader>f <Plug>(go-files)
 au FileType go nmap <leader>d <Plug>(go-deps)
 au FileType go nmap <leader>g <Plug>(go-def-split)
 au FileType go nmap <leader>G <Plug>(go-def-stack)
-au filetype sh nnoremap <leader>r :w <bar> !chmod +x % && % <CR>,k
+au filetype sh nnoremap <leader>r :!%:p<Enter>
 
 autocmd filetype markdown nnoremap <Backspace> <Plug>VimwikiGoBackLink
 
