@@ -241,10 +241,17 @@ let @z="jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
 nnoremap <PageDown> @z
 nnoremap <silent> ,z @z
 
+" Code Editor macro
 let @E="\<Esc>\\ww\<Esc>:tabnew term://bash\<CR>:set nonu\<CR>bP\<CR>,K,j,h:tabnew\<CR>:set nu\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>:tabnew\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>:tabnew\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>:tabnext\<CR>"
 nnoremap <leader>E @E
+
+" Pentest Editor macro
 let @H="\<Esc>\\ww\<Esc>:tabnew\<CR>:set nu\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>:tabnew\<CR>:set nu\<CR>:NERDTreeToggle\<CR>,l:TagbarToggle\<CR>:tabnew term://bash\<CR>:set nonu\<CR>:tabnew term://bash\<CR>:set nonu\<CR>:tabnext\<CR>"
 nnoremap <leader>H @H
+
+" Writing Editor macro
+let @W="\<Esc>\\ww\<Esc>:tabnew\<CR>:set nonu\<CR>:NERDTreeToggle\<CR>,l:tabnew\<CR>:set nonu\<CR>:NERDTreeToggle\<CR>,l:tabnew\<CR>:set nonu\<CR>:NERDTreeToggle\<CR>,l:tabnext\<CR>"
+nnoremap <leader>W @W
 
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 let g:go_snippet_engine = "ultisnips"
