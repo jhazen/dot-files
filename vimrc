@@ -279,6 +279,11 @@ au FileType go nmap <leader>G <Plug>(go-def-stack)
 au filetype sh nnoremap <leader>r :!%:p<Enter>
 
 autocmd filetype markdown nnoremap <Backspace> <Plug>VimwikiGoBackLink
+autocmd filetype markdown nnoremap <leader>con :set spell spelllang=en_us<CR>
+autocmd filetype markdown nnoremap <leader>coff :set nospell<CR>
+autocmd filetype markdown nnoremap <leader>cn ]s
+autocmd filetype markdown nnoremap <leader>cp [s
+autocmd filetype markdown nnoremap <leader>cf z=
 
 function! ToggleHex()
   let l:modified=&mod
