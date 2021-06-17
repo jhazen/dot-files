@@ -278,6 +278,7 @@ au FileType go nmap <leader>g <Plug>(go-def-split)
 au FileType go nmap <leader>G <Plug>(go-def-stack)
 au filetype sh nnoremap <leader>r :!%:p<Enter>
 
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 autocmd filetype markdown nnoremap <Backspace> <Plug>VimwikiGoBackLink
 autocmd filetype markdown nnoremap <leader>con :set spell spelllang=en_us<CR>
 autocmd filetype markdown nnoremap <leader>coff :set nospell<CR>
