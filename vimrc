@@ -284,6 +284,7 @@ autocmd filetype markdown nnoremap <leader>coff :set nospell<CR>
 autocmd filetype markdown nnoremap <leader>cn ]s
 autocmd filetype markdown nnoremap <leader>cp [s
 autocmd filetype markdown nnoremap <leader>cf z=
+autocmd filetype markdown nnoremap <leader>ca zg
 
 function! ToggleHex()
   let l:modified=&mod
