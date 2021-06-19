@@ -49,6 +49,7 @@ alias ltr='ls -ltr'
 alias psg='ps aux | grep'
 pandoc_wiki() {
     cd ~ &> /dev/null
-    pandoc -V geometry:margin=3cm -f markdown -t latex $1 -o ~/Documents/Report.pdf
+    F=`basename $1 | cut -d'.' -f1`
+    pandoc -V geometry:margin=3cm -f markdown -t latex $1 -o ~/Documents/$F.pdf
     cd - &> /dev/null
 }
