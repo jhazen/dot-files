@@ -135,6 +135,7 @@ endif
 "let g:airline_symbols.space = '\ua0'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#wordcount#enabled = 1
 
 let wiki = {}
 let wiki.path = '~/vimwiki'

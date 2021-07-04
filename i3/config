@@ -278,7 +278,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 exec --no-startup-id discord --start-minimized
-exec --no-startup-id slack -u
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
