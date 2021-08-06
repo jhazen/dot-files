@@ -58,7 +58,6 @@ Plugin 'nvie/vim-flake8'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'w0rp/ale'
-Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'davidhalter/jedi-vim'
@@ -84,9 +83,11 @@ Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'kkoomen/vim-doge'
 Plugin 'rust-lang/rust.vim'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'ryanoasis/vim-devicons'
 
 set background=dark
-colorscheme space-vim-dark
+colorscheme sonokai
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -332,6 +333,10 @@ function ToggleColorScheme()
     elseif g:colors_name == "space-vim-dark"
         :colorscheme Atelier_CaveDark
     elseif g:colors_name == "Atelier_CaveDark"
+        :colorscheme void
+    elseif g:colors_name == "void"
+        :colorscheme wwdc16
+    elseif g:colors_name == "wwdc16"
         :colorscheme gruvbox
     endif
 endfunction
