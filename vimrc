@@ -261,10 +261,11 @@ let g:go_def_mode = 'gopls'
 let g:go_def_mod_mode='godef'
 
 autocmd filetype c nnoremap <leader>r :w <bar> !gcc % -o /tmp/a.out && chmod +x /tmp/a.out && /tmp/a.out <CR>
-autocmd filetype c nnoremap <leader>m :make<CR>
+autocmd filetype c nnoremap <leader>b :make<CR>
 autocmd filetype c nnoremap <leader>g :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 autocmd filetype c nnoremap <leader>. :CtrlPTag<cr>
-autocmd filetype asm nnoremap <leader>m :make<CR>
+autocmd filetype asm nnoremap <leader>b :make<CR>
+autocmd filetype asm nnoremap <leader>r :make <CR>
 au FileType rust nmap <leader>r :RustRun <CR>
 au FileType go nmap <leader>r <Plug>(go-run-split)<CR>,k
 au filetype go nnoremap <leader>b :GoBuild <CR>

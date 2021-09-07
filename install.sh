@@ -107,6 +107,9 @@ function vimsetup() {
   git clone https://github.com/gmarik/vundle.vim ~/.vim/bundle/vundle
   ln -s $DOTFILES/vimrc ~/.vimrc
   nvim -u ~/.vimrc +PluginInstall +qall
+  cd ~/.vim/bundle/vundle/syntax
+  wget https://raw.githubusercontent.com/Leandros/dotfiles/master/.vim/syntax/rgbds.vim
+  cd - &> /dev/null
   #cd ~/.vim/bundle/YouCompleteMe
   #./install.py --clang-completer --java-completer --go-completer
 }
