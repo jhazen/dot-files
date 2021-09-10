@@ -188,7 +188,7 @@ function bashsetup() {
       sudo pacman -S neovim wget cmake ctags i3-gaps terminator compton networkmanager-openvpn network-manager-applet xfce4-power-manager thunar chromium lxappearance imagemagick pandoc texlive-latexextra neofetch feh i3status dmenu openssh
       pip3 install neovim
     elif [[ $NAME = "openSUSE Tumbleweed" ]]; then
-      sudo zypper install neovim cmake ctags i3-gaps terminator compton NetworkManager-applet vlc discord virtualbox python3-virtualbox xfce4-power-manager clipit blueman spotify-easyrpm thunar chromium lxappearance ImageMagick pandoc texlive-latex neofetch playerctl feh go gcc gcc-c++ kernel-source kernel-syms make pasystray clamav thunar-sendto-clamtk clamtk rkhunter cronie-anacron remmina
+      sudo zypper install neovim cmake ctags i3-gaps terminator compton NetworkManager-applet vlc discord virtualbox python3-virtualbox xfce4-power-manager clipit blueman spotify-easyrpm thunar chromium lxappearance ImageMagick pandoc texlive-latex neofetch playerctl feh go gcc gcc-c++ kernel-source kernel-syms make pasystray clamav thunar-sendto-clamtk clamtk rkhunter cronie-anacron remmina gimp grafx2
       sudo systemctl enable bluetooth
       sudo systemctl enable clamav
       sudo systemctl enable freshclam.timer

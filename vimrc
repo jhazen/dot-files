@@ -213,12 +213,12 @@ nnoremap <silent> ,q <C-w><<C-w><<C-w><<C-w><<C-w><
 nnoremap <silent> ,r <C-w>><C-w>><C-w>><C-w>><C-w>>
 
 nnoremap <leader>cd :Glcd<CR>
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gb :Gblame<cr>
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>gp :Gpull<cr>
-nmap <leader>gP :Gpush<cr>
+nmap <leader>gs :Git status<cr>
+nmap <leader>gd :Git diff<cr>
+nmap <leader>gb :Git blame<cr>
+nmap <leader>gc :Git commit<cr>
+nmap <leader>gp :Git pull<cr>
+nmap <leader>gP :Git push<cr>
 
 tnoremap <Esc> <C-\><C-n>
 nnoremap <leader><space> :noh<cr>
