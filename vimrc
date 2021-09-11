@@ -260,13 +260,11 @@ let g:go_autodetect_gopath = 1
 let g:go_def_mode = 'gopls'
 let g:go_def_mod_mode='godef'
 
-autocmd filetype c nnoremap <leader>r :w <bar> !gcc % -o /tmp/a.out && chmod +x /tmp/a.out && /tmp/a.out <CR>
-autocmd filetype c nnoremap <leader>b :make<CR>
+autocmd filetype c nnoremap <leader>b :w <bar> !build_wrap.sh % c<CR>
 autocmd filetype c nnoremap <leader>g :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 autocmd filetype c nnoremap <leader>. :CtrlPTag<cr>
-autocmd filetype asm nnoremap <leader>b :make<CR>
-autocmd filetype asm nnoremap <leader>r :make <CR>
-au FileType rust nmap <leader>r :RustRun <CR>
+autocmd filetype asm nnoremap <leader>b :w <bar> !build_wrap.sh % asm<CR>
+autocmd filetype asm nnoremap <leader>r :w <bar> !build_wrap.sh % asm<CR>
 au FileType go nmap <leader>r <Plug>(go-run-split)<CR>,k
 au filetype go nnoremap <leader>b :GoBuild <CR>
 au Filetype go nnoremap <leader>q :GoDebugStart <CR>
@@ -289,7 +287,7 @@ autocmd filetype markdown nnoremap <leader>cn ]s
 autocmd filetype markdown nnoremap <leader>cp [s
 autocmd filetype markdown nnoremap <leader>cf z=
 autocmd filetype markdown nnoremap <leader>ca zg
-autocmd filetype markdown nnoremap <leader>b :w <bar> !source ~/.aliases; pandoc_wiki % <CR>
+autocmd filetype markdown nnoremap <leader>b :w <bar> !build_wrap.sh % md<CR>
 
 function! ToggleHex()
   let l:modified=&mod

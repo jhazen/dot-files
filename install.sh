@@ -162,6 +162,13 @@ function bashsetup() {
     mv ~/vimserver.py $BACKUP_DIR/vimserver.py-$(date +%s)
   fi
   ln -s $DOTFILES/vimserver.py ~/bin/vimserver.py
+  if [ -L ~/bin/build_wrap.sh ]; then
+    rm ~/bin/build_wrap.sh
+  fi
+  if [ -f ~/bin/build_wrap.sh ]; then
+    mv ~/build_wrap.sh $BACKUP_DIR/build_wrap.sh-$(date +%s)
+  fi
+  ln -s $DOTFILES/build_wrap.sh ~/bin/build_wrap.sh
   if [ -L ~/bin/startVM.sh ]; then
     rm ~/bin/startVM.sh
   fi
@@ -176,6 +183,13 @@ function bashsetup() {
     mv ~/shot.sh $BACKUP_DIR/shot.sh-$(date +%s)
   fi
   ln -s $DOTFILES/shot.sh ~/bin/shot.sh
+  if [ -L ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml ]; then
+    rm ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+  fi
+  if [ -f ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml ]; then
+    mv ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml $BACKUP_DIR/xfce4-power-manager.xml-$(date +%s)
+  fi
+  ln -s $DOTFILES/xfc4/xfce4-power-manager.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
   if [ -f /etc/os-release ]; then
     source /etc/os-release
     if [[ $NAME = "Ubuntu" ]]; then
@@ -196,7 +210,7 @@ function bashsetup() {
       pip3 install neovim
     else
       sudo apt update
-      sudo apt install neovim cmake exuberant-ctags python3.9 i3-gaps terminator imagemagick pandoc texlive-latex-extra neofetch i3lock feh lxappearance chromium-bsu clipit golang
+      sudo apt install neovim cmake exuberant-ctags python3.9 i3-gaps terminator imagemagick pandoc texlive-latex-extra neofetch i3lock feh lxappearance chromium-bsu clipit golang python3-pip
       pip3 install neovim
     fi
   fi
