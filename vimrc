@@ -260,11 +260,12 @@ let g:go_autodetect_gopath = 1
 let g:go_def_mode = 'gopls'
 let g:go_def_mod_mode='godef'
 
-autocmd filetype c nnoremap <leader>b :w <bar> !build_wrap.sh % c<CR>
+autocmd filetype c nnoremap <leader>b :w <bar> !build_wrap.sh % c -b<CR>
+autocmd filetype c nnoremap <leader>r :w <bar> !build_wrap.sh % c -br<CR>
 autocmd filetype c nnoremap <leader>g :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 autocmd filetype c nnoremap <leader>. :CtrlPTag<cr>
-autocmd filetype asm nnoremap <leader>b :w <bar> !build_wrap.sh % asm<CR>
-autocmd filetype asm nnoremap <leader>r :w <bar> !build_wrap.sh % asm<CR>
+autocmd filetype asm nnoremap <leader>b :w <bar> !build_wrap.sh % asm -b<CR>
+autocmd filetype asm nnoremap <leader>r :w <bar> !build_wrap.sh % asm -br<CR>
 au FileType go nmap <leader>r <Plug>(go-run-split)<CR>,k
 au filetype go nnoremap <leader>b :GoBuild <CR>
 au Filetype go nnoremap <leader>q :GoDebugStart <CR>
