@@ -183,6 +183,7 @@ function bashsetup() {
     mv ~/shot.sh $BACKUP_DIR/shot.sh-$(date +%s)
   fi
   ln -s $DOTFILES/shot.sh ~/bin/shot.sh
+  mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml/
   if [ -L ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml ]; then
     rm ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
   fi
