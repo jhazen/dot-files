@@ -211,7 +211,7 @@ function bashsetup() {
       pip3 install neovim
     else
       sudo apt update
-      sudo apt install neovim cmake exuberant-ctags python3.9 i3-gaps terminator imagemagick pandoc texlive-latex-extra neofetch i3lock feh lxappearance chromium-bsu clipit golang python3-pip
+      sudo apt install neovim cmake exuberant-ctags python3.9 i3-gaps terminator imagemagick pandoc texlive-latex-extra neofetch i3lock feh lxappearance chromium-bsu clipit golang python3-pip remmina
       pip3 install neovim
     fi
   fi

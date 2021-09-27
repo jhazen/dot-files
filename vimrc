@@ -84,6 +84,7 @@ Plugin 'kkoomen/vim-doge'
 Plugin 'rust-lang/rust.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'dkprice/vim-easygrep'
 
 set background=dark
 colorscheme sonokai
