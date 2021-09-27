@@ -85,6 +85,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'dkprice/vim-easygrep'
+Plugin 'othree/eregex.vim'
 
 set background=dark
 colorscheme sonokai
@@ -118,6 +119,9 @@ let g:Powerline_symbols = 'fancy'
 "let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 "let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+
+let g:EasyGrepPerlStyle=1
+let g:EasyGrepCommand=1
 
 let g:ale_rust_cargo_use_check = 1
 let g:rustfmt_autosave = 1
