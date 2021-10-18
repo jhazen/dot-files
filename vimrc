@@ -85,9 +85,11 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'dkprice/vim-easygrep'
+Plugin 'vim-python/python-syntax'
+Plugin 'kien/ctrlp.vim'
 
 set background=dark
-colorscheme sonokai
+colorscheme badwolf
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -155,6 +157,8 @@ let g:pymode_preview_position = 'botright'
 let g:pymode_python = 'python3'
 let g:pymode_run_bind = '<leader>r'
 
+let g:python_highlight_all = 1
+
 let g:go_def_mapping_enabled = 0
 
 nmap <C-U> :UndotreeToggle<CR>
@@ -214,7 +218,7 @@ nnoremap <silent> ,q <C-w><<C-w><<C-w><<C-w><<C-w><
 nnoremap <silent> ,r <C-w>><C-w>><C-w>><C-w>><C-w>>
 
 nnoremap <leader>cd :Glcd<CR>
-nmap <leader>gs :Git status<cr>
+nmap <leader>gs :Git<cr>
 nmap <leader>gd :Git diff<cr>
 nmap <leader>gb :Git blame<cr>
 nmap <leader>gc :Git commit<cr>
@@ -267,6 +271,7 @@ autocmd filetype c nnoremap <leader>g :sp <CR>:exec("tag ".expand("<cword>"))<CR
 autocmd filetype c nnoremap <leader>. :CtrlPTag<cr>
 autocmd filetype asm nnoremap <leader>b :w <bar> !build_wrap.sh % asm -b<CR>
 autocmd filetype asm nnoremap <leader>r :w <bar> !build_wrap.sh % asm -br<CR>
+au FileType py nmap <leader>r :PymodeRun<CR>,k
 au FileType go nmap <leader>r <Plug>(go-run-split)<CR>,k
 au filetype go nnoremap <leader>b :GoBuild <CR>
 au Filetype go nnoremap <leader>q :GoDebugStart <CR>
@@ -338,6 +343,11 @@ function ToggleColorScheme()
     elseif g:colors_name == "void"
         :colorscheme wwdc16
     elseif g:colors_name == "wwdc16"
+        let g:seoul256_background = 253
+        :colorscheme seoul256
+    elseif g:colors_name == "seoul256"
+        :colorscheme badwolf
+    elseif g:colors_name == "badwolf"
         :colorscheme gruvbox
     endif
 endfunction
