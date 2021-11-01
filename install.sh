@@ -101,11 +101,18 @@ function vimsetup() {
   if [ -L ~/.vimrc ]; then
     rm ~/.vimrc
   fi
+  if [ -f ~/.vimspector.json ]; then
+    mv ~/.vimspector.json $BACKUP_DIR/vimspector.json-$(date +%s)
+  fi
+  if [ -L ~/.vimspector.json ]; then
+    rm ~/.vimspector.json
+  fi
   if [ -d ~/.vim ]; then
     mv ~/.vim $BACKUP_DIR/vim-$(date +%s)
   fi
   git clone https://github.com/gmarik/vundle.vim ~/.vim/bundle/vundle
   ln -s $DOTFILES/vimrc ~/.vimrc
+  ln -s $DOTFILES/.vimspector.json ~/.vimspector.json
   nvim -u ~/.vimrc +PluginInstall +qall
   cd ~/.vim/bundle/vundle/syntax
   wget https://raw.githubusercontent.com/Leandros/dotfiles/master/.vim/syntax/rgbds.vim

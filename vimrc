@@ -87,6 +87,7 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'vim-python/python-syntax'
 Plugin 'kien/ctrlp.vim'
+Plugin 'puremourning/vimspector'
 
 set background=dark
 colorscheme badwolf
@@ -100,6 +101,8 @@ filetype plugin indent on
 
 let g:doge_doc_standard_python = 'sphinx'
 let g:doge_mapping = '<Leader>D'
+
+let g:vimspector_enable_mappings = 'HUMAN'
 
 let g:terminal_scrollback_buffer_size = 100000
 
