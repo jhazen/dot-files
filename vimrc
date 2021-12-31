@@ -83,7 +83,6 @@ Plugin 'fatih/vim-go'
 Plugin 'kkoomen/vim-doge'
 Plugin 'rust-lang/rust.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'vim-python/python-syntax'
 Plugin 'kien/ctrlp.vim'
@@ -200,6 +199,8 @@ au BufEnter *.yaml set softtabstop=2
 au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
 au BufEnter *.asm set filetype=nasm
+au BufEnter *.z80 set filetype=nasm
+au BufEnter *.s set filetype=nasm
 au BufEnter *.sls set filetype=yaml
 au BufEnter *.wiki set ft=markdown
 au BufEnter *.md set ft=markdown

@@ -203,7 +203,7 @@ function bashsetup() {
     if [[ $NAME = "Ubuntu" ]]; then
       sudo add-apt-repository ppa:neovim-ppa/stable
       sudo apt update
-      sudo apt install neovim cmake exuberant-ctags python3.9 i3-gaps terminator imagemagick pandoc texlive-latex-extra neofetch feh
+      sudo apt install neovim cmake exuberant-ctags python3.9 terminator imagemagick pandoc texlive-latex-extra neofetch feh
       pip3 install neovim
     elif [[ $NAME = "Arch Linux" || $NAME = "Manjaro Linux" ]]; then
       sudo pacman -Syyu

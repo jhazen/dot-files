@@ -19,11 +19,13 @@ cat ~/.build.conf | grep $DIRPATH > /dev/null
 if [[ $? -eq 0 ]]; then
     if [[ $3 = "-b" || $3 = "-br" ]]; then
         BLDCMD=`cat ~/.build.conf | grep $DIRPATH | cut -d ',' -f2`
-        $BLDCMD
+        echo $BLDCMD
+        `$BLDCMD`
     fi
     if [[ $3 = "-r" || $3 = "-br" ]]; then
         RUNCMD=`cat ~/.build.conf | grep $DIRPATH | cut -d ',' -f3`
-        $RUNCMD
+        echo $RUNCMD
+        `$RUNCMD`
     fi
 else
     cd $DIRPATH
@@ -38,7 +40,19 @@ else
                 fi
             fi
             if [[ $3 = "-r" || $3 = "-br" ]]; then
-                ROM=`ls -l *.gbc | grep -v debug | awk '{print $9}' | head -n 1`
+                cd - &> /dev/null
+                while [ 1 ]; do
+                    ROM=`find $DIRPATH -type f -name "*.gb*" -not -name "debug"`
+                    if [[ $ROM = "" ]]; then
+                        DIRPATH=`dirname $DIRPATH`
+                        if [[ $DIRPATH = "." ]]; then
+                            echo "Couldnt find ROM."
+                            exit 1
+                        fi
+                    else
+                        break
+                    fi
+                done
                 bgb64 $ROM &
                 WILLBRK=1
             fi
