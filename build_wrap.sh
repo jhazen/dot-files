@@ -9,6 +9,7 @@ fi
 cd ~/Workspace
 
 DIRPATH=`dirname $1 | sed 's/^.*Workspace\///g'`
+DIRPATH_ORIG=$DIRPATH
 
 if [ $2 = "md" ]; then
     source ~/.aliases; pandoc_wiki $1
@@ -28,6 +29,7 @@ if [[ $? -eq 0 ]]; then
         `$RUNCMD`
     fi
 else
+    echo $DIRPATH
     cd $DIRPATH
     WILLBRK=0
     while [ 1 ]; do
@@ -37,12 +39,19 @@ else
                 if [ $? -eq 0 ]; then
                     make
                     WILLBRK=1
+                elif [ -f "assemble.sh" ]; then
+                    bash assemble.sh
+                elif [ -f "build.sh" ]; then
+                    bash build.sh
+                elif [ -f "make.sh" ]; then
+                    bash make.sh
                 fi
             fi
             if [[ $3 = "-r" || $3 = "-br" ]]; then
                 cd - &> /dev/null
                 echo "Trying GB first..."
                 while [ 1 ]; do
+                    echo $DIRPATH
                     ROM=`find $DIRPATH -type f -name "*.gb*" -not -name "debug"`
                     if [[ $ROM = "" ]]; then
                         DIRPATH=`dirname $DIRPATH`
@@ -51,11 +60,35 @@ else
                             break
                         fi
                     else
+                        FOUND=1
                         break
                     fi
                 done
+                DIRPATH=$DIRPATH_ORIG
                 while [ 1 ]; do
+                    if [[ $FOUND -eq 1 ]]; then
+                        break
+                    fi
+                    echo $DIRPATH
                     ROM=`find $DIRPATH -type f -name "*.sfc*" -not -name "debug"`
+                    if [[ $ROM = "" ]]; then
+                        DIRPATH=`dirname $DIRPATH`
+                        if [[ $DIRPATH = "." ]]; then
+                            echo "Couldnt find ROM. Trying NES..."
+                            break
+                        fi
+                    else
+                        FOUND=1
+                        break
+                    fi
+                done
+                DIRPATH=$DIRPATH_ORIG
+                while [ 1 ]; do
+                    if [[ $FOUND -eq 1 ]]; then
+                        break
+                    fi
+                    echo $DIRPATH
+                    ROM=`find $DIRPATH -type f -name "*.nes" -not -name "debug"`
                     if [[ $ROM = "" ]]; then
                         DIRPATH=`dirname $DIRPATH`
                         if [[ $DIRPATH = "." ]]; then
@@ -66,10 +99,13 @@ else
                         break
                     fi
                 done
+                echo $ROM
                 if [[ `echo $ROM | grep "gb"` ]]; then
                     bgb64 $ROM &
                 elif [[ `echo $ROM | grep sfc` ]]; then
-                    /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=bsnes dev.bsnes.bsnes $ROM
+                    /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=bsnes dev.bsnes.bsnes $ROM &
+                elif [[ `echo $ROM | grep nes` ]]; then
+                    mesen $ROM &
                 else
                     echo "No ROM"
                 fi
