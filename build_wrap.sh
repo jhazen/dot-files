@@ -41,19 +41,38 @@ else
             fi
             if [[ $3 = "-r" || $3 = "-br" ]]; then
                 cd - &> /dev/null
+                echo "Trying GB first..."
                 while [ 1 ]; do
                     ROM=`find $DIRPATH -type f -name "*.gb*" -not -name "debug"`
                     if [[ $ROM = "" ]]; then
                         DIRPATH=`dirname $DIRPATH`
                         if [[ $DIRPATH = "." ]]; then
-                            echo "Couldnt find ROM."
+                            echo "Couldnt find ROM. Trying SNES..."
+                            break
+                        fi
+                    else
+                        break
+                    fi
+                done
+                while [ 1 ]; do
+                    ROM=`find $DIRPATH -type f -name "*.sfc*" -not -name "debug"`
+                    if [[ $ROM = "" ]]; then
+                        DIRPATH=`dirname $DIRPATH`
+                        if [[ $DIRPATH = "." ]]; then
+                            echo "Couldnt find ROM"
                             exit 1
                         fi
                     else
                         break
                     fi
                 done
-                bgb64 $ROM &
+                if [[ `echo $ROM | grep "gb"` ]]; then
+                    bgb64 $ROM &
+                elif [[ `echo $ROM | grep sfc` ]]; then
+                    /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=bsnes dev.bsnes.bsnes $ROM
+                else
+                    echo "No ROM"
+                fi
                 WILLBRK=1
             fi
         elif [ $2 = "c" ]; then
