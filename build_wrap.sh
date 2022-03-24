@@ -52,7 +52,7 @@ else
                 echo "Trying GB first..."
                 while [ 1 ]; do
                     echo $DIRPATH
-                    ROM=`find $DIRPATH -type f -name "*.gb*" -not -name "debug"`
+                    ROM=`find $DIRPATH -type f -name "*.gb*" -not -name "debug" -not -path "*vendor*"`
                     if [[ $ROM = "" ]]; then
                         DIRPATH=`dirname $DIRPATH`
                         if [[ $DIRPATH = "." ]]; then
@@ -70,7 +70,7 @@ else
                         break
                     fi
                     echo $DIRPATH
-                    ROM=`find $DIRPATH -type f -name "*.sfc*" -not -name "debug"`
+                    ROM=`find $DIRPATH -type f -name "*.sfc*" -not -name "debug" -not -path "*vendor*"`
                     if [[ $ROM = "" ]]; then
                         DIRPATH=`dirname $DIRPATH`
                         if [[ $DIRPATH = "." ]]; then
@@ -88,7 +88,7 @@ else
                         break
                     fi
                     echo $DIRPATH
-                    ROM=`find $DIRPATH -type f -name "*.nes" -not -name "debug"`
+                    ROM=`find $DIRPATH -type f -name "*.nes" -not -name "debug" -not -path "*vendor*"`
                     if [[ $ROM = "" ]]; then
                         DIRPATH=`dirname $DIRPATH`
                         if [[ $DIRPATH = "." ]]; then
@@ -103,7 +103,7 @@ else
                 if [[ `echo $ROM | grep "gb"` ]]; then
                     bgb64 $ROM &
                 elif [[ `echo $ROM | grep sfc` ]]; then
-                    /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=bsnes dev.bsnes.bsnes $ROM &
+                    mesen-s $ROM &
                 elif [[ `echo $ROM | grep nes` ]]; then
                     mesen $ROM &
                 else
