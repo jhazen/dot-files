@@ -2,7 +2,7 @@
 
 # Script will install dot-files based on input
 #
-# Example: ./install.sh vim bash i3
+# Example: ./install.sh vim bash i3 dev
 #
 # jhazen532@gmail.com
 
@@ -20,7 +20,7 @@ fi
 
 if [ $# -lt 1 ]; then
   echo "Usage: $0 <name> <name> ..."
-  echo "Example: $0 vim bash i3"
+  echo "Example: $0 vim bash i3 dev"
   echo
   exit 1
 fi
@@ -183,6 +183,13 @@ function bashsetup() {
     mv ~/startVM.sh $BACKUP_DIR/startVM.sh-$(date +%s)
   fi
   ln -s $DOTFILES/startVM.sh ~/bin/startVM.sh
+  if [ -L ~/bin/task.py ]; then
+    rm ~/bin/task.py
+  fi
+  if [ -f ~/bin/task.py ]; then
+    mv ~/task.py $BACKUP_DIR/task.py-$(date +%s)
+  fi
+  ln -s $DOTFILES/task.py ~/bin/task.py
   if [ -L ~/bin/shot.sh ]; then
     rm ~/bin/shot.sh
   fi
@@ -224,11 +231,90 @@ function bashsetup() {
   fi
 }
 
+function devsetup() {
+    # Install Mesen-S and Mesen
+    sudo apt install -y mono-complete &> /dev/null
+    curl -s -L https://github.com/SourMesen/Mesen-S/releases/download/0.4.0/Mesen-S.0.4.0.zip -o ~/Downloads/Mesen-S.zip
+    cd ~/Downloads &> /dev/null
+    unzip Mesen-S.zip &> /dev/null
+    curl -s -L https://github.com/SourMesen/Mesen/releases/download/0.9.9/Mesen.0.9.9.zip -o ~/Downloads/Mesen.zip
+    unzip Mesen.zip &> /dev/null
+    cd - &> /dev/null
+    cp $DOTFILES/shortcuts/mesen* ~/.local/share/applications/ &> /dev/null
+    # Install bsnes
+    sudo apt install -y flatpak &> /dev/null
+    sudo flatpak install -y bsnes &> /dev/null
+    # Install snes9x
+    sudo flatpak install -y snes9x &> /dev/null
+    # Install gb studio
+    sudo apt install -y gb-studio &> /dev/null
+    # Install tilemap studio
+    cd ~/Workspace &> /dev/null
+    git clone https://github.com/Rangi42/tilemap-studio.git &> /dev/null
+    cd tilemap-studio &> /dev/null
+    git clone --branch release-1.3.7 --depth 1 https://github.com/fltk/fltk.git &> /dev/null
+    pushd fltk &> /dev/null
+    ./autogen.sh --prefix="$PWD/.." --with-abiversion=10307 &> /dev/null
+    make &> /dev/null
+    make install &> /dev/null
+    popd &> /dev/null
+    export PATH="$PWD/bin:$PATH" &> /dev/null
+    make &> /dev/null
+    sudo make install &> /dev/null
+    sudo apt install make g++ git autoconf &> /dev/null
+    sudo apt install zlib1g-dev libpng-dev libxpm-dev libx11-dev libxft-dev libxinerama-dev libfontconfig1-dev x11proto-xext-dev libxrender-dev libxfixes-dev &> /dev/null
+    cd - &> /dev/null
+    # Install gb tile designer
+    cd ~/Workspafce &> /dev/null
+    unzip $DOTFILES/binaries/gbtd.zip &> /dev/null
+    cp $DOTFILES/shortcuts/GBTD* ~/.local/share/applications/ &> /dev/null
+    cd - &> /dev/null
+    # Install gb map builder
+    cd ~/Workspafce &> /dev/null
+    unzip $DOTFILES/binaries/gbmb.zip &> /dev/null
+    cp $DOTFILES/shortcuts/GBMB* ~/.local/share/applications/ &> /dev/null
+    cd - &> /dev/null
+    # Install bgb
+    cd ~/Workspafce &> /dev/null
+    unzip $DOTFILES/binaries/bgb.zip &> /dev/null
+    cp $DOTFILES/shortcuts/bgb* ~/.local/share/applications/ &> /dev/null
+    ln -s $DOTFILES/bgb ~/bin/bgb &> /dev/null
+    ln -s ~/bin/bgb64 ~/bin/bgb &> /dev/null
+    cd - &> /dev/null
+    # Install ca65
+    cd ~/Workspafce &> /dev/null
+    git clone https://github.com/cc65/cc65.git &> /dev/null
+    cd cc65/ &> /dev/null
+    make &> /dev/null
+    sudo make install PREFIX="~/.local" &> /dev/null
+    cd - &> /dev/null
+    # Install wla-65816
+    cd ~/Workspafce &> /dev/null
+    git clone https://github.com/vhelin/wla-dx &> /dev/null
+    cd wla-dx/ &> /dev/null
+    mkdir build &> /dev/null
+    cd build/ &> /dev/null
+    cmake .. &> /dev/null
+    cmake --build . --config Release &> /dev/null
+    sudo cmake -P cmake_install.cmake -DCMAKE_INSTALL_PREFIX=/usr/local &> /dev/null
+    cd - &> /dev/null
+    # Install rbgasm
+    cd ~/Workspafce &> /dev/null
+    sudo apt install bison libpng libpng-dev libpng-tools libpng-tools &> /dev/null
+    git clone https://github.com/gbdev/rgbds &> /dev/null
+    cd rgbds/ &> /dev/null
+    make clean &> /dev/null
+    make &> /dev/null
+    sudo make install &> /dev/null
+    cd - &> /dev/null
+}
+
 function allsetup() {
   echo "all"
   bashsetup
   vimsetup
   i3setup
+  devsetup
 }
 
 ### Verify and run input selections
@@ -238,8 +324,9 @@ for i in $@; do
     vim) vimsetup;;
     bash) bashsetup;;
     i3) i3setup;;
+    dev) devsetup;;
     all) allsetup;;
-    *) echo "Invalid name. Names: vim, bash, i3, all";;
+    *) echo "Invalid name. Names: vim, bash, i3, dev, all";;
   esac
 done
 

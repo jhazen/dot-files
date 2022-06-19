@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Mesen
+Comment=NES/Famicom Emulator
+Categories=GNOME;GTK;Game;Emulator;
+MimeType=
+Exec=mono /home/jesse/Downloads/Mesen.exe %f
+NoDisplay=false
+StartupNotify=true
+Icon=MesenIcon

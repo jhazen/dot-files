@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=GameBoy Map Builder
+Comment=Edit Game Boy, Color, and Advance tilemaps
+Icon=/home/jesse/Workspace/gbmb/gbmb.png
+Exec=wine /home/jesse/Workspace/gbmb/GBMB.EXE
+Type=Application
+Terminal=false
