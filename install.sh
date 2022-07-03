@@ -233,7 +233,7 @@ function bashsetup() {
 
 function devsetup() {
     # Install Mesen-S and Mesen
-    sudo apt install -y mono-complete &> /dev/null
+    sudo apt install -y mono-complete wine &> /dev/null
     curl -s -L https://github.com/SourMesen/Mesen-S/releases/download/0.4.0/Mesen-S.0.4.0.zip -o ~/Downloads/Mesen-S.zip
     cd ~/Downloads &> /dev/null
     unzip Mesen-S.zip &> /dev/null
@@ -242,13 +242,18 @@ function devsetup() {
     cd - &> /dev/null
     cp $DOTFILES/shortcuts/mesen* ~/.local/share/applications/ &> /dev/null
     # Install bsnes
+    sudo apt install -y gnome-software-plugin-flatpak &> /dev/null
     sudo apt install -y flatpak &> /dev/null
+    sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     sudo flatpak install -y bsnes &> /dev/null
     # Install snes9x
     sudo flatpak install -y snes9x &> /dev/null
+    cp /var/lib/flatpak/exports/share/applications/*.desktop ~/.local/share/applications/
     # Install gb studio
     sudo apt install -y gb-studio &> /dev/null
     # Install tilemap studio
+    sudo apt install -y make g++ git autoconf &> /dev/null
+    sudo apt install -y zlib1g-dev libpng-dev libxpm-dev libx11-dev libxft-dev libxinerama-dev libfontconfig1-dev x11proto-xext-dev libxrender-dev libxfixes-dev &> /dev/null
     cd ~/Workspace &> /dev/null
     git clone https://github.com/Rangi42/tilemap-studio.git &> /dev/null
     cd tilemap-studio &> /dev/null
@@ -261,35 +266,34 @@ function devsetup() {
     export PATH="$PWD/bin:$PATH" &> /dev/null
     make &> /dev/null
     sudo make install &> /dev/null
-    sudo apt install make g++ git autoconf &> /dev/null
-    sudo apt install zlib1g-dev libpng-dev libxpm-dev libx11-dev libxft-dev libxinerama-dev libfontconfig1-dev x11proto-xext-dev libxrender-dev libxfixes-dev &> /dev/null
     cd - &> /dev/null
     # Install gb tile designer
-    cd ~/Workspafce &> /dev/null
+    cd ~/Workspace &> /dev/null
     unzip $DOTFILES/binaries/gbtd.zip &> /dev/null
     cp $DOTFILES/shortcuts/GBTD* ~/.local/share/applications/ &> /dev/null
     cd - &> /dev/null
     # Install gb map builder
-    cd ~/Workspafce &> /dev/null
+    cd ~/Workspace &> /dev/null
     unzip $DOTFILES/binaries/gbmb.zip &> /dev/null
     cp $DOTFILES/shortcuts/GBMB* ~/.local/share/applications/ &> /dev/null
     cd - &> /dev/null
     # Install bgb
-    cd ~/Workspafce &> /dev/null
+    cd ~/Workspace &> /dev/null
     unzip $DOTFILES/binaries/bgb.zip &> /dev/null
     cp $DOTFILES/shortcuts/bgb* ~/.local/share/applications/ &> /dev/null
     ln -s $DOTFILES/bgb ~/bin/bgb &> /dev/null
     ln -s ~/bin/bgb64 ~/bin/bgb &> /dev/null
+    chmod +x ~/bin/bgb* &> /dev/null
     cd - &> /dev/null
     # Install ca65
-    cd ~/Workspafce &> /dev/null
+    cd ~/Workspace &> /dev/null
     git clone https://github.com/cc65/cc65.git &> /dev/null
     cd cc65/ &> /dev/null
     make &> /dev/null
-    sudo make install PREFIX="~/.local" &> /dev/null
+    sudo make install &> /dev/null
     cd - &> /dev/null
     # Install wla-65816
-    cd ~/Workspafce &> /dev/null
+    cd ~/Workspace &> /dev/null
     git clone https://github.com/vhelin/wla-dx &> /dev/null
     cd wla-dx/ &> /dev/null
     mkdir build &> /dev/null
@@ -299,8 +303,8 @@ function devsetup() {
     sudo cmake -P cmake_install.cmake -DCMAKE_INSTALL_PREFIX=/usr/local &> /dev/null
     cd - &> /dev/null
     # Install rbgasm
-    cd ~/Workspafce &> /dev/null
-    sudo apt install bison libpng libpng-dev libpng-tools libpng-tools &> /dev/null
+    cd ~/Workspace &> /dev/null
+    sudo apt install -y bison libpng-dev libpng-tools libpng-tools &> /dev/null
     git clone https://github.com/gbdev/rgbds &> /dev/null
     cd rgbds/ &> /dev/null
     make clean &> /dev/null
