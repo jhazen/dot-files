@@ -89,7 +89,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'puremourning/vimspector'
 
 set background=dark
-colorscheme badwolf
+colorscheme iceberg
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
