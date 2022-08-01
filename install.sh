@@ -232,85 +232,92 @@ function bashsetup() {
 }
 
 function devsetup() {
+    OS=`cat /etc/os-release | grep ID_LIKE | cut -d'"' -f2`
+    if [[ $OS = "opensuse suse" ]]; then
+        INSTALLER=zypper
+        sudo $INSTALLER install -y xorg-x11-devel libX11-devel autoconf png++-devel libXScrnSaver make lsb
+    else
+        INSTALLER=apt
+    fi
     # Install Mesen-S and Mesen
-    sudo apt install -y mono-complete wine &> /dev/null
+    sudo $INSTALLER install -y mono-complete wine 
     curl -s -L https://github.com/SourMesen/Mesen-S/releases/download/0.4.0/Mesen-S.0.4.0.zip -o ~/Downloads/Mesen-S.zip
-    cd ~/Downloads &> /dev/null
-    unzip Mesen-S.zip &> /dev/null
+    cd ~/Downloads 
+    unzip Mesen-S.zip 
     curl -s -L https://github.com/SourMesen/Mesen/releases/download/0.9.9/Mesen.0.9.9.zip -o ~/Downloads/Mesen.zip
-    unzip Mesen.zip &> /dev/null
-    cd - &> /dev/null
-    cp $DOTFILES/shortcuts/mesen* ~/.local/share/applications/ &> /dev/null
+    unzip Mesen.zip 
+    cd - 
+    cp $DOTFILES/shortcuts/mesen* ~/.local/share/applications/ 
     # Install bsnes
-    sudo apt install -y gnome-software-plugin-flatpak &> /dev/null
-    sudo apt install -y flatpak &> /dev/null
+    sudo $INSTALLER install -y gnome-software-plugin-flatpak 
+    sudo $INSTALLER install -y flatpak 
     sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    sudo flatpak install -y bsnes &> /dev/null
+    sudo flatpak install -y bsnes 
     # Install snes9x
-    sudo flatpak install -y snes9x &> /dev/null
+    sudo flatpak install -y snes9x 
     cp /var/lib/flatpak/exports/share/applications/*.desktop ~/.local/share/applications/
     # Install gb studio
-    sudo apt install -y gb-studio &> /dev/null
+    sudo $INSTALLER install -y gb-studio 
     # Install tilemap studio
-    sudo apt install -y make g++ git autoconf &> /dev/null
-    sudo apt install -y zlib1g-dev libpng-dev libxpm-dev libx11-dev libxft-dev libxinerama-dev libfontconfig1-dev x11proto-xext-dev libxrender-dev libxfixes-dev &> /dev/null
-    cd ~/Workspace &> /dev/null
-    git clone https://github.com/Rangi42/tilemap-studio.git &> /dev/null
-    cd tilemap-studio &> /dev/null
-    git clone --branch release-1.3.7 --depth 1 https://github.com/fltk/fltk.git &> /dev/null
-    pushd fltk &> /dev/null
-    ./autogen.sh --prefix="$PWD/.." --with-abiversion=10307 &> /dev/null
-    make &> /dev/null
-    make install &> /dev/null
-    popd &> /dev/null
-    export PATH="$PWD/bin:$PATH" &> /dev/null
-    make &> /dev/null
-    sudo make install &> /dev/null
-    cd - &> /dev/null
+    sudo $INSTALLER install -y make g++ git autoconf 
+    sudo $INSTALLER install -y zlib1g-dev libpng-dev libxpm-dev libx11-dev libxft-dev libxinerama-dev libfontconfig1-dev x11proto-xext-dev libxrender-dev libxfixes-dev 
+    cd ~/Workspace 
+    git clone https://github.com/Rangi42/tilemap-studio.git 
+    cd tilemap-studio 
+    git clone --branch release-1.3.7 --depth 1 https://github.com/fltk/fltk.git 
+    pushd fltk 
+    ./autogen.sh --prefix="$PWD/.." --with-abiversion=10307 
+    make 
+    make install 
+    popd 
+    export PATH="$PWD/bin:$PATH" 
+    make 
+    sudo make install 
+    cd - 
     # Install gb tile designer
-    cd ~/Workspace &> /dev/null
-    unzip $DOTFILES/binaries/gbtd.zip &> /dev/null
-    cp $DOTFILES/shortcuts/GBTD* ~/.local/share/applications/ &> /dev/null
-    cd - &> /dev/null
+    cd ~/Workspace 
+    unzip $DOTFILES/binaries/gbtd.zip 
+    cp $DOTFILES/shortcuts/GBTD* ~/.local/share/applications/ 
+    cd - 
     # Install gb map builder
-    cd ~/Workspace &> /dev/null
-    unzip $DOTFILES/binaries/gbmb.zip &> /dev/null
-    cp $DOTFILES/shortcuts/GBMB* ~/.local/share/applications/ &> /dev/null
-    cd - &> /dev/null
+    cd ~/Workspace 
+    unzip $DOTFILES/binaries/gbmb.zip 
+    cp $DOTFILES/shortcuts/GBMB* ~/.local/share/applications/ 
+    cd - 
     # Install bgb
-    cd ~/Workspace &> /dev/null
-    unzip $DOTFILES/binaries/bgb.zip &> /dev/null
-    cp $DOTFILES/shortcuts/bgb* ~/.local/share/applications/ &> /dev/null
-    ln -s $DOTFILES/bgb ~/bin/bgb &> /dev/null
-    ln -s ~/bin/bgb64 ~/bin/bgb &> /dev/null
-    chmod +x ~/bin/bgb* &> /dev/null
-    cd - &> /dev/null
+    cd ~/Workspace 
+    unzip $DOTFILES/binaries/bgb.zip 
+    cp $DOTFILES/shortcuts/bgb* ~/.local/share/applications/ 
+    ln -s $DOTFILES/bgb ~/bin/bgb 
+    ln -s ~/bin/bgb64 ~/bin/bgb 
+    chmod +x ~/bin/bgb* 
+    cd - 
     # Install ca65
-    cd ~/Workspace &> /dev/null
-    git clone https://github.com/cc65/cc65.git &> /dev/null
-    cd cc65/ &> /dev/null
-    make &> /dev/null
-    sudo make install &> /dev/null
-    cd - &> /dev/null
+    cd ~/Workspace 
+    git clone https://github.com/cc65/cc65.git 
+    cd cc65/ 
+    make 
+    sudo make install 
+    cd - 
     # Install wla-65816
-    cd ~/Workspace &> /dev/null
-    git clone https://github.com/vhelin/wla-dx &> /dev/null
-    cd wla-dx/ &> /dev/null
-    mkdir build &> /dev/null
-    cd build/ &> /dev/null
-    cmake .. &> /dev/null
-    cmake --build . --config Release &> /dev/null
-    sudo cmake -P cmake_install.cmake -DCMAKE_INSTALL_PREFIX=/usr/local &> /dev/null
-    cd - &> /dev/null
+    cd ~/Workspace 
+    git clone https://github.com/vhelin/wla-dx 
+    cd wla-dx/ 
+    mkdir build 
+    cd build/ 
+    cmake .. 
+    cmake --build . --config Release 
+    sudo cmake -P cmake_install.cmake -DCMAKE_INSTALL_PREFIX=/usr/local 
+    cd - 
     # Install rbgasm
-    cd ~/Workspace &> /dev/null
-    sudo apt install -y bison libpng-dev libpng-tools libpng-tools &> /dev/null
-    git clone https://github.com/gbdev/rgbds &> /dev/null
-    cd rgbds/ &> /dev/null
-    make clean &> /dev/null
-    make &> /dev/null
-    sudo make install &> /dev/null
-    cd - &> /dev/null
+    cd ~/Workspace 
+    sudo $INSTALLER install -y bison libpng-dev libpng-tools libpng-tools 
+    git clone https://github.com/gbdev/rgbds 
+    cd rgbds/ 
+    make clean 
+    make 
+    sudo make install 
+    cd - 
 }
 
 function allsetup() {
