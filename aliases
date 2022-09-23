@@ -53,3 +53,11 @@ pandoc_wiki() {
     pandoc -V geometry:margin=3cm -f markdown -t latex $1 -o ~/Documents/$F.pdf
     cd - &> /dev/null
 }
+myvim() {
+    if [[ `screen -ls | grep "Detached" > /dev/null; echo $?` -eq 0 ]]; then
+        CMD="screen -r"
+    else
+        CMD="screen nvim -u ~/.vimrc"
+    fi
+    $CMD
+}

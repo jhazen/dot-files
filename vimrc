@@ -87,6 +87,7 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'vim-python/python-syntax'
 Plugin 'kien/ctrlp.vim'
 Plugin 'puremourning/vimspector'
+Plugin 'NewLunarFire/wla-vim'
 
 set background=dark
 colorscheme iceberg
@@ -198,9 +199,9 @@ au BufEnter *.yaml set tabstop=2
 au BufEnter *.yaml set softtabstop=2
 au BufEnter *.cisco set ft=cisco
 au BufEnter *.junos set ft=junos
-au BufEnter *.asm set filetype=nasm
-au BufEnter *.z80 set filetype=nasm
-au BufEnter *.s set filetype=nasm
+au BufEnter *.asm set filetype=wla
+au BufEnter *.z80 set filetype=wla
+au BufEnter *.s set filetype=wla
 au BufEnter *.sls set filetype=yaml
 au BufEnter *.wiki set ft=markdown
 au BufEnter *.md set ft=markdown
@@ -277,6 +278,8 @@ autocmd filetype c nnoremap <leader>b :w <bar> !build_wrap.sh % c -b<CR>
 autocmd filetype c nnoremap <leader>r :w <bar> !build_wrap.sh % c -br<CR>
 autocmd filetype c nnoremap <leader>g :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 autocmd filetype c nnoremap <leader>. :CtrlPTag<cr>
+autocmd filetype wla nnoremap <leader>b :w <bar> !build_wrap.sh % asm -b<CR>
+autocmd filetype wla nnoremap <leader>r :w <bar> !build_wrap.sh % asm -br<CR>
 autocmd filetype asm nnoremap <leader>b :w <bar> !build_wrap.sh % asm -b<CR>
 autocmd filetype asm nnoremap <leader>r :w <bar> !build_wrap.sh % asm -br<CR>
 au FileType py nmap <leader>r :PymodeRun<CR>,k
