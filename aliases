@@ -56,6 +56,8 @@ pandoc_wiki() {
 myvim() {
     if [[ `screen -ls | grep "Detached" > /dev/null; echo $?` -eq 0 ]]; then
         CMD="screen -r"
+    elif [[ `screen -ls | grep "Attached" > /dev/null; echo $?` -eq 0 ]]; then
+        CMD="screen -rD"
     else
         CMD="screen nvim -u ~/.vimrc"
     fi
