@@ -90,7 +90,7 @@ Plugin 'puremourning/vimspector'
 Plugin 'NewLunarFire/wla-vim'
 
 set background=dark
-colorscheme iceberg
+colorscheme bitterjug
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -354,9 +354,10 @@ function ToggleColorScheme()
     elseif g:colors_name == "void"
         :colorscheme wwdc16
     elseif g:colors_name == "wwdc16"
-        let g:seoul256_background = 253
-        :colorscheme seoul256
-    elseif g:colors_name == "seoul256"
+        :colorscheme bitterjug
+    elseif g:colors_name == "bitterjug"
+        :colorscheme birds-of-paradise
+    elseif g:colors_name == "birds-of-paradise"
         :colorscheme badwolf
     elseif g:colors_name == "badwolf"
         :colorscheme gruvbox
