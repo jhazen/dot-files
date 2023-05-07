@@ -90,7 +90,7 @@ Plugin 'puremourning/vimspector'
 Plugin 'NewLunarFire/wla-vim'
 
 set background=dark
-colorscheme bitterjug
+colorscheme nord
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -364,3 +364,9 @@ function ToggleColorScheme()
     endif
 endfunction
 nnoremap <leader>t :call ToggleColorScheme()<CR>
+
+function FormatJSON()
+    :1,$s/'/"/g
+    :%!python -m json.tool
+endfunction
+command! -bar FormatJSON call FormatJSON()
