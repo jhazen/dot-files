@@ -90,7 +90,7 @@ Plugin 'puremourning/vimspector'
 Plugin 'NewLunarFire/wla-vim'
 
 set background=dark
-colorscheme nord
+colorscheme sonokai
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -374,3 +374,21 @@ function FormatJSON()
     :%!python -m json.tool
 endfunction
 command! -bar FormatJSON call FormatJSON()
+
+function ObsidianLink()
+    let g:previouslink=expand("%:p")
+    execute("Glcd")
+    let startlink=searchpos('[[', 'bn', line('.'))[1] + 1
+    let endlink=searchpos(']]', 'n', line('.'))[1] - 2
+    let ss=getline(".")[startlink:endlink] . ".md"
+    let pwd=getcwd() . "/"
+    let obsidianlink=fnameescape(pwd . ss)
+    execute("e " . obsidianlink)
+endfunction
+function ObsidianGoBack()
+    if exists("g:previouslink")
+        execute("e " . g:previouslink)
+    endif
+endfunction
+autocmd filetype markdown nnoremap <leader>g :call ObsidianLink()<CR>
+autocmd filetype markdown nnoremap <leader>G :call ObsidianGoBack()<CR>
