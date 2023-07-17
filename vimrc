@@ -125,6 +125,7 @@ let g:Powerline_symbols = 'fancy'
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 
 let g:ale_rust_cargo_use_check = 1
+let g:ale_python_flake8_options = '--config=$HOME/.flake8'
 let g:rustfmt_autosave = 1
 
 let g:SuperTabDefaultCompletionType = '<C-n>'
@@ -367,6 +368,9 @@ nnoremap <leader>t :call ToggleColorScheme()<CR>
 
 function FormatJSON()
     :1,$s/'/"/g
+    :1,$s/None/null/g
+    :1,$s/False/false/g
+    :1,$s/True/true/g
     :%!python -m json.tool
 endfunction
 command! -bar FormatJSON call FormatJSON()
