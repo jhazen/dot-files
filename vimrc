@@ -232,7 +232,6 @@ nmap <leader>gp :Git pull<cr>
 nmap <leader>gP :Git push<cr>
 
 tnoremap <Esc> <C-\><C-n>
-nnoremap <leader><space> :noh<cr>
 
 nnoremap <silent> ,K <C-w>K
 nnoremap <silent> ,J <C-w>J
@@ -246,6 +245,7 @@ nnoremap <silent> ,l <C-w>l
 
 let @q="\<Esc>^i#\<Esc>j"
 nnoremap <Space> @q
+nnoremap <leader><space> @q@q@q@q@q@q@q@q@q@q
 let @a="kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
 nnoremap <silent> ,a @a
 nnoremap <PageUp> @a
