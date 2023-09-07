@@ -392,3 +392,15 @@ function ObsidianGoBack()
 endfunction
 autocmd filetype markdown nnoremap <leader>g :call ObsidianLink()<CR>
 autocmd filetype markdown nnoremap <leader>G :call ObsidianGoBack()<CR>
+
+let g:colors = getcompletion('', 'color')
+func! NextColors()
+    let idx = index(g:colors, g:colors_name)
+    return (idx + 1 >= len(g:colors) ? g:colors[0] : g:colors[idx + 1])
+endfunc
+func! PrevColors()
+    let idx = index(g:colors, g:colors_name)
+    return (idx - 1 < 0 ? g:colors[-1] : g:colors[idx - 1])
+endfunc
+nnoremap <leader>[ :exe "colo " .. NextColors()<CR>
+nnoremap <leader>] :exe "colo " .. PrevColors()<CR>
