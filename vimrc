@@ -394,6 +394,7 @@ endfunction
 autocmd filetype markdown nnoremap <leader>g :call ObsidianLink()<CR>
 autocmd filetype markdown nnoremap <leader>G :call ObsidianGoBack()<CR>
 
+let g:seed = srand()
 let g:colors = getcompletion('', 'color')
 let g:color_idx = index(g:colors, g:colors_name)
 func! NextColors()
@@ -414,5 +415,11 @@ func! PrevColors()
     echo g:colors[g:color_idx]
     return g:colors[g:color_idx]
 endfunc
+func! RandoColor()
+    let g:color_idx = rand(g:seed) % len(g:colors)
+    echo g:colors[g:color_idx]
+    :exe "colo " .. g:colors[g:color_idx]
+endfunc
 nnoremap <leader>[ :exe "colo " .. NextColors()<CR>
 nnoremap <leader>] :exe "colo " .. PrevColors()<CR>
+nnoremap <leader>c :call RandoColor()<CR>
