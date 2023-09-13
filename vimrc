@@ -363,6 +363,7 @@ function ToggleColorScheme()
     elseif g:colors_name == "badwolf"
         :colorscheme gruvbox
     endif
+    let g:color_idx = index(g:colors, g:colors_name)
 endfunction
 nnoremap <leader>t :call ToggleColorScheme()<CR>
 
@@ -394,13 +395,24 @@ autocmd filetype markdown nnoremap <leader>g :call ObsidianLink()<CR>
 autocmd filetype markdown nnoremap <leader>G :call ObsidianGoBack()<CR>
 
 let g:colors = getcompletion('', 'color')
+let g:color_idx = index(g:colors, g:colors_name)
 func! NextColors()
-    let idx = index(g:colors, g:colors_name)
-    return (idx + 1 >= len(g:colors) ? g:colors[0] : g:colors[idx + 1])
+    if g:color_idx <= (len(g:colors) + 1)
+        let g:color_idx += 1
+    else
+        let g:color_idx = 0
+    endif
+    echo g:colors[g:color_idx]
+    return g:colors[g:color_idx]
 endfunc
 func! PrevColors()
-    let idx = index(g:colors, g:colors_name)
-    return (idx - 1 < 0 ? g:colors[-1] : g:colors[idx - 1])
+    if g:color_idx >= 0
+        let g:color_idx -= 1
+    else
+        let g:color_idx = len(g:colors) - 1
+    endif
+    echo g:colors[g:color_idx]
+    return g:colors[g:color_idx]
 endfunc
 nnoremap <leader>[ :exe "colo " .. NextColors()<CR>
 nnoremap <leader>] :exe "colo " .. PrevColors()<CR>
