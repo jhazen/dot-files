@@ -397,7 +397,7 @@ autocmd filetype markdown nnoremap <leader>G :call ObsidianGoBack()<CR>
 let g:colors = getcompletion('', 'color')
 let g:color_idx = index(g:colors, g:colors_name)
 func! NextColors()
-    if g:color_idx <= (len(g:colors) + 1)
+    if g:color_idx <= (len(g:colors) - 1)
         let g:color_idx += 1
     else
         let g:color_idx = 0
