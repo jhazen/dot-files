@@ -88,6 +88,7 @@ Plugin 'vim-python/python-syntax'
 Plugin 'kien/ctrlp.vim'
 Plugin 'puremourning/vimspector'
 Plugin 'NewLunarFire/wla-vim'
+Plugin 'dahu/vim-rng'
 
 set background=dark
 colorscheme sonokai
@@ -394,7 +395,6 @@ endfunction
 autocmd filetype markdown nnoremap <leader>g :call ObsidianLink()<CR>
 autocmd filetype markdown nnoremap <leader>G :call ObsidianGoBack()<CR>
 
-let g:seed = srand()
 let g:colors = getcompletion('', 'color')
 let g:color_idx = index(g:colors, g:colors_name)
 func! NextColors()
@@ -416,7 +416,7 @@ func! PrevColors()
     return g:colors[g:color_idx]
 endfunc
 func! RandoColor()
-    let g:color_idx = rand(g:seed) % len(g:colors)
+    let g:color_idx = RandomNumber(0, len(g:colors)-1)
     echo g:colors[g:color_idx]
     :exe "colo " .. g:colors[g:color_idx]
 endfunc
