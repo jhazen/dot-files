@@ -337,33 +337,10 @@ endfunction
 command! -bar Hex call ToggleHex()
 
 function ToggleColorScheme()
-    if g:colors_name == "gruvbox"
-        :colorscheme iceberg
-    elseif g:colors_name == "iceberg"
-        :colorscheme molokai
-    elseif g:colors_name == "molokai"
-        :colorscheme nord
-    elseif g:colors_name == "nord"
-        :colorscheme rakr
-    elseif g:colors_name == "rakr"
-        :colorscheme sonokai
-    elseif g:colors_name == "sonokai"
-        :colorscheme space-vim-dark
-    elseif g:colors_name == "space-vim-dark"
-        :colorscheme Atelier_CaveDark
-    elseif g:colors_name == "Atelier_CaveDark"
-        :colorscheme void
-    elseif g:colors_name == "void"
-        :colorscheme wwdc16
-    elseif g:colors_name == "wwdc16"
-        :colorscheme bitterjug
-    elseif g:colors_name == "bitterjug"
-        :colorscheme birds-of-paradise
-    elseif g:colors_name == "birds-of-paradise"
-        :colorscheme badwolf
-    elseif g:colors_name == "badwolf"
-        :colorscheme gruvbox
-    endif
+    let fav_colors = ['gruvbox', 'iceberg', 'molokai', 'nord', 'muon', 'sonokai', 'space-vim-dark', 'Atelier_CaveDark', 'void', 'wwdc16', 'bitterjug', 'birds-of-paradise', 'badwolf', 'CandyPaper', 'smarties', 'khaki', 'neverland2', '1989', 'znake', 'twilight256', 'flatland', 'happy_hacking', 'codedark', 'orbital', 'northpole', 'dzo', 'greenvision', 'blacklight']
+    let fav_colors_idx = RandomNumber(0, len(fav_colors)-1)
+    echo fav_colors[fav_colors_idx]
+    :exe "colo " .. fav_colors[fav_colors_idx]
     let g:color_idx = index(g:colors, g:colors_name)
 endfunction
 nnoremap <leader>t :call ToggleColorScheme()<CR>
