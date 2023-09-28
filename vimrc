@@ -337,10 +337,10 @@ endfunction
 command! -bar Hex call ToggleHex()
 
 function ToggleColorScheme()
-    let fav_colors = ['gruvbox', 'iceberg', 'molokai', 'nord', 'muon', 'sonokai', 'space-vim-dark', 'Atelier_CaveDark', 'void', 'wwdc16', 'bitterjug', 'birds-of-paradise', 'badwolf', 'CandyPaper', 'smarties', 'khaki', 'neverland2', '1989', 'znake', 'twilight256', 'flatland', 'happy_hacking', 'codedark', 'orbital', 'northpole', 'dzo', 'greenvision', 'blacklight', 'jhlight', 'jitterbug', 'kalisi', 'lapis256', 'lodestone', 'lucius', 'made_of_code', 'miko', 'morning', 'mushroom', 'plasticine', 'seoul256', 'softbluev2', 'soso', 'tabula']
-    let fav_colors_idx = RandomNumber(0, len(fav_colors)-1)
-    echo fav_colors[fav_colors_idx]
-    :exe "colo " .. fav_colors[fav_colors_idx]
+    let g:fav_colors = ['gruvbox', 'iceberg', 'molokai', 'nord', 'muon', 'sonokai', 'space-vim-dark', 'Atelier_CaveDark', 'void', 'wwdc16', 'bitterjug', 'birds-of-paradise', 'badwolf', 'CandyPaper', 'smarties', 'khaki', 'neverland2', '1989', 'znake', 'twilight256', 'flatland', 'happy_hacking', 'codedark', 'orbital', 'northpole', 'dzo', 'greenvision', 'blacklight', 'jhlight', 'jitterbug', 'kalisi', 'lapis256', 'lodestone', 'lucius', 'made_of_code', 'miko', 'morning', 'mushroom', 'plasticine', 'seoul256', 'softbluev2', 'soso', 'tabula', 'moonshine', 'moss', 'monokai-phoenix', 'minimalist', 'magellan', 'luinnar']
+    let g:fav_colors_idx = RandomNumber(0, len(g:fav_colors)-1)
+    echo g:fav_colors[g:fav_colors_idx]
+    :exe "colo " .. g:fav_colors[g:fav_colors_idx]
     let g:color_idx = index(g:colors, g:colors_name)
 endfunction
 nnoremap <leader>t :call ToggleColorScheme()<CR>
