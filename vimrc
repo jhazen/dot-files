@@ -100,6 +100,8 @@ match ExtraWhitespace /\s\+$/
 
 filetype plugin indent on
 
+let g:tagbar_ctags_bin = "/usr/bin/ctags"
+
 let g:doge_doc_standard_python = 'sphinx'
 let g:doge_mapping = '<Leader>D'
 
