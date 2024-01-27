@@ -117,8 +117,9 @@ function vimsetup() {
   cd ~/.vim/bundle/vundle/syntax
   wget https://raw.githubusercontent.com/Leandros/dotfiles/master/.vim/syntax/rgbds.vim
   cd - &> /dev/null
-  #cd ~/.vim/bundle/YouCompleteMe
-  #./install.py --clang-completer --java-completer --go-completer
+  cd ~/.vim/bundle/YouCompleteMe
+  ./install.py --all
+  cd - &> /dev/null
 }
 
 function bashsetup() {
