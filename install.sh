@@ -117,9 +117,9 @@ function vimsetup() {
   cd ~/.vim/bundle/vundle/syntax
   wget https://raw.githubusercontent.com/Leandros/dotfiles/master/.vim/syntax/rgbds.vim
   cd - &> /dev/null
-  cd ~/.vim/bundle/YouCompleteMe
-  ./install.py --all
-  cd - &> /dev/null
+  #cd ~/.vim/bundle/YouCompleteMe
+  #./install.py --all
+  #cd - &> /dev/null
 }
 
 function bashsetup() {
@@ -226,7 +226,7 @@ function bashsetup() {
       pip3 install neovim
     else
       sudo apt update
-      sudo apt install neovim cmake exuberant-ctags python3.9 i3-gaps terminator imagemagick pandoc texlive-latex-extra neofetch i3lock feh lxappearance chromium-bsu clipit golang python3-pip remmina
+      sudo apt install neovim cmake exuberant-ctags universal-ctags terminator imagemagick pandoc texlive-latex-extra neofetch golang python3-pip remmina
       pip3 install neovim
     fi
   fi

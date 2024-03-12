@@ -1,10 +1,6 @@
-git@github.com:/neovim/neovim
-git@github.com:/Lameguy64/isodump
 git@github.com:/fgsfdsfgs/quakepsx
 git@github.com:/simias/psxsdk
 git@github.com:/NDR008/psxBreakout
-git@github.com:/PeterLemon/NES
-git@github.com:/PeterLemon/PSX
 git@github.com:/galaxyhaxz/smw-src
 git@github.com:/Sunlitspace542/ultrastarfox
 git@github.com:/VitorVilela7/SnesSpeedTest
@@ -18,8 +14,6 @@ git@github.com:/zladx/LADX-Disassembly
 git@github.com:/iimarckus/megaman
 git@github.com:/Sanqui/hm3
 git@github.com:/IsoFrieze/SMWDisX
-git@github.com:/gocha/DiztinGUIsh
-git@github.com:/Ersanio/snes-assembly-book
 git@github.com:/Maseya/SMAS-Disassembly
 git@github.com:/bbbradsmith/SNES_stuff
 git@github.com:/georgjz/snes-assembly-adventure-code
@@ -51,5 +45,3 @@ git@github.com:/ARM9/snesdev
 git@github.com:/LIJI32/superbomberman
 git@github.com:/pret/pokered
 git@github.com:/guitmz/virii
-git@github.com:/gbdev/awesome-gbdev
-git@github.com:/blackarch/blackarch
