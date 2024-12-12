@@ -12,7 +12,7 @@ DIRPATH=`dirname $1 | sed 's/^.*Workspace\///g'`
 DIRPATH_ORIG=$DIRPATH
 
 if [ $2 = "md" ]; then
-    source ~/.aliases; pandoc_wiki $1
+    source ~/.aliases; new_pandoc_wiki $1
     exit 0
 fi
 
