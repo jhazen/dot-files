@@ -1,0 +1,11 @@
+#!/bin/bash
+
+L="~/Workspace/vimwiki"
+C="grep -rni TAKEAWAY $L"
+
+for i in $@; do
+    C="$C | grep -i $i"
+done
+
+IFS=$'\n'
+eval $C 2>&1 | sed 's/^.*TAKEAWAY/TAKEAWAY/g' | grep -v "binary file matches"

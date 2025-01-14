@@ -184,6 +184,13 @@ function bashsetup() {
     mv ~/startVM.sh $BACKUP_DIR/startVM.sh-$(date +%s)
   fi
   ln -s $DOTFILES/startVM.sh ~/bin/startVM.sh
+  if [ -L ~/bin/takeaways ]; then
+    rm ~/bin/takeaways
+  fi
+  if [ -f ~/bin/takeaways ]; then
+    mv ~/takeaways $BACKUP_DIR/takeaways-$(date +%s)
+  fi
+  ln -s $DOTFILES/takeaways ~/bin/takeaways
   if [ -L ~/bin/task.py ]; then
     rm ~/bin/task.py
   fi
