@@ -92,7 +92,7 @@ Plugin 'dahu/vim-rng'
 "Plugin 'ycm-core/YouCompleteMe'
 
 set background=dark
-colorscheme jellygrass
+colorscheme gruvbox
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -166,6 +166,7 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = 'Ɇ'
 let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_theme='gruvbox'
 
 let wiki = {}
 let wiki.path = '~/vimwiki'
