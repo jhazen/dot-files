@@ -50,7 +50,7 @@ alias psg='ps aux | grep'
 new_pandoc_wiki() {
     F=`basename $1 | cut -d'.' -f1`
     P=`echo $1 | sed 's/^.*vimwiki/\/data/g'`
-    docker run --rm -v "${HOME}/vimwiki:/data" -u $(id -u):$(id -g) pandoc/extra $P -o /data/output/$F.pdf --from markdown+yaml_metadata_block+raw_html --template eisvogel --table-of-contents --toc-depth 6 --number-sections --top-level-division=chapter --highlight-style breezedark --resource-path=.:/data/screenshots
+    sudo docker run --rm -v "${HOME}/vimwiki:/data" -u $(id -u):$(id -g) pandoc/extra $P -o /data/output/$F.pdf --from markdown+yaml_metadata_block+raw_html --template eisvogel --table-of-contents --toc-depth 6 --top-level-division=chapter --highlight-style breezedark --resource-path=.:/data/screenshots
     mv ~/vimwiki/output/$F.pdf ~/Documents/
 }
 pandoc_wiki() {

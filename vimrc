@@ -33,6 +33,7 @@ set ff=unix
 set clipboard=unnamedplus
 set laststatus=2
 set textwidth=0
+set linebreak
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
 set foldmethod=indent
@@ -230,6 +231,8 @@ au BufEnter *.s set filetype=wla
 au BufEnter *.sls set filetype=yaml
 au BufEnter *.wiki set ft=markdown
 au BufEnter *.md set ft=markdown
+au BufEnter *.md set breakindent
+au BufEnter *.md set linebreak
 au BufRead,BufWrite,BufNew *.wiki set ft=markdown
 au BufRead,BufWrite,BufNew *.md set ft=markdown
 
@@ -392,8 +395,8 @@ function ObsidianGoBack()
         execute("e " . g:previouslink)
     endif
 endfunction
-autocmd filetype markdown nnoremap <leader>g :call ObsidianLink()<CR>
-autocmd filetype markdown nnoremap <leader>G :call ObsidianGoBack()<CR>
+autocmd filetype markdown nnoremap <leader>g <Plug>VimwikiTabDropLink
+autocmd filetype markdown nnoremap <leader>G <Plug>VimwikiGoBackLink
 
 let g:colors = getcompletion('', 'color')
 let g:color_idx = index(g:colors, g:colors_name)
