@@ -51,18 +51,16 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'CyCoreSystems/vim-cisco-ios'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'joonty/vdebug'
 Plugin 'nvie/vim-flake8'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'skywind3000/asyncrun.vim'
-Plugin 'w0rp/ale'
+"Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'ClockworkNet/vim-junos-syntax'
 Plugin 'preservim/nerdtree'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
@@ -75,14 +73,9 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'vimwiki/vimwiki'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'vim-scripts/DoxygenToolkit.vim'
-Plugin 'vhdirk/vim-cmake'
-Plugin 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'kkoomen/vim-doge'
-Plugin 'rust-lang/rust.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'vim-python/python-syntax'
@@ -90,7 +83,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'puremourning/vimspector'
 Plugin 'NewLunarFire/wla-vim'
 Plugin 'dahu/vim-rng'
-"Plugin 'ycm-core/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'junegunn/limelight.vim'
 
 set background=dark
 colorscheme gruvbox
@@ -102,6 +96,9 @@ match ExtraWhitespace /\s\+$/
 
 filetype plugin indent on
 
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_guifg = 'DarkGray'
+
 let g:tagbar_ctags_bin = "/usr/bin/ctags"
 
 let g:doge_doc_standard_python = 'sphinx'
@@ -111,7 +108,7 @@ let g:vimspector_enable_mappings = 'HUMAN'
 
 let g:terminal_scrollback_buffer_size = 100000
 
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 
 let g:jedi#use_splits_not_buffers = "bottom"
 let g:jedi#documentation_command = "<leader>k"
@@ -119,21 +116,24 @@ let g:jedi#completions_command = "<C-A>"
 
 let g:SimplyFold_docstring_preview=1
 
-let g:flake8_show_quickfix=0
-let g:flake8_show_in_gutter=0
+let g:flake8_show_quickfix=1
+let g:flake8_show_in_gutter=1
 let python_highlight_all=1
 let g:Powerline_symbols = 'fancy'
 
-"let g:ycm_confirm_extra_conf = 0
-"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 
-let g:ale_rust_cargo_use_check = 1
-let g:ale_python_flake8_options = '--config=$HOME/.flake8'
+let g:ale_linters = {'python': 'all'}
+let g:ale_fixers = {'python': ['isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace']}
+let g:ale_lsp_suggestions = 1
+let g:ale_completion_enabled = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] [%severity%] %code: %%s'
 let g:rustfmt_autosave = 1
-
-let g:SuperTabDefaultCompletionType = '<C-n>'
 
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -148,6 +148,7 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#wordcount#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 " unicode symbols
 let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
@@ -180,15 +181,14 @@ let g:vimwiki_global_ext = 0
 let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
+let g:pymode = 1
 let g:pymode_options_colorcolumn = 0
-let g:pymode_lint_on_write = 0
+let g:pymode_lint_on_write = 1
 let g:pymode_preview_position = 'botright'
 let g:pymode_python = 'python3'
 let g:pymode_run_bind = '<leader>r'
 
 let g:python_highlight_all = 1
-
-let g:go_def_mapping_enabled = 0
 
 nmap <C-U> :UndotreeToggle<CR>
 nmap <C-N> :NERDTreeToggle<CR>
@@ -206,7 +206,7 @@ augroup WrapLineInMarkdown
     autocmd FileType markdown setlocal wrap
 augroup END
 
-au FileType python nnoremap <leader>l :w <bar> !black % && flake8 % <CR>
+au FileType python nnoremap <leader>l :PymodeLint <CR>
 au FileType rust nnoremap <leader>l :RustFmt <CR>
 au BufEnter *.css set shiftwidth=2
 au BufEnter *.css set tabstop=2
@@ -295,12 +295,6 @@ nnoremap <leader>H @H
 " Writing Editor macro
 let @W="\<Esc>\\ww\<Esc>:tabnew\<CR>:set nonu\<CR>:NERDTreeToggle\<CR>,l:tabnew\<CR>:set nonu\<CR>:NERDTreeToggle\<CR>,l:tabnew\<CR>:set nonu\<CR>:NERDTreeToggle\<CR>,l:tabnext\<CR>"
 nnoremap <leader>W @W
-
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-let g:go_snippet_engine = "ultisnips"
-let g:go_autodetect_gopath = 1
-let g:go_def_mode = 'gopls'
-let g:go_def_mod_mode='godef'
 
 autocmd filetype c nnoremap <leader>b :w <bar> !build_wrap.sh % c -b<CR>
 autocmd filetype c nnoremap <leader>r :w <bar> !build_wrap.sh % c -br<CR>
@@ -396,7 +390,7 @@ function ObsidianGoBack()
     endif
 endfunction
 autocmd filetype markdown nnoremap <leader>g <Plug>VimwikiTabDropLink
-autocmd filetype markdown nnoremap <leader>G <Plug>VimwikiGoBackLink
+autocmd filetype markdown nnoremap <leader>G <Plug>VimwikiBackLinks
 
 let g:colors = getcompletion('', 'color')
 let g:color_idx = index(g:colors, g:colors_name)
