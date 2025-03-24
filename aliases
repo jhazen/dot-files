@@ -53,11 +53,11 @@ new_pandoc_wiki() {
     sudo docker run --rm -v "${HOME}/vimwiki:/data" -u $(id -u):$(id -g) pandoc/extra $P -o /data/output/$F.pdf --from markdown+yaml_metadata_block+raw_html --template eisvogel --table-of-contents --toc-depth 6 --top-level-division=chapter --highlight-style breezedark --resource-path=.:/data/screenshots
     mv ~/vimwiki/output/$F.pdf ~/Documents/
 }
-new_pandoc_wiki_odt() {
+new_pandoc_wiki_docx() {
     F=`basename $1 | cut -d'.' -f1`
     P=`echo $1 | sed 's/^.*vimwiki/\/data/g'`
-    sudo docker run --rm -v "${HOME}/vimwiki:/data" -u $(id -u):$(id -g) pandoc/extra $P -o /data/output/$F.odt --to=odt --from markdown+yaml_metadata_block+raw_html --highlight-style breezedark --resource-path=.:/data/screenshots
-    mv ~/vimwiki/output/$F.odt ~/Documents/
+    sudo docker run --rm -v "${HOME}/vimwiki:/data" -u $(id -u):$(id -g) pandoc/extra $P -o /data/output/$F.docx --to=docx --from markdown+yaml_metadata_block+raw_html --highlight-style breezedark --resource-path=.:/data/screenshots
+    mv ~/vimwiki/output/$F.docx ~/Documents/
 }
 pandoc_wiki() {
     cd ~ &> /dev/null

@@ -14,8 +14,8 @@ DIRPATH_ORIG=$DIRPATH
 if [ $2 = "md" ]; then
     source ~/.aliases; new_pandoc_wiki $1
     exit 0
-elif [ $2 = "md_odt" ]; then
-    source ~/.aliases; new_pandoc_wiki_odt $1
+elif [ $2 = "md_docx" ]; then
+    source ~/.aliases; new_pandoc_wiki_docx $1
     exit 0
 fi
 

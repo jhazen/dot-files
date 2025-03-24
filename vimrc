@@ -328,7 +328,7 @@ autocmd filetype markdown nnoremap <leader>cp [s
 autocmd filetype markdown nnoremap <leader>cf z=
 autocmd filetype markdown nnoremap <leader>ca zg
 autocmd filetype markdown nnoremap <leader>b :w <bar> !build_wrap.sh %:p md -b<CR>
-autocmd filetype markdown nnoremap <leader>B :w <bar> !build_wrap.sh %:p md_odt -b<CR>
+autocmd filetype markdown nnoremap <leader>B :w <bar> !build_wrap.sh %:p md_docx -b<CR>
 
 function! ToggleHex()
   let l:modified=&mod
