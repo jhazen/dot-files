@@ -57,7 +57,6 @@ Plugin 'joonty/vdebug'
 Plugin 'nvie/vim-flake8'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'skywind3000/asyncrun.vim'
-"Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'davidhalter/jedi-vim'
@@ -86,6 +85,7 @@ Plugin 'dahu/vim-rng'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'junegunn/limelight.vim'
 
+
 set background=dark
 colorscheme gruvbox
 
@@ -113,6 +113,7 @@ let g:deoplete#enable_at_startup = 0
 let g:jedi#use_splits_not_buffers = "bottom"
 let g:jedi#documentation_command = "<leader>k"
 let g:jedi#completions_command = "<C-A>"
+let g:jedi#goto_command = "<leader>G"
 
 let g:SimplyFold_docstring_preview=1
 
@@ -125,15 +126,7 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-
-let g:ale_linters = {'python': 'all'}
-let g:ale_fixers = {'python': ['isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace']}
-let g:ale_lsp_suggestions = 1
-let g:ale_completion_enabled = 1
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] [%severity%] %code: %%s'
-let g:rustfmt_autosave = 1
+let g:ycm_key_detailed_diagnostics = '<leader>D'
 
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -182,6 +175,10 @@ let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
 let g:pymode = 1
+let g:pymode_lint = 1
+let g:pymode_lint_message = 1
+let g:pymode_lint_on_write = 1
+let g:pymode_lint_on_fly = 1
 let g:pymode_options_colorcolumn = 0
 let g:pymode_lint_on_write = 1
 let g:pymode_preview_position = 'botright'
@@ -207,6 +204,7 @@ augroup WrapLineInMarkdown
 augroup END
 
 au FileType python nnoremap <leader>l :PymodeLint <CR>
+au BufEnter *.py PymodeLint
 au FileType rust nnoremap <leader>l :RustFmt <CR>
 au BufEnter *.css set shiftwidth=2
 au BufEnter *.css set tabstop=2
@@ -317,6 +315,18 @@ au FileType go nmap <leader>d <Plug>(go-deps)
 au FileType go nmap <leader>g <Plug>(go-def-split)
 au FileType go nmap <leader>G <Plug>(go-def-stack)
 au filetype sh nnoremap <leader>r :!%:p<Enter>
+
+"au FileType python nmap <leader>dc :call vimspector#Continue()<CR>
+"au FileType python nmap <leader>ds :call vimspector#StepInto()<CR> 
+"au FileType python nmap <leader>dl :call vimspector#ListBreakpoints()<CR> 
+"au FileType python nmap <leader>db :call vimspector#ToggleBreakpoint()<CR> 
+nnoremap <Leader>dd :call vimspector#Launch()<CR>
+nnoremap <Leader>de :call vimspector#Reset()<CR>
+nnoremap <Leader>dc :call vimspector#Continue()<CR>
+nnoremap <Leader>dt :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <Leader>dT :call vimspector#ClearBreakpoints()<CR>
+nmap <Leader>ds <Plug>VimspectorStepInto
+nmap <Leader>dS <Plug>VimspectorStepOver
 
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.md setlocal spell spellfile=~/en.utf-8.add
