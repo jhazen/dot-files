@@ -30,7 +30,7 @@ alias ga='git add'
 alias fabric='fab -H $H'
 alias pbc='pbcopy'
 alias pbp='pbpaste'
-alias vim='nvim -u ~/.vimrc'
+alias vim='nvim'
 alias xcopy='xclip -i'
 alias xpaste='xclip -o'
 dockerws() {
