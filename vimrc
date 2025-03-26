@@ -40,9 +40,9 @@ set foldmethod=indent
 set foldlevel=99
 set tags=./tags,tags;$HOME
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Plugin 'gmarik/vundle'
+set rtp+=~/.config/nvim/bundle/Vundle.vim/
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'skwp/vim-easymotion'
 Plugin 'godlygeek/tabular'
@@ -72,7 +72,6 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'vimwiki/vimwiki'
-Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'kkoomen/vim-doge'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -84,7 +83,7 @@ Plugin 'NewLunarFire/wla-vim'
 Plugin 'dahu/vim-rng'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'junegunn/limelight.vim'
-
+call vundle#end()
 
 set background=dark
 colorscheme gruvbox
