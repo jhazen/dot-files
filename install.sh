@@ -95,30 +95,15 @@ function i3setup() {
 
 function vimsetup() {
   echo "vim"
-  if [ -f ~/.vimrc ]; then
-    mv ~/.vimrc $BACKUP_DIR/vimrc-$(date +%s)
-  fi
-  if [ -L ~/.vimrc ]; then
-    rm ~/.vimrc
-  fi
-  if [ -f ~/.vimspector.json ]; then
-    mv ~/.vimspector.json $BACKUP_DIR/vimspector.json-$(date +%s)
-  fi
-  if [ -L ~/.vimspector.json ]; then
-    rm ~/.vimspector.json
-  fi
-  if [ -d ~/.vim ]; then
-    mv ~/.vim $BACKUP_DIR/vim-$(date +%s)
-  fi
-  git clone https://github.com/gmarik/vundle.vim ~/.vim/bundle/vundle
-  ln -s $DOTFILES/vimrc ~/.vimrc
-  ln -s $DOTFILES/.vimspector.json ~/.vimspector.json
-  nvim -u ~/.vimrc +PluginInstall +qall
-  cd ~/.vim/bundle/vundle/syntax
-  wget https://raw.githubusercontent.com/Leandros/dotfiles/master/.vim/syntax/rgbds.vim
-  cd - &> /dev/null
+  rm -rf ~/.config/nvim
+  rm -rf ~/.vim
+  mkdir -p ~/.config/nvim
+  ln -s ~/.config/nvim ~/.vim
+  git clone https://github.com/VundleVim/Vundle.vim ~/.config/nvim/bundle/Vundle.vim
+  ln -s $DOTFILES/vimrc ~/.config/nvim/init.vim
+  nvim +PluginInstall +qall
   cd ~/.vim/bundle/YouCompleteMe
-  ./install.py --all
+  ./install.py
   cd - &> /dev/null
 }
 
