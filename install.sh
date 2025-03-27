@@ -100,7 +100,8 @@ function vimsetup() {
   mkdir -p ~/.config/nvim
   ln -s ~/.config/nvim ~/.vim
   git clone https://github.com/VundleVim/Vundle.vim ~/.config/nvim/bundle/Vundle.vim
-  ln -s $DOTFILES/vimrc ~/.config/nvim/init.vim
+  ln -s $DOTFILES/vimrc ~/.config/nvim/main.vim
+  ln -s $DOTFILES/init.lua ~/.config/nvim/init.lua
   nvim +PluginInstall +qall
   cd ~/.vim/bundle/YouCompleteMe
   ./install.py
