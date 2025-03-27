@@ -53,6 +53,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'ghifarit53/tokyonight-vim'
 Plugin 'joonty/vdebug'
 Plugin 'nvie/vim-flake8'
 Plugin 'tmhedberg/SimpylFold'
@@ -86,7 +87,10 @@ Plugin 'junegunn/limelight.vim'
 call vundle#end()
 
 set background=dark
-colorscheme gruvbox
+set termguicolors
+let g:tokyonight_style = 'night'
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
