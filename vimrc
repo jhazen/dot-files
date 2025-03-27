@@ -183,6 +183,7 @@ let g:pymode_lint_on_write = 1
 let g:pymode_preview_position = 'botright'
 let g:pymode_python = 'python3'
 let g:pymode_run_bind = '<leader>r'
+let g:pymode_options_max_line_length = 200
 
 let g:python_highlight_all = 1
 
