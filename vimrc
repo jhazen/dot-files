@@ -64,7 +64,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
-Plugin 'klen/python-mode'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'mbbill/undotree'
 Plugin 'sirver/UltiSnips'
@@ -173,17 +173,13 @@ let g:vimwiki_global_ext = 0
 let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
-let g:pymode = 1
-let g:pymode_lint = 1
-let g:pymode_lint_message = 1
-let g:pymode_lint_on_write = 1
-let g:pymode_lint_on_fly = 1
-let g:pymode_options_colorcolumn = 0
-let g:pymode_lint_on_write = 1
-let g:pymode_preview_position = 'botright'
-let g:pymode_python = 'python3'
-let g:pymode_run_bind = '<leader>r'
-let g:pymode_options_max_line_length = 200
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 let g:python_highlight_all = 1
 
@@ -203,8 +199,8 @@ augroup WrapLineInMarkdown
     autocmd FileType markdown setlocal wrap
 augroup END
 
-au FileType python nnoremap <leader>l :PymodeLint <CR>
-au BufEnter *.py PymodeLint
+au FileType python nnoremap <leader>l :SyntasticCheck <CR>
+au BufEnter *.py SyntasticCheck
 au FileType rust nnoremap <leader>l :RustFmt <CR>
 au BufEnter *.css set shiftwidth=2
 au BufEnter *.css set tabstop=2
@@ -316,10 +312,6 @@ au FileType go nmap <leader>g <Plug>(go-def-split)
 au FileType go nmap <leader>G <Plug>(go-def-stack)
 au filetype sh nnoremap <leader>r :!%:p<Enter>
 
-"au FileType python nmap <leader>dc :call vimspector#Continue()<CR>
-"au FileType python nmap <leader>ds :call vimspector#StepInto()<CR> 
-"au FileType python nmap <leader>dl :call vimspector#ListBreakpoints()<CR> 
-"au FileType python nmap <leader>db :call vimspector#ToggleBreakpoint()<CR> 
 nnoremap <Leader>dd :call vimspector#Launch()<CR>
 nnoremap <Leader>de :call vimspector#Reset()<CR>
 nnoremap <Leader>dc :call vimspector#Continue()<CR>
