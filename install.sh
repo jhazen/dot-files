@@ -97,12 +97,13 @@ function vimsetup() {
   echo "vim"
   rm -rf ~/.config/nvim
   rm -rf ~/.vim
-  mkdir -p ~/.config/nvim
+  mkdir -p ~/.config/nvim/lua
   ln -s ~/.config/nvim ~/.vim
   git clone https://github.com/VundleVim/Vundle.vim ~/.config/nvim/bundle/Vundle.vim
   ln -s $DOTFILES/vimrc ~/.config/nvim/main.vim
   ln -s $DOTFILES/init.lua ~/.config/nvim/init.lua
   touch ~/.config/nvim/local.vim
+  touch ~/.config/nvim/lua/local.lua
   nvim +PluginInstall +qall
   cd ~/.vim/bundle/YouCompleteMe
   ./install.py
