@@ -102,6 +102,7 @@ function vimsetup() {
   git clone https://github.com/VundleVim/Vundle.vim ~/.config/nvim/bundle/Vundle.vim
   ln -s $DOTFILES/vimrc ~/.config/nvim/main.vim
   ln -s $DOTFILES/init.lua ~/.config/nvim/init.lua
+  touch ~/.config/nvim/local.vim
   nvim +PluginInstall +qall
   cd ~/.vim/bundle/YouCompleteMe
   ./install.py
