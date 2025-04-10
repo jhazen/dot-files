@@ -65,7 +65,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'mbbill/undotree'
 Plugin 'sirver/UltiSnips'
@@ -90,7 +90,7 @@ set background=dark
 set termguicolors
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
+colorscheme sonokai
 
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
@@ -112,6 +112,8 @@ let g:vimspector_enable_mappings = 'HUMAN'
 let g:terminal_scrollback_buffer_size = 100000
 
 let g:deoplete#enable_at_startup = 0
+let g:flake8_show_in_gutter = 1
+let g:flake8_show_in_file = 1
 
 let g:jedi#use_splits_not_buffers = "bottom"
 let g:jedi#documentation_command = "<leader>k"
@@ -164,7 +166,7 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = 'Ɇ'
 let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_theme='gruvbox'
+let g:airline_theme='sonokai'
 
 let wiki = {}
 let wiki.path = '~/vimwiki'
@@ -177,13 +179,13 @@ let g:vimwiki_global_ext = 0
 let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 let g:python_highlight_all = 1
 
@@ -203,8 +205,8 @@ augroup WrapLineInMarkdown
     autocmd FileType markdown setlocal wrap
 augroup END
 
-au FileType python nnoremap <leader>l :SyntasticCheck <CR>
-au BufEnter *.py SyntasticCheck
+autocmd BufWritePost *.py call flake8#Flake8()
+au FileType python nnoremap <leader>l :call flake8#Flake8()<CR>
 au FileType rust nnoremap <leader>l :RustFmt <CR>
 au BufEnter *.css set shiftwidth=2
 au BufEnter *.css set tabstop=2
