@@ -256,7 +256,7 @@ nmap <leader>gd :Git diff<cr>
 nmap <leader>gb :Git blame<cr>
 nmap <leader>gc :Git commit<cr>
 nmap <leader>gp :Git pull<cr>
-nmap <leader>gP :Git push<cr>
+nmap <leader>gP :!gitpush_wrap.sh % <CR>
 
 tnoremap <Esc> <C-\><C-n>
 
