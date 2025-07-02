@@ -229,12 +229,8 @@ au BufEnter *.asm set filetype=wla
 au BufEnter *.z80 set filetype=wla
 au BufEnter *.s set filetype=wla
 au BufEnter *.sls set filetype=yaml
-au BufEnter *.wiki set ft=markdown
-au BufEnter *.md set ft=markdown
 au BufEnter *.md set breakindent
 au BufEnter *.md set linebreak
-au BufRead,BufWrite,BufNew *.wiki set ft=markdown
-au BufRead,BufWrite,BufNew *.md set ft=markdown
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
@@ -329,6 +325,8 @@ nmap <Leader>dS <Plug>VimspectorStepOver
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 autocmd BufRead,BufNewFile *.md setlocal spell spellfile=~/en.utf-8.add
 autocmd filetype markdown nnoremap <Backspace> :VimwikiGoBackLink <CR>
+autocmd filetype markdown nnoremap <leader>g <Plug>VimwikiTabDropLink
+autocmd filetype markdown nnoremap <leader>G :VimwikiGoBackLink <CR>
 autocmd filetype markdown nnoremap <leader>con :set spell spelllang=en_us<CR>
 autocmd filetype markdown nnoremap <leader>coff :set nospell<CR>
 autocmd filetype markdown nnoremap <leader>cn ]s
@@ -398,8 +396,6 @@ function ObsidianGoBack()
         execute("e " . g:previouslink)
     endif
 endfunction
-autocmd filetype markdown nnoremap <leader>g <Plug>VimwikiTabDropLink
-autocmd filetype markdown nnoremap <leader>G <Plug>VimwikiBackLinks
 
 let g:colors = getcompletion('', 'color')
 let g:color_idx = index(g:colors, g:colors_name)
