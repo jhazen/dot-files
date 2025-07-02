@@ -11,7 +11,20 @@ cd ~/Workspace
 DIRPATH=`dirname $1 | sed 's/^.*Workspace\///g'`
 DIRPATH_ORIG=$DIRPATH
 
-if [ $2 = "md" ]; then
+if [[ $1 ==  *"build.md" ]]; then
+    source $1
+    echo "building $PROJECT into $BUILDDIR..."
+    mkdir -p $DIRPATH/$BUILDDIR
+    DRAFTFILE=$DIRPATH/$BUILDDIR/${PROJECT}_${DRAFT}
+    cat $DIRPATH/$HEADER > $DRAFTFILE.md
+    for SRC in ${SOURCES[@]}; do
+        cat $DIRPATH/$SRC >> $DRAFTFILE.md
+    done
+    cat $DIRPATH/$FOOTER >> $DRAFTFILE.md
+    pandoc -t epub $DRAFTFILE.md -o $DRAFTFILE.epub
+    pandoc $DRAFTFILE.md -o ${DRAFTFILE}-a4.pdf -V geometry:"a4paper" -V fontsize:"12pt" --toc
+    exit 0
+elif [ $2 = "md" ]; then
     source ~/.aliases; new_pandoc_wiki $1
     exit 0
 elif [ $2 = "md_docx" ]; then
