@@ -231,6 +231,7 @@ au BufEnter *.s set filetype=wla
 au BufEnter *.sls set filetype=yaml
 au BufEnter *.md set breakindent
 au BufEnter *.md set linebreak
+au BufEnter *.md set syntax=markdown
 
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
