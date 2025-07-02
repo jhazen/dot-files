@@ -371,7 +371,7 @@ function ToggleColorScheme()
     :exe "colo " .. g:fav_colors[g:fav_colors_idx]
     let g:color_idx = index(g:colors, g:colors_name)
 endfunction
-nnoremap <leader>t :call ToggleColorScheme()<CR>
+nnoremap <leader>s :call ToggleColorScheme()<CR>
 
 function FormatJSON()
     :1,$s/'/"/g
@@ -397,6 +397,16 @@ function ObsidianGoBack()
         execute("e " . g:previouslink)
     endif
 endfunction
+
+func! NewTask()
+    let task_title = getline('.')[6:]
+    let task_path = substitute(system("~/bin/task.py -c new -n \"" . task_title . "\""), '\n\+$', '', '')
+    let task_path = substitute(task_path, "\x00", "", "g")
+    let updated_line_content = "* [ ] [" . task_path . "](" . task_path . ".md) - " . task_title
+    let updated_line_content = substitute(updated_line_content, "\x00", "", "g")
+    call setline('.', updated_line_content)
+endfunction
+nnoremap <leader>t :call NewTask()<CR>
 
 let g:colors = getcompletion('', 'color')
 let g:color_idx = index(g:colors, g:colors_name)
