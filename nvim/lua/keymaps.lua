@@ -33,6 +33,7 @@ vim.keymap.set('n', '<C-n>', ':Neotree reveal<CR>', opts)
 vim.keymap.set('n', '<C-g>', ':AerialToggle right<CR>', opts)
 vim.keymap.set('n', '<C-b>', ':botright 25split term://bash<CR>', opts)
 vim.keymap.set('n', '<C-p>', ':botright 25split term://python3<CR>', opts)
+vim.keymap.set('n', '<C-a>', ':botright 25split term://cline<CR>', opts)
 vim.keymap.set('n', 'bB', ':vsplit term://bash<CR>', opts)
 vim.keymap.set('n', 'bP', ':vsplit term://python3<CR>', opts)
 vim.keymap.set('n', 'vv', ':vsplit', opts)
@@ -96,6 +97,7 @@ local function create_floating_window()
       "C+p - Python split",
       "C+n - Neotree",
       "C+g - AerialToggle",
+      "C+a - cline",
       "bB - bash vsplit",
       "bP - python vsplit",
       "",

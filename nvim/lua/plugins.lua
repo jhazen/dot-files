@@ -105,7 +105,7 @@ require("lazy").setup({
     "mfussenegger/nvim-dap-python",
     lazy = true,
     config = function()
-      local python = vim.fn.expand("/usr/bin/python")
+      local python = vim.fn.expand("/usr/bin/python3")
       require("dap-python").setup(python)
     end,
     dependencies = {
