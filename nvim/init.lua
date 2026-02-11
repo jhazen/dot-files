@@ -21,3 +21,9 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 vim.opt.foldenable = false
 vim.opt.foldlevelstart = 99
+
+-- Load local machine-specific config if it exists
+local local_config = vim.fn.expand("~/.nvim_local.lua")
+if vim.fn.filereadable(local_config) == 1 then
+  dofile(local_config)
+end
