@@ -34,7 +34,6 @@ function vimsetup() {
   rm -rf ~/.config/nvim
   rm -rf ~/.vim
   rm -rf ~/.vimrc
-  mkdir -p ~/.config/nvim/lua
   ln -s $DOTFILES/nvim ~/.config/nvim
 }
 
@@ -70,7 +69,7 @@ function bashsetup() {
       sudo add-apt-repository ppa:neovim-ppa/stable
       sudo apt update
       sudo apt install neovim cmake exuberant-ctags python3 terminator imagemagick pandoc texlive-latex-extra neofetch feh
-      pip3 install neovim --break-system-packages
+      pip3 install neovim debugpy --break-system-packages
     fi
   fi
 }
