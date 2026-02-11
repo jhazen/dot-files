@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=BGB Emulator
-Icon=/home/jesse/Pictures/bgb.png
-Exec=/home/jesse/bin/bgb64
-Type=Application
-Terminal=false

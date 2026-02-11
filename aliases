@@ -1,44 +1,21 @@
-alias pdb3='python3 -m pdb'
-alias vs='vagrant status'
-alias vu='vagrant up'
-alias vp='vagrant provision'
-alias vd='vagrant destroy'
-alias vss='vagrant ssh'
-alias vh='vagrant halt'
-alias vr='vagrant rdp'
-alias vi='vim'
+alias vi='nvim'
 alias gf='git fetch'
 alias grm='git rm'
 alias gs='git status'
 alias gb='git branch'
 alias gd='git diff --color'
-alias gdt='git difftool'
 alias gc='git clone'
-alias gconf='git config'
-alias ginit='git init'
 alias greset='git reset'
-alias gst='git stash'
 alias gch='git checkout'
 alias gr='git remote -v'
-alias gm='git merge'
-alias gmt='git mergetool'
 alias gl='git log --oneline --decorate --color --graph'
 alias gc='git commit'
 alias gp='git pull --rebase'
 alias gP='git push'
 alias ga='git add'
-alias fabric='fab -H $H'
 alias pbc='pbcopy'
 alias pbp='pbpaste'
 alias vim='nvim'
-alias xcopy='xclip -i'
-alias xpaste='xclip -o'
-dockerws() {
-  docker run -it -v `pwd`:/ws ws
-}
-ctf() {
-  docker run -it -v `pwd`:/data ctf
-}
 title() {
   echo -ne "\e]0;$1\a"
 }
@@ -46,7 +23,6 @@ alias ll='ls -l'
 alias la='ls -la'
 alias lh='ls -lh'
 alias ltr='ls -ltr'
-alias psg='ps aux | grep'
 new_pandoc_wiki() {
     F=`basename $1 | cut -d'.' -f1`
     P=`echo $1 | sed 's/^.*vimwiki/\/data/g'`
@@ -64,14 +40,4 @@ pandoc_wiki() {
     F=`basename $1 | cut -d'.' -f1`
     pandoc -V geometry:margin=3cm -f markdown -t latex $1 -o ~/Documents/$F.pdf
     cd - &> /dev/null
-}
-myvim() {
-    if [[ `screen -ls | grep "Detached" > /dev/null; echo $?` -eq 0 ]]; then
-        CMD="screen -r"
-    elif [[ `screen -ls | grep "Attached" > /dev/null; echo $?` -eq 0 ]]; then
-        CMD="screen -rD"
-    else
-        CMD="screen nvim -u ~/.vimrc"
-    fi
-    $CMD
 }

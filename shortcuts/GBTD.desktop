@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=GameBoy Tile Designer
-Comment=Edit Game Boy, Color, and Advance tilemaps
-Icon=/home/jesse/Workspace/gbtd/gbtd.png
-Exec=wine /home/jesse/Workspace/gbtd/GBTD.EXE
-Type=Application
-Terminal=false
