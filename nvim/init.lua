@@ -1,22 +1,25 @@
-require('options')
-require('keymaps')
-require('plugins')
-require('colorscheme')
-require('lsp')
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
- require('lualine').setup()
+-- Load core config
+require("options")
+require("keymaps")
 
--- vim.g.clipboard = {
---   name = 'OSC 52',
---   copy = {
---     ['+'] = require('vim.ui.clipboard.osc52').copy '+',
---     ['*'] = require('vim.ui.clipboard.osc52').copy '*',
---   },
---   paste = {
---     ['+'] = require('vim.ui.clipboard.osc52').paste '+',
---     ['*'] = require('vim.ui.clipboard.osc52').paste '*',
---   },
--- }
+-- Load plugins from lua/plugins/ directory
+require("lazy").setup("plugins")
+
+-- Folding
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 vim.opt.foldenable = false
