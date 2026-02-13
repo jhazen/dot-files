@@ -1,3 +1,6 @@
+-- Detect if running on macOS
+local is_mac = vim.fn.has("macunix") == 1
+
 return {
   -- Mason: portable package manager for LSP servers, DAP servers, linters, formatters
   {
@@ -14,7 +17,7 @@ return {
     },
     opts = {
       ensure_installed = {
-        "pyright",        -- Python
+        is_mac and "pylsp" or "pyright",  -- Python (pylsp on Mac, pyright elsewhere)
         "bashls",         -- Bash
         "clangd",         -- C/C++
         "ts_ls",          -- JavaScript/TypeScript
@@ -37,21 +40,12 @@ return {
     -- Check nvim version and use appropriate API
     local nvim_0_11 = vim.fn.has('nvim-0.11') == 1
     
+    -- Reuse the is_mac check (module-level local)
+    local is_mac = vim.fn.has("macunix") == 1
+
     if nvim_0_11 then
       -- New API for nvim 0.11+
       local servers = {
-        pyright = {
-          settings = {
-            python = {
-              analysis = {
-                typeCheckingMode = "basic",
-                autoSearchPaths = true,
-                useLibraryCodeForTypes = true,
-                diagnosticMode = "workspace",
-              },
-            },
-          },
-        },
         bashls = {},
         clangd = {
           cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=iwyu" },
@@ -75,7 +69,33 @@ return {
           },
         },
       }
-      
+
+      -- Python: use pylsp on Mac, pyright elsewhere
+      if is_mac then
+        servers.pylsp = {
+          settings = {
+            pylsp = {
+              plugins = {
+                pycodestyle = { maxLineLength = 120 },
+              },
+            },
+          },
+        }
+      else
+        servers.pyright = {
+          settings = {
+            python = {
+              analysis = {
+                typeCheckingMode = "basic",
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "workspace",
+              },
+            },
+          },
+        }
+      end
+
       -- Configure each server with new API
       for server, config in pairs(servers) do
         vim.lsp.config(server, config)
@@ -85,19 +105,31 @@ return {
       -- Old API for nvim < 0.11
       local lspconfig = require("lspconfig")
 
-      -- Python (pyright)
-      lspconfig.pyright.setup({
-        settings = {
-          python = {
-            analysis = {
-              typeCheckingMode = "basic",
-              autoSearchPaths = true,
-              useLibraryCodeForTypes = true,
-              diagnosticMode = "workspace",
+      -- Python: use pylsp on Mac, pyright elsewhere
+      if is_mac then
+        lspconfig.pylsp.setup({
+          settings = {
+            pylsp = {
+              plugins = {
+                pycodestyle = { maxLineLength = 120 },
+              },
             },
           },
-        },
-      })
+        })
+      else
+        lspconfig.pyright.setup({
+          settings = {
+            python = {
+              analysis = {
+                typeCheckingMode = "basic",
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "workspace",
+              },
+            },
+          },
+        })
+      end
 
       -- Bash
       lspconfig.bashls.setup({})

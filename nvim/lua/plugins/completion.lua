@@ -5,7 +5,6 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
     },
-    version = "*",
     opts = {
       keymap = {
         preset = "enter",
@@ -23,7 +22,7 @@ return {
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
       },
-      fuzzy = { implementation = "prefer_rust_with_warning" },
+      fuzzy = { implementation = "lua" },
       completion = {
         keyword = { range = "prefix" },
         menu = {

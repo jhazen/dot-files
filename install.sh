@@ -200,6 +200,8 @@ function vimsetup() {
 
   # Symlink neovim config
   echo -e "${BOLD}Linking config...${NC}"
+  rm -rf ~/.local/state/nvim
+  rm -rf ~/.local/share/nvim
   rm -rf ~/.config/nvim
   rm -rf ~/.vim
   rm -rf ~/.vimrc
