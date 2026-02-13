@@ -134,6 +134,7 @@ check_pip_packages() {
 }
 
 ### Helper: check npm packages
+# Format per entry: "command_name:npm_package" or just "command_name" (assumes same as package)
 check_npm_packages() {
   local label="$1"
   shift
@@ -141,13 +142,16 @@ check_npm_packages() {
   local missing=()
   local all_found=true
 
-  for pkg in "${packages[@]}"; do
-    if cmd_exists "$pkg"; then
-      echo -e "  ${GREEN}✓${NC} ${pkg} (npm)"
+  for entry in "${packages[@]}"; do
+    IFS=':' read -r cmd npm_pkg <<< "$entry"
+    # If no npm_pkg specified, assume same as command name
+    [[ -z "$npm_pkg" ]] && npm_pkg="$cmd"
+    if cmd_exists "$cmd"; then
+      echo -e "  ${GREEN}✓${NC} ${cmd} (npm: ${npm_pkg})"
     else
       all_found=false
-      missing+=("$pkg")
-      echo -e "  ${RED}✗${NC} ${pkg} (npm) not found"
+      missing+=("$npm_pkg")
+      echo -e "  ${RED}✗${NC} ${cmd} (npm: ${npm_pkg}) not found"
     fi
   done
 
@@ -264,6 +268,7 @@ function vimsetup() {
   # --- npm packages ---
   echo -e "${BOLD}npm global packages:${NC}"
   local npm_packages=(
+    "tree-sitter:tree-sitter-cli"
     "snyk"
     "eslint_d"
   )
