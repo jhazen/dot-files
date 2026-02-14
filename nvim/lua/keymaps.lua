@@ -140,6 +140,9 @@ vim.keymap.set("n", "<leader>fS", ":Telescope lsp_dynamic_workspace_symbols<CR>"
 vim.keymap.set("n", "<leader>f.", ":Telescope resume<CR>", { desc = "Resume last picker" })
 vim.keymap.set("n", "<leader>fM", ":Telescope man_pages<CR>", { desc = "Man pages" })
 vim.keymap.set("n", "<leader>fo", ":Telescope aerial<CR>", { desc = "Find outline symbols" })
+vim.keymap.set("n", "<leader>fc", function()
+  require("telescope.builtin").colorscheme({ enable_preview = true })
+end, { desc = "Colorschemes (live preview)" })
 
 -- ============================================================================
 -- Git (Fugitive)
