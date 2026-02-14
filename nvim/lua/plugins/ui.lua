@@ -14,6 +14,8 @@ return {
   { "sainnhe/gruvbox-material" },
   { "tanvirtin/monokai.nvim" },
   { "lmantw/themify.nvim" },
+  { "rebelot/kanagawa.nvim" },
+  { "webhooked/kanso.nvim" },
 
   -- Colorscheme picker
   {
@@ -45,6 +47,12 @@ return {
           "nekonight-fire-obsidian",
           "nekonight-mars",
           "nekonight-day",
+          "kanagawa-wave",
+          "kanagawa-dragon",
+          "kanagawa-lotus",
+          "kanso-zen",
+          "kanso-ink",
+          "kanso-pearl",
         },
       })
     end,
