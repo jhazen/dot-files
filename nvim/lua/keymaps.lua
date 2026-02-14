@@ -46,13 +46,6 @@ vim.keymap.set("n", "<C-t>", ":tabnew<CR>", opts)
 vim.keymap.set("n", "<C-w>", ":tabprev<CR>", opts)
 vim.keymap.set("n", "<C-e>", ":tabnext<CR>", opts)
 
--- Editor tab: new tab with Neotree + Aerial
-vim.keymap.set("n", "<leader>T", function()
-  vim.cmd("tabnew")
-  vim.cmd("Neotree toggle")
-  vim.cmd("wincmd l")
-end, { desc = "New editor tab" })
-
 -- ============================================================================
 -- Buffers
 -- ============================================================================
@@ -106,38 +99,69 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
 vim.keymap.set("n", "<C-n>", ":Neotree reveal<CR>", opts)
 vim.keymap.set("n", "<C-g>", ":AerialToggle right<CR>", opts)
 
+-- Neo-tree: additional views
+vim.keymap.set("n", "<leader>ng", ":Neotree git_status<CR>", { desc = "Neotree git status" })
+vim.keymap.set("n", "<leader>nb", ":Neotree buffers<CR>", { desc = "Neotree buffers" })
+vim.keymap.set("n", "<leader>nf", ":Neotree float<CR>", { desc = "Neotree float" })
+
+-- Aerial / Outline
+vim.keymap.set("n", "<leader>oo", ":AerialToggle right<CR>", { desc = "Toggle outline" })
+vim.keymap.set("n", "<leader>on", ":AerialNavToggle<CR>", { desc = "Outline nav window" })
+vim.keymap.set("n", "]s", ":AerialNext<CR>", { desc = "Next aerial symbol" })
+vim.keymap.set("n", "[s", ":AerialPrev<CR>", { desc = "Prev aerial symbol" })
+
 -- ============================================================================
 -- Telescope (fuzzy finder)
 -- ============================================================================
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
-vim.keymap.set("n", "<leader>ft", ":Telescope lsp_document_symbols<CR>", opts)
-vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
-vim.keymap.set("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
-vim.keymap.set("n", "<leader>sw", function()
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" })
+vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "Buffers" })
+vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "Live grep" })
+vim.keymap.set("n", "<leader>ft", ":Telescope lsp_document_symbols<CR>", { desc = "LSP document symbols" })
+vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Help tags" })
+vim.keymap.set("n", "<leader>fr", ":Telescope oldfiles<CR>", { desc = "Recent files" })
+vim.keymap.set("n", "<leader>fw", function()
   require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>") })
-end, { desc = "[S]earch [W]ord under cursor" })
+end, { desc = "Search word under cursor" })
 
--- ============================================================================
--- LSP keymaps (also set in lsp.lua on LspAttach, these are global fallbacks)
--- ============================================================================
-vim.keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-vim.keymap.set("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+-- Telescope: git pickers
+vim.keymap.set("n", "<leader>fgc", ":Telescope git_commits<CR>", { desc = "Git commits" })
+vim.keymap.set("n", "<leader>fgb", ":Telescope git_branches<CR>", { desc = "Git branches" })
+vim.keymap.set("n", "<leader>fgs", ":Telescope git_status<CR>", { desc = "Git status" })
+vim.keymap.set("n", "<leader>fgS", ":Telescope git_stash<CR>", { desc = "Git stash" })
+
+-- Telescope: additional pickers
+vim.keymap.set("n", "<leader>fk", ":Telescope keymaps<CR>", { desc = "Keymaps" })
+vim.keymap.set("n", "<leader>f:", ":Telescope command_history<CR>", { desc = "Command history" })
+vim.keymap.set("n", "<leader>f/", ":Telescope search_history<CR>", { desc = "Search history" })
+vim.keymap.set("n", "<leader>fm", ":Telescope marks<CR>", { desc = "Marks" })
+vim.keymap.set("n", "<leader>f\"", ":Telescope registers<CR>", { desc = "Registers" })
+vim.keymap.set("n", "<leader>fd", ":Telescope diagnostics<CR>", { desc = "Diagnostics" })
+vim.keymap.set("n", "<leader>fS", ":Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "Workspace symbols" })
+vim.keymap.set("n", "<leader>f.", ":Telescope resume<CR>", { desc = "Resume last picker" })
+vim.keymap.set("n", "<leader>fM", ":Telescope man_pages<CR>", { desc = "Man pages" })
+vim.keymap.set("n", "<leader>fo", ":Telescope aerial<CR>", { desc = "Find outline symbols" })
 
 -- ============================================================================
 -- Git (Fugitive)
 -- ============================================================================
-vim.keymap.set("n", "<leader>gs", ":Git<CR>", { desc = "Git status"})
-vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", opts)
-vim.keymap.set("n", "<leader>gp", ":Git pull<CR>", opts)
-vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", opts)
-vim.keymap.set("n", "<leader>cd", ":Glcd<CR>", opts)
+vim.keymap.set("n", "<leader>gs", ":Git<CR>", { desc = "Git status" })
+vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "Git blame" })
+vim.keymap.set("n", "<leader>gp", ":Git pull<CR>", { desc = "Git pull" })
+vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", { desc = "Git commit" })
+vim.keymap.set("n", "<leader>gD", ":Glcd<CR>", { desc = "Git lcd (cd to repo root)" })
 
 -- ============================================================================
--- Colorscheme
+-- UI / Utils
 -- ============================================================================
-vim.keymap.set("n", "<leader>cc", ":Themery<CR>", opts)
+vim.keymap.set("n", "<leader>uc", ":Themery<CR>", { desc = "Colorscheme picker" })
+vim.keymap.set("n", "<leader>ux", "<cmd>HexToggle<CR>", { desc = "Toggle hex view" })
+
+-- ============================================================================
+-- Code (lint/format)
+-- ============================================================================
+-- <leader>cf (format) defined in lint-format.lua
+-- <leader>cl (lint) defined in lint-format.lua
+vim.keymap.set("n", "<leader>cj", "<cmd>FormatJSON<CR>", { desc = "Format buffer as JSON" })
 
 -- ============================================================================
 -- Macros (kept from vimrc)
@@ -155,8 +179,8 @@ vim.keymap.set("n", "<C-f>", "za", opts)
 -- ============================================================================
 -- Misc
 -- ============================================================================
--- Copy current file:line to clipboard
-vim.keymap.set("n", "<leader>W", ":let @+ = expand('%') . ':' . line('.')<CR>", opts)
+-- Yank current file:line to clipboard
+vim.keymap.set("n", "<leader>yf", ":let @+ = expand('%') . ':' . line('.')<CR>", { desc = "Yank file:line to clipboard" })
 
 -- Prepend todo checkbox to current line
 vim.keymap.set("n", "tt", function()
@@ -164,30 +188,29 @@ vim.keymap.set("n", "tt", function()
 end, { desc = "Prepend todo checkbox" })
 
 -- ============================================================================
--- Markdown-specific keymaps (spell, wiki)
+-- Spell (markdown-specific)
 -- ============================================================================
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function(args)
     local bopts = { buffer = args.buf, noremap = true, silent = true }
-    -- Spell checking
-    vim.keymap.set("n", "<leader>con", ":set spell spelllang=en_us<CR>", vim.tbl_extend("force", bopts, { desc = "Spell on" }))
-    vim.keymap.set("n", "<leader>coff", ":set nospell<CR>", vim.tbl_extend("force", bopts, { desc = "Spell off" }))
-    vim.keymap.set("n", "<leader>cn", "]s", vim.tbl_extend("force", bopts, { desc = "Next misspelling" }))
-    vim.keymap.set("n", "<leader>cp", "[s", vim.tbl_extend("force", bopts, { desc = "Prev misspelling" }))
-    vim.keymap.set("n", "<leader>cf", "z=", vim.tbl_extend("force", bopts, { desc = "Fix spelling" }))
-    vim.keymap.set("n", "<leader>ca", "zg", vim.tbl_extend("force", bopts, { desc = "Add to dictionary" }))
+    vim.keymap.set("n", "<leader>ze", ":set spell spelllang=en_us<CR>", vim.tbl_extend("force", bopts, { desc = "Spell enable" }))
+    vim.keymap.set("n", "<leader>zd", ":set nospell<CR>", vim.tbl_extend("force", bopts, { desc = "Spell disable" }))
+    vim.keymap.set("n", "<leader>zn", "]s", vim.tbl_extend("force", bopts, { desc = "Next misspelling" }))
+    vim.keymap.set("n", "<leader>zp", "[s", vim.tbl_extend("force", bopts, { desc = "Prev misspelling" }))
+    vim.keymap.set("n", "<leader>zf", "z=", vim.tbl_extend("force", bopts, { desc = "Fix spelling" }))
+    vim.keymap.set("n", "<leader>za", "zg", vim.tbl_extend("force", bopts, { desc = "Add to dictionary" }))
     -- Wiki navigation
     vim.keymap.set("n", "<Backspace>", ":lua require('kiwi').open_wiki_index()<CR>", vim.tbl_extend("force", bopts, { desc = "Wiki index" }))
   end,
 })
 
 -- ============================================================================
--- Workspace macros (ported from vimrc, adapted for new plugins)
+-- Layouts
 -- ============================================================================
 
 -- Code Editor layout: wiki tab + terminal tab + 3 editor tabs
-vim.keymap.set("n", "<leader>E", function()
+vim.keymap.set("n", "<leader>LE", function()
   -- Tab 1: Wiki (already opened by suave restore)
   -- Tab 2: Terminal
   vim.cmd("tabnew")
@@ -205,7 +228,7 @@ vim.keymap.set("n", "<leader>E", function()
 end, { desc = "Code Editor layout" })
 
 -- Writing layout: wiki tab + 3 editor tabs (no line numbers)
-vim.keymap.set("n", "<leader>WL", function()
+vim.keymap.set("n", "<leader>LW", function()
   for _ = 1, 3 do
     vim.cmd("tabnew")
     vim.cmd("set nonumber norelativenumber")
@@ -215,136 +238,12 @@ vim.keymap.set("n", "<leader>WL", function()
   vim.cmd("tabnext 2")
 end, { desc = "Writing layout" })
 
--- ============================================================================
--- Shortcut reference window (updated with new keybindings)
--- ============================================================================
-local function create_floating_window()
-  local buf = vim.api.nvim_create_buf(false, true)
-  vim.api.nvim_buf_set_lines(buf, 0, -1, false, {
-    "═══════════════════════════════════════",
-    "         KEYBINDING REFERENCE          ",
-    "═══════════════════════════════════════",
-    "",
-    "── Terminals ──────────────────────────",
-    "C-\\    Toggle terminal (toggleterm)",
-    "C-b    Bash (horizontal)",
-    "C-p    Python REPL (horizontal)",
-    "C-a    Cline (horizontal)",
-    "bB     Bash (vertical)",
-    "bP     Python (vertical)",
-    "\\tf   Floating terminal",
-    "\\tp   Python REPL (toggleterm)",
-    "\\ts   Send selection to terminal (V)",
-    "",
-    "── Navigation ─────────────────────────",
-    "C-n    Neotree",
-    "C-g    Aerial (code outline)",
-    "C-u    Undotree",
-    "-      Oil (file manager)",
-    "s      Flash jump",
-    "S      Flash treesitter",
-    "",
-    "── Telescope ──────────────────────────",
-    "\\ff   Find files",
-    "\\fg   Live grep",
-    "\\fb   Buffers",
-    "\\ft   LSP symbols",
-    "\\fh   Help tags",
-    "\\fr   Recent files",
-    "\\fT   Find TODOs",
-    "\\sw   Search word under cursor",
-    "",
-    "── LSP ────────────────────────────────",
-    "gd     Go to definition",
-    "gr     References",
-    "gi     Implementation",
-    "K      Hover docs",
-    "C-k    Signature help",
-    "SPC rn Rename",
-    "SPC ca Code action",
-    "SPC f  Format",
-    "",
-    "── Debugger (DAP) ─────────────────────",
-    "\\du   Toggle DAP UI",
-    "\\db   Toggle breakpoint",
-    "\\dB   Conditional breakpoint",
-    "\\dc   Continue",
-    "\\di   Step into",
-    "\\do   Step over",
-    "\\dO   Step out",
-    "\\dT   Terminate",
-    "\\de   Eval expression",
-    "",
-    "── Git ────────────────────────────────",
-    "\\gs   Git status",
-    "\\gc   Git commit",
-    "\\gp   Git pull",
-    "\\gb   Git blame",
-    "]h     Next hunk",
-    "[h     Prev hunk",
-    "\\hs   Stage hunk",
-    "\\hp   Preview hunk",
-    "",
-    "── Diagnostics ────────────────────────",
-    "\\xx   Toggle Trouble",
-    "\\xX   Buffer diagnostics",
-    "\\xt   Todo list",
-    "\\cl   Trigger lint",
-    "\\cf   Format buffer",
-    "",
-    "── Markdown / Pandoc ──────────────────",
-    "\\bp   Pandoc → PDF",
-    "\\bd   Pandoc → DOCX",
-    "\\bh   Pandoc → HTML",
-    "\\mp   Markdown preview (browser)",
-    "\\ww   Wiki index",
-    "C-Space Toggle todo checkbox",
-    "",
-    "── Snyk ───────────────────────────────",
-    "\\sk   Snyk test",
-    "\\sK   Snyk code test",
-    "",
-    "── Layouts ────────────────────────────",
-    "\\E    Code Editor layout",
-    "\\H    Pentest Editor layout",
-    "\\WL   Writing layout",
-    "\\T    New editor tab",
-    "",
-    "── Misc ───────────────────────────────",
-    "\\c    Colorscheme picker",
-    "\\?    Which-key (buffer keymaps)",
-    "\\W    Copy file:line to clipboard",
-    "gcc    Comment line (Comment.nvim)",
-    "gc     Comment selection (visual)",
-    "za/C-f Fold toggle",
-    "Space  Run @q macro",
-    "tt     Prepend todo checkbox",
-  })
-
-  local wopts = {
-    relative = "editor",
-    width = 50,
-    height = math.min(vim.o.lines - 4, 95),
-    col = math.floor((vim.o.columns / 2) - 25),
-    row = 1,
-    anchor = "NW",
-    style = "minimal",
-    border = "rounded",
-  }
-
-  local win = vim.api.nvim_open_win(buf, true, wopts)
-  vim.api.nvim_win_set_option(win, "winblend", 10)
-
-  -- Close with q or Escape
-  vim.keymap.set("n", "q", function()
-    vim.api.nvim_win_close(win, true)
-  end, { buffer = buf, noremap = true, silent = true })
-  vim.keymap.set("n", "<Esc>", function()
-    vim.api.nvim_win_close(win, true)
-  end, { buffer = buf, noremap = true, silent = true })
-end
-
-vim.keymap.set("n", "<leader>=", create_floating_window, { desc = "Keybinding reference" })
+-- New editor tab with Neotree
+vim.keymap.set("n", "<leader>LT", function()
+  vim.cmd("tabnew")
+  vim.cmd("Neotree toggle")
+  vim.cmd("wincmd l")
+end, { desc = "New editor tab" })
 
 -- ============================================================================
 -- Visual mode

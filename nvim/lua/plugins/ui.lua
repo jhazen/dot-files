@@ -123,7 +123,13 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
+      "nvim-telescope/telescope.nvim",
     },
+    config = function()
+      require("aerial").setup({})
+      -- Load Telescope aerial extension
+      pcall(require("telescope").load_extension, "aerial")
+    end,
   },
 
   -- Which-key: show available keybindings
@@ -137,6 +143,31 @@ return {
         spelling = { enabled = true, suggestions = 20 },
       },
     },
+    config = function(_, opts)
+      local wk = require("which-key")
+      wk.setup(opts)
+      wk.add({
+        { "<leader>f", group = "Find (Telescope)" },
+        { "<leader>fg", group = "Find Git" },
+        { "<leader>g", group = "Git" },
+        { "<leader>h", group = "Hunks (Gitsigns)" },
+        { "<leader>ht", group = "Hunk Toggles" },
+        { "<leader>d", group = "Debug (DAP)" },
+        { "<leader>x", group = "Diagnostics (Trouble)" },
+        { "<leader>l", group = "LSP" },
+        { "<leader>c", group = "Code (lint/format)" },
+        { "<leader>b", group = "Build (Pandoc)" },
+        { "<leader>s", group = "Security" },
+        { "<leader>t", group = "Terminal" },
+        { "<leader>w", group = "Wiki" },
+        { "<leader>m", group = "Markdown" },
+        { "<leader>n", group = "Neo-tree" },
+        { "<leader>o", group = "Outline (Aerial)" },
+        { "<leader>u", group = "UI/Utils" },
+        { "<leader>z", group = "Spell" },
+        { "<leader>L", group = "Layouts" },
+      })
+    end,
     keys = {
       {
         "<leader>?",

@@ -173,18 +173,18 @@ return {
         local lsp = vim.lsp
         local bufopts = { noremap = true, silent = true, buffer = args.buf }
 
-        keymap.set("n", "gr", lsp.buf.references, bufopts)
-        keymap.set("n", "gd", lsp.buf.definition, bufopts)
-        keymap.set("n", "gD", lsp.buf.declaration, bufopts)
-        keymap.set("n", "gi", lsp.buf.implementation, bufopts)
-        keymap.set("n", "<space>rn", lsp.buf.rename, bufopts)
-        keymap.set("n", "<space>ca", lsp.buf.code_action, bufopts)
-        keymap.set("n", "K", lsp.buf.hover, bufopts)
-        keymap.set("n", "<C-k>", lsp.buf.signature_help, bufopts)
-        keymap.set("n", "<space>f", function()
+        keymap.set("n", "gr", lsp.buf.references, vim.tbl_extend("force", bufopts, { desc = "References" }))
+        keymap.set("n", "gd", lsp.buf.definition, vim.tbl_extend("force", bufopts, { desc = "Go to definition" }))
+        keymap.set("n", "gD", lsp.buf.declaration, vim.tbl_extend("force", bufopts, { desc = "Go to declaration" }))
+        keymap.set("n", "gi", lsp.buf.implementation, vim.tbl_extend("force", bufopts, { desc = "Go to implementation" }))
+        keymap.set("n", "K", lsp.buf.hover, vim.tbl_extend("force", bufopts, { desc = "Hover docs" }))
+        keymap.set("n", "<C-k>", lsp.buf.signature_help, vim.tbl_extend("force", bufopts, { desc = "Signature help" }))
+        keymap.set("n", "<leader>lr", lsp.buf.rename, vim.tbl_extend("force", bufopts, { desc = "Rename symbol" }))
+        keymap.set("n", "<leader>la", lsp.buf.code_action, vim.tbl_extend("force", bufopts, { desc = "Code action" }))
+        keymap.set("n", "<leader>lf", function()
           vim.lsp.buf.format({ async = true })
-        end, bufopts)
-        keymap.set("n", "<space>D", lsp.buf.type_definition, bufopts)
+        end, vim.tbl_extend("force", bufopts, { desc = "LSP format" }))
+        keymap.set("n", "<leader>lD", lsp.buf.type_definition, vim.tbl_extend("force", bufopts, { desc = "Type definition" }))
       end,
     })
   end,
