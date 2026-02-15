@@ -174,6 +174,7 @@ return {
         { "<leader>u", group = "UI/Utils" },
         { "<leader>z", group = "Spell" },
         { "<leader>L", group = "Layouts" },
+        { "<leader>W", group = "Windows" },
       })
     end,
     keys = {

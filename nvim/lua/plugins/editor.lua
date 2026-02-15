@@ -186,4 +186,26 @@ return {
       { "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
     },
   },
+
+  -- WinShift: interactively move windows around with hjkl
+  {
+    "sindrets/winshift.nvim",
+    opts = {
+      highlight_moving_win = true,
+      focused_hl_group = "Visual",
+    },
+    keys = {
+      { "<leader>Wm", "<cmd>WinShift<cr>", desc = "Win-Move mode (hjkl to move)" },
+      { "<leader>Ws", "<cmd>WinShift swap<cr>", desc = "Swap window (pick target)" },
+    },
+  },
+
+  -- Ventana: transpose and rotate window layouts
+  {
+    "jyscao/ventana.nvim",
+    keys = {
+      { "<leader>Wt", "<cmd>VentanaTranspose<cr>", desc = "Transpose window layout" },
+      { "<leader>Wr", "<cmd>VentanaShift<cr>", desc = "Rotate/shift windows" },
+    },
+  },
 }

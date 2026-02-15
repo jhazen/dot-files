@@ -53,42 +53,53 @@ vim.keymap.set("n", "bn", ":bn<CR>", opts)
 vim.keymap.set("n", "bp", ":bp<CR>", opts)
 
 -- ============================================================================
--- Terminal keymaps (adapted for toggleterm + legacy support)
+-- Terminal keymaps (toggleterm)
 -- ============================================================================
--- Toggleterm: C-\ opens default terminal (configured in tools.lua)
--- These keymaps open specific terminal types using toggleterm numbered terminals
+-- C-\ opens default terminal (configured in tools.lua)
+-- C-b / C-p / C-a toggle dedicated terminals (one instance each, current tab)
+-- <leader>tn / <leader>tN spawn fresh throwaway terminals
+
+local _py_term, _cline_term
+
+-- Helper: find next unused terminal id (starting from 10 to avoid conflicts)
+local function next_term_id()
+  local next_id = 10
+  for _, t in ipairs(require("toggleterm.terminal").get_all()) do
+    if t.id >= next_id then next_id = t.id + 1 end
+  end
+  return next_id
+end
+
+-- Toggle dedicated bash terminal #2 (horizontal)
 vim.keymap.set("n", "<C-b>", function()
-  -- Open bash in horizontal split (terminal #2)
   require("toggleterm").toggle(2, 25, nil, "horizontal")
-end, { desc = "Bash terminal (horizontal)", noremap = true, silent = true })
+end, { desc = "Toggle bash terminal", noremap = true, silent = true })
 
+-- Toggle dedicated Python REPL #3 (horizontal)
 vim.keymap.set("n", "<C-p>", function()
-  -- Open Python REPL via toggleterm (uses the custom python terminal from tools.lua)
-  -- Fallback: numbered terminal #3 with python3
-  local Terminal = require("toggleterm.terminal").Terminal
-  local py = Terminal:new({ cmd = "python3", count = 3, direction = "horizontal" })
-  py:toggle()
-end, { desc = "Python REPL (horizontal)", noremap = true, silent = true })
+  if not _py_term then
+    _py_term = require("toggleterm.terminal").Terminal:new({ cmd = "python3", count = 3, direction = "horizontal" })
+  end
+  _py_term:toggle()
+end, { desc = "Toggle Python REPL", noremap = true, silent = true })
 
+-- Toggle dedicated Cline terminal #4 (horizontal)
 vim.keymap.set("n", "<C-a>", function()
-  -- Open cline in horizontal split (terminal #4)
-  local Terminal = require("toggleterm.terminal").Terminal
-  local cline = Terminal:new({ cmd = "cline", count = 4, direction = "horizontal" })
-  cline:toggle()
-end, { desc = "Cline terminal (horizontal)", noremap = true, silent = true })
+  if not _cline_term then
+    _cline_term = require("toggleterm.terminal").Terminal:new({ cmd = "cline", count = 4, direction = "horizontal" })
+  end
+  _cline_term:toggle()
+end, { desc = "Toggle Cline terminal", noremap = true, silent = true })
 
--- Vertical split terminals (ported from vimrc)
-vim.keymap.set("n", "bB", function()
-  local Terminal = require("toggleterm.terminal").Terminal
-  local bash = Terminal:new({ count = 5, direction = "vertical" })
-  bash:toggle()
-end, { desc = "Bash terminal (vertical)", noremap = true, silent = true })
+-- Spawn a fresh bash terminal (horizontal)
+vim.keymap.set("n", "<leader>tn", function()
+  require("toggleterm").toggle(next_term_id(), 25, nil, "horizontal")
+end, { desc = "New bash terminal (horizontal)", noremap = true, silent = true })
 
-vim.keymap.set("n", "bP", function()
-  local Terminal = require("toggleterm.terminal").Terminal
-  local py = Terminal:new({ cmd = "python3", count = 6, direction = "vertical" })
-  py:toggle()
-end, { desc = "Python REPL (vertical)", noremap = true, silent = true })
+-- Spawn a fresh bash terminal (vertical)
+vim.keymap.set("n", "<leader>tN", function()
+  require("toggleterm").toggle(next_term_id(), nil, nil, "vertical")
+end, { desc = "New bash terminal (vertical)", noremap = true, silent = true })
 
 -- Terminal mode: Escape to normal mode
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
