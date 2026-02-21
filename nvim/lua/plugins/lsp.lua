@@ -24,8 +24,14 @@ return {
         "jdtls",          -- Java
         "asm_lsp",        -- x86 Assembly
         "lua_ls",         -- Lua (for neovim config editing)
+        "rust_analyzer",  -- Rust (setup managed by rustaceans.nvim)
       },
       automatic_installation = true,
+      -- Exclude rust_analyzer from automatic lspconfig setup;
+      -- rustaceans.nvim manages the rust-analyzer lifecycle and configuration
+      automatic_enable = {
+        exclude = { "rust_analyzer" },
+      },
     },
   },
 

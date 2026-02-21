@@ -94,4 +94,80 @@ return {
       "mfussenegger/nvim-dap",
     },
   },
+
+  -- Rust: rustaceanvim (enhanced LSP + DAP via codelldb)
+  -- Manages rust-analyzer and DAP debugging in one plugin
+  -- DAP auto-detects codelldb from Mason or PATH
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^8",
+    lazy = false, -- plugin is already lazy by filetype
+    init = function()
+      vim.g.rustaceanvim = {
+        -- LSP configuration (rust-analyzer)
+        server = {
+          on_attach = function(client, bufnr)
+            local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
+            -- Rust-specific keymaps (under <leader>r prefix)
+            vim.keymap.set("n", "<leader>rr", function() vim.cmd.RustLsp("runnables") end,
+              vim.tbl_extend("force", bufopts, { desc = "Rust runnables" }))
+            vim.keymap.set("n", "<leader>rd", function() vim.cmd.RustLsp("debuggables") end,
+              vim.tbl_extend("force", bufopts, { desc = "Rust debuggables" }))
+            vim.keymap.set("n", "<leader>rt", function() vim.cmd.RustLsp("testables") end,
+              vim.tbl_extend("force", bufopts, { desc = "Rust testables" }))
+            vim.keymap.set("n", "<leader>rm", function() vim.cmd.RustLsp("expandMacro") end,
+              vim.tbl_extend("force", bufopts, { desc = "Expand macro" }))
+            vim.keymap.set("n", "<leader>rc", function() vim.cmd.RustLsp("openCargo") end,
+              vim.tbl_extend("force", bufopts, { desc = "Open Cargo.toml" }))
+            vim.keymap.set("n", "<leader>rp", function() vim.cmd.RustLsp("parentModule") end,
+              vim.tbl_extend("force", bufopts, { desc = "Parent module" }))
+            vim.keymap.set("n", "<leader>rj", function() vim.cmd.RustLsp("joinLines") end,
+              vim.tbl_extend("force", bufopts, { desc = "Join lines" }))
+            vim.keymap.set("n", "<leader>rh", function() vim.cmd.RustLsp({ "hover", "actions" }) end,
+              vim.tbl_extend("force", bufopts, { desc = "Hover actions" }))
+            vim.keymap.set("n", "<leader>re", function() vim.cmd.RustLsp("explainError") end,
+              vim.tbl_extend("force", bufopts, { desc = "Explain error" }))
+            vim.keymap.set("n", "<leader>rD", function() vim.cmd.RustLsp("renderDiagnostic") end,
+              vim.tbl_extend("force", bufopts, { desc = "Render diagnostic" }))
+            vim.keymap.set("n", "<leader>ro", function() vim.cmd.RustLsp("openDocs") end,
+              vim.tbl_extend("force", bufopts, { desc = "Open docs.rs" }))
+            vim.keymap.set("n", "<leader>ra", function() vim.cmd.RustLsp("codeAction") end,
+              vim.tbl_extend("force", bufopts, { desc = "Rust code action" }))
+          end,
+          default_settings = {
+            ["rust-analyzer"] = {
+              cargo = {
+                allFeatures = true,
+                loadOutDirsFromCheck = true,
+                buildScripts = {
+                  enable = true,
+                },
+              },
+              checkOnSave = true,
+              check = {
+                command = "clippy",
+                extraArgs = { "--no-deps" },
+              },
+              procMacro = {
+                enable = true,
+                ignored = {
+                  ["async-trait"] = { "async_trait" },
+                  ["napi-derive"] = { "napi" },
+                  ["async-recursion"] = { "async_recursion" },
+                },
+              },
+              inlayHints = {
+                chainingHints = { enable = true },
+                closingBraceHints = { enable = true, minLines = 25 },
+                parameterHints = { enable = true },
+                typeHints = { enable = true },
+              },
+            },
+          },
+        },
+        -- DAP: auto-detects codelldb from Mason or PATH
+      }
+    end,
+  },
 }

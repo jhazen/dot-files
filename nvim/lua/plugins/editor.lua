@@ -23,6 +23,8 @@ return {
         "html",
         "css",
         "go",
+        "rust",
+        "toml",
         "vim",
         "vimdoc",
         "regex",

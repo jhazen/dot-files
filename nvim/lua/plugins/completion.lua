@@ -50,4 +50,37 @@ return {
       },
     },
   },
+
+  -- Crates.nvim: Cargo.toml dependency management and completion
+  {
+    "saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    opts = {
+      completion = {
+        crates = {
+          enabled = true,
+          max_results = 8,
+          min_chars = 3,
+        },
+      },
+      lsp = {
+        enabled = true,
+        actions = true,
+        completion = true,
+        hover = true,
+      },
+    },
+    keys = {
+      { "<leader>rCt", function() require("crates").toggle() end, desc = "Toggle crate info" },
+      { "<leader>rCv", function() require("crates").show_versions_popup() end, desc = "Crate versions" },
+      { "<leader>rCf", function() require("crates").show_features_popup() end, desc = "Crate features" },
+      { "<leader>rCd", function() require("crates").show_dependencies_popup() end, desc = "Crate dependencies" },
+      { "<leader>rCu", function() require("crates").update_crate() end, desc = "Update crate" },
+      { "<leader>rCa", function() require("crates").update_all_crates() end, desc = "Update all crates" },
+      { "<leader>rCH", function() require("crates").open_homepage() end, desc = "Crate homepage" },
+      { "<leader>rCR", function() require("crates").open_repository() end, desc = "Crate repository" },
+      { "<leader>rCD", function() require("crates").open_documentation() end, desc = "Crate documentation" },
+      { "<leader>rCC", function() require("crates").open_crates_io() end, desc = "Open crates.io" },
+    },
+  },
 }

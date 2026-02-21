@@ -164,6 +164,8 @@ return {
         { "<leader>x", group = "Diagnostics (Trouble)" },
         { "<leader>l", group = "LSP" },
         { "<leader>c", group = "Code (lint/format)" },
+        { "<leader>r", group = "Rust" },
+        { "<leader>rC", group = "Crates (Cargo.toml)" },
         { "<leader>b", group = "Build (Pandoc)" },
         { "<leader>s", group = "Security" },
         { "<leader>t", group = "Terminal" },

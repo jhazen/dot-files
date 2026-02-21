@@ -29,6 +29,7 @@ return {
         bash = { "shfmt" },
         java = { "google-java-format" },
         lua = { "stylua" },
+        rust = { "rustfmt" },
       },
       -- Uncomment to enable format on save:
       -- format_on_save = {
