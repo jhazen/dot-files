@@ -228,7 +228,16 @@ return {
         vim.keymap.set("t", ",l", [[<C-\><C-n><C-w>l]], topts)
       end
 
+      -- Apply navigation keymaps to toggleterm terminals
       vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
+
+      -- Apply the same navigation keymaps to ALL native term:// buffers
+      vim.api.nvim_create_autocmd("TermOpen", {
+        pattern = "term://*",
+        callback = function()
+          set_terminal_keymaps()
+        end,
+      })
     end,
   },
 
