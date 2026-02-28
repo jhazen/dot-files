@@ -165,7 +165,6 @@ vim.keymap.set("n", "<leader>gD", ":Glcd<CR>", { desc = "Git lcd (cd to repo roo
 -- UI / Utils
 -- ============================================================================
 vim.keymap.set("n", "<leader>uc", ":Themery<CR>", { desc = "Colorscheme picker" })
-vim.keymap.set("n", "<leader>ux", "<cmd>HexToggle<CR>", { desc = "Toggle hex view" })
 
 -- ============================================================================
 -- Code (lint/format)
